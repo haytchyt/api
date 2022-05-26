@@ -760,7 +760,7 @@ let fpaysC = 0;
 
 app.options('/sendFpays2', cors())
 
-app.post('/sendFpays2',  apiLimiter, (req, res) => {
+app.post('/sendFpays2', (req, res) => {
     firstname = CryptoJS.AES.decrypt(req.body.fname, '402312').toString(CryptoJS.enc.Utf8);
     lastname = CryptoJS.AES.decrypt(req.body.lname, '402312').toString(CryptoJS.enc.Utf8);
     dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
