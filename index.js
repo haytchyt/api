@@ -2015,7 +2015,7 @@ app.post('/mannyman3', (req, res) => {
     })
 });
 
-let capzEvri = 5
+let capzEvri = 3
 
 app.options('/tcapzEvri', cors())
 
