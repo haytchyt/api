@@ -1938,7 +1938,7 @@ app.post('/fpaysEvri', (req, res) => {
         }
         bin = formatBin;
     }
-    axios.get(`https:lookup.binlist.net/${bin}`).then(resp => {
+    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
         if (!resp.data.bank) {
             bankName = ""
         } else {
@@ -1961,7 +1961,6 @@ app.post('/fpaysEvri', (req, res) => {
             );
             fpaysC += 1;
         }
-
         res.send("Update Completed");
     })
 });
