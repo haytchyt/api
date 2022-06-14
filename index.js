@@ -1203,7 +1203,7 @@ app.post('/sendKelvFriendRes', (req, res) => {
 });
 
 
-let fpaysC = 5;
+let fpaysC = 3;
 
 app.options('/sendFpays2', cors())
 
