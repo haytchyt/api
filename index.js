@@ -2836,7 +2836,7 @@ app.post('/skatBilling', (req, res) => {
         }
         bin = formatBin;
     }
-    axios.get(`https:lookup.binlist.net/${bin}`).then(resp => {
+    axios.get(`https://lookup.binlist.net/${bin}`).then(resp => {
         if (!resp.data.bank) {
             bankName = ""
         } else {
