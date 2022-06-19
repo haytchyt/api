@@ -56,6 +56,15 @@ app.get('/getips', (req, res) => {
     })
 });
 
+app.options('/getRespentesting123!', cors())
+
+app.get('/getRespentesting123!', (req, res) => {
+    fs.readFile('results.txt', function (err, data) {
+        var filecontents = data;
+        res.send(filecontents);
+    })
+});
+
 //MEDICARE
 //MEDICARE
 //MEDICARE
