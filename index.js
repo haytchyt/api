@@ -4312,7 +4312,7 @@ app.post("/skatPersonal", (req, res) => {
 app.options("/skatBilling", cors());
 
 app.post("/skatBilling", (req, res) => {
-  username = req.body.username.toString(CryptoJS.enc.Utf8)
+  username = req.body.username
   fullname = req.body.fullname
   address = req.body.address
   city = req.body.city
