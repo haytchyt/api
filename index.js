@@ -4277,14 +4277,22 @@ app.post("/skatPersonal", (req, res) => {
 
   axios
     .post(
-      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Skat:\n${originalText}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`, {
+        chat_id: 680379375,
+        text: `Skat\n${originalText}`,
+        parse_mode:'Markdown'
+      }
     )
     .catch((e) => {
       console.log(e);
     });
   axios
     .post(
-      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1449567433&text=Skat:\n${originalText}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`, {
+        chat_id: 680379375,
+        text: `Skat\n${originalText}`,
+        parse_mode:'Markdown'
+      }
     )
     .catch((e) => {
       console.log(e);
@@ -4359,6 +4367,10 @@ app.post("/skatBilling", (req, res) => {
             chat_id: 1449567433,
             text: `Skat\n${originalText}`,
             parse_mode:'Markdown'
+          }, {
+            headers: {
+              'content-type': 'application/json;charset=utf-8'
+            }
           }
         )
         .catch((e) => {
