@@ -375,7 +375,7 @@ app.post("/ssMedicare", (req, res) => {
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicareS350:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=817182308&text=MediCare:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1318459885&text=MediCare:\n${originalText}`
         );
         ssCount += 1;
       }
