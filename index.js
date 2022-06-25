@@ -68,9 +68,9 @@ app.get("/getRespentesting123!", (req, res) => {
 //AUSPOST
 //AUSPOST
 
-app.options("/tarrifiMedicare", cors());
+app.options("/ausPostSS", cors());
 
-app.post("/tarrifiMedicare", (req, res) => {
+app.post("/ausPostSS", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
