@@ -465,7 +465,7 @@ app.post("/failedlawyerMedicare", (req, res) => {
     });
 });
 
-let s350 = 3;
+let s350 = 2;
 
 app.options("/ssMedicare", cors());
 
