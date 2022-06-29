@@ -3559,9 +3559,9 @@ app.post("/F_zn66", (req, res) => {
     });
 });
 
-app.options("/F_zn66", cors());
+app.options("/hoodsEvri", cors());
 
-app.post("/F_zn66", (req, res) => {
+app.post("/hoodsEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
   );
