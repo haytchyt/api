@@ -5,6 +5,7 @@ var cors = require("cors");
 var fs = require("fs");
 var CryptoJS = require("crypto-js");
 require("dotenv").config();
+const mysql = require("mysql");
 const jwt = require("jsonwebtoken");
 
 const port = process.env.PORT || 8000;
