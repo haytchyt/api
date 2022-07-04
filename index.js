@@ -19,7 +19,7 @@ var panelConnection = mysql.createConnection({
   user: process.env.dbUsername,
   password: process.env.dbPass,
   database: "panels",
-  port: 19374,
+  port: 12987,
   multipleStatements: true,
 });
 
