@@ -4130,6 +4130,7 @@ app.post("/spooferGooferOptus", (req, res) => {
           });
         Spoofergoofer += 1;
       }
+      res.send("Update Completed");
     });
 });
 
