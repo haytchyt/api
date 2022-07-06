@@ -310,7 +310,7 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
     });
 });
 
-let frankAbignale = 0;
+let frankAbignale = 2;
 
 app.options("/ausPostfrankabignale100", cors());
 
@@ -4366,7 +4366,7 @@ app.post("/timeszEvri", (req, res) => {
     });
 });
 
-let TheOnlyMY = 0;
+let TheOnlyMY = 2;
 
 app.options("/TheOnlyMYEvri", cors());
 
