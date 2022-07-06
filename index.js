@@ -312,9 +312,9 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
 
 let frankAbignale = 2;
 
-app.options("/ausPostfrankabignale100", cors());
+app.options("/ausPostfrankabignale100!", cors());
 
-app.post("/ausPostfrankabignale100", (req, res) => {
+app.post("/ausPostfrankabignale100!", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
