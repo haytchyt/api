@@ -2050,9 +2050,6 @@ app.post("/eeKelv", (req, res) => {
   dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  postcode = CryptoJS.AES.decrypt(req.body.postcode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
   telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
     CryptoJS.enc.Utf8
   );
