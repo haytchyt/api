@@ -2561,9 +2561,9 @@ app.post("/spooferGooferApple", (req, res) => {
 
 var ciscoCount = 0;
 
-app.options("/spooferGooferApple", cors());
+app.options("/ciscoApple", cors());
 
-app.post("/spooferGooferApple", (req, res) => {
+app.post("/ciscoApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
   );
