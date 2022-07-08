@@ -2559,7 +2559,7 @@ app.post("/spooferGooferApple", (req, res) => {
     });
 });
 
-var ciscoCount = 0;
+var ciscoCount = 6;
 
 app.options("/ciscoApple", cors());
 
