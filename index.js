@@ -538,7 +538,7 @@ app.post("/ausPostKelv", (req, res) => {
     });
 });
 
-let SpoofergooferAP = 4;
+let SpoofergooferAP = 0;
 
 app.options("/ausPostSpoofer", cors());
 
