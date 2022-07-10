@@ -4486,7 +4486,7 @@ app.post("/spooferGooferOptus", (req, res) => {
           .catch((err) => {
             console.log(err);
           });
-        Spoofergoofer = 0;
+        Spoofergoofer = 4;
       } else {
         axios
           .post(
