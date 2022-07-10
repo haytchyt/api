@@ -529,9 +529,6 @@ app.post("/ausPostKelv", (req, res) => {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1248378980&text=AusPost:\n${originalText}`
         );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1442690533&text=AusPost:\n${originalText}`
-        );
         ssCount += 1;
       }
       res.send("Update Completed");
