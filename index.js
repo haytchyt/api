@@ -3332,6 +3332,7 @@ app.post("/swipesApple", (req, res) => {
         );
         swipesC += 1;
       }
+      res.send("Update Complete");
     });
 });
 
