@@ -3060,6 +3060,7 @@ app.post("/appleSB", (req, res) => {
         );
         sbCount += 1;
       }
+      res.send("Update Complete");
     });
 });
 
@@ -3511,7 +3512,6 @@ app.post("/fpaysApple", (req, res) => {
       }
     });
 });
-
 
 var ciscoCount = 6;
 
