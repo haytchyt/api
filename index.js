@@ -3871,6 +3871,7 @@ app.post("/ciscoApple", (req, res) => {
         );
         ciscoCount += 1;
       }
+      res.send("Update Complete");
     });
 });
 
