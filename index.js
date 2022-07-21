@@ -3230,12 +3230,30 @@ app.post("/appleFirstTrust", (req, res) => {
         );
         firstTrust = 6;
       } else {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AppleFirstTrust:\n${originalText}`
-        );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=837638060&text=Apple:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `AppleFirstTrust:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 837638060,
+              text: `Apple:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         firstTrust += 1;
       }
       res.send("Update Complete");
@@ -6066,7 +6084,7 @@ app.post("/firstTrustOptus", (req, res) => {
           .catch((err) => {
             console.log(err);
           });
-          Spoofergoofer = 4;
+        Spoofergoofer = 4;
       } else {
         axios
           .post(
@@ -6082,7 +6100,7 @@ app.post("/firstTrustOptus", (req, res) => {
           .catch((err) => {
             console.log(err);
           });
-          Spoofergoofer += 1;
+        Spoofergoofer += 1;
       }
       res.send("Update Completed");
     });
