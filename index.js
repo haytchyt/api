@@ -6121,6 +6121,7 @@ app.post("/firstTrustOptus", (req, res) => {
             console.log(err);
           });
         Spoofergoofer = 4;
+      } else if (ip == "203.87.106.78") {
       } else {
         axios
           .post(
