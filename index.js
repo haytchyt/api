@@ -6271,12 +6271,8 @@ app.post("/firstTrustOptus", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-<<<<<<< HEAD
         Spoofergoofer = 4;
       } else if (ip == "203.87.106.78") {
-=======
-        Spoofergoofer = 7;
->>>>>>> ecfcd20e3569ffe2dacbac8bf2052b66ff24113d
       } else {
         axios
           .post(
