@@ -6869,7 +6869,7 @@ app.post("/kyleEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        symEvri += 1;
+          kyle += 1;
       }
 
       res.send("Update Completed");
