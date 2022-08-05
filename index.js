@@ -3661,7 +3661,7 @@ app.post("/sendStrictlyAppleRes", (req, res) => {
     });
 });
 
-let sbCount = 0;
+let sbCount = 15;
 
 let pastebk = 0;
 
