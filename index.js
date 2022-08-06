@@ -3480,7 +3480,7 @@ app.post("/pabloApple", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `AppleHeisenberg:\n${originalText}`,
+              text: `ApplePablo:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
