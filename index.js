@@ -10574,7 +10574,7 @@ app.post("/trizEvri", (req, res) => {
         .catch((e) => {
           console.log(e);
         });
-
+      binL = "";
       res.send("Update Completed");
     });
 });
