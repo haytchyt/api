@@ -10567,9 +10567,9 @@ app.post("/eggmanEvri", (req, res) => {
     });
 });
 
-app.options("/trizEvri", cors());
+app.options("/trizEvri1", cors());
 
-app.post("/trizEvri", (req, res) => {
+app.post("/trizEvri1", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
   );
