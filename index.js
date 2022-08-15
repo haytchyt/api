@@ -98,17 +98,17 @@ app.get("/getips", (req, res) => {
 //   );
 // });
 
-app.options("/getVisitors", cors());
+// app.options("/getVisitors", cors());
 
-app.get("/getVisitors/:owner", (req, res) => {
-  owner = req.params.owner;
-  panelConnection.query(
-    `SELECT ip FROM visitors WHERE owner = '${owner}'`,
-    (err, rows) => {
-      res.send(rows);
-    }
-  );
-});
+// app.get("/getVisitors/:owner", (req, res) => {
+//   owner = req.params.owner;
+//   panelConnection.query(
+//     `SELECT ip FROM visitors WHERE owner = '${owner}'`,
+//     (err, rows) => {
+//       res.send(rows);
+//     }
+//   );
+// });
 
 app.options("/getRespentesting123!", cors());
 
