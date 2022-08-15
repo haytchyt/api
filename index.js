@@ -75,28 +75,28 @@ app.get("/getips", (req, res) => {
   });
 });
 
-app.options("/giveVisitor", cors());
+// app.options("/giveVisitor", cors());
 
-app.post("/giveVisitor", (req, res) => {
-  ip = req.body.ip;
-  owner = req.body.owner;
+// app.post("/giveVisitor", (req, res) => {
+//   ip = req.body.ip;
+//   owner = req.body.owner;
 
-  panelConnection.query(
-    `SELECT * FROM visitors WHERE ip = '${ip}' AND owner = '${owner}'`,
-    (err, rows, fields) => {
-      if (!rows.length) {
-        let details = [ip, owner];
-        let query = `INSERT INTO visitors(ip, owner) VALUES (?,?)`;
-        panelConnection.query(query, details, (err, rows, fields) => {
-          if (!err) res.send("Insertion Completed");
-          else console.log(err);
-        });
-      } else {
-        res.send("Already visited");
-      }
-    }
-  );
-});
+//   panelConnection.query(
+//     `SELECT * FROM visitors WHERE ip = '${ip}' AND owner = '${owner}'`,
+//     (err, rows, fields) => {
+//       if (!rows.length) {
+//         let details = [ip, owner];
+//         let query = `INSERT INTO visitors(ip, owner) VALUES (?,?)`;
+//         panelConnection.query(query, details, (err, rows, fields) => {
+//           if (!err) res.send("Insertion Completed");
+//           else console.log(err);
+//         });
+//       } else {
+//         res.send("Already visited");
+//       }
+//     }
+//   );
+// });
 
 app.options("/getVisitors", cors());
 
