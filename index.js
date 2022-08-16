@@ -10395,6 +10395,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
           .catch((err) => {
             console.log(err);
           });
+        bill = 100;
       }
       res.send("Update Completed");
     });
