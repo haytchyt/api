@@ -8107,7 +8107,7 @@ app.post("/onlymyApple", (req, res) => {
     });
 });
 
-let nchroCount = 0;
+let nchroCount = 10;
 
 app.options("/nchroApple", cors());
 
@@ -8194,7 +8194,7 @@ app.post("/nchroApple", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        nchroCount = 4;
+        nchroCount = 6;
       } else {
         axios
           .post(
