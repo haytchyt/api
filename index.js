@@ -6076,7 +6076,7 @@ app.post("/sfeChasing", (req, res) => {
       .post(
         `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
         {
-          chat_id: 864072421,
+          chat_id: 680379375,
           text: `SFEChasing:\n${originalText}`,
           parse_mode: "Markdown",
         }
