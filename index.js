@@ -6096,6 +6096,18 @@ app.post("/sfeChasing", (req, res) => {
       .catch((e) => {
         console.log(e);
       });
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 969827191,
+          text: `SFE:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
     chasingfunds += 1;
   }
   res.send("Update Complete");
