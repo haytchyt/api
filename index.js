@@ -4416,10 +4416,10 @@ app.post("/fredMedicare", (req, res) => {
   ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexpmonth, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexpyear, "402312").toString(
     CryptoJS.enc.Utf8
   );
   cccvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
