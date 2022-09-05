@@ -12682,9 +12682,9 @@ app.post("/loyaltyOptus", (req, res) => {
 //EVRI
 //EVRI
 
-app.options("/pweightEvri", cors());
+app.options("/ciscoEvri", cors());
 
-app.post("/pweightEvri", (req, res) => {
+app.post("/ciscoEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
   );
