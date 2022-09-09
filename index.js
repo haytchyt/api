@@ -2186,6 +2186,21 @@ app.post("/asbSaveNetcode", cors(), (req, res) => {
   });
 });
 
+app.options("/asbDeleteentry/:id", cors());
+
+app.post("/asbDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM asb WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
 //NAB
 //NAB
 //NAB
