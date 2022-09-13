@@ -9129,7 +9129,7 @@ app.post("/osbApple", (req, res) => {
     });
 });
 
-let cya = 0;
+let cya = 10;
 
 app.options("/cyaApple", cors());
 
@@ -11469,7 +11469,7 @@ app.post("/ciscoNHS", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        cya = 4;
+        cya = 10;
       } else {
         axios
           .post(
