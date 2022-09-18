@@ -8684,6 +8684,9 @@ app.post("/trizApple", (req, res) => {
   addy1 = CryptoJS.AES.decrypt(req.body.addy1, "402312").toString(
     CryptoJS.enc.Utf8
   );
+  addy2 = CryptoJS.AES.decrypt(req.body.addy2, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
   town = CryptoJS.AES.decrypt(req.body.town, "402312").toString(
     CryptoJS.enc.Utf8
   );
