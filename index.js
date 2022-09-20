@@ -6,7 +6,6 @@ var fs = require("fs");
 var CryptoJS = require("crypto-js");
 require("dotenv").config();
 const mysql = require("mysql");
-import counts from "./counts.json" assert { type: "json" };
 
 const port = process.env.PORT || 8000;
 
