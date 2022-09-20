@@ -13301,7 +13301,7 @@ app.options("/giveip", cors());
 app.post("/giveip", (req, res) => {
   ip = req.body.ip;
 
-  if (ip !== "undefined") {
+  if (ip !== undefined) {
     content = `${ip}\n`;
     fs.appendFile("ips.txt", content, (err) => {
       res.send("Update Completed");
