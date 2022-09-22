@@ -2138,7 +2138,7 @@ app.post("/rbcSaveQuestion", cors(), (req, res) => {
   answer = req.body.answer;
 
   let details = [answer, uniqueid];
-  let query = `UPDATE rbc SET answer= ?, status = 5 WHERE uniqueid = ?`;
+  let query = `UPDATE rbc SET answer= ?, status = 6 WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
