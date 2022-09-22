@@ -2065,17 +2065,22 @@ app.options("/rbcCommand", cors());
 app.post("/rbcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
-  let query;
   if (newStatus == 5) {
     question = req.body.question;
-    query = `UPDATE rbc SET status = ${newStatus}, question = ${question} WHERE uniqueid= '${uniqueid}'`;
+    let details = [newStatus, question, uniqueid];
+    let query = `UPDATE rbc SET status = ?, question = ? WHERE uniqueid= ?`;
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
   } else {
-    query = `UPDATE rbc SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+    let details = [newStatus, uniqueid];
+    let query = `UPDATE rbc SET status = ? WHERE uniqueid= ?`;
+    panelConnection.query(query, details, (err, rows, fields) => {
+      if (!err) res.send("Update Completed");
+      else console.log(err);
+    });
   }
-  panelConnection.query(query, (err, rows, fields) => {
-    if (!err) res.send("Update Completed");
-    else console.log(err);
-  });
 });
 
 app.options("/rbcCustomers/:id/:owner", cors());
