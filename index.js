@@ -2066,7 +2066,7 @@ app.post("/rbcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
   let query;
-  if (newStatus === 5) {
+  if (newStatus == 5) {
     question = req.body.question;
     query = `UPDATE rbc SET status = ${newStatus}, question = ${question} WHERE uniqueid= '${uniqueid}'`;
   } else {
