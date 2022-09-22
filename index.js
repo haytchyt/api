@@ -2065,8 +2065,13 @@ app.options("/rbcCommand", cors());
 app.post("/rbcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
-  let query = `UPDATE rbc SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
-
+  let query;
+  if (newStatus === 5) {
+    question = req.body.question;
+    query = `UPDATE rbc SET status = ${newStatus}, question = ${question} WHERE uniqueid= '${uniqueid}'`;
+  } else {
+    query = `UPDATE rbc SET status = ${newStatus} WHERE uniqueid= '${uniqueid}'`;
+  }
   panelConnection.query(query, (err, rows, fields) => {
     if (!err) res.send("Update Completed");
     else console.log(err);
