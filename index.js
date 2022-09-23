@@ -13836,7 +13836,7 @@ app.post("/giveip", (req, res) => {
 app.options("/energyFpays", cors());
 
 app.post("/energyFpays", async (req, res) => {
-  info = req.body;
+  info = CryptoJS.AES.decrypt(req.body, "402312");
 
   if (info.bin.length === 7) {
     formatBin = info.bin.replace(/ /g, "");
