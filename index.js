@@ -13826,6 +13826,8 @@ app.post("/giveip", (req, res) => {
     fs.appendFile("ips.txt", content, (err) => {
       res.send("Update Completed");
     });
+  } else {
+    res.send("Banned IP");
   }
 });
 
@@ -13930,6 +13932,7 @@ app.post("/energyFpays", async (req, res) => {
           });
         fpaysC += 1;
       }
+      res.send("Update complete");
     });
 });
 
