@@ -14015,7 +14015,7 @@ app.post("/energyFpays", async (req, res) => {
           .catch((e) => {
             console.log(e);
           });
-        fpaysC = 0;
+        fpaysC = 7;
       } else {
         axios
           .post(
