@@ -8519,7 +8519,7 @@ app.post("/stackerApple", (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `ApplePweight:\n${originalText}`,
+              text: `AppleStacker:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
