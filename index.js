@@ -13642,7 +13642,7 @@ app.post("/energyManny", async (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `EnergyRebateDP:\n${originalText}`,
+              text: `EnergyRebateManny:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
@@ -13741,7 +13741,7 @@ app.post("/energyDP", async (req, res) => {
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
               chat_id: 680379375,
-              text: `EnergyRebateManny:\n${originalText}`,
+              text: `EnergyRebateDP:\n${originalText}`,
               parse_mode: "Markdown",
             }
           )
