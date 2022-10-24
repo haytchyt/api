@@ -1971,10 +1971,10 @@ app.post("/appleCommand", cors(), (req, res) => {
 });
 
 app.get("/appleCustomers/:id", (req, res) => {
-  uniqueid = req.params.id;
+  const uniqueid = req.params.id;
 
   let details = [uniqueid];
-  let query = `SELECT * FROM apple WHERE uniqueid= ?`;
+  let query = `SELECT * FROM apple WHERE uniqueid = ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send(rows);
