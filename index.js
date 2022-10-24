@@ -1970,7 +1970,7 @@ app.post("/appleCommand", cors(), (req, res) => {
   });
 });
 
-app.get("/appleCustomers/:id", (req, res) => {
+app.get("/appleCustomers/id/:id", (req, res) => {
   const uniqueid = req.params.id;
 
   let details = [uniqueid];
