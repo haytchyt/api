@@ -1970,12 +1970,11 @@ app.post("/appleCommand", cors(), (req, res) => {
   });
 });
 
-app.get("/appleCustomers/:id/:owner", (req, res) => {
+app.get("/appleCustomers/:id", (req, res) => {
   uniqueid = req.params.id;
-  owner = req.params.owner;
 
-  let details = [uniqueid, owner];
-  let query = `SELECT * FROM apple WHERE uniqueid= ? AND owner = ?`;
+  let details = [uniqueid];
+  let query = `SELECT * FROM apple WHERE uniqueid= ?`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
     if (!err) res.send(rows);
