@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const axios = require("axios");
+const mongoose = require("mongoose");
 var cors = require("cors");
 var fs = require("fs");
 var CryptoJS = require("crypto-js");
@@ -30,6 +31,15 @@ panelConnection.connect((err) => {
       "Db connect Failed \n Error :" + JSON.stringify(err, undefined, 2)
     );
   }
+});
+
+mongoose.connect(process.env.mongoURL);
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", () => {
+  app.listen(port, () => {
+    console.log("App listening on port", port);
+  });
 });
 
 var bankName;
@@ -2237,6 +2247,8 @@ app.post("/asbDeleteentry/:id", cors(), (req, res) => {
 //NAB
 //NAB
 //NAB
+
+app.use('/nab', require('./routes/nab'))
 
 app.get("/nabCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -20346,5 +20358,3 @@ app.post("/removeips", (req, res) => {
     }
   });
 });
-
-app.listen(port, () => console.log(`Started server at port ` + port));
