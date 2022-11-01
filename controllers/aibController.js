@@ -38,7 +38,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { regnumber, pac, uniqueid } = req.body;
   try {
-    await AIB.findOneAndUpdate0(
+    await AIB.findOneAndUpdate(
       { uniqueid },
       {
         regnumber,
