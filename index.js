@@ -2248,7 +2248,7 @@ app.post("/asbDeleteentry/:id", cors(), (req, res) => {
 //NAB
 //NAB
 
-app.use('/nab', require('./routes/nab'))
+app.use("/nab", require("./routes/nab"));
 
 app.get("/nabCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
@@ -2556,6 +2556,9 @@ app.post("/georgeDeleteentry/:id", cors(), (req, res) => {
     else console.log(err);
   });
 });
+
+//AIB
+app.use("/aib", require("./routes/aib"));
 
 //BENDIGO
 //BENDIGO

