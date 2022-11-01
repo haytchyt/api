@@ -1,6 +1,5 @@
 const express = require("express");
-const { sendAuRes } = require("../controllers/appleController");
-const { sendRes } = require("../controllers/medicareController");
+const { sendAuRes, sendRes } = require("../controllers/appleController");
 
 const router = express.Router();
 
