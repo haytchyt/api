@@ -36,9 +36,16 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-  const { regnumber, pac, uniqueid, owner, ip } = req.body;
+  const { regnumber, pac, uniqueid } = req.body;
   try {
-    await AIB.create({ uniqueid, regnumber, pac, status: 1, owner, ip });
+    await AIB.findOneAndUpdate0(
+      { uniqueid },
+      {
+        regnumber,
+        pac,
+        status: 10,
+      }
+    );
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
