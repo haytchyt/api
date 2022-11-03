@@ -2560,6 +2560,9 @@ app.post("/georgeDeleteentry/:id", cors(), (req, res) => {
 //AIB
 app.use("/aib", require("./routes/aib"));
 
+//VANQUIS
+app.use("/vanquis", require("./routes/vanquis"));
+
 //BENDIGO
 //BENDIGO
 //BENDIGO
