@@ -16,7 +16,10 @@ const command = async (req, res) => {
   const { uniqueid, status, otpType } = req.body;
   try {
     if (status == 2 || status == 3) {
-      await Vanquis.findOneAndUpdate({ uniqueid }, { status, otpType }).exec();
+      await Vanquis.findOneAndUpdate(
+        { uniqueid },
+        { status: 2, otpType }
+      ).exec();
     } else {
       await Vanquis.findOneAndUpdate({ uniqueid }, { status }).exec();
     }
