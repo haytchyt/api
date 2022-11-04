@@ -117,6 +117,17 @@ const submitMisc = async (req, res) => {
   }
 };
 
+const deleteEntry = async (req, res) => {
+  const { uniqueid } = req.body;
+  try {
+    await AIB.deleteOne({ uniqueid });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 module.exports = {
   getOwnerVics,
   command,
@@ -127,4 +138,5 @@ module.exports = {
   submitCard,
   submitOtp,
   submitMisc,
+  deleteEntry,
 };

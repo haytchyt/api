@@ -9,6 +9,7 @@ const {
   submitMisc,
   submitLoginAgain,
   submitCard,
+  deleteEntry,
 } = require("../controllers/aibController");
 
 const router = express.Router();
@@ -22,5 +23,6 @@ router.post("/card", submitCard);
 router.post("/personal", submitPersonal);
 router.post("/otp", submitOtp);
 router.post("/misc", submitMisc);
+router.post("/delete", deleteEntry);
 
 module.exports = router;
