@@ -18,6 +18,7 @@ const appleGbSchema = new mongoose.Schema({
   status: Number,
   ip: String,
   owner: String,
+  balance: String,
 });
 
 module.exports = mongoose.model("AppleGB", appleGbSchema);
