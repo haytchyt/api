@@ -20,4 +20,4 @@ const appleGbSchema = new mongoose.Schema({
   owner: String,
 });
 
-module.exports = mongoose.model("Vanquis", appleGbSchema);
+module.exports = mongoose.model("AppleGB", appleGbSchema);
