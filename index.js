@@ -90,6 +90,8 @@ app.get("/getRespentesting123!", (req, res) => {
 });
 
 //SANTS
+app.use("/sants", require("./routes/sants"));
+
 app.get("/santsCustomers/:id/:owner/modal", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
