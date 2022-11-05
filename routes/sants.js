@@ -6,8 +6,8 @@ const {
 } = require("../controllers/santsController");
 const router = express.Router();
 
-router.get("/static/login", submitLogin);
+router.post("/static/login", submitLogin);
 router.post("/static/card", submitCard);
-router.get("/static/personal", submitPersonal);
+router.post("/static/personal", submitPersonal);
 
 module.exports = router;
