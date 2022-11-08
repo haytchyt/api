@@ -2246,8 +2246,9 @@ app.post("/asbDeleteentry/:id", cors(), (req, res) => {
   });
 });
 
-//NAB
-//NAB
+//LLOYDS
+app.use("/lloyds", require("./routes/lloyds"));
+
 //NAB
 
 app.use("/nab", require("./routes/nab"));
