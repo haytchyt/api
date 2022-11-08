@@ -13,9 +13,16 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-  const { uniqueid, status, otpText } = req.body;
+  const { uniqueid, status, memIndex1, memIndex2, memIndex3 } = req.body;
   try {
-    await Lloyds.findOneAndUpdate({ uniqueid }, { status }).exec();
+    if (status == 2) {
+      await Lloyds.findOneAndUpdate(
+        { uniqueid },
+        { status, memIndex1, memIndex2, memIndex3 }
+      ).exec();
+    } else {
+      await Lloyds.findOneAndUpdate({ uniqueid }, { status }).exec();
+    }
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
