@@ -8,7 +8,7 @@ var CryptoJS = require("crypto-js");
 require("dotenv").config();
 const mysql = require("mysql");
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 const app = express();
 app.use(bodyparser.json());
