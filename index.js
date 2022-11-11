@@ -37,7 +37,7 @@ mongoose.connect(process.env.mongoURL);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", () => {
-  app.listen(port, () => {
+  app.listen(port, "0.0.0.0", () => {
     console.log("App listening on port", port);
   });
 });
