@@ -1150,6 +1150,8 @@ app.post("/dbsSaveCC", cors(), (req, res) => {
 //ANZ
 //ANZ
 
+app.use("/anz", require("./routes/anz"));
+
 app.get("/anzCustomers/:owner", (req, res) => {
   owner = req.params.owner;
 
