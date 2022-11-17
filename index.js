@@ -11060,6 +11060,9 @@ app.post("/loyaltyOptus", (req, res) => {
 //EVRI
 app.use("/evri", require("./routes/evri"));
 
+//HERITAGE
+app.use("/heritage", require("./routes/heritage"));
+
 //ANZ
 //ANZ
 //ANZ
