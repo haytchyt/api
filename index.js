@@ -1589,17 +1589,6 @@ app.get("/cbCustomers/:id/:owner", (req, res) => {
   uniqueid = req.params.id;
   owner = req.params.owner;
 
-  time = new Date().toUTCString();
-
-  panelConnection.query(
-    `UPDATE cb SET time = '${time}' WHERE uniqueid = ${uniqueid}`,
-    (err) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
-
   let details = [uniqueid, owner];
   let query = `SELECT * FROM cb WHERE uniqueid= ? AND owner = ?`;
 
