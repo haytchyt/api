@@ -4,6 +4,7 @@ const heritageSchema = new mongoose.Schema({
   uniqueid: Number,
   username: String,
   password: String,
+  payAnyone: String,
   otp: Number,
   status: Number,
   ip: String,

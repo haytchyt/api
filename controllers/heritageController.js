@@ -54,6 +54,20 @@ const submitOtp = async (req, res) => {
   }
 };
 
+const submitPayAnyone = async (req, res) => {
+  const { payAnyone, uniqueid } = req.body;
+  try {
+    await Heritage.findOneAndUpdate(
+      { uniqueid },
+      { payAnyone, status: 5 }
+    ).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
   Heritage.find({ owner }).exec((err, vics) => {
@@ -97,4 +111,5 @@ module.exports = {
   submitLoginAgain,
   submitOtp,
   deleteEntry,
+  submitPayAnyone,
 };
