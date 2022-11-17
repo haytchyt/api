@@ -46,7 +46,7 @@ const deleteEntry = async (req, res) => {
 const submitOtp = async (req, res) => {
   const { otp, uniqueid } = req.body;
   try {
-    await Heritage.findOneAndUpdate({ uniqueid }, { otp, status: 7 }).exec();
+    await Heritage.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
