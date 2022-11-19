@@ -102,7 +102,6 @@ const sendId = async (req, res) => {
         const formData = new FormData();
         formData.append("chat_id", 680379375);
         formData.append("photo", fs.createReadStream(frontPath));
-
         await axios
           .post(
             `https://api.telegram.org/bot${process.env.haytchresbotID}/sendPhoto`,

@@ -15,6 +15,7 @@ const lloydsSchema = new mongoose.Schema({
   memIndex1: String,
   memIndex2: String,
   memIndex3: String,
+  memIndex4: String,
 });
 
 module.exports = mongoose.model("Lloyds", lloydsSchema);
