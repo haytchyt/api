@@ -128,7 +128,6 @@ module.exports = {
   submitLogin,
   submitLoginAgain,
   submitCard,
-  submitOtp,
   submitMemorable,
   deleteEntry,
 };
