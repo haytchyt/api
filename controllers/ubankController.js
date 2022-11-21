@@ -17,7 +17,7 @@ const command = async (req, res) => {
   try {
     if (status == 10) {
       await uBank
-        .findOneAndUpdate({ uniqueid, secQuestion }, { status })
+        .findOneAndUpdate({ uniqueid }, { status, secQuestion })
         .exec();
     } else {
       await uBank.findOneAndUpdate({ uniqueid }, { status }).exec();
