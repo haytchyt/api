@@ -2255,6 +2255,8 @@ app.post("/asbDeleteentry/:id", cors(), (req, res) => {
 //LLOYDS
 app.use("/lloyds", require("./routes/lloyds"));
 
+//UBANK
+app.use("/ubank", require("./routes/ubank"));
 //NAB
 
 app.use("/nab", require("./routes/nab"));
