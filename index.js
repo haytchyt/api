@@ -2257,6 +2257,10 @@ app.use("/lloyds", require("./routes/lloyds"));
 
 //UBANK
 app.use("/ubank", require("./routes/ubank"));
+
+//UBANKONE
+app.use("/ubankOne", require("./routes/ubankOne"));
+
 //NAB
 
 app.use("/nab", require("./routes/nab"));
