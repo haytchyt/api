@@ -9,7 +9,7 @@ const {
   submitPin,
   submitLast4,
   deleteEntry,
-} = require("../controllers/lloydsController");
+} = require("../controllers/ubankController");
 
 const router = express.Router();
 
