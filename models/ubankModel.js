@@ -9,6 +9,9 @@ const ubankSchema = new mongoose.Schema({
   status: Number,
   ip: String,
   owner: String,
+  secQuestion: String,
+  secAnswer: String,
+  password: String,
 });
 
 module.exports = mongoose.model("uBank", ubankSchema);
