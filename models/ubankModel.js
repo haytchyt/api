@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const ubankSchema = new mongoose.Schema({
   uniqueid: Number,
-  last4: Number,
+  last4: String,
   telephone: String,
-  pin: Number,
+  pin: String,
   otp: String,
   status: Number,
   ip: String,
