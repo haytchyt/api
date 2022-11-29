@@ -1,4 +1,5 @@
 const Ips = require("../models/ipsModel");
+const Visitors = require("../models/visitorsModel");
 
 const checkIp = async (req, res) => {
   const { ip } = req.params;
@@ -17,13 +18,13 @@ const giveIp = async (req, res) => {
 
 const getVisitors = async (req, res) => {
   const { owner } = req.params;
-  let visitors = await Ips.find({ owner }).exec();
+  let visitors = await Visitors.find({ owner }).exec();
   return res.send(JSON.stringify(visitors.length));
 };
 
 const giveVisitor = async (req, res) => {
   const { ip, owner } = req.body;
-  await Ips.create({ ip, owner });
+  await Visitors.create({ ip, owner });
   res.sendStatus(200);
 };
 
