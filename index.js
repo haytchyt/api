@@ -46,56 +46,7 @@ db.once("open", () => {
 
 var bankName;
 
-app.get("/getips", (req, res) => {
-  fs.readFile("ips.txt", function (err, data) {
-    var filecontents = data;
-    res.send(filecontents);
-  });
-});
-
-app.post("/giveip", (req, res) => {
-  ip = req.body.ip;
-
-  if (ip !== undefined) {
-    content = `${ip}\n`;
-    fs.appendFile("ips.txt", content, (err) => {
-      res.send("Update Completed");
-    });
-  } else {
-    res.send("Banned IP");
-  }
-});
-
-app.post("/giveVisitor", (req, res) => {
-  ip = req.body.ip;
-  owner = req.body.owner;
-
-  panelConnection.query(
-    `SELECT * FROM visitors WHERE ip = '${ip}' AND owner = '${owner}'`,
-    (err, rows, fields) => {
-      if (!rows.length) {
-        let details = [ip, owner];
-        let query = `INSERT INTO visitors(ip, owner) VALUES (?,?)`;
-        panelConnection.query(query, details, (err, rows, fields) => {
-          if (!err) res.send("Insertion Completed");
-          else console.log(err);
-        });
-      } else {
-        res.send("Already visited");
-      }
-    }
-  );
-});
-
-app.get("/getVisitors/:owner", (req, res) => {
-  owner = req.params.owner;
-  panelConnection.query(
-    `SELECT ip FROM visitors WHERE owner = '${owner}'`,
-    (err, rows) => {
-      res.send(rows);
-    }
-  );
-});
+app.use("/", require("./routes/ips"));
 
 app.get("/getRespentesting123!", (req, res) => {
   fs.readFile("results.txt", function (err, data) {
