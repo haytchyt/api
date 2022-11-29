@@ -1,5 +1,6 @@
 const uBank = require("../models/ubankModel");
 const Ips = require("../models/ipsModel");
+const Visitors = require("../models/visitorsModel");
 
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
@@ -60,7 +61,7 @@ const submitLogin = async (req, res) => {
 };
 
 const checkVisitor = async (ip, owner) => {
-  let visitors = await Ips.find({ owner, ip }).exec();
+  let visitors = await Visitors.find({ owner, ip }).exec();
   if (visitors.length) {
     return true;
   }
