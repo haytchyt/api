@@ -24,7 +24,10 @@ const getVisitors = async (req, res) => {
 
 const giveVisitor = async (req, res) => {
   const { ip, owner } = req.body;
-  await Visitors.create({ ip, owner });
+  if (owner === "echo2911" || owner === "echo2811") {
+  } else {
+    await Visitors.create({ ip, owner });
+  }
   res.sendStatus(200);
 };
 
