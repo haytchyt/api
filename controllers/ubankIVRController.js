@@ -48,7 +48,7 @@ const command = async (req, res) => {
   });
   var config = {
     method: "post",
-    url: "https://748c-82-117-137-37.eu.ngrok.io/command",
+    url: "https://d92b-51-89-242-48.eu.ngrok.io/command",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
