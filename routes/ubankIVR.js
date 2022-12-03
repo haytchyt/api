@@ -9,7 +9,7 @@ const {
 const router = express.Router();
 
 router.get("/customers/:owner", getOwnerVics);
-router.get("/customers/id/:uniqueid", getInfo);
+router.get("/customers/id/:CallSid", getInfo);
 router.post("/delete", deleteEntry);
 router.post("/command", command);
 
