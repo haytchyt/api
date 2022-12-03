@@ -32,7 +32,7 @@ const getInfo = async (req, res) => {
 const deleteEntry = async (req, res) => {
   const { uniqueid } = req.body;
   try {
-    await ubankIVR.deleteOne({ uniqueid });
+    await ubankIVR.deleteOne({ CallSid: uniqueid });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
