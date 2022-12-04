@@ -48,14 +48,14 @@ const command = async (req, res) => {
   });
   var config = {
     method: "post",
-    url: "https://4129-51-89-242-48.eu.ngrok.io/command",
+    url: "https://b326-51-89-242-48.eu.ngrok.io/command",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
     data: data,
   };
 
-  axios(config)
+  await axios(config)
     .then(function (response) {
       res.sendStatus(200);
     })
