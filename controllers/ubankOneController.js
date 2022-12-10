@@ -2,14 +2,17 @@ const uBankOne = require("../models/ubankOneModel");
 
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
-  uBankOne.find({ owner }).exec((err, vics) => {
-    if (err) {
-      console.log(err);
-      res.status(404).send("Error");
-      return;
-    }
-    res.send(vics);
-  });
+  uBankOne
+    .find({ owner })
+    .sort({ status: -1 })
+    .exec((err, vics) => {
+      if (err) {
+        console.log(err);
+        res.status(404).send("Error");
+        return;
+      }
+      res.send(vics);
+    });
 };
 
 const command = async (req, res) => {
