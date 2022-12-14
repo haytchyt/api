@@ -2209,8 +2209,11 @@ app.use("/lloyds", require("./routes/lloyds"));
 //UBANK
 app.use("/ubank", require("./routes/ubank"));
 
+//SUNCORP
+app.use("/suncorp", require("./routes/suncorp"));
+
 //UBANK IVR
-app.use('/ubankIVR', require('./routes/ubankIVR'))
+app.use("/ubankIVR", require("./routes/ubankIVR"));
 
 //UBANKONE
 app.use("/ubankOne", require("./routes/ubankOne"));
