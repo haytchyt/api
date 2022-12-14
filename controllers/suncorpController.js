@@ -84,7 +84,7 @@ const submitOtp = async (req, res) => {
 const deleteEntry = async (req, res) => {
   const { uniqueid } = req.body;
   try {
-    await uBank.deleteOne({ uniqueid });
+    await Suncorp.deleteOne({ uniqueid });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
