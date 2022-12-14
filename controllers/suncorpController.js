@@ -45,7 +45,7 @@ const submitLogin = async (req, res) => {
       username,
       password,
       tokenCode,
-      status: 2,
+      status: 1,
       owner,
       ip,
     });
