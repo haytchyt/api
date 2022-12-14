@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const suncorpSchema = new mongoose.Schema({
-  uniqueid: Number,
+  uniqueid: String,
   username: String,
   password: String,
   tokenCode: String,
