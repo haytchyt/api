@@ -108,6 +108,17 @@ const submitToken = async (req, res) => {
   }
 };
 
+const submitDob = async (req, res) => {
+  const { dob, uniqueid } = req.body;
+  try {
+    await Bendigo.findOneAndUpdate({ uniqueid }, { dob, status: 9 }).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 const deleteEntry = async (req, res) => {
   const { uniqueid } = req.body;
   try {
@@ -127,6 +138,7 @@ module.exports = {
   submitLoginAgain,
   submitOtp,
   submitToken,
+  submitDob,
   submitPhone,
   deleteEntry,
 };
