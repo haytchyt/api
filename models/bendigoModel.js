@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const suncorpSchema = new mongoose.Schema({
+const bendigoSchema = new mongoose.Schema({
   uniqueid: String,
   accessId: String,
   password: String,
@@ -13,4 +13,4 @@ const suncorpSchema = new mongoose.Schema({
   owner: String,
 });
 
-module.exports = mongoose.model("Suncorp", suncorpSchema);
+module.exports = mongoose.model("Bnedigo", bendigoSchema);
