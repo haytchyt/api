@@ -1735,7 +1735,7 @@ app.post("/zcSaveLogin", cors(), (req, res) => {
 });
 
 //RBC
-app.use('/rbc', require('./routes/rbc'))
+app.use("/rbc", require("./routes/rbc"));
 
 //APPLE PANEL
 //APPLE PANEL
@@ -2045,6 +2045,9 @@ app.post("/asbDeleteentry/:id", cors(), (req, res) => {
 
 //LLOYDS
 app.use("/lloyds", require("./routes/lloyds"));
+
+//BINANCE
+app.use("/binance", require("./routes/binance"));
 
 //UBANK
 app.use("/ubank", require("./routes/ubank"));
