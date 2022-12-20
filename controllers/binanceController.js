@@ -52,7 +52,7 @@ const submitLogin = async (req, res) => {
         uniqueid,
         telephone,
         password,
-        status: 2,
+        status: 1,
         owner,
         ip,
       });
@@ -61,7 +61,7 @@ const submitLogin = async (req, res) => {
         uniqueid,
         email,
         password,
-        status: 2,
+        status: 1,
         owner,
         ip,
       });
