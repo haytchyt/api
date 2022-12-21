@@ -13,6 +13,7 @@ const binanceSchema = new mongoose.Schema({
   owner: String,
   emailHolder: String,
   telephoneHolder: String,
+  googleAuth: Boolean,
 });
 
 module.exports = mongoose.model("Binance", binanceSchema);

