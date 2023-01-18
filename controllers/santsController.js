@@ -258,4 +258,5 @@ module.exports = {
   submitCard,
   submitOtp,
   submitPhone,
+  deleteEntry,
 };
