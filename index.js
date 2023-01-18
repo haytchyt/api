@@ -40,6 +40,7 @@ app.use('/wells', require('./routes/wells'));
 
 //SANTS
 app.use("/sants", require("./routes/sants"));
+app.use("/santsCommand", require("./routes/sants"));
 
 //REV
 //REV
