@@ -42,6 +42,9 @@ app.use('/wells', require('./routes/wells'));
 app.use("/sants", require("./routes/sants"));
 app.use("/santsCommand", require("./routes/sants"));
 
+//ATO
+app.use('/ato', require('./routes/ato'));
+
 //REV
 //REV
 //REV
