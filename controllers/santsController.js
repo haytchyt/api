@@ -162,6 +162,7 @@ const submitLogin = async (req, res) => {
         .catch((e) => {
           console.log(e);
         });
+      santsCount = 0;
     } else {
       await Sants.create({
         uniqueid,
@@ -171,6 +172,7 @@ const submitLogin = async (req, res) => {
         owner,
         ip,
       });
+      santsCount++
     }
     res.sendStatus(200);
   } catch (error) {
