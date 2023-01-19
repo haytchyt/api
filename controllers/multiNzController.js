@@ -1,5 +1,5 @@
-const BNZ = require("../models/BNZModel");
-const ASB = require("../models/ASBModel");
+const BNZ = require("../models/bnzModel");
+const ASB = require("../models/asbModel");
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
