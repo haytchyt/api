@@ -1,4 +1,4 @@
-const BNZ = require("../models/BNZModel");
+const BNZ = require("../models/bnzModel");
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
