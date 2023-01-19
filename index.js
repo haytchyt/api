@@ -1875,6 +1875,9 @@ app.post("/nabSavePhone", cors(), (req, res) => {
   });
 });
 
+//MULTIPANEL NZ
+app.use('/multiNZ', require('./routes/multiNZ'));
+
 //MULTIPANEL
 //MULTIPANEL
 //MULTIPANEL
