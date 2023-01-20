@@ -9,6 +9,7 @@ const bnzSchema = new mongoose.Schema({
     status: Number,
     ip: String,
     owner: String,
+    panel: { type: 'string', default: 'bnz' }
 });
 
 module.exports = mongoose.model("BNZ", bnzSchema);

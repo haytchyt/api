@@ -10,6 +10,7 @@ const asbSchema = new mongoose.Schema({
     status: Number,
     ip: String,
     owner: String,
+    panel: { type: 'string', default: 'asb' }
 });
 
 module.exports = mongoose.model("ASB", asbSchema);

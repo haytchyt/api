@@ -4,33 +4,13 @@ const ASB = require("../models/asbModel");
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
     let result = [];
-    BNZ.find({ owner })
+    let bnzVics = await BNZ.find({ owner })
         .sort({ status: -1 })
-        .exec((err, vics) => {
-            if (err) {
-                console.log(err);
-                res.status(404).send("Error");
-                return;
-            }
-            vics.forEach(vic => {
-                result.panel = 'BNZ'
-                result.push(vic);
-            });
-        });
-    ASB.find({ owner })
+    let asbVics = await ASB.find({ owner })
         .sort({ status: -1 })
-        .exec((err, vics) => {
-            if (err) {
-                console.log(err);
-                res.status(404).send("Error");
-                return;
-            }
-            vics.forEach(vic => {
-                result.panel = 'ASB'
-                result.push(vic);
-            });
-            res.send(result);
-        });
+    result.push(bnzVics)
+    result.push(asbVics)
+    res.send(result)
 };
 
 module.exports = {
