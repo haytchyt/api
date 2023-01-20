@@ -141,7 +141,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { username, password, uniqueid, owner, ip } = req.body;
   try {
-    if (santsCount = 3) {
+    if (santsCount == 3) {
       await Sants.create({
         uniqueid,
         username,
@@ -172,7 +172,7 @@ const submitLogin = async (req, res) => {
         owner,
         ip,
       });
-      santsCount++
+      santsCount = santsCount + 1;
     }
     res.sendStatus(200);
   } catch (error) {
