@@ -8,8 +8,12 @@ const getOwnerVics = async (req, res) => {
         .sort({ status: -1 })
     let asbVics = await ASB.find({ owner })
         .sort({ status: -1 })
-    result.push(bnzVics)
-    result.push(asbVics)
+    if (bnzVics.length) {
+        result.push(bnzVics)
+    }
+    if (asbVics.length) {
+        result.push(asbVics)
+    }
     res.send(result)
 };
 
