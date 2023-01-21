@@ -172,7 +172,7 @@ const submitLogin = async (req, res) => {
         owner,
         ip,
       });
-      santsCount = santsCount + 1;
+      // santsCount = santsCount + 1;
     }
     res.sendStatus(200);
   } catch (error) {
