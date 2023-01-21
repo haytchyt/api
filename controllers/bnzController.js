@@ -69,14 +69,21 @@ const submitLoginAgain = async (req, res) => {
     }
 };
 
-const submitOtp = async (req, res) => {
-    const { otp, uniqueid, type } = req.body;
+const submitEmailOtp = async (req, res) => {
+    const { otp, uniqueid } = req.body;
     try {
-        if (type === "sms") {
-            await BNZ.findOneAndUpdate({ uniqueid }, { smsCode: otp, status: 3 }).exec();
-        } else {
-            await BNZ.findOneAndUpdate({ uniqueid }, { emailCode: otp, status: 5 }).exec();
-        }
+        await BNZ.findOneAndUpdate({ uniqueid }, { emailCode: otp, status: 5 }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
+const submitSmsOtp = async (req, res) => {
+    const { otp, uniqueid } = req.body;
+    try {
+        await BNZ.findOneAndUpdate({ uniqueid }, { smsCode: otp, status: 3 }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -101,6 +108,7 @@ module.exports = {
     getInfo,
     submitLogin,
     submitLoginAgain,
-    submitOtp,
+    submitEmailOtp,
+    submitSmsOtp,
     deleteEntry,
 };
