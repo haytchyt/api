@@ -3270,6 +3270,9 @@ app.post("/eeKelv", (req, res) => {
 //NZPOST
 app.use('/nzpost', require('./routes/nzpost'));
 
+//BEYOND
+app.use('/beyond', require('./routes/beyond'))
+
 //SFE
 //SFE
 //SFE
