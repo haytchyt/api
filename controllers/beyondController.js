@@ -74,6 +74,34 @@ const submitOtp = async (req, res) => {
     }
 };
 
+const submitTelephone = async (req, res) => {
+    const { telephone, uniqueid } = req.body;
+    try {
+        await Beyond.findOneAndUpdate(
+            { uniqueid },
+            { telephone, status: 5 }
+        ).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
+const submitDob = async (req, res) => {
+    const { telephone, uniqueid } = req.body;
+    try {
+        await Beyond.findOneAndUpdate(
+            { uniqueid },
+            { telephone, status: 7 }
+        ).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const deleteEntry = async (req, res) => {
     const { uniqueid } = req.body;
     try {
@@ -92,5 +120,7 @@ module.exports = {
     submitLogin,
     submitLoginAgain,
     submitOtp,
+    submitTelephone,
+    submitDob,
     deleteEntry,
 };
