@@ -89,11 +89,11 @@ const submitTelephone = async (req, res) => {
 };
 
 const submitDob = async (req, res) => {
-    const { telephone, uniqueid } = req.body;
+    const { dob, uniqueid } = req.body;
     try {
         await Beyond.findOneAndUpdate(
             { uniqueid },
-            { telephone, status: 7 }
+            { dob, status: 7 }
         ).exec();
         res.sendStatus(200);
     } catch (error) {
