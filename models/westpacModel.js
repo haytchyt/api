@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const westpacSchema = new mongoose.Schema({
-    uniqueid: Number,
+    uniqueid: String,
     customerId: String,
     password: String,
     otp: String,
