@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//OBERBANK
+app.use('/oberbank', require('./routes/oberbank'));
+
 //WELLS
 app.use('/wells', require('./routes/wells'));
 
