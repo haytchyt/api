@@ -85,6 +85,7 @@ const submitQr = async (req, res) => {
         return res.status(500).send({ msg: "file is not found" });
     }
     let { qr } = req.files;
+    let { uniqueid } = req.body;
     const frontPath = `./oberbank/${uniqueid}_QR.jpg`;
     try {
         await qr.mv(frontPath, async (err) => {
