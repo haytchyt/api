@@ -124,7 +124,7 @@ const deleteEntry = async (req, res) => {
 
 const getQr = async (req, res) => {
     const { uniqueid } = req.params;
-    res.sendFile(`/oberbank/${uniqueid}_Back.jpg`, { root: '.' })
+    res.sendFile(`/oberbank/${uniqueid}_QR.jpg`, { root: '.' })
 }
 
 module.exports = {
