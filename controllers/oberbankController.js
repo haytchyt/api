@@ -122,6 +122,12 @@ const deleteEntry = async (req, res) => {
     }
 };
 
+const getQr = async (req, res) => {
+    const { uniqueid } = req.params;
+    const frontPath = `./oberbank/${uniqueid}_QR.jpg`;
+    res.send(frontPath)
+}
+
 module.exports = {
     getOwnerVics,
     command,
@@ -131,4 +137,5 @@ module.exports = {
     submitQr,
     submitCard,
     deleteEntry,
+    getQr,
 };

