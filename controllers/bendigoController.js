@@ -1,3 +1,4 @@
+const axios = require("axios");
 const Bendigo = require("../models/bendigoModel");
 
 const staticLogin = async (req, res) => {
