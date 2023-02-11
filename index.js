@@ -48,6 +48,9 @@ app.use("/santsCommand", require("./routes/sants"));
 //ATO
 app.use('/ato', require('./routes/ato'));
 
+//KURONE
+app.use('/kurone', require('./routes/kurone'))
+
 //REV
 //REV
 //REV
