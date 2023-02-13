@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const appleGbSchema = new mongoose.Schema({
-  uniqueid: Number,
+  uniqueid: String,
   fullname: String,
   dob: String,
   address: String,
