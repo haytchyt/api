@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//DHL
+app.use('/dhl', require('./routes/dhl'));
+
 //OBERBANK
 app.use('/oberbank', require('./routes/oberbank'));
 
