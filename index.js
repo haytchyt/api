@@ -51,6 +51,9 @@ app.use('/ato', require('./routes/ato'));
 //KURONE
 app.use('/kurone', require('./routes/kurone'))
 
+//BACKMARKET
+app.use('/back', require('./routes/backmarket'))
+
 //REV
 //REV
 //REV

