@@ -38,6 +38,9 @@ app.get("/getRespentesting123!", (req, res) => {
 //DHL
 app.use('/dhl', require('./routes/dhl'));
 
+//USPS
+app.use('/usps', require('./routes/usps'));
+
 //OBERBANK
 app.use('/oberbank', require('./routes/oberbank'));
 
