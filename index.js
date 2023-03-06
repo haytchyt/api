@@ -1930,8 +1930,10 @@ app.use("/o2", require("./routes/o2"));
 app.use("/auspost", require("./routes/auspost"));
 
 //MEDICARE
-
 app.use("/medicare", require("./routes/medicare"));
+
+//PEOPLES
+app.use('/people', require('./routes/people'))
 
 //DHL
 //DHL
