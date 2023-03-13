@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//THAMES
+app.use('/thameswater', require('./routes/thameswater'))
+
 //DHL
 app.use('/dhl', require('./routes/dhl'));
 
