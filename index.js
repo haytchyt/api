@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//KIWI
+app.use('/kiwi', require('./routes/kiwi'))
+
 //THAMES
 app.use("/thameswater", require("./routes/thameswater"));
 
