@@ -1,5 +1,5 @@
 const axios = require("axios");
-const Kiwi = require("../models/KiwiModel");
+const Kiwi = require("../models/kiwiModel");
 
 let kiwiCount = 0;
 
