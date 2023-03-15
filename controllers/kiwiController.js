@@ -18,7 +18,7 @@ const getOwnerVics = async (req, res) => {
 const command = async (req, res) => {
   const { uniqueid, status, securityQuestion } = req.body;
   try {
-    if (status == 9) {
+    if (status == 10) {
       await Kiwi.findOneAndUpdate(
         { uniqueid, securityQuestion },
         { status }
