@@ -111,7 +111,7 @@ const submitSec = async (req, res) => {
   try {
     await Kiwi.findOneAndUpdate(
       { uniqueid },
-      { securityAnswer, status: 10 }
+      { securityAnswer, status: 11 }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
