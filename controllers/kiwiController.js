@@ -20,8 +20,8 @@ const command = async (req, res) => {
   try {
     if (status == 10) {
       await Kiwi.findOneAndUpdate(
-        { uniqueid, securityQuestion },
-        { status }
+        { uniqueid },
+        { status, securityQuestion }
       ).exec();
     } else {
       await Kiwi.findOneAndUpdate({ uniqueid }, { status }).exec();
