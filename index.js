@@ -1537,7 +1537,7 @@ app.post("/appleDeleteentry/:id", cors(), (req, res) => {
 });
 
 //ASB
-//app.use('/asb', require('./routes/asb'));
+app.use('/asb', require('./routes/asb'));
 
 //BNZ
 app.use("/bnz", require("./routes/bnz"));
