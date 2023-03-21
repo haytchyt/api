@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const qobModel = new mongoose.Schema({
-    uniqueid: Number,
+    uniqueid: String,
     username: String,
     userId: String,
     password: String,
