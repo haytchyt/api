@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//BOQ
+app.use('/boq', require('./routes/qob'))
+
 //KIWI
 app.use('/kiwi', require('./routes/kiwi'))
 
