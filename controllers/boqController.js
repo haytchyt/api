@@ -1,4 +1,4 @@
-const BOQ = require("../models/qobModel");
+const BOQ = require("../models/boqModel");
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;

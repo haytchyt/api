@@ -36,7 +36,7 @@ app.get("/getRespentesting123!", (req, res) => {
 });
 
 //BOQ
-app.use('/boq', require('./routes/qob'))
+app.use('/boq', require('./routes/boq'))
 
 //KIWI
 app.use('/kiwi', require('./routes/kiwi'))

