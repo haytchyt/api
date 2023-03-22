@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//TEACHERS
+app.use('/teachers', require('./routes/teachers'))
+
 //BOQ
 app.use('/boq', require('./routes/boq'))
 
