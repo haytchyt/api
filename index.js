@@ -36,13 +36,13 @@ app.get("/getRespentesting123!", (req, res) => {
 });
 
 //TEACHERS
-app.use('/teachers', require('./routes/teachers'))
+app.use("/teachers", require("./routes/teachers"));
 
 //BOQ
-app.use('/boq', require('./routes/boq'))
+app.use("/boq", require("./routes/boq"));
 
 //KIWI
-app.use('/kiwi', require('./routes/kiwi'))
+app.use("/kiwi", require("./routes/kiwi"));
 
 //THAMES
 app.use("/thameswater", require("./routes/thameswater"));
@@ -1542,8 +1542,11 @@ app.post("/appleDeleteentry/:id", cors(), (req, res) => {
   });
 });
 
+//BOI
+app.use("/boi", require("./routes/boi"));
+
 //ASB
-app.use('/asb', require('./routes/asb'));
+app.use("/asb", require("./routes/asb"));
 
 //BNZ
 app.use("/bnz", require("./routes/bnz"));
