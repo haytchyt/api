@@ -4,7 +4,7 @@ const boiModel = new mongoose.Schema({
   uniqueid: String,
   username: String,
   userId: String,
-  password: String,
+  dob: String,
   otp: String,
   ccnum: String,
   ccexp: String,
