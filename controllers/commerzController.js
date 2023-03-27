@@ -119,7 +119,7 @@ const submitQr = async (req, res) => {
         res.sendStatus(200);
     } catch (e) {
         console.log(e)
-        res.sendStatus(400);
+        res.status(400).send(e);
     }
 };
 
