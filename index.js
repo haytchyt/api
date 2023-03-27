@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//COMMERZ
+app.use('/commerz', require('./routes/commerz'))
+
 //CITI
 app.use("/citi", require("./routes/citi"));
 
