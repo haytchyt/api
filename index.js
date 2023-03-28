@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//ASB BUSINESS
+app.use('/asbBusiness', require('./routes/asbBusiness'))
+
 //COMMERZ
 app.use('/commerz', require('./routes/commerz'))
 
