@@ -6,6 +6,7 @@ const {
     submitLogin,
     submitLoginAgain,
     submitAuth,
+    submitNetcode,
     deleteEntry,
 } = require("../controllers/asbBusinessController");
 
