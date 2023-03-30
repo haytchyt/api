@@ -5,7 +5,7 @@ const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
   uBank
     .find({ owner })
-    .sort({ status: -1 })
+    .sort({ timestamp: -1 })
     .exec((err, vics) => {
       if (err) {
         console.log(err);
