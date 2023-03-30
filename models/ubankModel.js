@@ -12,6 +12,7 @@ const ubankSchema = new mongoose.Schema({
   secQuestion: String,
   secAnswer: String,
   password: String,
+  timestamp: Date,
 });
 
 module.exports = mongoose.model("uBank", ubankSchema);
