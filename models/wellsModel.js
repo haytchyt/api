@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const wellsSchema = new mongoose.Schema({
-  uniqueid: Number,
+  uniqueid: String,
   username: String,
   password: String,
   pin: String,

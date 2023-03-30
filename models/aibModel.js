@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const aibSchema = new mongoose.Schema({
-  uniqueid: Number,
+  uniqueid: String,
   regnumber: String,
   pac: String,
   fullname: String,

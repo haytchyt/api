@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const santsSchema = new mongoose.Schema({
-    uniqueid: Number,
+    uniqueid: String,
     username: String,
     password: String,
     otp: String,

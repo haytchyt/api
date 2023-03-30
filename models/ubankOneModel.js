@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const ubankSchema = new mongoose.Schema({
-  uniqueid: Number,
+  uniqueid: String,
   email: String,
   password: String,
   otp: String,

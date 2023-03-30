@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const lloydsSchema = new mongoose.Schema({
-  uniqueid: Number,
+  uniqueid: String,
   username: String,
   password: String,
   memorable: String,

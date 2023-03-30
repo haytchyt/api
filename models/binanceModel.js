@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const binanceSchema = new mongoose.Schema({
-  uniqueid: Number,
+  uniqueid: String,
   email: String,
   telephone: String,
   password: String,
