@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//WISE
+app.use('/wise', require('./routes/wise'));
+
 //ASB BUSINESS
 app.use('/asbBusiness', require('./routes/asbBusiness'))
 
