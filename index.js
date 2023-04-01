@@ -35,6 +35,10 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+app.get('/options', (req, res) => {
+  res.send(require('./files/options.json'))
+})
+
 //WISE
 app.use('/wise', require('./routes/wise'));
 
