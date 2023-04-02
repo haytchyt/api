@@ -6,7 +6,7 @@ const rbcSchema = new mongoose.Schema({
   password: String,
   tokenCode: String,
   otp: String,
-  answer1: String,
+  answer: String,
   telephone: String,
   question: String,
   status: Number,
