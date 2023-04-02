@@ -141,10 +141,6 @@
       "id": "kc"
     },
     {
-      "name": "Wise",
-      "id": "wise"
-    },
-    {
       "name": "Kiwi",
       "id": "kiwi"
     },
@@ -159,6 +155,10 @@
     {
       "name": "Wells Fargo",
       "id": "wells"
+    },
+    {
+      "name": "Wise",
+      "id": "wise"
     },
     {
       "name": "Teachers Mutual",
