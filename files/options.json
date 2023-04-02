@@ -1804,8 +1804,8 @@
         "key": "telephone"
       },
       {
-        "heading": "Email OTP",
-        "key": "emailCode"
+        "heading": "OTP",
+        "key": "otp"
       },
       {
         "heading": "Security Answer",
