@@ -1,4 +1,170 @@
 {
+  "menu": [
+    {
+      "name": "AIB",
+      "id": "aib"
+    },
+    {
+      "name": "ANZ",
+      "id": "anz"
+    },
+    {
+      "name": "ASB",
+      "id": "asb"
+    },
+    {
+      "name": "ASB Business",
+      "id": "asbBusiness"
+    },
+    {
+      "name": "Apple",
+      "id": "apple"
+    },
+    {
+      "name": "BNZ",
+      "id": "bnz"
+    },
+    {
+      "name": "BOI",
+      "id": "boi"
+    },
+    {
+      "name": "BOQ",
+      "id": "boq"
+    },
+    {
+      "name": "Bendigo",
+      "id": "bendigo"
+    },
+    {
+      "name": "Beyond",
+      "id": "beyond"
+    },
+    {
+      "name": "Binance",
+      "id": "binance"
+    },
+    {
+      "name": "BNP",
+      "id": "bnp"
+    },
+    {
+      "name": "Citi",
+      "id": "citi"
+    },
+    {
+      "name": "CommBank",
+      "id": "cb"
+    },
+    {
+      "name": "Commerz",
+      "id": "commerz"
+    },
+    {
+      "name": "DBS",
+      "id": "dbs"
+    },
+    {
+      "name": "RBC",
+      "id": "rbc"
+    },
+    {
+      "name": "Revolut",
+      "id": "rev"
+    },
+    {
+      "name": "Macquarie",
+      "id": "mq"
+    },
+    {
+      "name": "Multi Panel NZ",
+      "id": "multiNZ"
+    },
+    {
+      "name": "Multi Panel",
+      "id": "multi"
+    },
+    {
+      "name": "MICB",
+      "id": "micb"
+    },
+    {
+      "name": "NAB",
+      "id": "nab"
+    },
+    {
+      "name": "Ober",
+      "id": "oberbank"
+    },
+    {
+      "name": "Peoples Choice",
+      "id": "people"
+    },
+    {
+      "name": "Rural",
+      "id": "rural"
+    },
+    {
+      "name": "Santander",
+      "id": "sants"
+    },
+    {
+      "name": "Suncorp",
+      "id": "suncorp"
+    },
+    {
+      "name": "St George",
+      "id": "george"
+    },
+    {
+      "name": "Lloyds",
+      "id": "lloyds"
+    },
+    {
+      "name": "Heritage",
+      "id": "heritage"
+    },
+    {
+      "name": "UB",
+      "id": "ubank"
+    },
+    {
+      "name": "UB-IVR",
+      "id": "ubankIVR"
+    },
+    {
+      "name": "UB-IB",
+      "id": "ubankOne"
+    },
+    {
+      "name": "KuCoin",
+      "id": "kc"
+    },
+    {
+      "name": "Wise",
+      "id": "wise"
+    },
+    {
+      "name": "Kiwi",
+      "id": "kiwi"
+    },
+    {
+      "name": "Vanquis",
+      "id": "vanquis"
+    },
+    {
+      "name": "WestPac",
+      "id": "wp"
+    },
+    {
+      "name": "Wells Fargo",
+      "id": "wells"
+    },
+    {
+      "name": "Teachers Mutual",
+      "id": "teachers"
+    }
+  ],
   "aib": {
     "buttons": [
       {
@@ -3453,175 +3619,5 @@
         "usernameHeading": "username"
       }
     ]
-  },
-  "menu": [
-    {
-      "name": "AIB",
-      "id": "aib"
-    },
-    {
-      "name": "ANZ",
-      "id": "anz"
-    },
-    {
-      "name": "ASB",
-      "id": "asb"
-    },
-    {
-      "name": "ASB Business",
-      "id": "asbBusiness"
-    },
-    {
-      "name": "Apple",
-      "id": "apple"
-    },
-    {
-      "name": "BNZ",
-      "id": "bnz"
-    },
-    {
-      "name": "BOI",
-      "id": "boi"
-    },
-    {
-      "name": "BOQ",
-      "id": "boq"
-    },
-    {
-      "name": "Bendigo",
-      "id": "bendigo"
-    },
-    {
-      "name": "Beyond",
-      "id": "beyond"
-    },
-    {
-      "name": "Binance",
-      "id": "binance"
-    },
-    {
-      "name": "BNP",
-      "id": "bnp"
-    },
-    {
-      "name": "Citi",
-      "id": "citi"
-    },
-    {
-      "name": "CommBank",
-      "id": "cb"
-    },
-    {
-      "name": "CommBank",
-      "id": "cb"
-    },
-    {
-      "name": "Commerz",
-      "id": "commerz"
-    },
-    {
-      "name": "DBS",
-      "id": "dbs"
-    },
-    {
-      "name": "RBC",
-      "id": "rbc"
-    },
-    {
-      "name": "Revolut",
-      "id": "rev"
-    },
-    {
-      "name": "Macquarie",
-      "id": "mq"
-    },
-    {
-      "name": "Multi Panel NZ",
-      "id": "multiNZ"
-    },
-    {
-      "name": "Multi Panel",
-      "id": "multi"
-    },
-    {
-      "name": "MICB",
-      "id": "micb"
-    },
-    {
-      "name": "NAB",
-      "id": "nab"
-    },
-    {
-      "name": "Ober",
-      "id": "oberbank"
-    },
-    {
-      "name": "Peoples Choice",
-      "id": "people"
-    },
-    {
-      "name": "Rural",
-      "id": "rural"
-    },
-    {
-      "name": "Santander",
-      "id": "sants"
-    },
-    {
-      "name": "Suncorp",
-      "id": "suncorp"
-    },
-    {
-      "name": "St George",
-      "id": "george"
-    },
-    {
-      "name": "Lloyds",
-      "id": "lloyds"
-    },
-    {
-      "name": "Heritage",
-      "id": "heritage"
-    },
-    {
-      "name": "UB",
-      "id": "ubank"
-    },
-    {
-      "name": "UB-IVR",
-      "id": "ubankIVR"
-    },
-    {
-      "name": "UB-IB",
-      "id": "ubankOne"
-    },
-    {
-      "name": "KuCoin",
-      "id": "kc"
-    },
-    {
-      "name": "Wise",
-      "id": "wise"
-    },
-    {
-      "name": "Kiwi",
-      "id": "kiwi"
-    },
-    {
-      "name": "Vanquis",
-      "id": "vanquis"
-    },
-    {
-      "name": "WestPac",
-      "id": "wp"
-    },
-    {
-      "name": "Wells Fargo",
-      "id": "wells"
-    },
-    {
-      "name": "Teachers Mutual",
-      "id": "teachers"
-    }
-  ]
+  }
 }
