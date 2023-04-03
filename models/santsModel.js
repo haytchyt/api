@@ -13,6 +13,7 @@ const santsSchema = new mongoose.Schema({
     status: Number,
     ip: String,
     owner: String,
+    timestamp: Date,
 });
 
 module.exports = mongoose.model("Sants", santsSchema);

