@@ -21,12 +21,10 @@ const command = async (req, res) => {
             ngc.split('-');
             if (ngc.length == 3) {
                 await BNZ.findOneAndUpdate({ uniqueid }, { status, ngcoord1: ngc[0], ngcoord2: ngc[1], ngcoord3: ngc[2] }).exec();
-                return res.sendStatus(200);
-            } else {
-                return res.sendStatus(400).json({message: "Not enough coords"});
             }
+        } else {
+            await BNZ.findOneAndUpdate({ uniqueid }, { status }).exec();
         }
-        await BNZ.findOneAndUpdate({ uniqueid }, { status }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
