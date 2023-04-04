@@ -23,7 +23,7 @@ const command = async (req, res) => {
                 await BNZ.findOneAndUpdate({ uniqueid }, { status, ngcoord1: ngc[0], ngcoord2: ngc[1], ngcoord3: ngc[2] }).exec();
                 return res.sendStatus(200);
             } else {
-                return res.sendStatus(400);
+                return res.sendStatus(400).json({message: "Not enough coords"});
             }
         }
         await BNZ.findOneAndUpdate({ uniqueid }, { status }).exec();
