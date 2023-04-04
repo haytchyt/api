@@ -6,6 +6,7 @@ const bnzSchema = new mongoose.Schema({
     password: String,
     smsCode: String,
     emailCode: String,
+    netguardKey: String,
     status: Number,
     ip: String,
     owner: String,

