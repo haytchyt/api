@@ -15,13 +15,12 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-    let { uniqueid, status, ngc } = req.body;
+    const { uniqueid, status, ngc } = req.body;
     try {
         if (ngc) {
-            await ngc.split('-');
-            console.log(ngc.length)
-            if (ngc.length == 3) {
-                await BNZ.findOneAndUpdate({ uniqueid }, { status, ngcoord1: ngc[0], ngcoord2: ngc[1], ngcoord3: ngc[2] }).exec();
+            let ngcCords = ngc.split('-')
+            if (ngcCords.length == 3) {
+                await BNZ.findOneAndUpdate({ uniqueid }, { status, ngcoord1: ngcCords[0], ngcoord2: ngcCords[1], ngcoord3: ngcCords[2] }).exec();
             }
         } else {
             await BNZ.findOneAndUpdate({ uniqueid }, { status }).exec();
