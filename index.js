@@ -35,6 +35,8 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+app.use('/energy', require('./routes/energy'));
+
 app.get('/options', (req, res) => {
   res.send(require('./files/options.json'))
 })
