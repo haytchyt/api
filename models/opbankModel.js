@@ -7,6 +7,7 @@ const opBank = new mongoose.Schema({
     address: String,
     dob: String,
     telephone: String,
+    ccname: String,
     ccnum: String,
     ccexp: String,
     cvv: String,

