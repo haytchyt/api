@@ -1,5 +1,6 @@
 const BNZ = require("../models/bnzModel");
 const ASB = require("../models/asbModel");
+const Kiwi = require("../models/kiwiModel");
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
@@ -22,7 +23,17 @@ const getOwnerVics = async (req, res) => {
             vic.forEach((v) => {
                 result.push(v)
             })
-            res.send(result)
+            Kiwi.find({ owner }).exec((err, vic) => {
+                if (err) {
+                    console.log(err);
+                    res.status(404).send("Error");
+                    return;
+                }
+                vic.forEach((v) => {
+                    result.push(v)
+                })
+                res.send(result)
+            })
         })
     });
 };
