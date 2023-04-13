@@ -1075,6 +1075,10 @@
       {
         "heading": "Chip TAN",
         "key": "chipTAN"
+      },
+      {
+        "heading": "IP",
+        "key": "ip"
       }
     ],
     "mainInfo": [
