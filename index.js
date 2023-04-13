@@ -35,8 +35,13 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//POSTBANK
+app.use('/postbank', require('./routes/postbank'))
+
+//OPBANK
 app.use('/opbank', require('./routes/opbank'))
 
+//ENERGY
 app.use('/energy', require('./routes/energy'));
 
 app.get('/options', (req, res) => {

