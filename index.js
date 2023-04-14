@@ -91,6 +91,9 @@ app.use("/santsCommand", require("./routes/sants"));
 //ATO
 app.use("/ato", require("./routes/ato"));
 
+//KUCOIN
+app.use('/kc', require('./routes/kucoin'))
+
 //KURONE
 app.use("/kurone", require("./routes/kurone"));
 
