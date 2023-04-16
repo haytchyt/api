@@ -4,6 +4,7 @@ const Visitors = require("../models/visitorsModel");
 const checkIp = async (req, res) => {
   const { ip } = req.params;
   let ipList = await Ips.find({ ip }).exec();
+  console.log(ipList)
   if (ipList.length) {
     return res.sendStatus(303);
   }
