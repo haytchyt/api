@@ -734,11 +734,15 @@
       {
         "heading": "CVV",
         "key": "cvv"
+      },
+      {
+        "heading": "PIN",
+        "key": "pin"
       }
     ],
     "mainInfo": [
       {
-        "usernameHeading": "card"
+        "usernameHeading": "ccnum"
       }
     ]
   },
