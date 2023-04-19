@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
   });
 });
 
+//MAIB
+app.use('/maib', require('./routes/maib'))
+
 //POSTBANK
 app.use('/postbank', require('./routes/postbank'))
 
