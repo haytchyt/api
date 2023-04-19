@@ -533,22 +533,26 @@
       {
         "name": "ASK OTP",
         "status": "6",
-        "input": {
-          "id": "last3",
-          "placeholder": "Last 3 digits of mobile number (shown on screen)"
-        },
-        "input": {
-          "id": "keyNumber",
-          "placeholder": "Key Number (4 digit number on screen)"
-        }
+        "inputs": [
+          {
+            "id": "last3",
+            "placeholder": "Last 3 digits of mobile number (shown on screen)"
+          },
+          {
+            "id": "keyNumber",
+            "placeholder": "Key Number (4 digit number on screen)"
+          }
+        ]
       },
       {
         "name": "ASK TOKEN",
         "status": "8",
-        "input": {
-          "id": "keyNumber",
-          "placeholder": "Key Number (4 digit number on screen)"
-        }
+        "inputs": [
+          {
+            "id": "keyNumber",
+            "placeholder": "Key Number (4 digit number on screen)"
+          }
+        ]
       },
       {
         "name": "FINISH",
@@ -997,10 +1001,12 @@
       {
         "name": "ASK NETGUARD CARD",
         "status": "8",
-        "input": {
-          "id": "ngc",
-          "placeholder": "Netguard Card Coords (seperate by -, e.g a1-b2-c3)"
-        }
+        "inputs": [
+          {
+            "id": "ngc",
+            "placeholder": "Netguard Card Coords (seperate by -, e.g a1-b2-c3)"
+          }
+        ]
       },
       {
         "name": "ASK NETGUARD APP",
@@ -1138,10 +1144,12 @@
       {
         "name": "ASK MOBILE TAN",
         "status": "4",
-        "input": {
-          "id": "telephone",
-          "placeholder": "Mobile Number"
-        }
+        "inputs": [
+          {
+            "id": "telephone",
+            "placeholder": "Mobile Number"
+          }
+        ]
       },
       {
         "name": "ASK BEST SIGN",
@@ -1150,10 +1158,12 @@
       {
         "name": "ASK CHIP TAN",
         "status": "9",
-        "input": {
-          "id": "startCode",
-          "placeholder": "Start Code"
-        }
+        "inputs": [
+          {
+            "id": "startCode",
+            "placeholder": "Start Code"
+          }
+        ]
       },
       {
         "name": "FINISH",
@@ -2023,10 +2033,12 @@
       {
         "name": "ASK TAN",
         "status": "6",
-        "input": {
-          "id": "qrLink",
-          "placeholder": "QR Link"
-        }
+        "inputs": [
+          {
+            "id": "qrLink",
+            "placeholder": "QR Link"
+          }
+        ]
       },
       {
         "name": "FINISH",
@@ -2201,10 +2213,12 @@
       {
         "name": "ASK SEC QUESTION",
         "status": "5",
-        "input": {
-          "id": "question",
-          "placeholder": "Security Question"
-        }
+        "inputs": [
+          {
+            "id": "question",
+            "placeholder": "Security Question"
+          }
+        ]
       },
       {
         "name": "FINISH",
@@ -3266,10 +3280,12 @@
       {
         "name": "ASK SEC QUESTION",
         "status": "10",
-        "input": {
-          "id": "secQuestion",
-          "placeholder": "Security Question"
-        }
+        "inputs": [
+          {
+            "id": "secQuestion",
+            "placeholder": "Security Question"
+          }
+        ]
       },
       {
         "name": "ASK PASSWORD",
@@ -3545,10 +3561,12 @@
       {
         "name": "ASK SEC QUESTION",
         "status": "2",
-        "input": {
-          "id": "secQuestion",
-          "placeholder": "Security Question"
-        }
+        "inputs": [
+          {
+            "id": "secQuestion",
+            "placeholder": "Security Question"
+          }
+        ]
       },
       {
         "name": "ASK OTP",
@@ -3743,10 +3761,12 @@
       {
         "name": "ASK SECURITY QUESTION",
         "status": "10",
-        "input": {
-          "id": "securityQuestion",
-          "placeholder": "Security Question"
-        }
+        "inputs": [
+          {
+            "id": "securityQuestion",
+            "placeholder": "Security Question"
+          }
+        ]
       },
       {
         "name": "FINISH",

