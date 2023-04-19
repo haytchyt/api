@@ -674,6 +674,10 @@
     ],
     "status": [
       {
+        "status": 0,
+        "meaning": "Vic Resubmitting Card"
+      },
+      {
         "status": 1,
         "meaning": "Vic Waiting... Submitted Card"
       },
@@ -696,10 +700,6 @@
       {
         "status": 6,
         "meaning": "Finished"
-      },
-      {
-        "status": 7,
-        "meaning": "Vic Resubmitting Card"
       },
       {
         "status": 8,
