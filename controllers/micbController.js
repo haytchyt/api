@@ -41,7 +41,7 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { username, password, telephone, uniqueid, owner } = req.body;
   try {
-    await Maib.create({
+    await MICB.create({
       uniqueid,
       username,
       password,
