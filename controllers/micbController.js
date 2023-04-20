@@ -46,6 +46,7 @@ const submitLogin = async (req, res) => {
       username,
       password,
       telephone,
+      owner,
       status: 1,
       timestamp: moment().format(),
     }).exec();
