@@ -48,7 +48,6 @@ const submitLogin = async (req, res) => {
       telephone,
       status: 1,
       owner,
-      ip,
       timestamp: moment().format(),
     });
     res.sendStatus(200);
