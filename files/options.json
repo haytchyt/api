@@ -555,6 +555,16 @@
         ]
       },
       {
+        "name": "ASK MOBILE AUTH",
+        "status": "11",
+        "inputs": [
+          {
+            "id": "keyNumber",
+            "placeholder": "Key Number (4 digits on screen)"
+          }
+        ]
+      },
+      {
         "name": "FINISH",
         "status": "10"
       }
@@ -595,6 +605,10 @@
       {
         "status": 10,
         "meaning": "Finished"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Submitting Mobile Auth"
       }
     ],
     "information": [
