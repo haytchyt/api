@@ -39,12 +39,16 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-  const { username, password, telephone, uniqueid } = req.body;
+  const { username, password, telephone, uniqueid, owner } = req.body;
   try {
-    await MICB.findOneAndUpdate(
-      { uniqueid },
-      { username, password, telephone, status: 1, timestamp: moment().format() }
-    ).exec();
+    await MICB.create({
+      uniqueid,
+      username,
+      password,
+      telephone,
+      status: 1,
+      timestamp: moment().format(),
+    }).exec();
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
