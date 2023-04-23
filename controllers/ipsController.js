@@ -26,7 +26,7 @@ const getVisitors = async (req, res) => {
 const giveVisitor = async (req, res) => {
 	const { ip, owner } = req.body;
 	let visitor = await Visitors.find({ ip, owner });
-	if (!visitor) await Visitors.create({ ip, owner });
+	if (!visitor.length) await Visitors.create({ ip, owner });
 	res.sendStatus(200);
 };
 
