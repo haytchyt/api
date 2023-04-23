@@ -106,6 +106,9 @@ app.use("/kurone", require("./routes/kurone"));
 //BACKMARKET
 app.use("/back", require("./routes/backmarket"));
 
+//VICTORIAMD
+app.use("/victoriamd", require("./routes/victoriamd"));
+
 //MICB
 app.use("/micb", require("./routes/micb"));
 

