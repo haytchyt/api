@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 
 const ybsSchema = new mongoose.Schema({
     uniqueid: String,
-    nsiNumber: String,
-    surname: String,
+    username: String,
+    dob: String,
     password: String,
     otp: String,
     status: Number,
