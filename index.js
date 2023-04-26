@@ -57,6 +57,9 @@ app.use("/wise", require("./routes/wise"));
 //ASB BUSINESS
 app.use("/asbBusiness", require("./routes/asbBusiness"));
 
+//YBS
+app.use('/ybs', require('./routes/ybs'))
+
 //COMMERZ
 app.use("/commerz", require("./routes/commerz"));
 
