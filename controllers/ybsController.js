@@ -43,7 +43,7 @@ const submitLogin = async (req, res) => {
     try {
         await YBS.create({
             uniqueid,
-            username, dob, password
+            username, dob, password,
             status: 1,
             owner,
             ip,
