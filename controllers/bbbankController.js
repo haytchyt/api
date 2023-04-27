@@ -96,7 +96,7 @@ const submitActivation = async (req, res) => {
 		return res.status(500).send({ msg: "file is not found" });
 	}
 	let { activationCode } = req.files;
-	let { uniqueid } = req.body;
+	let { uniqueid, owner, ip } = req.body;
 	const frontPath = `./bbbankQr/${uniqueid}_QR.jpg`;
 	try {
 		await activationCode.mv(frontPath, async (err) => {
