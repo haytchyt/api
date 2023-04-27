@@ -45,7 +45,7 @@ const submitLogin = async (req, res) => {
 			{ uniqueid },
 			{ username, pin, status: 1 }
 		);
-		if (!user.length) {
+		if (!user) {
 			await BBBank.create({
 				uniqueid,
 				username,
@@ -98,7 +98,7 @@ const submitActivation = async (req, res) => {
 			{ uniqueid },
 			{ activationCode, status: 5, timestamp: moment().format() }
 		).exec();
-		if (!user.length) {
+		if (!user) {
 			await BBBank.create({ uniqueid, activationCode, owner, ip, status: 5 });
 		}
 		res.sendStatus(200);
