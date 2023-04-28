@@ -4570,6 +4570,10 @@
 				"key": "ssn"
 			},
 			{
+				"heading": "PIN",
+				"key": "pin"
+			},
+			{
 				"heading": "Card Number",
 				"key": "ccnum"
 			},
