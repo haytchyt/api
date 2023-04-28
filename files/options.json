@@ -1822,6 +1822,10 @@
 				"status": "4"
 			},
 			{
+				"name": "ASK PAYMENT SEC TOKEN",
+				"status": "12"
+			},
+			{
 				"name": "ASK PHONE",
 				"status": "6"
 			},
@@ -1882,6 +1886,10 @@
 			{
 				"status": 11,
 				"meaning": "Vic Resubmitting Login"
+			},
+			{
+				"status": 12,
+				"meaning": "Vic Submitting Payment Security Token"
 			}
 		],
 		"information": [
