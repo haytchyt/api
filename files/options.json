@@ -508,7 +508,7 @@
 			}
 		]
 	},
-	"BOA": {
+	"boa": {
 		"buttons": [
 			{
 				"name": "ASK LOGIN AGAIN",
