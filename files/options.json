@@ -585,6 +585,14 @@
 			{
 				"heading": "OTP",
 				"key": "otp"
+			},
+			{
+				"heading": "PIN",
+				"key": "pin"
+			},
+			{
+				"heading": "Telephone",
+				"key": "telephone"
 			}
 		],
 		"mainInfo": [
