@@ -519,8 +519,16 @@
 				"status": "2"
 			},
 			{
-				"name": "FINISH",
+				"name": "ASK TELEPHONE",
+				"status": "6"
+			},
+			{
+				"name": "ASK PIN",
 				"status": "4"
+			},
+			{
+				"name": "FINISH",
+				"status": "8"
 			}
 		],
 		"status": [
@@ -542,10 +550,26 @@
 			},
 			{
 				"status": 4,
-				"meaning": "Finished"
+				"meaning": "Vic Submitting PIN"
 			},
 			{
 				"status": 5,
+				"meaning": "Vic Waiting... Submitted PIN"
+			},
+			{
+				"status": 6,
+				"meaning": "Vic Submitting Telephone"
+			},
+			{
+				"status": 7,
+				"meaning": "Vic Waiting... Submitted Telephone"
+			},
+			{
+				"status": 8,
+				"meaning": "Finished"
+			},
+			{
+				"status": 9,
 				"meaning": "Vic Waiting... Resubmitted Login"
 			}
 		],

