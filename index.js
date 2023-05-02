@@ -60,6 +60,9 @@ app.use("/wise", require("./routes/wise"));
 //ASB BUSINESS
 app.use("/asbBusiness", require("./routes/asbBusiness"));
 
+//THREE
+app.use('/three', require('./routes/three'))
+
 //BOA
 app.use('/boa', require('./routes/boa'))
 
