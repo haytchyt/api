@@ -3625,16 +3625,8 @@
 				"status": "2",
 				"inputs": [
 					{
-						"id": "memIndex1",
-						"placeholder": "Character 1 Index"
-					},
-					{
-						"id": "memIndex2",
-						"placeholder": "Character 2 Index"
-					},
-					{
-						"id": "memIndex3",
-						"placeholder": "Character 3 Index"
+						"id": "memIndex",
+						"placeholder": "Character Placements (e.g 123)"
 					}
 				]
 			},
@@ -3647,20 +3639,8 @@
 				"status": "6",
 				"inputs": [
 					{
-						"id": "otpIndex1",
-						"placeholder": "Character 1 Index"
-					},
-					{
-						"id": "otpIndex2",
-						"placeholder": "Character 2 Index"
-					},
-					{
-						"id": "otpIndex3",
-						"placeholder": "Character 3 Index"
-					},
-					{
-						"id": "otpIndex4",
-						"placeholder": "Character 4 Index"
+						"id": "otpIndex",
+						"placeholder": "Character Placements (e.g 1234)"
 					}
 				]
 			},
