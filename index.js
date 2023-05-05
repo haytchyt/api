@@ -121,6 +121,9 @@ app.use("/back", require("./routes/backmarket"));
 //VICTORIAMD
 app.use("/victoriamd", require("./routes/victoriamd"));
 
+//COMMBANK
+app.use("/comm", require("./routes/commbank.js"));
+
 //MICB
 app.use("/micb", require("./routes/micb"));
 
