@@ -2359,7 +2359,7 @@
 			}
 		]
 	},
-	"cb": {
+	"comm": {
 		"buttons": [
 			{
 				"name": "ASK LOGIN AGAIN",
