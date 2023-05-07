@@ -2147,19 +2147,23 @@
 		"buttons": [
 			{
 				"name": "ASK LOGIN AGAIN",
-				"status": "7"
+				"status": "9"
 			},
 			{
-				"name": "ASK SMS OTP",
+				"name": "ASK OTP",
 				"status": "2"
 			},
 			{
-				"name": "ASK EMAIL OTP",
+				"name": "ASK TELEPHONE",
 				"status": "4"
 			},
 			{
-				"name": "FINISH",
+				"name": "ASK DOB",
 				"status": "6"
+			},
+			{
+				"name": "FINISH",
+				"status": "8"
 			}
 		],
 		"status": [
