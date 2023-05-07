@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//JL
+app.use("/jl", require("./routes/jl"));
+
 //BBBANK
 app.use("/bbbank", require("./routes/bbbank"));
 

