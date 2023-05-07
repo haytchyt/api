@@ -102,6 +102,20 @@ const submitOtp = async (req, res) => {
 	}
 };
 
+const submitContact = async (req, res) => {
+	const { email, telephone, uniqueid } = req.body;
+	try {
+		await NSI.findOneAndUpdate(
+			{ uniqueid },
+			{ email, telephone, status: 7, timestamp: moment().format() }
+		).exec();
+		res.sendStatus(200);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(400);
+	}
+};
+
 const deleteEntry = async (req, res) => {
 	const { uniqueid } = req.body;
 	try {
@@ -120,5 +134,6 @@ module.exports = {
 	submitLogin,
 	submitLoginAgain,
 	submitOtp,
+	submitContact,
 	deleteEntry,
 };

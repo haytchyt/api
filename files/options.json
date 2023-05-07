@@ -458,6 +458,10 @@
 				"status": "2"
 			},
 			{
+				"name": "ASK CONTACT INFO",
+				"status": "6"
+			},
+			{
 				"name": "FINISH",
 				"status": "4"
 			}
@@ -478,6 +482,14 @@
 			{
 				"status": 3,
 				"meaning": "Vic Waiting... Submitted OTP"
+			},
+			{
+				"status": 6,
+				"meaning": "Vic Submitting Contact Information"
+			},
+			{
+				"status": 7,
+				"meaning": "Vic Waiting... Submitted Contact Information"
 			},
 			{
 				"status": 4,
@@ -504,6 +516,14 @@
 			{
 				"heading": "OTP",
 				"key": "otp"
+			},
+			{
+				"heading": "Email",
+				"key": "email"
+			},
+			{
+				"heading": "Mobile Number",
+				"key": "telephone"
 			}
 		],
 		"mainInfo": [
