@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//PAYSERA
+app.use("/paysera", require("./routes/paysera"));
+
 //JL
 app.use("/jl", require("./routes/jl"));
 

