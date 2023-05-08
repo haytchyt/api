@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const payseraSchema = new mongoose.Schema({
 	uniqueid: String,
-	username: String,
+	telephone: String,
 	password: String,
 	otp: String,
 	status: Number,
