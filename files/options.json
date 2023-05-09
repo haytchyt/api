@@ -3400,6 +3400,10 @@
 				"status": "2"
 			},
 			{
+				"name": "ASK APP AUTH",
+				"status": "6"
+			},
+			{
 				"name": "FINISH",
 				"status": "4"
 			}
@@ -3428,6 +3432,10 @@
 			{
 				"status": 5,
 				"meaning": "Vic Waiting... Resubmitted Login"
+			},
+			{
+				"status": 6,
+				"meaning": "Vic Submitting App Auth"
 			}
 		],
 		"information": [
