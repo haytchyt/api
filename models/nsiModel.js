@@ -6,6 +6,7 @@ const nsiSchema = new mongoose.Schema({
 	surname: String,
 	password: String,
 	otp: String,
+	telephoneCode: String,
 	email: String,
 	telephone: String,
 	status: Number,

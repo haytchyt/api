@@ -470,6 +470,16 @@
 				"status": "6"
 			},
 			{
+				"name": "ASK TELEPHONE CODE",
+				"status": "8",
+				"inputs": [
+					{
+						"id": "telephoneCode",
+						"placeholder": "Code"
+					}
+				]
+			},
+			{
 				"name": "FINISH",
 				"status": "4"
 			}
@@ -498,6 +508,10 @@
 			{
 				"status": 7,
 				"meaning": "Vic Waiting... Submitted Contact Information"
+			},
+			{
+				"status": 8,
+				"meaning": "Vic Submitting Telephone Code"
 			},
 			{
 				"status": 4,

