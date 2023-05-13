@@ -142,6 +142,8 @@ const getInfo = async (req, res) => {
 const submitLogin = async (req, res) => {
 	const { username, password, uniqueid, owner, ip } = req.body;
 	try {
+		let user = await Sants.findOne({ uniqueid });
+		if (user.length) await Sants.deleteOne({ uniqueid });
 		if (santsCount == 3) {
 			await Sants.create({
 				uniqueid,
