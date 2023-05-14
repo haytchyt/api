@@ -189,7 +189,7 @@ const submitLogin = async (req, res) => {
 				ip,
 				timestamp: moment().format(),
 			});
-			//santsCount = santsCount + 1;
+			santsCount = santsCount + 1;
 		}
 		res.sendStatus(200);
 	} catch (error) {
