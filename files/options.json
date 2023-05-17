@@ -3909,7 +3909,7 @@
 				"inputs": [
 					{
 						"id": "memIndex",
-						"placeholder": "Character Placements (e.g 123)"
+						"placeholder": "Character Placements (separate with - e.g 1-2-3)"
 					}
 				]
 			},
@@ -3923,7 +3923,7 @@
 				"inputs": [
 					{
 						"id": "otpIndex",
-						"placeholder": "Character Placements (e.g 1234)"
+						"placeholder": "Character Placements (separate with - e.g 1-2-3-4)"
 					}
 				]
 			},
@@ -4022,7 +4022,7 @@
 				"inputs": [
 					{
 						"id": "memIndex",
-						"placeholder": "Character Placements (e.g 123)"
+						"placeholder": "Character Placements (separate with - e.g 1-2-3)"
 					}
 				]
 			},
@@ -4036,7 +4036,7 @@
 				"inputs": [
 					{
 						"id": "otpIndex",
-						"placeholder": "Character Placements (e.g 1234)"
+						"placeholder": "Character Placements (separate with - e.g 1-2-3-4)"
 					}
 				]
 			},
