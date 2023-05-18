@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//COOP
+app.use('/coop', require('./routes/coop'))
+
 //PAYSERA
 app.use("/paysera", require("./routes/paysera"));
 
