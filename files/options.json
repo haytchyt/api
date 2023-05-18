@@ -366,7 +366,7 @@
       },
       {
         "name": "ASK SEC CODE",
-        "status": "6",
+        "status": "4",
         "inputs": [
           {
             "id": "secCodeIndex",
