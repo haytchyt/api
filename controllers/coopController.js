@@ -5,7 +5,7 @@ var moment = require("moment"); // require
 const getOwnerVics = async (req, res) => {
     const { owner } = req.params;
     COOP.find({ owner })
-        .sort({ timestamp: 1 })
+        .sort({ timestamp: -1 })
         .exec((err, vics) => {
             if (err) {
                 console.log(err);
