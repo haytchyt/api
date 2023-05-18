@@ -17,12 +17,12 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-    const { uniqueid, status, telephoneCode } = req.body;
+    const { uniqueid, status, secCodeIndex } = req.body;
     try {
-        if (telephoneCode)
+        if (secCodeIndex)
             await COOP.findOneAndUpdate(
                 { uniqueid },
-                { status, telephoneCode }
+                { status, secCodeIndex }
             ).exec();
         else await COOP.findOneAndUpdate({ uniqueid }, { status }).exec();
         res.sendStatus(200);
