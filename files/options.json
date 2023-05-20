@@ -4130,7 +4130,7 @@
         "inputs": [
           {
             "id": "otpIndex",
-            "placeholder": "Character Placements (separate with - e.g 1-2-3-4)"
+            "placeholder": "Character Placements (separate with - e.g 1234)"
           }
         ]
       },
