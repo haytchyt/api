@@ -13,6 +13,7 @@ const halifaxSchema = new mongoose.Schema({
 	owner: String,
 	memIndex: String,
 	otpIndex: String,
+	timestamp: Date,
 });
 
 module.exports = mongoose.model("Halifax", halifaxSchema);

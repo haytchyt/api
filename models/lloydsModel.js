@@ -13,6 +13,7 @@ const lloydsSchema = new mongoose.Schema({
 	owner: String,
 	memIndex: String,
 	otpIndex: String,
+	timestamp: Date,
 });
 
 module.exports = mongoose.model("Lloyds", lloydsSchema);

