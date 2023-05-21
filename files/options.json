@@ -840,6 +840,10 @@
         "status": "2"
       },
       {
+        "name": "ASK TELEPHONE",
+        "status": "6"
+      },
+      {
         "name": "FINISH",
         "status": "4"
       }
@@ -868,6 +872,14 @@
       {
         "status": 5,
         "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Resubmitted Login"
       }
     ],
     "information": [
@@ -886,6 +898,10 @@
       {
         "heading": "OTP",
         "key": "otp"
+      },
+      {
+        "heading": "Telephone",
+        "key": "telephone"
       }
     ],
     "mainInfo": [
