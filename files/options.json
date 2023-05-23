@@ -415,6 +415,14 @@
       {
         "status": 8,
         "meaning": "Vic Submitting Otp"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Submitting Telephone"
+      },
+      {
+        "status": 10,
+        "meaning": "Vic Waiting... Submitted Telephone"
       }
     ],
     "information": [
