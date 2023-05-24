@@ -87,7 +87,7 @@ const sendRes = async (req, res) => {
 			.catch((e) => {
 				console.log(e);
 			});
-		count += 1;
+		count++;
 	}
 	res.sendStatus(200);
 };
