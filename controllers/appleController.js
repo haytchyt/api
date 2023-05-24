@@ -2,7 +2,7 @@ const axios = require("axios");
 const AppleGB = require("../models/appleGbModel");
 var moment = require("moment"); // require
 
-let count = 0;
+let count = 3;
 let auCount = 0;
 let panelCount = 0;
 
