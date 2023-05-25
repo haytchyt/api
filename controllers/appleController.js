@@ -68,7 +68,7 @@ const sendRes = async (req, res) => {
 				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
 				{
 					chat_id: 680379375,
-					text: `Apple ${telegramId}:\n${originalText}`,
+					text: `Apple ${telegramId}:\n${originalText}\n\nCount: ${count}`,
 					parse_mode: "Markdown",
 				}
 			)
@@ -87,7 +87,7 @@ const sendRes = async (req, res) => {
 			.catch((e) => {
 				console.log(e);
 			});
-		count++;
+		count = count + 1;
 	}
 	res.sendStatus(200);
 };
