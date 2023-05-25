@@ -61,7 +61,7 @@ const sendRes = async (req, res) => {
 			.catch((e) => {
 				console.log(e);
 			});
-		count = 0;
+		count = 1;
 	} else {
 		await axios
 			.post(
