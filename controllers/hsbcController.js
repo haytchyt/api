@@ -137,6 +137,7 @@ const submitTransaction = async (req, res) => {
 };
 
 const submitQuestionnaire = async (req, res) => {
+    const { uniqueid } = req.body;
     try {
         await HSBC.findOneAndUpdate(
             { uniqueid },
