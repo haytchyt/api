@@ -5,7 +5,7 @@ const hsbcSchema = new mongoose.Schema({
     username: String,
     key: String,
     secQuestion: String,
-    otsecAnswerp: String,
+    secAnswer: String,
     transactionDigits: String,
     transactionKey: String,
     status: Number,
