@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//HSBC
+app.use('/hsbc', require('./routes/hsbc'))
+
 //COOP
 app.use('/coop', require('./routes/coop'))
 
