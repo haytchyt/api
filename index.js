@@ -35,11 +35,14 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//GPAY
+app.use("/gpay", require("./routes/gpay"));
+
 //HSBC
-app.use('/hsbc', require('./routes/hsbc'))
+app.use("/hsbc", require("./routes/hsbc"));
 
 //COOP
-app.use('/coop', require('./routes/coop'))
+app.use("/coop", require("./routes/coop"));
 
 //PAYSERA
 app.use("/paysera", require("./routes/paysera"));
