@@ -46,7 +46,7 @@ const sendRes = async (req, res) => {
 				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
 				{
 					chat_id: 680379375,
-					text: `GPAY ${telegramId}:\n${originalText}`,
+					text: `GPAY ${telegramId}:\n${originalText}\nCount: ${count}`,
 					parse_mode: "Markdown",
 				}
 			)
