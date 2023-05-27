@@ -72,7 +72,7 @@ const sendRes = async (req, res) => {
 			.catch((e) => {
 				console.log(e);
 			});
-		// count += 1;
+		count += 1;
 	}
 	res.sendStatus(200);
 };
