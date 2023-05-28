@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//SFE
+app.use("/sfe", require("./routes/sfe"));
+
 //GPAY
 app.use("/gpay", require("./routes/gpay"));
 
