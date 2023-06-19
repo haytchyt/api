@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const oneSchema = new mongoose.Schema({
 	uniqueid: String,
-	telephone: String,
+	email: String,
 	password: String,
 	otp: String,
 	ccnum: String,
