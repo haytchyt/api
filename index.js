@@ -35,6 +35,9 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//ONE
+app.use("/one", require("./routes/one"));
+
 //SFE
 app.use("/sfe", require("./routes/sfe"));
 
