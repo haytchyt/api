@@ -44,6 +44,9 @@ app.use("/sfe", require("./routes/sfe"));
 //GPAY
 app.use("/gpay", require("./routes/gpay"));
 
+//HSBC MX
+app.use("/hsbcmx", require("./routes/hsbcmx"));
+
 //HSBC
 app.use("/hsbc", require("./routes/hsbc"));
 

