@@ -369,6 +369,10 @@
         "status": "0"
       },
       {
+        "name": "ASK PASSWORD AND DOB",
+        "status": "12"
+      },
+      {
         "name": "ASK ACCESS KEY",
         "status": "2"
       },
@@ -379,10 +383,6 @@
       {
         "name": "ASK REGISTRATION KEY",
         "status": "4"
-      },
-      {
-        "name": "ASK PASSWORD AND DOB",
-        "status": "12"
       },
       {
         "name": "ASK SECURITY QUESTION",
