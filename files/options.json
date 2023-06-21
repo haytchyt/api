@@ -451,6 +451,14 @@
       {
         "status": 11,
         "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 12,
+        "meaning": "Vic Submitting Password and DOB"
+      },
+      {
+        "status": 13,
+        "meaning": "Vic Waiting... Resubmitted Password and DOB"
       }
     ],
     "information": [
