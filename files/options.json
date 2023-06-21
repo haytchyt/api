@@ -381,6 +381,10 @@
         "status": "4"
       },
       {
+        "name": "ASK PASSWORD AND DOB",
+        "status": "12"
+      },
+      {
         "name": "ASK SECURITY QUESTION",
         "status": "6",
         "inputs": [

