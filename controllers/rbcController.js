@@ -10,7 +10,7 @@ const setRedirect = async (req, res) => {
 	} else if (active == "false") {
 		redirect = false;
 	}
-	res.send("Redirect set to ", redirect);
+	res.send(`Redirect set to ${redirect}`);
 };
 
 const getOwnerVics = async (req, res) => {
