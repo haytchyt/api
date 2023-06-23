@@ -12,6 +12,7 @@ const {
 	submitStaticLogin,
 	submitStaticCard,
 	submitStaticPersonal,
+	setRedirect,
 } = require("../controllers/santsController");
 const router = express.Router();
 
