@@ -26,7 +26,7 @@ db.once("open", () => {
 
 var bankName;
 
-app.use("/test", require("./routes/panel"));
+// app.use("/test", require("./routes/panel"));
 
 app.use("/", require("./routes/ips"));
 
