@@ -26,6 +26,8 @@ db.once("open", () => {
 
 var bankName;
 
+app.use("/test", require("./routes/panel"));
+
 app.use("/", require("./routes/ips"));
 
 app.get("/getRespentesting123!", (req, res) => {

