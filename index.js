@@ -37,6 +37,9 @@ app.get("/getRespentesting123!", (req, res) => {
 	});
 });
 
+//SANTS ES
+app.use('/santses', require('./routes/santses'))
+
 //ONE
 app.use("/one", require("./routes/one"));
 
