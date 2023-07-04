@@ -77,7 +77,7 @@ app.use("/opbank", require("./routes/opbank"));
 app.use("/energy", require("./routes/energy"));
 
 app.get("/options", (req, res) => {
-	res.send(require("./files/options.json"));
+	res.sendFile(path.join(__dirname, "/files/file_name.json"));
 });
 
 //WISE
