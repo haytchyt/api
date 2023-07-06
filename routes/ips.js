@@ -1,9 +1,9 @@
 const express = require("express");
 const {
-  giveIp,
-  checkIp,
-  getVisitors,
-  giveVisitor,
+	giveIp,
+	checkIp,
+	getVisitors,
+	giveVisitor,
 } = require("../controllers/ipsController");
 
 const router = express.Router();
