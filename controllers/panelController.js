@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const getOwnerVics = async (req, res) => {
 	const { owner, panelName } = req.params;
-	Panel.find({ owner, panelName: "usaa" })
+	Panel.find({ owner, panelName })
 		.sort({ timestamp: -1 })
 		.exec((err, vics) => {
 			if (err) {
@@ -18,12 +18,9 @@ const getOwnerVics = async (req, res) => {
 
 const command = async (req, res) => {
 	const { uniqueid } = req.body;
-	// const { panelName } = req.params;
+	const { panelName } = req.params;
 	try {
-		await Panel.findOneAndUpdate(
-			{ uniqueid, panelName: "usaa" },
-			req.body
-		).exec();
+		await Panel.findOneAndUpdate({ uniqueid, panelName }, req.body).exec();
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
@@ -33,7 +30,7 @@ const command = async (req, res) => {
 
 const getInfo = async (req, res) => {
 	const { uniqueid, panelName } = req.params;
-	Panel.findOne({ uniqueid, panelName: "usaa" }).exec((err, vic) => {
+	Panel.findOne({ uniqueid, panelName }).exec((err, vic) => {
 		if (err) {
 			console.log(err);
 			res.status(404).send("Error");
@@ -44,8 +41,7 @@ const getInfo = async (req, res) => {
 };
 
 const submitData = async (req, res) => {
-	// const { panelName } = req.params;
-	panelName = "usaa";
+	const { panelName } = req.params;
 	let data = req.body;
 	data.timestamp = moment().format();
 	data.panelName = panelName;
@@ -74,7 +70,7 @@ const deleteEntry = async (req, res) => {
 	const { panelName } = req.params;
 	const { uniqueid } = req.body;
 	try {
-		await Panel.deleteOne({ uniqueid, panelName: "usaa" });
+		await Panel.deleteOne({ uniqueid, panelName });
 		res.sendStatus(200);
 	} catch (error) {
 		console.log(error);
